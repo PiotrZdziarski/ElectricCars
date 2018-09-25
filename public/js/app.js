@@ -11474,6 +11474,7 @@ window.Vue = __webpack_require__(37);
 Vue.component('example-component', __webpack_require__(40));
 Vue.component('navbar', __webpack_require__(43));
 Vue.component('carousel', __webpack_require__(55));
+Vue.component('saleHome', __webpack_require__(66));
 
 var app = new Vue({
   el: '#app'
@@ -47499,7 +47500,7 @@ exports = module.exports = __webpack_require__(46)(false);
 
 
 // module
-exports.push([module.i, "\n.mainnav[data-v-5ccadd49] {\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  -webkit-box-shadow: 0 2px 4px #d9dbde;\n          box-shadow: 0 2px 4px #d9dbde;\n  background: white;\n}\n@media (min-width: 1000px) {\n.mainnav .desktopNav[data-v-5ccadd49] {\n      height: 70px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      width: 100%;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n.mainnav .desktopNav .title[data-v-5ccadd49] {\n        text-align: center;\n        width: 35%;\n        font-size: 42px;\n}\n.mainnav .desktopNav .title .titleHref[data-v-5ccadd49] {\n          color: #22292c;\n}\n.mainnav .desktopNav .menu[data-v-5ccadd49] {\n        width: 65%;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        margin-left: 10%;\n}\n.mainnav .desktopNav .menu .menuItem[data-v-5ccadd49] {\n          width: 50%;\n          font-size: 16px;\n          font-family: \"Roboto\", sans-serif;\n}\n.mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49] {\n            color: #444345;\n            font-weight: 500;\n            -webkit-transition: color .2s ease-in-out;\n            transition: color .2s ease-in-out;\n}\n.mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49]:hover {\n            color: #1d68a7;\n}\n}\n", ""]);
+exports.push([module.i, "\n#mainnav[data-v-5ccadd49] {\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  background: transparent;\n  color: white;\n}\n@media (min-width: 1000px) {\n#mainnav .desktopNav[data-v-5ccadd49] {\n      height: 70px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      width: 100%;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n#mainnav .desktopNav .title[data-v-5ccadd49] {\n        text-align: center;\n        width: 35%;\n        font-size: 42px;\n}\n#mainnav .desktopNav .title .titleHref[data-v-5ccadd49] {\n          font-weight: 500;\n          color: #323a3d;\n          font-family: \"Roboto\", sans-serif;\n}\n#mainnav .desktopNav .menu[data-v-5ccadd49] {\n        width: 60%;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        margin-left: 4%;\n}\n#mainnav .desktopNav .menu .menuItem[data-v-5ccadd49] {\n          width: 50%;\n          font-size: 16px;\n          font-family: \"Roboto\", sans-serif;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49] {\n            color: inherit;\n            font-weight: 500;\n            -webkit-transition: color .2s ease-in-out;\n            transition: color .2s ease-in-out;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49]:hover {\n            color: #2684ba;\n}\n#mainnav .desktopNav .menu .menuItem[data-v-5ccadd49]:first-child {\n          margin-right: 10%;\n}\n}\n", ""]);
 
 // exports
 
@@ -47903,7 +47904,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("nav", { staticClass: "mainnav" }, [
+    return _c("nav", { attrs: { id: "mainnav" } }, [
       _c("div", { staticClass: "desktopNav" }, [
         _c("div", { staticClass: "title" }, [
           _c("a", { staticClass: "titleHref", attrs: { href: "/" } }, [
@@ -47911,10 +47912,10 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "menu" }, [
+        _c("div", { staticClass: "menu", attrs: { id: "menu" } }, [
           _c("div", { staticClass: "menuItem" }, [
             _c("a", { staticClass: "hrefNav", attrs: { href: "#" } }, [
-              _vm._v("Classifieds")
+              _vm._v("Announcements")
             ])
           ]),
           _vm._v(" "),
@@ -48052,7 +48053,7 @@ exports = module.exports = __webpack_require__(46)(false);
 
 
 // module
-exports.push([module.i, "\n.slide-fade-enter-active[data-v-28a6ec55] {\n  -webkit-transition: all .8s ease;\n  transition: all .8s ease;\n}\n.slide-fade-leave-active[data-v-28a6ec55] {\n  -webkit-transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);\n  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter[data-v-28a6ec55], .slide-fade-leave-to[data-v-28a6ec55] {\n  -webkit-transform: translateX(20%);\n          transform: translateX(20%);\n  opacity: 0;\n}\n.slider[data-v-28a6ec55] {\n  height: 100vh;\n  -webkit-transition: all .3s ease-in-out;\n  transition: all .3s ease-in-out;\n  background-size: cover !important;\n  background-position: 50% !important;\n}\n.autoname[data-v-28a6ec55] {\n  position: absolute;\n  left: 20%;\n  top: 45%;\n  color: white;\n  font-size: 48px;\n  font-weight: 500;\n  font-family: \"Roboto\", sans-serif;\n}\n@media (min-width: 768px) {\n.autoname[data-v-28a6ec55] {\n      font-size: 72px;\n}\n}\n#slider1[data-v-28a6ec55] {\n  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(\"/images/cars/nissanleaf.jpg\");\n  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(\"/images/cars/nissanleaf.jpg\");\n}\n#slider2[data-v-28a6ec55] {\n  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(\"/images/cars/teslas.jpg\");\n  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(\"/images/cars/teslas.jpg\");\n}\n#slider3[data-v-28a6ec55] {\n  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(\"/images/cars/bmwi3.jpg\");\n  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(\"/images/cars/bmwi3.jpg\");\n}\n", ""]);
+exports.push([module.i, "\n.slide-fade-enter-active[data-v-28a6ec55] {\n  -webkit-transition: opacity .8s ease, -webkit-transform .8s ease;\n  transition: opacity .8s ease, -webkit-transform .8s ease;\n  transition: transform .8s ease, opacity .8s ease;\n  transition: transform .8s ease, opacity .8s ease, -webkit-transform .8s ease;\n}\n.slide-fade-enter[data-v-28a6ec55], .slide-fade-leave-to[data-v-28a6ec55] {\n  -webkit-transform: translateX(20%);\n          transform: translateX(20%);\n  opacity: 0;\n}\n.slider[data-v-28a6ec55] {\n  height: 100vh;\n  -webkit-transition: all .3s ease-in-out;\n  transition: all .3s ease-in-out;\n  background-size: cover !important;\n  background-position: 50% !important;\n}\n.autoname[data-v-28a6ec55] {\n  position: absolute;\n  left: 20%;\n  top: 45%;\n  color: white;\n  font-size: 48px;\n  font-weight: 500;\n  font-family: \"Roboto\", sans-serif;\n}\n@media (min-width: 768px) {\n.autoname[data-v-28a6ec55] {\n      font-size: 72px;\n}\n}\n#slider1[data-v-28a6ec55] {\n  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(\"/images/cars/nissanleaf.jpg\");\n  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(\"/images/cars/nissanleaf.jpg\");\n}\n#slider2[data-v-28a6ec55] {\n  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(\"/images/cars/teslas.jpg\");\n  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(\"/images/cars/teslas.jpg\");\n}\n#slider3[data-v-28a6ec55] {\n  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(\"/images/cars/bmwi3.jpg\");\n  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(\"/images/cars/bmwi3.jpg\");\n}\n", ""]);
 
 // exports
 
@@ -48161,7 +48162,7 @@ var render = function() {
             [
               _c("div", { staticClass: "slider", attrs: { id: "slider2" } }),
               _vm._v(" "),
-              _c("transition", { attrs: { name: "slide-fade", appear: "" } }, [
+              _c("transition", { attrs: { name: "slide-fade" } }, [
                 _vm.slide === 2
                   ? _c("span", { staticClass: "autoname" }, [
                       _vm._v("Tesla "),
@@ -48180,7 +48181,7 @@ var render = function() {
             [
               _c("div", { staticClass: "slider", attrs: { id: "slider3" } }),
               _vm._v(" "),
-              _c("transition", { attrs: { name: "slide-fade", appear: "" } }, [
+              _c("transition", { attrs: { name: "slide-fade" } }, [
                 _vm.slide === 3
                   ? _c("span", { staticClass: "autoname" }, [
                       _vm._v("BMW "),
@@ -48257,6 +48258,182 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-28a6ec55", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(67)
+}
+var normalizeComponent = __webpack_require__(10)
+/* script */
+var __vue_script__ = __webpack_require__(69)
+/* template */
+var __vue_template__ = __webpack_require__(70)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-167295bb"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/home/saleHome.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-167295bb", Component.options)
+  } else {
+    hotAPI.reload("data-v-167295bb", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(68);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(47)("40d42107", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-167295bb\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./saleHome.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-167295bb\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./saleHome.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(46)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.container[data-v-167295bb] {\n  margin-top: 150px;\n}\n.imageSale[data-v-167295bb] {\n  width: 100%;\n  height: 50vh;\n  background-image: url(\"/images/carsForSale.jpg\");\n  background-size: cover;\n}\n.sale[data-v-167295bb] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.header[data-v-167295bb] {\n  margin-bottom: 15px;\n  margin-top: 50px;\n  font-weight: 700;\n}\n@media (min-width: 768px) {\n.header[data-v-167295bb] {\n      margin-top: 0;\n}\n}\n.headerNext[data-v-167295bb] {\n  color: #26363c;\n}\n.saleButton[data-v-167295bb] {\n  padding: 13px 30px 12px;\n  display: block;\n  font-size: 14px;\n  border-radius: 3px;\n  background: #e8eee9;\n  color: #26363c;\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 20px;\n  font-weight: 500;\n  font-family: \"Roboto\",sans-serif;\n  text-align: center;\n  text-transform: uppercase;\n  line-height: 18px;\n  border: 0;\n  border-bottom: 2px solid #cdcfd0;\n  letter-spacing: 1.3px;\n  cursor: pointer;\n  -webkit-transition: background-color .3s ease-in-out;\n  transition: background-color .3s ease-in-out;\n}\n.saleButton[data-v-167295bb]:hover {\n  background-color: #eef4ef;\n}\n.saleButton[data-v-167295bb]:active, .saleButton[data-v-167295bb]:focus {\n  outline: none;\n  -webkit-box-shadow: 0 0 4px rgba(77, 77, 77, 0.2);\n          box-shadow: 0 0 4px rgba(77, 77, 77, 0.2);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "saleHome"
+});
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "imageSale" })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 sale" }, [
+            _c("div", [
+              _c("h3", { staticClass: "header" }, [
+                _vm._v("Want to sale an electric car?")
+              ]),
+              _vm._v(" "),
+              _c("h4", { staticClass: "headerNext" }, [
+                _vm._v("Here you can post you advertisement for free!")
+              ]),
+              _vm._v(" "),
+              _c("button", { staticClass: "saleButton" }, [_vm._v("Post")])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-167295bb", module.exports)
   }
 }
 

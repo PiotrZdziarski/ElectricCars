@@ -10475,3 +10475,22 @@ a:hover {
   text-decoration: none;
 }
 
+.backgroundWhite {
+  background: white !important;
+  -webkit-box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+.hrefColor {
+  color: #444345 !important;
+}
+
+.hrefColor > .menuItem > a:hover {
+  color: #297ba7 !important;
+}
+
+.navTransition {
+  -webkit-transition: .4s background-color ease-in-out;
+  transition: .4s background-color ease-in-out;
+}
+
