@@ -16,6 +16,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('navbar', require('./components/app/navbar.vue'));
+Vue.component('carousel', require('./components/home/carousel.vue'));
 
 const app = new Vue({
     el: '#app'
