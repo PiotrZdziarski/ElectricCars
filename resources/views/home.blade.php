@@ -2,4 +2,5 @@
 
 @section('content')
     <carousel></carousel>
+    <sale-home></sale-home>
 @endsection

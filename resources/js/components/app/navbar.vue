@@ -1,12 +1,12 @@
 <template>
-    <nav class="mainnav">
+    <nav id="mainnav">
         <div class="desktopNav">
             <div class="title">
                 <a href="/" class="titleHref">Electric Cars</a>
             </div>
-            <div class="menu">
+            <div class="menu" id="menu">
                 <div class="menuItem">
-                    <a class="hrefNav" href="#">Classifieds</a>
+                    <a class="hrefNav" href="#">Announcements</a>
                 </div>
                 <div class="menuItem">
                     <a class="hrefNav" href="#">Sell</a>
@@ -35,14 +35,14 @@
 </script>
 
 <style lang="scss" scoped>
-    .mainnav {
+    #mainnav {
         width: 100%;
         position: fixed;
         left: 0;
         top: 0;
         z-index: 1000;
-        box-shadow: 0 2px 4px #d9dbde;
-        background: white;
+        background: transparent;
+        color: white;
 
         @media(min-width: 1000px) {
 
@@ -60,14 +60,16 @@
                     font-size:42px;
 
                     .titleHref {
-                        color: #22292c;
+                        font-weight: 500;
+                        color: #323a3d;
+                        font-family: "Roboto", sans-serif;
                     }
                 }
 
                 .menu {
-                    width: 65%;
+                    width: 60%;
                     display: flex;
-                    margin-left: 10%;
+                    margin-left: 4%;
 
                     .menuItem {
                         width: 50%;
@@ -75,14 +77,18 @@
                         font-family: "Roboto", sans-serif;
 
                         .hrefNav {
-                            color: #444345;
+                            color: inherit;
                             font-weight: 500;
                             transition: color .2s ease-in-out;
                         }
 
                         .hrefNav:hover {
-                            color: #1d68a7;
+                            color: #2684ba;
                         }
+                    }
+
+                    .menuItem:first-child {
+                        margin-right: 10%;
                     }
                 }
             }
