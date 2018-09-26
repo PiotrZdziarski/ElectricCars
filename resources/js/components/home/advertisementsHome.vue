@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="advertisement">
+            <div class="advertisement twoInRow">
                 <img class="image" src="/images/cars/nissanleaf.jpg">
                 <div class="carInfo">
                     <h5 class="titleAdvertisement">New Brand Nissan Leaf 2017</h5>
@@ -110,7 +110,7 @@
 
             @media(min-width: 768px) {
                 display: flex;
-                width: 750px;
+                width: 700px;
             }
 
             @media(min-width: 1000px) {

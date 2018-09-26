@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="imageContainer">
-            <img class="image" src="/images/cars/jaguarIPace.jpg">
+            <img class="image" src="/images/cars/jaguarIPace.jpg" alt="Jaguar I Pace">
         </div>
     </section>
 </template>
@@ -21,7 +21,6 @@
 
 <style lang="scss" scoped>
     .cars {
-        margin-bottom: 50vh;
         @media (min-width: 768px) {
             display: flex;
         }
