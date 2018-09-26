@@ -11781,12 +11781,12 @@ window.Vue = __webpack_require__(39);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(42));
 Vue.component('navbar', __webpack_require__(45));
 Vue.component('carousel', __webpack_require__(51));
 Vue.component('saleHome', __webpack_require__(56));
 Vue.component('advertisementsHome', __webpack_require__(65));
 Vue.component('carsHome', __webpack_require__(72));
+Vue.component('comparisionHome', __webpack_require__(79));
 
 var app = new Vue({
   el: '#app'
@@ -47608,125 +47608,9 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(8)))
 
 /***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(43)
-/* template */
-var __vue_template__ = __webpack_require__(44)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/ExampleComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-299e239e", Component.options)
-  } else {
-    hotAPI.reload("data-v-299e239e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 43 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-299e239e", module.exports)
-  }
-}
-
-/***/ }),
+/* 42 */,
+/* 43 */,
+/* 44 */,
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -48652,7 +48536,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "advertisement" }, [
+        _c("div", { staticClass: "advertisement twoInRow" }, [
           _c("img", {
             staticClass: "image",
             attrs: { src: "/images/cars/nissanleaf.jpg" }
@@ -48732,7 +48616,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.advertisements[data-v-1a887d42] {\n  margin-top: 100px;\n  width: 100%;\n  background-image: url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  padding-bottom: 50px;\n  position: relative;\n}\n@media (min-width: 768px) {\n.advertisements[data-v-1a887d42] {\n      margin-top: 175px;\n}\n}\n.advertisements .title[data-v-1a887d42] {\n    color: white;\n    font-size: 38px;\n    font-weight: 500;\n    padding-top: 60px;\n    text-align: center;\n    margin-left: 15px;\n    margin-right: 15px;\n    font-family: \"Roboto\", sans-serif;\n}\n.advertisements .featured[data-v-1a887d42] {\n    margin-top: 50px;\n    position: relative;\n    margin-left: auto;\n    margin-right: auto;\n}\n@media (min-width: 476px) {\n.advertisements .featured[data-v-1a887d42] {\n        width: 400px;\n}\n}\n@media (min-width: 768px) {\n.advertisements .featured[data-v-1a887d42] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 750px;\n}\n}\n@media (min-width: 1000px) {\n.advertisements .featured[data-v-1a887d42] {\n        width: 980px;\n}\n}\n@media (min-width: 1200px) {\n.advertisements .featured[data-v-1a887d42] {\n        width: 1180px;\n}\n}\n.advertisements .featured .advertisement[data-v-1a887d42] {\n      background: white;\n      -webkit-box-shadow: 0 1px 2px #b9bbbe;\n              box-shadow: 0 1px 2px #b9bbbe;\n      margin: 5% 5% 30px 5%;\n      position: relative;\n}\n@media (min-width: 476px) {\n.advertisements .featured .advertisement[data-v-1a887d42] {\n          margin: 2% 2% 30px 2%;\n}\n}\n@media (min-width: 768px) {\n.advertisements .featured .advertisement[data-v-1a887d42] {\n          width: 100%;\n          margin-bottom: 2%;\n}\n}\n.advertisements .featured .advertisement .image[data-v-1a887d42] {\n        width: 100%;\n}\n.advertisements .featured .advertisement .carInfo[data-v-1a887d42] {\n        padding: 20px;\n        font-family: \"Roboto\", sans-serif;\n}\n.advertisements .featured .advertisement .carInfo .titleAdvertisement[data-v-1a887d42] {\n          color: #666666;\n          font-weight: 500;\n}\n.advertisements .featured .advertisement .carInfo .price[data-v-1a887d42] {\n          color: #385d7a;\n          font-weight: 700;\n}\n.advertisements .featured .advertisement .carInfo .priceCount[data-v-1a887d42] {\n          padding-left: 10px;\n}\n.advertisements .featured .advertisement .carInfo .carDetails[data-v-1a887d42] {\n          margin-top: 10px;\n          color: #666666;\n          font-size: 12px;\n}\n.advertisements .featured .advertisement .carInfo .carUtility[data-v-1a887d42] {\n          margin-top: 10px;\n          color: #666666;\n          font-size: 18px;\n}\n.advertisements .featured .advertisement .carInfo .carUtility .utility[data-v-1a887d42] {\n            font-size: 14px;\n}\n@media (max-width: 1000px) {\n.advertisements .featured .twoInRow[data-v-1a887d42] {\n        display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\n.advertisements[data-v-1a887d42] {\n  margin-top: 100px;\n  width: 100%;\n  background-image: url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  padding-bottom: 50px;\n  position: relative;\n}\n@media (min-width: 768px) {\n.advertisements[data-v-1a887d42] {\n      margin-top: 175px;\n}\n}\n.advertisements .title[data-v-1a887d42] {\n    color: white;\n    font-size: 38px;\n    font-weight: 500;\n    padding-top: 60px;\n    text-align: center;\n    margin-left: 15px;\n    margin-right: 15px;\n    font-family: \"Roboto\", sans-serif;\n}\n.advertisements .featured[data-v-1a887d42] {\n    margin-top: 50px;\n    position: relative;\n    margin-left: auto;\n    margin-right: auto;\n}\n@media (min-width: 476px) {\n.advertisements .featured[data-v-1a887d42] {\n        width: 400px;\n}\n}\n@media (min-width: 768px) {\n.advertisements .featured[data-v-1a887d42] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 700px;\n}\n}\n@media (min-width: 1000px) {\n.advertisements .featured[data-v-1a887d42] {\n        width: 980px;\n}\n}\n@media (min-width: 1200px) {\n.advertisements .featured[data-v-1a887d42] {\n        width: 1180px;\n}\n}\n.advertisements .featured .advertisement[data-v-1a887d42] {\n      background: white;\n      -webkit-box-shadow: 0 1px 2px #b9bbbe;\n              box-shadow: 0 1px 2px #b9bbbe;\n      margin: 5% 5% 30px 5%;\n      position: relative;\n}\n@media (min-width: 476px) {\n.advertisements .featured .advertisement[data-v-1a887d42] {\n          margin: 2% 2% 30px 2%;\n}\n}\n@media (min-width: 768px) {\n.advertisements .featured .advertisement[data-v-1a887d42] {\n          width: 100%;\n          margin-bottom: 2%;\n}\n}\n.advertisements .featured .advertisement .image[data-v-1a887d42] {\n        width: 100%;\n}\n.advertisements .featured .advertisement .carInfo[data-v-1a887d42] {\n        padding: 20px;\n        font-family: \"Roboto\", sans-serif;\n}\n.advertisements .featured .advertisement .carInfo .titleAdvertisement[data-v-1a887d42] {\n          color: #666666;\n          font-weight: 500;\n}\n.advertisements .featured .advertisement .carInfo .price[data-v-1a887d42] {\n          color: #385d7a;\n          font-weight: 700;\n}\n.advertisements .featured .advertisement .carInfo .priceCount[data-v-1a887d42] {\n          padding-left: 10px;\n}\n.advertisements .featured .advertisement .carInfo .carDetails[data-v-1a887d42] {\n          margin-top: 10px;\n          color: #666666;\n          font-size: 12px;\n}\n.advertisements .featured .advertisement .carInfo .carUtility[data-v-1a887d42] {\n          margin-top: 10px;\n          color: #666666;\n          font-size: 18px;\n}\n.advertisements .featured .advertisement .carInfo .carUtility .utility[data-v-1a887d42] {\n            font-size: 14px;\n}\n@media (max-width: 1000px) {\n.advertisements .featured .twoInRow[data-v-1a887d42] {\n        display: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -48853,7 +48737,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "imageContainer" }, [
         _c("img", {
           staticClass: "image",
-          attrs: { src: "/images/cars/jaguarIPace.jpg" }
+          attrs: { src: "/images/cars/jaguarIPace.jpg", alt: "Jaguar I Pace" }
         })
       ])
     ])
@@ -48903,7 +48787,176 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.cars[data-v-70cef893] {\n  margin-bottom: 50vh;\n  position: relative;\n  padding: 5%;\n  background: white;\n}\n@media (min-width: 768px) {\n.cars[data-v-70cef893] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n}\n.cars .description[data-v-70cef893] {\n    width: 100%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    padding: 20px;\n}\n@media (min-width: 476px) {\n.cars .description[data-v-70cef893] {\n        padding: 40px;\n}\n}\n.cars .description .subtitle[data-v-70cef893] {\n      padding-top: 10px;\n}\n.cars .description .carsBtn[data-v-70cef893] {\n      border: 0;\n      background: #385d7a;\n      color: white;\n      border-radius: 2px;\n      padding: 10px 15px 10px 15px;\n      display: block;\n      margin-top: 20px;\n      cursor: pointer;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.cars .description .carsBtn[data-v-70cef893]:hover {\n      background: #447295;\n}\n.cars .description .carsBtn[data-v-70cef893]:active, .cars .description .carsBtn[data-v-70cef893]:focus {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #b9bbbe;\n              box-shadow: 0 2px 4px #b9bbbe;\n}\n.cars .imageContainer[data-v-70cef893] {\n    width: 100%;\n    position: relative;\n    padding: 20px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media (min-width: 476px) {\n.cars .imageContainer[data-v-70cef893] {\n        padding: 40px;\n}\n}\n.cars .imageContainer .image[data-v-70cef893] {\n      width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.cars[data-v-70cef893] {\n  position: relative;\n  padding: 5%;\n  background: white;\n}\n@media (min-width: 768px) {\n.cars[data-v-70cef893] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n}\n.cars .description[data-v-70cef893] {\n    width: 100%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    padding: 20px;\n}\n@media (min-width: 476px) {\n.cars .description[data-v-70cef893] {\n        padding: 40px;\n}\n}\n.cars .description .subtitle[data-v-70cef893] {\n      padding-top: 10px;\n}\n.cars .description .carsBtn[data-v-70cef893] {\n      border: 0;\n      background: #385d7a;\n      color: white;\n      border-radius: 2px;\n      padding: 10px 15px 10px 15px;\n      display: block;\n      margin-top: 20px;\n      cursor: pointer;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.cars .description .carsBtn[data-v-70cef893]:hover {\n      background: #447295;\n}\n.cars .description .carsBtn[data-v-70cef893]:active, .cars .description .carsBtn[data-v-70cef893]:focus {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #b9bbbe;\n              box-shadow: 0 2px 4px #b9bbbe;\n}\n.cars .imageContainer[data-v-70cef893] {\n    width: 100%;\n    position: relative;\n    padding: 20px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media (min-width: 476px) {\n.cars .imageContainer[data-v-70cef893] {\n        padding: 40px;\n}\n}\n.cars .imageContainer .image[data-v-70cef893] {\n      width: 100%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(84)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(82)
+/* template */
+var __vue_template__ = __webpack_require__(83)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-cab06b90"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/home/comparisionHome.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-cab06b90", Component.options)
+  } else {
+    hotAPI.reload("data-v-cab06b90", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 80 */,
+/* 81 */,
+/* 82 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "comparisionHome"
+});
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "comparision" }, [
+      _c("div", { staticClass: "imageContainer" }, [
+        _c("img", {
+          staticClass: "image",
+          attrs: { alt: "comparision", src: "/images/comparision.png" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "description" }, [
+        _c("div", [
+          _c("h2", { staticClass: "title" }, [_vm._v("Compare Cars")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "compareText" }, [
+            _vm._v(
+              "\n                Which cars interest you? We'll highlight the differences to help you choose.\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "compareBtn" }, [_vm._v("Compare Cars")])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-cab06b90", module.exports)
+  }
+}
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(85);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("019cdefc", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cab06b90\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./comparisionHome.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cab06b90\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./comparisionHome.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.comparision[data-v-cab06b90] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(20, 28, 40, 0.4)), to(rgba(15, 25, 33, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(20, 28, 40, 0.4), rgba(15, 25, 33, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  position: relative;\n  padding: 5%;\n  margin-bottom: 50vh;\n  color: #385d7a;\n}\n@media (min-width: 768px) {\n.comparision[data-v-cab06b90] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n}\n.comparision .description[data-v-cab06b90] {\n    color: white;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    font-family: \"Roboto\", sans-serif;\n    padding: 40px;\n}\n@media (min-width: 768px) {\n.comparision .description[data-v-cab06b90] {\n        width: 35%;\n}\n}\n.comparision .description .title[data-v-cab06b90] {\n      font-weight: 700;\n      text-transform: uppercase;\n}\n.comparision .description .compareText[data-v-cab06b90] {\n      color: #cccccc;\n      font-size: 16px;\n}\n.comparision .description .compareBtn[data-v-cab06b90] {\n      border: 0;\n      background: #eb5e57;\n      color: white;\n      border-radius: 2px;\n      padding: 10px 15px 10px 15px;\n      display: block;\n      margin-top: 20px;\n      cursor: pointer;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.comparision .description .compareBtn[data-v-cab06b90]:hover {\n      background: #ff6e69;\n}\n.comparision .description .compareBtn[data-v-cab06b90]:active, .comparision .description .compareBtn[data-v-cab06b90]:focus {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #444444;\n              box-shadow: 0 2px 4px #444444;\n}\n.comparision .imageContainer[data-v-cab06b90] {\n    padding: 40px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media (min-width: 768px) {\n.comparision .imageContainer[data-v-cab06b90] {\n        width: 65%;\n}\n}\n.comparision .imageContainer .image[data-v-cab06b90] {\n      width: 100%;\n}\n", ""]);
 
 // exports
 

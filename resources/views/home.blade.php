@@ -5,4 +5,5 @@
     <sale-home></sale-home>
     <advertisements-home></advertisements-home>
     <cars-home></cars-home>
+    <comparision-home></comparision-home>
 @endsection
