@@ -25,7 +25,7 @@
 
 <style lang="scss" scoped>
     .container {
-        margin-top: 150px;
+        margin-top: 125px;
     }
     .imageSale {
         width: 100%;
