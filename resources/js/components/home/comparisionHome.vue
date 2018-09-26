@@ -29,7 +29,6 @@
         background-position: 50%;
         position: relative;
         padding: 5%;
-        margin-bottom: 50vh;
         color: #385d7a;
 
         @media(min-width: 768px) {
@@ -66,7 +65,7 @@
                 padding: 10px 15px 10px 15px;
                 display: block;
                 margin-top: 20px;
-                cursor:pointer;
+                cursor: pointer;
                 transition: background-color .3s ease-in-out;
             }
             .compareBtn:hover {
@@ -81,7 +80,7 @@
 
         .imageContainer {
             padding: 40px;
-            display:flex;
+            display: flex;
             justify-content: center;
             align-items: center;
 
@@ -89,7 +88,7 @@
                 width: 65%;
             }
 
-            .image{
+            .image {
                 width: 100%;
             }
         }

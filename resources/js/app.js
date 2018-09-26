@@ -21,6 +21,7 @@ Vue.component('saleHome', require('./components/home/saleHome.vue'));
 Vue.component('advertisementsHome', require('./components/home/advertisementsHome.vue'));
 Vue.component('carsHome', require('./components/home/carsHome.vue'));
 Vue.component('comparisionHome', require('./components/home/comparisionHome.vue'));
+Vue.component('footerMain', require('./components/app/footerMain.vue'));
 
 const app = new Vue({
     el: '#app'
