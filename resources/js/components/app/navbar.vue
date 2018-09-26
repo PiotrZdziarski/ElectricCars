@@ -11,11 +11,11 @@
                 <div class="menuItem">
                     <a class="hrefNav" href="#">Sell</a>
                 </div>
-                <div class="menuItem">
-                    <a class="hrefNav" href="#">Cars</a>
+                <div class="menuItem" style="margin-right: 5%;">
+                    <a class="hrefNav" href="#">Comparision</a>
                 </div>
                 <div class="menuItem">
-                    <a class="hrefNav" href="#">Best</a>
+                    <a class="hrefNav" href="#">Cars</a>
                 </div>
                 <div class="menuItem">
                     <a class="hrefNav" href="#">Login</a>
@@ -56,7 +56,7 @@
 
                 .title {
                     text-align: center;
-                    width: 35%;
+                    width: 30%;
                     font-size:42px;
 
                     .titleHref {
