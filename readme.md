@@ -1,6 +1,6 @@
 # Electric Cars
 
-Developing website with classifieds about electric cars.
+Developing website with announcements about electric cars.
 
 Technologies:
 - Vue.js 

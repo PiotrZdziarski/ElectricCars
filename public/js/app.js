@@ -11787,6 +11787,7 @@ Vue.component('saleHome', __webpack_require__(56));
 Vue.component('advertisementsHome', __webpack_require__(65));
 Vue.component('carsHome', __webpack_require__(72));
 Vue.component('comparisionHome', __webpack_require__(79));
+Vue.component('footerMain', __webpack_require__(86));
 
 var app = new Vue({
   el: '#app'
@@ -48956,7 +48957,241 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.comparision[data-v-cab06b90] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(20, 28, 40, 0.4)), to(rgba(15, 25, 33, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(20, 28, 40, 0.4), rgba(15, 25, 33, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  position: relative;\n  padding: 5%;\n  margin-bottom: 50vh;\n  color: #385d7a;\n}\n@media (min-width: 768px) {\n.comparision[data-v-cab06b90] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n}\n.comparision .description[data-v-cab06b90] {\n    color: white;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    font-family: \"Roboto\", sans-serif;\n    padding: 40px;\n}\n@media (min-width: 768px) {\n.comparision .description[data-v-cab06b90] {\n        width: 35%;\n}\n}\n.comparision .description .title[data-v-cab06b90] {\n      font-weight: 700;\n      text-transform: uppercase;\n}\n.comparision .description .compareText[data-v-cab06b90] {\n      color: #cccccc;\n      font-size: 16px;\n}\n.comparision .description .compareBtn[data-v-cab06b90] {\n      border: 0;\n      background: #eb5e57;\n      color: white;\n      border-radius: 2px;\n      padding: 10px 15px 10px 15px;\n      display: block;\n      margin-top: 20px;\n      cursor: pointer;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.comparision .description .compareBtn[data-v-cab06b90]:hover {\n      background: #ff6e69;\n}\n.comparision .description .compareBtn[data-v-cab06b90]:active, .comparision .description .compareBtn[data-v-cab06b90]:focus {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #444444;\n              box-shadow: 0 2px 4px #444444;\n}\n.comparision .imageContainer[data-v-cab06b90] {\n    padding: 40px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media (min-width: 768px) {\n.comparision .imageContainer[data-v-cab06b90] {\n        width: 65%;\n}\n}\n.comparision .imageContainer .image[data-v-cab06b90] {\n      width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.comparision[data-v-cab06b90] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(20, 28, 40, 0.4)), to(rgba(15, 25, 33, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(20, 28, 40, 0.4), rgba(15, 25, 33, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  position: relative;\n  padding: 5%;\n  color: #385d7a;\n}\n@media (min-width: 768px) {\n.comparision[data-v-cab06b90] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n}\n.comparision .description[data-v-cab06b90] {\n    color: white;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    font-family: \"Roboto\", sans-serif;\n    padding: 40px;\n}\n@media (min-width: 768px) {\n.comparision .description[data-v-cab06b90] {\n        width: 35%;\n}\n}\n.comparision .description .title[data-v-cab06b90] {\n      font-weight: 700;\n      text-transform: uppercase;\n}\n.comparision .description .compareText[data-v-cab06b90] {\n      color: #cccccc;\n      font-size: 16px;\n}\n.comparision .description .compareBtn[data-v-cab06b90] {\n      border: 0;\n      background: #eb5e57;\n      color: white;\n      border-radius: 2px;\n      padding: 10px 15px 10px 15px;\n      display: block;\n      margin-top: 20px;\n      cursor: pointer;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.comparision .description .compareBtn[data-v-cab06b90]:hover {\n      background: #ff6e69;\n}\n.comparision .description .compareBtn[data-v-cab06b90]:active, .comparision .description .compareBtn[data-v-cab06b90]:focus {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #444444;\n              box-shadow: 0 2px 4px #444444;\n}\n.comparision .imageContainer[data-v-cab06b90] {\n    padding: 40px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media (min-width: 768px) {\n.comparision .imageContainer[data-v-cab06b90] {\n        width: 65%;\n}\n}\n.comparision .imageContainer .image[data-v-cab06b90] {\n      width: 100%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(91)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(89)
+/* template */
+var __vue_template__ = __webpack_require__(90)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-4f30e0ad"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/app/footerMain.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4f30e0ad", Component.options)
+  } else {
+    hotAPI.reload("data-v-4f30e0ad", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 87 */,
+/* 88 */,
+/* 89 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "footerMain"
+});
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", [
+      _c("div", { staticClass: "footer" }, [
+        _c("div", { staticClass: "footerLinks" }, [
+          _c("div", { staticClass: "link" }, [
+            _c("a", { staticClass: "href", attrs: { href: "#" } }, [
+              _vm._v("Announcements")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "link" }, [
+            _c("a", { staticClass: "href", attrs: { href: "#" } }, [
+              _vm._v("Sell")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "link" }, [
+            _c("a", { staticClass: "href", attrs: { href: "#" } }, [
+              _vm._v("Comparision")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "link" }, [
+            _c("a", { staticClass: "href", attrs: { href: "#" } }, [
+              _vm._v("Cars")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "link" }, [
+            _c("a", { staticClass: "href", attrs: { href: "#" } }, [
+              _vm._v("Login")
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "socials" }, [
+          _c("div", { staticClass: "icons" }, [
+            _c(
+              "a",
+              {
+                staticClass: "href",
+                attrs: {
+                  href: "https://github.com/PiotrZdziarski",
+                  target: "_blank"
+                }
+              },
+              [_c("i", { staticClass: "icon-github-circled" })]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "href",
+                attrs: {
+                  href: "https://plus.google.com/u/1/114869168099549108892",
+                  target: "_blank"
+                }
+              },
+              [_c("i", { staticClass: "icon-gplus" })]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text" }, [
+            _vm._v("\n                Piotr Zdziarski © 2018\n            ")
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4f30e0ad", module.exports)
+  }
+}
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(92);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("f4395668", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4f30e0ad\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./footerMain.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4f30e0ad\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./footerMain.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.footer[data-v-4f30e0ad] {\n  padding: 8%;\n  background: #1c1e21;\n  color: white;\n  position: relative;\n}\n@media (min-width: 1000px) {\n.footer[data-v-4f30e0ad] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n}\n.footer .footerLinks[data-v-4f30e0ad] {\n    position: relative;\n}\n@media (min-width: 768px) {\n.footer .footerLinks[data-v-4f30e0ad] {\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n@media (min-width: 1000px) {\n.footer .footerLinks[data-v-4f30e0ad] {\n        width: 65%;\n}\n}\n.footer .footerLinks .link[data-v-4f30e0ad] {\n      text-align: center;\n      margin-top: 20px;\n      font-size: 18px;\n}\n@media (min-width: 768px) {\n.footer .footerLinks .link[data-v-4f30e0ad] {\n          width: 20%;\n          margin-top: 0;\n}\n}\n.footer .socials[data-v-4f30e0ad] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    margin-top: 40px;\n}\n@media (min-width: 1000px) {\n.footer .socials[data-v-4f30e0ad] {\n        width: 35%;\n        margin-top: 0;\n}\n}\n.footer .socials .icons[data-v-4f30e0ad] {\n      font-size: 26px;\n}\n.footer .socials .text[data-v-4f30e0ad] {\n      margin-left: 30px;\n      color: #c6c8ca;\n}\n.href[data-v-4f30e0ad] {\n  color: white;\n  -webkit-transition: color .3s ease-in-out;\n  transition: color .3s ease-in-out;\n}\n.href[data-v-4f30e0ad]:hover {\n  color: #385d7a;\n}\n", ""]);
 
 // exports
 

@@ -20,11 +20,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fontello.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <navbar></navbar>
-        @yield('content')
+            @yield('content')
+        <footer-main></footer-main>
     </div>
 </body>
 </html>
