@@ -1,6 +1,6 @@
 <template>
     <section class="advertisements">
-        <h1 class="title">Featured Advertisements</h1>
+        <h1 class="title">Featured Announcements</h1>
         <div class="featured">
 
             <div class="advertisement">
@@ -16,16 +16,48 @@
 
                     <div class="carUtility">
                         <a class="utility" href="#">More Info</a>
-                            |
+                        |
                         <a class="utility" href="#">Add to compare</a>
                     </div>
                 </div>
             </div>
+
             <div class="advertisement">
+                <img class="image" src="/images/cars/nissanleaf.jpg">
+                <div class="carInfo">
+                    <h5 class="titleAdvertisement">New Brand Nissan Leaf 2017</h5>
+                    <span class="price">PRICE</span>
+                    <span class="priceCount">$14000.00</span>
 
+                    <div class="carDetails">
+                        Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD
+                    </div>
+
+                    <div class="carUtility">
+                        <a class="utility" href="#">More Info</a>
+                        |
+                        <a class="utility" href="#">Add to compare</a>
+                    </div>
+                </div>
             </div>
-            <div class="advertisement twoInRow">
 
+            <div class="advertisement">
+                <img class="image" src="/images/cars/nissanleaf.jpg">
+                <div class="carInfo">
+                    <h5 class="titleAdvertisement">New Brand Nissan Leaf 2017</h5>
+                    <span class="price">PRICE</span>
+                    <span class="priceCount">$14000.00</span>
+
+                    <div class="carDetails">
+                        Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD
+                    </div>
+
+                    <div class="carUtility">
+                        <a class="utility" href="#">More Info</a>
+                        |
+                        <a class="utility" href="#">Add to compare</a>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -52,12 +84,11 @@
         background-attachment: fixed;
         background-size: cover;
         background-position: 50%;
-        margin-bottom: 100vh;
         padding-bottom: 50px;
         position: relative;
 
         .title {
-            color:white;
+            color: white;
             font-size: 38px;
             font-weight: 500;
             padding-top: 60px;
@@ -113,7 +144,6 @@
                     padding: 20px;
                     font-family: "Roboto", sans-serif;
 
-
                     .titleAdvertisement {
                         color: #666666;
                         font-weight: 500;
@@ -147,7 +177,7 @@
 
             .twoInRow {
                 @media(max-width: 1000px) {
-                    display:none;
+                    display: none;
                 }
             }
         }

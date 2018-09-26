@@ -20,6 +20,7 @@ Vue.component('navbar', require('./components/app/navbar.vue'));
 Vue.component('carousel', require('./components/home/carousel.vue'));
 Vue.component('saleHome', require('./components/home/saleHome.vue'));
 Vue.component('advertisementsHome', require('./components/home/advertisementsHome.vue'));
+Vue.component('carsHome', require('./components/home/carsHome.vue'));
 
 const app = new Vue({
     el: '#app'
