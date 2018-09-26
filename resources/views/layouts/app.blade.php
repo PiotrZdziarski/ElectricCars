@@ -22,7 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app" style="background: #f9f9f9;height: 200vh;">
+    <div id="app">
         <navbar></navbar>
         @yield('content')
     </div>
