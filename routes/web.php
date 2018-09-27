@@ -14,3 +14,5 @@
 Route::get('/', 'SitesController@home');
 
 Auth::routes();
+
+Route::get('/cars', 'SitesController@cars');

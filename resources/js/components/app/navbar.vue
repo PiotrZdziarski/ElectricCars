@@ -15,7 +15,7 @@
                     <a class="hrefNav" href="#">Comparision</a>
                 </div>
                 <div class="menuItem">
-                    <a class="hrefNav" href="#">Cars</a>
+                    <a class="hrefNav" href="/cars">Cars</a>
                 </div>
                 <div class="menuItem">
                     <a class="hrefNav" href="#">Login</a>
