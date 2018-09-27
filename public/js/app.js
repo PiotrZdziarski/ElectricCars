@@ -11783,15 +11783,21 @@ window.Vue = __webpack_require__(40);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+//app
 Vue.component('navbar', __webpack_require__(43));
+Vue.component('footerMain', __webpack_require__(74));
+Vue.component('scrollTop', __webpack_require__(79));
+Vue.component('scrollEventListener', __webpack_require__(93));
+
+//Home
 Vue.component('carousel', __webpack_require__(49));
 Vue.component('saleHome', __webpack_require__(54));
 Vue.component('advertisementsHome', __webpack_require__(59));
 Vue.component('carsHome', __webpack_require__(64));
 Vue.component('comparisionHome', __webpack_require__(69));
-Vue.component('footerMain', __webpack_require__(74));
-Vue.component('scrollTop', __webpack_require__(79));
-Vue.component('scrollEventListener', __webpack_require__(93));
+
+//Cars
+Vue.component('cars', __webpack_require__(98));
 
 var app = new Vue({
   el: '#app'
@@ -47837,7 +47843,7 @@ var staticRenderFns = [
           ),
           _vm._v(" "),
           _c("div", { staticClass: "menuItem" }, [
-            _c("a", { staticClass: "hrefNav", attrs: { href: "#" } }, [
+            _c("a", { staticClass: "hrefNav", attrs: { href: "/cars" } }, [
               _vm._v("Cars")
             ])
           ]),
@@ -49509,6 +49515,440 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-87845e90", module.exports)
+  }
+}
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(99)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(101)
+/* template */
+var __vue_template__ = __webpack_require__(102)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-68d246d4"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/cars/cars.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-68d246d4", Component.options)
+  } else {
+    hotAPI.reload("data-v-68d246d4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(100);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("16bff282", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68d246d4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cars.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68d246d4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cars.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.claim[data-v-68d246d4] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(24, 71, 97, 0.4)), to(rgba(40, 91, 133, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(24, 71, 97, 0.4), rgba(40, 91, 133, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 50vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-weight: 500;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-68d246d4] {\n    font-size: 64px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-68d246d4] {\n        font-size: 52px;\n}\n}\n.claim .subTitle[data-v-68d246d4] {\n    color: #dddddd;\n}\n.cars[data-v-68d246d4] {\n  background: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 6%;\n  font-family: \"Roboto\", sans-serif;\n}\n@media (min-width: 476px) {\n.cars[data-v-68d246d4] {\n      padding: 8%;\n}\n}\n.cars .car[data-v-68d246d4] {\n    margin: 5% 0 5% 0;\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 768px) {\n.cars .car[data-v-68d246d4] {\n        width: 45%;\n        margin: 3% 1.5% 3% 1.5%;\n}\n}\n@media (min-width: 1000px) {\n.cars .car[data-v-68d246d4] {\n        width: 30%;\n}\n}\n.cars .car .image[data-v-68d246d4] {\n      width: 100%;\n      -webkit-transition: .3s opacity ease-in-out;\n      transition: .3s opacity ease-in-out;\n      -webkit-backface-visibility: hidden;\n      cursor: pointer;\n}\n.cars .car .image[data-v-68d246d4]:hover {\n      opacity: 0.7;\n}\n.cars .car .description[data-v-68d246d4] {\n      padding: 15px;\n}\n.cars .car .description .title[data-v-68d246d4] {\n        font-weight: 500;\n}\n.cars .car .description .title .href[data-v-68d246d4] {\n          color: #274053;\n}\n.cars .car .description .title .href[data-v-68d246d4]:hover {\n          color: #395d79;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 101 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "cars"
+});
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("main", [
+      _c("section", { staticClass: "claim" }, [
+        _c("div", [
+          _c("h1", { staticClass: "mainTitle" }, [_vm._v("Cars")]),
+          _vm._v(" "),
+          _c("h3", { staticClass: "subTitle" }, [
+            _vm._v("Find out more about electric cars")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "cars" }, [
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [
+                _c("a", { staticClass: "href", attrs: { href: "#" } }, [
+                  _vm._v("Nissan Leaf")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("Nissan Leaf")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                    lobortis dignissim, pulvinar ac, lorem.\n\n                "
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-68d246d4", module.exports)
   }
 }
 

@@ -17,15 +17,22 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+//app
 Vue.component('navbar', require('./components/app/navbar.vue'));
+Vue.component('footerMain', require('./components/app/footerMain.vue'));
+Vue.component('scrollTop', require('./components/app/scrollTop.vue'));
+Vue.component('scrollEventListener', require('./components/app/scrollEventListener.vue'));
+
+//Home
 Vue.component('carousel', require('./components/home/carousel.vue'));
 Vue.component('saleHome', require('./components/home/saleHome.vue'));
 Vue.component('advertisementsHome', require('./components/home/advertisementsHome.vue'));
 Vue.component('carsHome', require('./components/home/carsHome.vue'));
 Vue.component('comparisionHome', require('./components/home/comparisionHome.vue'));
-Vue.component('footerMain', require('./components/app/footerMain.vue'));
-Vue.component('scrollTop', require('./components/app/scrollTop.vue'));
-Vue.component('scrollEventListener', require('./components/app/scrollEventListener.vue'));
+
+//Cars
+Vue.component('cars', require('./components/cars/cars.vue'));
+
 
 const app = new Vue({
     el: '#app'
