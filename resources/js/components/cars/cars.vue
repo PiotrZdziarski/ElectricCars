@@ -25,7 +25,7 @@
                 <img class="image" src="/images/cars/nissanleaf.jpg">
                 <div class="description">
                     <div>
-                        <h3 class="title"><a href="#">Nissan Leaf</a></h3>
+                        <h3 class="title"><a class="href" href="#">Nissan Leaf</a></h3>
                     </div>
                     <div class="text">
                         Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod
@@ -208,6 +208,7 @@
                 padding: 15px;
 
                 .title {
+                    padding-top: 5px;
                     font-weight: 500;
 
                     .href {
@@ -216,6 +217,10 @@
                     .href:hover {
                         color: #395d79;
                     }
+                }
+
+                .text {
+                    padding-top: 5px;
                 }
             }
         }

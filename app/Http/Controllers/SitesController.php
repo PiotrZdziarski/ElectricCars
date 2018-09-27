@@ -20,5 +20,12 @@ class SitesController extends Controller
     public function cars() {
         return view('sites.cars');
     }
+    /**
+     * Car subpage
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function car() {
+        return view('sites.car');
+    }
 
 }
