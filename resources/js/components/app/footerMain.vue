@@ -43,7 +43,7 @@
 
 <style lang="scss" scoped>
     .footer {
-        padding: 8%;
+        padding: 7%;
         background: #1c1e21;
         color: white;
         position: relative;
@@ -60,7 +60,7 @@
             }
 
             @media(min-width: 1000px) {
-                width: 65%;
+                width: 60%;
             }
 
             .link {
@@ -82,9 +82,11 @@
             align-items: center;
             justify-content: center;
             margin-top: 40px;
+            text-align: right;
 
             @media(min-width: 1000px) {
-                width: 35%;
+                padding-left: 10%;
+                width: 40%;
                 margin-top: 0;
             }
 
@@ -99,7 +101,7 @@
     }
 
     .href {
-        color: white;
+        color: #dfdfdf;
         transition: color .3s ease-in-out;
     }
     .href:hover {

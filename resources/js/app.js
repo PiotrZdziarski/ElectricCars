@@ -7,6 +7,8 @@
 
 require('./bootstrap');
 
+require('./scripts');
+
 window.Vue = require('vue');
 
 /**
@@ -22,6 +24,8 @@ Vue.component('advertisementsHome', require('./components/home/advertisementsHom
 Vue.component('carsHome', require('./components/home/carsHome.vue'));
 Vue.component('comparisionHome', require('./components/home/comparisionHome.vue'));
 Vue.component('footerMain', require('./components/app/footerMain.vue'));
+Vue.component('scrollTop', require('./components/app/scrollTop.vue'));
+Vue.component('scrollEventListener', require('./components/app/scrollEventListener.vue'));
 
 const app = new Vue({
     el: '#app'
