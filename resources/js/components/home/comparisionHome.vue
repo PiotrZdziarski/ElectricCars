@@ -44,7 +44,8 @@
             padding: 40px;
 
             @media(min-width: 768px) {
-                width: 35%;
+                width: 33%;
+                margin-left: 4%;
             }
 
             .title {
@@ -85,7 +86,7 @@
             align-items: center;
 
             @media(min-width: 768px) {
-                width: 65%;
+                width: 63%;
             }
 
             .image {

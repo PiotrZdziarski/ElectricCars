@@ -10,8 +10,10 @@
     <title>@yield('title')</title>
 
     <!-- Scripts -->
+    <script>
+        var show_scroll_top = false;
+    </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/scripts.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -23,10 +25,13 @@
     <link href="{{ asset('css/fontello.css') }}" rel="stylesheet">
 </head>
 <body>
+
     <div id="app">
         <navbar></navbar>
             @yield('content')
         <footer-main></footer-main>
+        <scroll-event-listener></scroll-event-listener>
     </div>
+
 </body>
 </html>
