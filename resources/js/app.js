@@ -32,6 +32,7 @@ Vue.component('comparisionHome', require('./components/home/comparisionHome.vue'
 
 //Cars
 Vue.component('cars', require('./components/cars/cars.vue'));
+Vue.component('car', require('./components/cars/car.vue'));
 
 
 const app = new Vue({

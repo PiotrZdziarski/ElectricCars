@@ -11798,6 +11798,7 @@ Vue.component('comparisionHome', __webpack_require__(69));
 
 //Cars
 Vue.component('cars', __webpack_require__(98));
+Vue.component('car', __webpack_require__(103));
 
 var app = new Vue({
   el: '#app'
@@ -49604,7 +49605,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.claim[data-v-68d246d4] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(24, 71, 97, 0.4)), to(rgba(40, 91, 133, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(24, 71, 97, 0.4), rgba(40, 91, 133, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 50vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-weight: 500;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-68d246d4] {\n    font-size: 64px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-68d246d4] {\n        font-size: 52px;\n}\n}\n.claim .subTitle[data-v-68d246d4] {\n    color: #dddddd;\n}\n.cars[data-v-68d246d4] {\n  background: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 6%;\n  font-family: \"Roboto\", sans-serif;\n}\n@media (min-width: 476px) {\n.cars[data-v-68d246d4] {\n      padding: 8%;\n}\n}\n.cars .car[data-v-68d246d4] {\n    margin: 5% 0 5% 0;\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 768px) {\n.cars .car[data-v-68d246d4] {\n        width: 45%;\n        margin: 3% 1.5% 3% 1.5%;\n}\n}\n@media (min-width: 1000px) {\n.cars .car[data-v-68d246d4] {\n        width: 30%;\n}\n}\n.cars .car .image[data-v-68d246d4] {\n      width: 100%;\n      -webkit-transition: .3s opacity ease-in-out;\n      transition: .3s opacity ease-in-out;\n      -webkit-backface-visibility: hidden;\n      cursor: pointer;\n}\n.cars .car .image[data-v-68d246d4]:hover {\n      opacity: 0.7;\n}\n.cars .car .description[data-v-68d246d4] {\n      padding: 15px;\n}\n.cars .car .description .title[data-v-68d246d4] {\n        font-weight: 500;\n}\n.cars .car .description .title .href[data-v-68d246d4] {\n          color: #274053;\n}\n.cars .car .description .title .href[data-v-68d246d4]:hover {\n          color: #395d79;\n}\n", ""]);
+exports.push([module.i, "\n.claim[data-v-68d246d4] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(24, 71, 97, 0.4)), to(rgba(40, 91, 133, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(24, 71, 97, 0.4), rgba(40, 91, 133, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 50vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-weight: 500;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-68d246d4] {\n    font-size: 64px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-68d246d4] {\n        font-size: 52px;\n}\n}\n.claim .subTitle[data-v-68d246d4] {\n    color: #dddddd;\n}\n.cars[data-v-68d246d4] {\n  background: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 6%;\n  font-family: \"Roboto\", sans-serif;\n}\n@media (min-width: 476px) {\n.cars[data-v-68d246d4] {\n      padding: 8%;\n}\n}\n.cars .car[data-v-68d246d4] {\n    margin: 5% 0 5% 0;\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 768px) {\n.cars .car[data-v-68d246d4] {\n        width: 45%;\n        margin: 3% 1.5% 3% 1.5%;\n}\n}\n@media (min-width: 1000px) {\n.cars .car[data-v-68d246d4] {\n        width: 30%;\n}\n}\n.cars .car .image[data-v-68d246d4] {\n      width: 100%;\n      -webkit-transition: .3s opacity ease-in-out;\n      transition: .3s opacity ease-in-out;\n      -webkit-backface-visibility: hidden;\n      cursor: pointer;\n}\n.cars .car .image[data-v-68d246d4]:hover {\n      opacity: 0.7;\n}\n.cars .car .description[data-v-68d246d4] {\n      padding: 15px;\n}\n.cars .car .description .title[data-v-68d246d4] {\n        padding-top: 5px;\n        font-weight: 500;\n}\n.cars .car .description .title .href[data-v-68d246d4] {\n          color: #274053;\n}\n.cars .car .description .title .href[data-v-68d246d4]:hover {\n          color: #395d79;\n}\n.cars .car .description .text[data-v-68d246d4] {\n        padding-top: 5px;\n}\n", ""]);
 
 // exports
 
@@ -49814,7 +49815,9 @@ var staticRenderFns = [
           _c("div", { staticClass: "description" }, [
             _c("div", [
               _c("h3", { staticClass: "title" }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Nissan Leaf")])
+                _c("a", { staticClass: "href", attrs: { href: "#" } }, [
+                  _vm._v("Nissan Leaf")
+                ])
               ])
             ]),
             _vm._v(" "),
@@ -49951,6 +49954,288 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-68d246d4", module.exports)
   }
 }
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(108)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(106)
+/* template */
+var __vue_template__ = __webpack_require__(107)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-0b85602f"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/cars/car.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0b85602f", Component.options)
+  } else {
+    hotAPI.reload("data-v-0b85602f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 104 */,
+/* 105 */,
+/* 106 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "car"
+});
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("main", [
+      _c("section", { staticClass: "claim" }, [
+        _c("div", [
+          _c("h1", { staticClass: "mainTitle" }, [_vm._v("Nissan Leaf")]),
+          _vm._v(" "),
+          _c("h3", { staticClass: "subTitle" }, [
+            _vm._v("New Nissan Leaf. Zero Emission.")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "wrapper" }, [
+        _c("section", { staticClass: "info" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("section", { staticClass: "description" }, [
+          _c("h1", { staticClass: "mainTitle" }, [_vm._v("Nissan Leaf")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text" }, [
+            _c("h5", { staticClass: "subtitle" }, [
+              _vm._v("Chińska Venucia e30")
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Prototyp auta został oparty na platformie Nissana Tiidy (Nissan Versa w USA i Kanadzie).\n                Zaprezentowano go 26 lipca 2009. Tydzień później przedstawiono wersję produkcyjną.\n\n                "
+              )
+            ]),
+            _c("p", [
+              _vm._v(
+                "Po raz pierwszy został zaprezentowany jako auto koncepcyjne na targach motoryzacyjnych Tokyo Motor\n                Show 9 października 2009 roku. Wersja produkcyjna zadebiutowała 16 grudnia 2010 roku. Magazyn\n                Time uznał auto za jeden z 50 najlepszych wynalazków roku 2009. Cena auta w 2010 roku wynosiła ok.\n                30 tys. euro. Samochód produkowany jest w japońskich zakładach w Oppama, od stycznia 2013 roku w\n                amerykańskich zakładach w Smyrna w stanie Tennessee, a od marca 2013 roku również w Sunderland w\n                Wielkiej Brytanii. Do sierpnia 2017 roku Nissan sprzedał na świecie 283 tys. egzemplarzy."
+              )
+            ]),
+            _vm._v(" "),
+            _c("h5", { staticClass: "subtitle" }, [_vm._v("Silnik")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Leaf jest napędzany silnikiem elektrycznym o mocy 80 kW/109 KM w zakresie 2730-9800 obr/min i\n                momencie obrotowym 280 Nm w zakresie 0-2730 obr/min. Zasięg samochodu wynosi 160 km, masa ok. 1540\n                kg. Auto w wersji Eu rozwija prędkość ograniczoną do 145 km/h. Przyspieszenie 0-100 km/h trwa 11,9\n                s, choć w praktyce często trwa to krócej o 1 s i wynosi około 10,5 s. W I połowie 2013 roku nieco\n                zmodernizowano napęd, mniejszy moment obrotowy 254 Nm jest osiągany w zakresie 0-3000 obr/min, moc\n                109 KM dostępna jest w zakresie 3000-10000 obr/min, przyspieszenie do 100 km/h wynosi 10,8 s, nieco\n                    zwiększono zasięg (do ok. 200 km)."
+              )
+            ]),
+            _vm._v(" "),
+            _c("h5", { staticClass: "subtitle" }, [_vm._v("Nagrody")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Nissan Leaf zdobył dwie prestiżowe nagrody. Model został ogłoszony Światowym Samochodem Roku 2011\n                oraz zwyciężył także w europejskim konkursie Car Of The Year, będąc tym samym pierwszym samochodem\n                    elektrycznym, który otrzymał ten tytuł."
+              )
+            ]),
+            _vm._v(" "),
+            _c("h5", { staticClass: "subtitle" }, [_vm._v("Modernizacja")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                'Około 2 lata po wprowadzeniu na rynek Leaf przechodzi facelifting, który obejmuje szereg ulepszeń.\n                Według producenta druga generacja wozu, to ponad 100 modyfikacji w stosunku do wcześniejszego\n                modelu. Udoskonalenia obejmują technologie zapewniające większy realny zasięg, wyższy poziom\n                zdatności do recyklingu, więcej przestrzeni w kabinie, wyższą efektywność ładowania, lepsze\n                wyposażenie oraz trzy dostępne wersje i większy wybór opcji modelu. Zmiany stylistyczne są subtelne,\n                ale dzięki delikatnemu przestylizowaniu przodu auta, obniżono jego i tak niską sprawność\n                aerodynamiczną. Najważniejsza zmiana to nowy, lżejszy elektryczny układ napędowy oraz\n                    wprowadzenie nowej wersji "S", bardziej przystępnej cenowo.'
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Zmieniony Leaf został zaprezentowany w Japonii, ale podobne uaktualnienia pojawią się w\n                północnoamerykańskiej odmianie, która dodatkowo już nie będzie importowana z Japonii, ale będzie\n                budowana w fabryce w miejscowości Smyrna w stanie Tennessee. Produkcja rozpoczęła się w styczniu\n                    2013 r., a do sprzedaży trafił w marcu 2013 roku."
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Elektryczny układ napędowy dostał nowe lub przeprojektowane elementy zaczynając od nowego silnika\n                elektrycznego. Ten będzie w przyszłości montowany w hybrydowych i elektrycznych samochodach spółki\n                Renault-Nissan. Według Nissana, bardziej przyjazny dla środowiska silnik zmniejsza wykorzystanie\n                dysprozu (Dy), metalu ziem rzadkich (RE) o 40% w porównaniu do konwencjonalnego silnika EV. Japoński\n                producent mówi również, że nowy zintegrowany silnik elektryczny i konwerter DC/DC spowodowały\n                10-procentową redukcję masy i 30-procentową redukcję objętości. Dzięki wykorzystaniu usprawnionego\n                modułu baterii i jeszcze kilku lekkich elementów nowy Leaf jest lżejszy o 80 kg. Dodatkowo Nissan\n                przeniósł urządzenie do ładowania akumulatorów z tylnej do przedniej części auta. Dzięki temu\n                zwiększyła się przestrzeń bagażowa z 330 do 370 litrów. Inne zmiany obejmują mniejsze zużycie\n                energii, bardziej efektywne regeneracyjne hamulce, zwiększenie zasięgu do 228 km z 142 według\n                japońskiego trybu JC08. Dodano również takie funkcje jak Hill Start Assist, nowy energooszczędny\n                system audio firmy Bose, poprawione wykończenie wnętrza, pojawią się nowe kolory nadwozia: Metal\n                    Dark Gray, Brilliant White Pearl i białe i nowe wzory felg aluminiowych."
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0b85602f", module.exports)
+  }
+}
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(109);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("a143206c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b85602f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./car.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b85602f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./car.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.claim[data-v-0b85602f] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(226, 62, 76, 0.4)), to(rgba(226, 48, 60, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(226, 62, 76, 0.4), rgba(226, 48, 60, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 50vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-weight: 500;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-0b85602f] {\n    font-size: 64px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-0b85602f] {\n        font-size: 52px;\n}\n}\n.claim .subTitle[data-v-0b85602f] {\n    color: #dddddd;\n}\n.wrapper[data-v-0b85602f] {\n  padding: 5%;\n  font-family: \"Roboto\", sans-serif;\n  position: relative;\n}\n@media (min-width: 768px) {\n.wrapper[data-v-0b85602f] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n}\n@media (min-width: 476px) {\n.wrapper[data-v-0b85602f] {\n      padding: 7%;\n}\n}\n.wrapper .info[data-v-0b85602f] {\n    -webkit-box-shadow: 0px 1px 2px #b9bbbe;\n            box-shadow: 0px 1px 2px #b9bbbe;\n}\n@media (max-width: 768px) {\n.wrapper .info[data-v-0b85602f] {\n        margin-bottom: 30px;\n}\n}\n@media (min-width: 1000px) {\n.wrapper .info[data-v-0b85602f] {\n        width: 33%;\n}\n}\n.wrapper .info .image[data-v-0b85602f] {\n      width: 100%;\n}\n.wrapper .description[data-v-0b85602f] {\n    -webkit-box-shadow: 0px 1px 2px #b9bbbe;\n            box-shadow: 0px 1px 2px #b9bbbe;\n    padding: 2.5%;\n}\n@media (min-width: 1000px) {\n.wrapper .description[data-v-0b85602f] {\n        width: 66%;\n}\n}\n.wrapper .description .mainTitle[data-v-0b85602f] {\n      color: #602a29;\n      font-weight: 500;\n      font-size: 42px;\n      padding-bottom: 10px;\n}\n.wrapper .description .text .subtitle[data-v-0b85602f] {\n      color: #602a29;\n      padding-top: 5px;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

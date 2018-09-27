@@ -15,4 +15,6 @@ Route::get('/', 'SitesController@home');
 
 Auth::routes();
 
+//cars
 Route::get('/cars', 'SitesController@cars');
+Route::get('/car/{id}', 'SitesController@car');
