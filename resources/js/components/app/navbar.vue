@@ -6,7 +6,7 @@
             </div>
             <div class="menu" id="menu">
                 <div class="menuItem">
-                    <a class="hrefNav" href="#">Announcements</a>
+                    <a class="hrefNav" href="/announcements">Announcements</a>
                 </div>
                 <div class="menuItem">
                     <a class="hrefNav" href="#">Sell</a>
