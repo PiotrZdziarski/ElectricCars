@@ -38,12 +38,14 @@
         name: "sortBy",
         methods: {
             viewType(type) {
-                if(type === 'list') {
+                if (type === 'list') {
                     document.getElementById('listView').classList.add('activeView');
                     document.getElementById('gridView').classList.remove('activeView');
+                    this.$emit('changeView', 'list');
                 } else {
                     document.getElementById('gridView').classList.add('activeView');
                     document.getElementById('listView').classList.remove('activeView');
+                    this.$emit('changeView', 'grid');
                 }
             }
         }
@@ -74,6 +76,10 @@
             position: absolute;
             display: flex;
             right: 0;
+
+            @media(max-width: 1000px) {
+                display: none;
+            }
 
             .chooseView {
                 width: 45px;
@@ -110,7 +116,7 @@
     }
 
     .input:focus, .input:active {
-        outline:none;
+        outline: none;
     }
 
 </style>

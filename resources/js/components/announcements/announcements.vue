@@ -9,8 +9,8 @@
         <section class="main">
             <settings></settings>
             <div class="announcements">
-                <sort-by></sort-by>
-                <announcements-list></announcements-list>
+                <sort-by @changeView="changeView"></sort-by>
+                <announcements-list :viewType="viewType"></announcements-list>
             </div>
         </section>
     </div>
@@ -27,12 +27,23 @@
             sortBy: sortBy,
             settings: settings,
             announcementsList: announcementsList
+        },
+        data() {
+           return {
+                viewType: 'list'
+           }
+        },
+        methods: {
+            changeView(type) {
+                this.viewType = type;
+            }
         }
     }
 </script>
 
 <style lang="scss" scoped>
     .wrapper {
+        margin-bottom: 100px;
 
         .claim {
             height: 30vh;
@@ -76,21 +87,24 @@
             margin-left: auto;
             margin-right: auto;
             font-family: "Roboto", sans-serif;
+            width: 100%;
 
             @media (min-width: 1000px) {
                 display: flex;
-                width: 1000px;
+                width: 970px;
             }
 
             @media(min-width: 1200px) {
-                width: 1200px;
+                width: 1170px;
             }
 
 
             .announcements {
                 padding-top: 50px;
-                width: 70%;
-                height: 100vh;
+                @media(min-width: 1000px) {
+                    width: 70%;
+                }
+
                 box-shadow: 0 1px 2px #b9bbbe;
                 position: relative;
             }
