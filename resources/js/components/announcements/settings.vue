@@ -14,7 +14,9 @@
     .settings {
         padding-top: 100px;
         background: white;
-        width: 30%;
+        @media(min-width: 1000px) {
+            width: 30%;
+        }
         box-shadow: 0px 1px 2px #b9bbbe;
     }
 </style>
