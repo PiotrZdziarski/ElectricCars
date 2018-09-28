@@ -15,7 +15,20 @@ class CreateCars extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('car');
+            $table->string('producer');
+            $table->string('segment');
+            $table->string('engine');
+            $table->string('type_of_drive');
+            $table->integer('weight');
+            $table->integer('width');
+            $table->integer('height');
+            $table->integer('length');
+            $table->integer('wheelbase');
+            $table->integer('number_of_seats');
+            $table->string('short_description');
+            $table->text('description');
+            $table->date('date_of_presentation');
         });
     }
 
@@ -26,6 +39,6 @@ class CreateCars extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cars');
+        //Schema::dropIfExists('cars');
     }
 }

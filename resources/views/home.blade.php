@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') Electric cars @endsection
 
 @section('content')
     <carousel></carousel>

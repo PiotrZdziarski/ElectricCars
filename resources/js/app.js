@@ -30,9 +30,13 @@ Vue.component('advertisementsHome', require('./components/home/advertisementsHom
 Vue.component('carsHome', require('./components/home/carsHome.vue'));
 Vue.component('comparisionHome', require('./components/home/comparisionHome.vue'));
 
+//Announcements
+Vue.component('announcements', require('./components/announcements/announcements.vue'));
+
 //Cars
 Vue.component('cars', require('./components/cars/cars.vue'));
 Vue.component('car', require('./components/cars/car.vue'));
+
 
 
 const app = new Vue({

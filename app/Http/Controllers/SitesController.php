@@ -28,4 +28,13 @@ class SitesController extends Controller
         return view('sites.car');
     }
 
+
+    /**
+     * announcements subpage
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function announcements(){
+        return view('sites.announcements');
+    }
+
 }
