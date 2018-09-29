@@ -20,4 +20,4 @@ Route::get('/cars', 'SitesController@cars');
 Route::get('/car/{id}', 'SitesController@car');
 
 //announcements
-Route::get('/announcements', 'SitesController@announcements');
+Route::get('/adverts', 'SitesController@adverts');

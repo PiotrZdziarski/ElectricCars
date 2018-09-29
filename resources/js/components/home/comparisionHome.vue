@@ -23,7 +23,7 @@
 
 <style lang="scss" scoped>
     .comparision {
-        background-image: linear-gradient(rgba(20, 28, 40, 0.4), rgba(15, 25, 33, 0.4)), url("/images/advertisementsHome.jpg");
+        background-image: linear-gradient(rgba(43, 43, 46, 0.4), rgba(52, 50, 51, 0.4)), url("/images/advertisementsHome.jpg");
         background-attachment: fixed;
         background-size: cover;
         background-position: 50%;

@@ -30,10 +30,10 @@ class SitesController extends Controller
 
 
     /**
-     * announcements subpage
+     * adverts subpage
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function announcements(){
+    public function adverts(){
         return view('sites.announcements');
     }
 

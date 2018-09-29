@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="claim">
             <div class="mainTitle">
-                <h1 class="mainTitle">Car announcements</h1>
+                <h1 class="mainTitle">Electric car adverts</h1>
                 <h4 class="subTitle">123 vehicles to buy</h4>
             </div>
         </div>
@@ -43,7 +43,7 @@
 
 <style lang="scss" scoped>
     .wrapper {
-        margin-bottom: 100px;
+        background: white;
 
         .claim {
             height: 30vh;
@@ -100,12 +100,12 @@
 
 
             .announcements {
+                background: #f8fafc;
                 padding-top: 50px;
                 @media(min-width: 1000px) {
                     width: 70%;
                 }
 
-                box-shadow: 0 1px 2px #b9bbbe;
                 position: relative;
             }
         }

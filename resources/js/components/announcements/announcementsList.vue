@@ -20,6 +20,44 @@
                         </div>
                     </div>
                 </article>
+
+                <article>
+                    <div class="announcement">
+                        <div class="imageContainer">
+                            <img class="image" src="/images/cars/nissanleaf.jpg">
+                        </div>
+                        <div class="info">
+                            <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
+                            <span class="subtitle">Type</span> Electric
+                            <br><span class="subtitle">Mileage</span> 10234 KM
+                            <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
+                        </div>
+                        <div class="utilities">
+                            <i class="icon-phone">123 435 235</i>
+                            <i class="icon-mail">pzdziarski.2001@gmail.com</i>
+                            <span class="price">$14000</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="announcement">
+                        <div class="imageContainer">
+                            <img class="image" src="/images/cars/nissanleaf.jpg">
+                        </div>
+                        <div class="info">
+                            <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
+                            <span class="subtitle">Type</span> Electric
+                            <br><span class="subtitle">Mileage</span> 10234 KM
+                            <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
+                        </div>
+                        <div class="utilities">
+                            <i class="icon-phone">123 435 235</i>
+                            <i class="icon-mail">pzdziarski.2001@gmail.com</i>
+                            <span class="price">$14000</span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </transition>
 
@@ -112,10 +150,11 @@
         padding: 2.5%;
 
         .announcement {
-            box-shadow: 0 1px 2px #efefef;
+            box-shadow: 0 1px 2px #dddddd;
             width: 100%;
             margin-bottom: 40px;
             background: white;
+            border-radius: 4px;
 
             @media(min-width: 768px) {
                 display: flex;
@@ -135,6 +174,7 @@
 
                 .image {
                     width: 100%;
+                    border-radius: 4px;
                 }
             }
 
@@ -165,18 +205,17 @@
             }
 
             .utilities {
+                font-family: "Overpass", sans-serif;
                 @media(min-width: 768px) {
                     width: 18%;
                 }
                 padding: 15px;
                 word-wrap: break-word;
 
-                .price {
-                    display: block;
-                    margin-top: 10px;
-                    font-weight: 500;
-                    font-size: 18px;
-                    color: #a12932;
+                @media(max-width: 768px) {
+                    .icon-mail {
+                        padding-left: 5px;
+                    }
                 }
             }
         }
@@ -190,14 +229,25 @@
         padding: 1%;
 
         .announcement {
-            width: 30.33%;
+
+            @media(min-width: 476px) {
+                width: 45.5%;
+            }
+
+            @media(min-width: 768px) {
+                width: 30.33%;
+            }
+
             background: white;
-            box-shadow: 0 1px 2px #efefef;
+            box-shadow: 0 1px 2px #dddddd;
             margin: 1.5%;
+            border-radius: 4px;
 
             .imageContainer {
+
                 .image {
                     width: 100%;
+                    border-radius: 4px;
                 }
             }
 
@@ -224,22 +274,23 @@
             }
 
             .utilities {
+                font-family: "Overpass", sans-serif;
                 padding: 0 15px 15px 15px;
                 word-wrap: break-word;
-
-                .price {
-                    display: block;
-                    margin-top: 10px;
-                    font-weight: 500;
-                    font-size: 18px;
-                    color: #a12932;
-                }
             }
         }
     }
 
+    .price {
+        display: block;
+        margin-top: 10px;
+        font-weight: 700;
+        font-size: 18px;
+        color: #a12932;
+    }
+
     .fade-enter-active {
-        transition: .3s opacity ease-in-out;
+        transition: .5s opacity ease-in-out;
     }
 
     .fade-enter, .fade-leave-to {

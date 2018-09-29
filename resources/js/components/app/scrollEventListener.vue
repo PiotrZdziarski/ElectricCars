@@ -5,30 +5,50 @@
 <script>
     export default {
         name: "scrollEvent",
-        data(){
+        data() {
             return {
                 show_scroll_top: false
             }
         },
         mounted() {
             //right scope
-            const self = this;
+            let toBlack = true;
+            let toWhite = false;
 
-            window.addEventListener('scroll', function () {
+            window.addEventListener('scroll', () => {
                 let scrollTop = $(window).scrollTop();
-                if(scrollTop !== 0) {
+                console.log(scrollTop);
+
+                if (scrollTop !== 0) {
                     document.getElementById('mainnav').classList.add('backgroundWhite');
                     document.getElementById('menu').classList.add('hrefColor');
+
+                    toWhite = true;
+                    if(toBlack === true) {
+                        setTimeout(() =>  {
+                            document.getElementById('imageNav').src = "/images/nigga.png";
+                        }, 150);
+                        toBlack = false;
+                    }
+
                 }
-                if(scrollTop === 0) {
+                if (scrollTop === 0) {
                     document.getElementById('mainnav').classList.remove('backgroundWhite');
                     document.getElementById('menu').classList.remove('hrefColor');
+
+                    toBlack = true;
+                    if(toWhite === true) {
+                        setTimeout(() =>  {
+                            document.getElementById('imageNav').src = "/images/logowhite.png";
+                        }, 150);
+                        toWhite = false;
+                    }
                 }
 
-                if(scrollTop > 600) {
-                    self.show_scroll_top = true;
+                if (scrollTop > 600) {
+                    this.show_scroll_top = true;
                 } else {
-                    self.show_scroll_top = false;
+                    this.show_scroll_top = false;
                 }
             });
         }

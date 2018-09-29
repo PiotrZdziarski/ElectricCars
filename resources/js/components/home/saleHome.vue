@@ -8,7 +8,7 @@
                 <div class="col-md-6 sale">
                     <div>
                         <h3 class="header">Want to sale an electric car?</h3>
-                        <h4 class="headerNext">Here you can post you announcement for free!</h4>
+                        <h4 class="headerNext">Here you can post you adverts for free!</h4>
                         <button class="saleButton">Post</button>
                     </div>
                 </div>
