@@ -205,7 +205,6 @@
             }
 
             .utilities {
-                font-family: "Overpass", sans-serif;
                 @media(min-width: 768px) {
                     width: 18%;
                 }
@@ -274,7 +273,6 @@
             }
 
             .utilities {
-                font-family: "Overpass", sans-serif;
                 padding: 0 15px 15px 15px;
                 word-wrap: break-word;
             }
