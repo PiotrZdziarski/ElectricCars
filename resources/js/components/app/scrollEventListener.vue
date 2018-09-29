@@ -17,7 +17,6 @@
 
             window.addEventListener('scroll', () => {
                 let scrollTop = $(window).scrollTop();
-                console.log(scrollTop);
 
                 if (scrollTop !== 0) {
                     document.getElementById('mainnav').classList.add('backgroundWhite');
