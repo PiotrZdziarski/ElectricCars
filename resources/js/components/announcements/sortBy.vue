@@ -77,7 +77,7 @@
             display: flex;
             right: 0;
 
-            @media(max-width: 1000px) {
+            @media(max-width: 476px) {
                 display: none;
             }
 

@@ -65,6 +65,425 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(46)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+var options = null
+var ssrIdKey = 'data-vue-ssr-id'
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction, _options) {
+  isProduction = _isProduction
+
+  options = _options || {}
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+  if (options.ssrId) {
+    styleElement.setAttribute(ssrIdKey, obj.id)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -374,425 +793,6 @@ module.exports = {
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-  Modified by Evan You @yyx990803
-*/
-
-var hasDocument = typeof document !== 'undefined'
-
-if (typeof DEBUG !== 'undefined' && DEBUG) {
-  if (!hasDocument) {
-    throw new Error(
-    'vue-style-loader cannot be used in a non-browser environment. ' +
-    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
-  ) }
-}
-
-var listToStyles = __webpack_require__(46)
-
-/*
-type StyleObject = {
-  id: number;
-  parts: Array<StyleObjectPart>
-}
-
-type StyleObjectPart = {
-  css: string;
-  media: string;
-  sourceMap: ?string
-}
-*/
-
-var stylesInDom = {/*
-  [id: number]: {
-    id: number,
-    refs: number,
-    parts: Array<(obj?: StyleObjectPart) => void>
-  }
-*/}
-
-var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
-var singletonElement = null
-var singletonCounter = 0
-var isProduction = false
-var noop = function () {}
-var options = null
-var ssrIdKey = 'data-vue-ssr-id'
-
-// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-// tags it will allow on a page
-var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
-
-module.exports = function (parentId, list, _isProduction, _options) {
-  isProduction = _isProduction
-
-  options = _options || {}
-
-  var styles = listToStyles(parentId, list)
-  addStylesToDom(styles)
-
-  return function update (newList) {
-    var mayRemove = []
-    for (var i = 0; i < styles.length; i++) {
-      var item = styles[i]
-      var domStyle = stylesInDom[item.id]
-      domStyle.refs--
-      mayRemove.push(domStyle)
-    }
-    if (newList) {
-      styles = listToStyles(parentId, newList)
-      addStylesToDom(styles)
-    } else {
-      styles = []
-    }
-    for (var i = 0; i < mayRemove.length; i++) {
-      var domStyle = mayRemove[i]
-      if (domStyle.refs === 0) {
-        for (var j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]()
-        }
-        delete stylesInDom[domStyle.id]
-      }
-    }
-  }
-}
-
-function addStylesToDom (styles /* Array<StyleObject> */) {
-  for (var i = 0; i < styles.length; i++) {
-    var item = styles[i]
-    var domStyle = stylesInDom[item.id]
-    if (domStyle) {
-      domStyle.refs++
-      for (var j = 0; j < domStyle.parts.length; j++) {
-        domStyle.parts[j](item.parts[j])
-      }
-      for (; j < item.parts.length; j++) {
-        domStyle.parts.push(addStyle(item.parts[j]))
-      }
-      if (domStyle.parts.length > item.parts.length) {
-        domStyle.parts.length = item.parts.length
-      }
-    } else {
-      var parts = []
-      for (var j = 0; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j]))
-      }
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
-    }
-  }
-}
-
-function createStyleElement () {
-  var styleElement = document.createElement('style')
-  styleElement.type = 'text/css'
-  head.appendChild(styleElement)
-  return styleElement
-}
-
-function addStyle (obj /* StyleObjectPart */) {
-  var update, remove
-  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
-
-  if (styleElement) {
-    if (isProduction) {
-      // has SSR styles and in production mode.
-      // simply do nothing.
-      return noop
-    } else {
-      // has SSR styles but in dev mode.
-      // for some reason Chrome can't handle source map in server-rendered
-      // style tags - source maps in <style> only works if the style tag is
-      // created and inserted dynamically. So we remove the server rendered
-      // styles and inject new ones.
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  if (isOldIE) {
-    // use singleton mode for IE9.
-    var styleIndex = singletonCounter++
-    styleElement = singletonElement || (singletonElement = createStyleElement())
-    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
-    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
-  } else {
-    // use multi-style-tag mode in all other cases
-    styleElement = createStyleElement()
-    update = applyToTag.bind(null, styleElement)
-    remove = function () {
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  update(obj)
-
-  return function updateStyle (newObj /* StyleObjectPart */) {
-    if (newObj) {
-      if (newObj.css === obj.css &&
-          newObj.media === obj.media &&
-          newObj.sourceMap === obj.sourceMap) {
-        return
-      }
-      update(obj = newObj)
-    } else {
-      remove()
-    }
-  }
-}
-
-var replaceText = (function () {
-  var textStore = []
-
-  return function (index, replacement) {
-    textStore[index] = replacement
-    return textStore.filter(Boolean).join('\n')
-  }
-})()
-
-function applyToSingletonTag (styleElement, index, remove, obj) {
-  var css = remove ? '' : obj.css
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = replaceText(index, css)
-  } else {
-    var cssNode = document.createTextNode(css)
-    var childNodes = styleElement.childNodes
-    if (childNodes[index]) styleElement.removeChild(childNodes[index])
-    if (childNodes.length) {
-      styleElement.insertBefore(cssNode, childNodes[index])
-    } else {
-      styleElement.appendChild(cssNode)
-    }
-  }
-}
-
-function applyToTag (styleElement, obj) {
-  var css = obj.css
-  var media = obj.media
-  var sourceMap = obj.sourceMap
-
-  if (media) {
-    styleElement.setAttribute('media', media)
-  }
-  if (options.ssrId) {
-    styleElement.setAttribute(ssrIdKey, obj.id)
-  }
-
-  if (sourceMap) {
-    // https://developer.chrome.com/devtools/docs/javascript-debugging
-    // this makes source maps inside style tags work properly in Chrome
-    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
-    // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
-  }
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild)
-    }
-    styleElement.appendChild(document.createTextNode(css))
-  }
-}
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
@@ -826,7 +826,7 @@ module.exports = g;
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 var normalizeHeaderName = __webpack_require__(24);
 
 var DEFAULT_CONTENT_TYPE = {
@@ -11509,7 +11509,7 @@ process.umask = function() { return 0; };
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 var settle = __webpack_require__(25);
 var buildURL = __webpack_require__(27);
 var parseHeaders = __webpack_require__(28);
@@ -11757,7 +11757,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(104);
+module.exports = __webpack_require__(119);
 
 
 /***/ }),
@@ -11800,8 +11800,8 @@ Vue.component('comparisionHome', __webpack_require__(84));
 Vue.component('announcements', __webpack_require__(89));
 
 //Cars
-Vue.component('cars', __webpack_require__(94));
-Vue.component('car', __webpack_require__(99));
+Vue.component('cars', __webpack_require__(109));
+Vue.component('car', __webpack_require__(114));
 
 var app = new Vue({
   el: '#app'
@@ -35518,7 +35518,7 @@ module.exports = __webpack_require__(21);
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 var bind = __webpack_require__(7);
 var Axios = __webpack_require__(23);
 var defaults = __webpack_require__(5);
@@ -35605,7 +35605,7 @@ function isSlowBuffer (obj) {
 
 
 var defaults = __webpack_require__(5);
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 var InterceptorManager = __webpack_require__(32);
 var dispatchRequest = __webpack_require__(33);
 
@@ -35690,7 +35690,7 @@ module.exports = Axios;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -35770,7 +35770,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -35843,7 +35843,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -35903,7 +35903,7 @@ module.exports = function parseHeaders(headers) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -36021,7 +36021,7 @@ module.exports = btoa;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -36081,7 +36081,7 @@ module.exports = (
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -36140,7 +36140,7 @@ module.exports = InterceptorManager;
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 var transformData = __webpack_require__(34);
 var isCancel = __webpack_require__(11);
 var defaults = __webpack_require__(5);
@@ -36233,7 +36233,7 @@ module.exports = function dispatchRequest(config) {
 "use strict";
 
 
-var utils = __webpack_require__(0);
+var utils = __webpack_require__(3);
 
 /**
  * Transform the data for a request or a response
@@ -36397,14 +36397,7 @@ module.exports = function spread(callback) {
 /* 39 */
 /***/ (function(module, exports) {
 
-window.onload = function () {
-    if (this.scrollY !== 0) {
-        document.getElementById('mainnav').classList.add('backgroundWhite');
-        document.getElementById('menu').classList.add('hrefColor');
-    }
 
-    document.getElementById('mainnav').classList.add('navTransition');
-};
 
 /***/ }),
 /* 40 */
@@ -47644,7 +47637,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(44)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(47)
 /* template */
@@ -47697,7 +47690,7 @@ var content = __webpack_require__(45);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("49567510", content, false, {});
+var update = __webpack_require__(1)("49567510", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47716,12 +47709,12 @@ if(false) {
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n#mainnav[data-v-5ccadd49] {\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  background: transparent;\n  color: white;\n}\n@media (min-width: 1000px) {\n#mainnav .desktopNav[data-v-5ccadd49] {\n      height: 70px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      width: 100%;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n#mainnav .desktopNav .title[data-v-5ccadd49] {\n        text-align: center;\n        width: 30%;\n        font-size: 42px;\n}\n#mainnav .desktopNav .title .titleHref[data-v-5ccadd49] {\n          font-weight: 500;\n          color: #323a3d;\n          font-family: \"Roboto\", sans-serif;\n}\n#mainnav .desktopNav .menu[data-v-5ccadd49] {\n        width: 60%;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        margin-left: 4%;\n}\n#mainnav .desktopNav .menu .menuItem[data-v-5ccadd49] {\n          width: 50%;\n          font-size: 16px;\n          font-family: \"Roboto\", sans-serif;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49] {\n            color: inherit;\n            font-weight: 500;\n            -webkit-transition: color .2s ease-in-out;\n            transition: color .2s ease-in-out;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49]:hover {\n            color: #2684ba;\n}\n#mainnav .desktopNav .menu .menuItem[data-v-5ccadd49]:first-child {\n          margin-right: 10%;\n}\n}\n", ""]);
+exports.push([module.i, "\n#mainnav[data-v-5ccadd49] {\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  background: transparent;\n  color: white;\n}\n@media (min-width: 1000px) {\n#mainnav .desktopNav[data-v-5ccadd49] {\n      height: 70px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      width: 100%;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n#mainnav .desktopNav .title[data-v-5ccadd49] {\n        text-align: center;\n        width: 30%;\n}\n#mainnav .desktopNav .menu[data-v-5ccadd49] {\n        width: 60%;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        margin-left: 10%;\n}\n#mainnav .desktopNav .menu .menuItem[data-v-5ccadd49] {\n          width: 50%;\n          font-size: 16px;\n          font-family: \"Roboto\", sans-serif;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49] {\n            color: inherit;\n            font-weight: 500;\n            -webkit-transition: color .2s ease-in-out;\n            transition: color .2s ease-in-out;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49]:hover {\n            color: #2684ba;\n}\n}\n", ""]);
 
 // exports
 
@@ -47808,61 +47801,59 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("nav", { staticClass: "navTransition", attrs: { id: "mainnav" } }, [
+    _c("div", { staticClass: "desktopNav" }, [
+      _c("div", { staticClass: "title" }, [
+        _c("a", { staticClass: "titleHref", attrs: { href: "/" } }, [
+          _c("img", { attrs: { id: "imageNav", src: "/images/logowhite.png" } })
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "mobileNav" })
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("nav", { attrs: { id: "mainnav" } }, [
-      _c("div", { staticClass: "desktopNav" }, [
-        _c("div", { staticClass: "title" }, [
-          _c("a", { staticClass: "titleHref", attrs: { href: "/" } }, [
-            _vm._v("Electric Cars")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "menu", attrs: { id: "menu" } }, [
-          _c("div", { staticClass: "menuItem" }, [
-            _c(
-              "a",
-              { staticClass: "hrefNav", attrs: { href: "/announcements" } },
-              [_vm._v("Announcements")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "menuItem" }, [
-            _c("a", { staticClass: "hrefNav", attrs: { href: "#" } }, [
-              _vm._v("Sell")
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "menuItem", staticStyle: { "margin-right": "5%" } },
-            [
-              _c("a", { staticClass: "hrefNav", attrs: { href: "#" } }, [
-                _vm._v("Comparision")
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "menuItem" }, [
-            _c("a", { staticClass: "hrefNav", attrs: { href: "/cars" } }, [
-              _vm._v("Cars")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "menuItem" }, [
-            _c("a", { staticClass: "hrefNav", attrs: { href: "#" } }, [
-              _vm._v("Login")
-            ])
-          ])
+    return _c("div", { staticClass: "menu", attrs: { id: "menu" } }, [
+      _c("div", { staticClass: "menuItem" }, [
+        _c("a", { staticClass: "hrefNav", attrs: { href: "/adverts" } }, [
+          _vm._v("Adverts")
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "mobileNav" })
+      _c("div", { staticClass: "menuItem" }, [
+        _c("a", { staticClass: "hrefNav", attrs: { href: "#" } }, [
+          _vm._v("Sell")
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "menuItem", staticStyle: { "margin-right": "5%" } },
+        [
+          _c("a", { staticClass: "hrefNav", attrs: { href: "#" } }, [
+            _vm._v("Comparision")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "menuItem" }, [
+        _c("a", { staticClass: "hrefNav", attrs: { href: "/cars" } }, [
+          _vm._v("Cars")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "menuItem" }, [
+        _c("a", { staticClass: "hrefNav", attrs: { href: "#" } }, [
+          _vm._v("Login")
+        ])
+      ])
     ])
   }
 ]
@@ -47884,7 +47875,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(50)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(52)
 /* template */
@@ -47937,7 +47928,7 @@ var content = __webpack_require__(51);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("f4395668", content, false, {});
+var update = __webpack_require__(1)("f4395668", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47956,7 +47947,7 @@ if(false) {
 /* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -48116,7 +48107,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(55)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(57)
 /* template */
@@ -48169,7 +48160,7 @@ var content = __webpack_require__(56);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("26059af0", content, false, {});
+var update = __webpack_require__(1)("26059af0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48188,7 +48179,7 @@ if(false) {
 /* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -48268,7 +48259,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(60)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(62)
 /* template */
@@ -48321,7 +48312,7 @@ var content = __webpack_require__(61);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("06c303e4", content, false, {});
+var update = __webpack_require__(1)("06c303e4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48340,12 +48331,12 @@ if(false) {
 /* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48369,24 +48360,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     mounted: function mounted() {
+        var _this = this;
+
         //right scope
-        var self = this;
+        var toBlack = true;
+        var toWhite = false;
 
         window.addEventListener('scroll', function () {
             var scrollTop = $(window).scrollTop();
+            console.log(scrollTop);
+
             if (scrollTop !== 0) {
                 document.getElementById('mainnav').classList.add('backgroundWhite');
                 document.getElementById('menu').classList.add('hrefColor');
+
+                toWhite = true;
+                if (toBlack === true) {
+                    setTimeout(function () {
+                        document.getElementById('imageNav').src = "/images/nigga.png";
+                    }, 150);
+                    toBlack = false;
+                }
             }
             if (scrollTop === 0) {
                 document.getElementById('mainnav').classList.remove('backgroundWhite');
                 document.getElementById('menu').classList.remove('hrefColor');
+
+                toBlack = true;
+                if (toWhite === true) {
+                    setTimeout(function () {
+                        document.getElementById('imageNav').src = "/images/logowhite.png";
+                    }, 150);
+                    toWhite = false;
+                }
             }
 
             if (scrollTop > 600) {
-                self.show_scroll_top = true;
+                _this.show_scroll_top = true;
             } else {
-                self.show_scroll_top = false;
+                _this.show_scroll_top = false;
             }
         });
     }
@@ -48421,7 +48433,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(65)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(67)
 /* template */
@@ -48474,7 +48486,7 @@ var content = __webpack_require__(66);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("31df5f58", content, false, {});
+var update = __webpack_require__(1)("31df5f58", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48493,7 +48505,7 @@ if(false) {
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -48715,7 +48727,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(70)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(72)
 /* template */
@@ -48768,7 +48780,7 @@ var content = __webpack_require__(71);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("40d42107", content, false, {});
+var update = __webpack_require__(1)("40d42107", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48787,7 +48799,7 @@ if(false) {
 /* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -48856,7 +48868,7 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("h4", { staticClass: "headerNext" }, [
-                _vm._v("Here you can post you announcement for free!")
+                _vm._v("Here you can post you adverts for free!")
               ]),
               _vm._v(" "),
               _c("button", { staticClass: "saleButton" }, [_vm._v("Post")])
@@ -48885,7 +48897,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(75)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(77)
 /* template */
@@ -48938,7 +48950,7 @@ var content = __webpack_require__(76);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("f0af2e58", content, false, {});
+var update = __webpack_require__(1)("f0af2e58", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48957,7 +48969,7 @@ if(false) {
 /* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -49060,7 +49072,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "advertisements" }, [
-      _c("h1", { staticClass: "title" }, [_vm._v("Featured Announcements")]),
+      _c("h1", { staticClass: "title" }, [_vm._v("Featured Adverts")]),
       _vm._v(" "),
       _c("div", { staticClass: "featured" }, [
         _c("div", { staticClass: "advertisement" }, [
@@ -49183,7 +49195,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(80)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(82)
 /* template */
@@ -49236,7 +49248,7 @@ var content = __webpack_require__(81);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("29391d02", content, false, {});
+var update = __webpack_require__(1)("29391d02", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49255,7 +49267,7 @@ if(false) {
 /* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -49352,7 +49364,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(85)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(87)
 /* template */
@@ -49405,7 +49417,7 @@ var content = __webpack_require__(86);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("019cdefc", content, false, {});
+var update = __webpack_require__(1)("019cdefc", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49424,12 +49436,12 @@ if(false) {
 /* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.comparision[data-v-cab06b90] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(20, 28, 40, 0.4)), to(rgba(15, 25, 33, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(20, 28, 40, 0.4), rgba(15, 25, 33, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  position: relative;\n  padding: 5%;\n  color: #385d7a;\n}\n@media (min-width: 768px) {\n.comparision[data-v-cab06b90] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n}\n.comparision .description[data-v-cab06b90] {\n    color: white;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    font-family: \"Roboto\", sans-serif;\n    padding: 40px;\n}\n@media (min-width: 768px) {\n.comparision .description[data-v-cab06b90] {\n        width: 33%;\n        margin-left: 4%;\n}\n}\n.comparision .description .title[data-v-cab06b90] {\n      font-weight: 700;\n      text-transform: uppercase;\n}\n.comparision .description .compareText[data-v-cab06b90] {\n      color: #cccccc;\n      font-size: 16px;\n}\n.comparision .description .compareBtn[data-v-cab06b90] {\n      border: 0;\n      background: #eb5e57;\n      color: white;\n      border-radius: 2px;\n      padding: 10px 15px 10px 15px;\n      display: block;\n      margin-top: 20px;\n      cursor: pointer;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.comparision .description .compareBtn[data-v-cab06b90]:hover {\n      background: #ff6e69;\n}\n.comparision .description .compareBtn[data-v-cab06b90]:active, .comparision .description .compareBtn[data-v-cab06b90]:focus {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #444444;\n              box-shadow: 0 2px 4px #444444;\n}\n.comparision .imageContainer[data-v-cab06b90] {\n    padding: 40px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media (min-width: 768px) {\n.comparision .imageContainer[data-v-cab06b90] {\n        width: 63%;\n}\n}\n.comparision .imageContainer .image[data-v-cab06b90] {\n      width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.comparision[data-v-cab06b90] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 43, 46, 0.4)), to(rgba(52, 50, 51, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(43, 43, 46, 0.4), rgba(52, 50, 51, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  position: relative;\n  padding: 5%;\n  color: #385d7a;\n}\n@media (min-width: 768px) {\n.comparision[data-v-cab06b90] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n}\n.comparision .description[data-v-cab06b90] {\n    color: white;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    font-family: \"Roboto\", sans-serif;\n    padding: 40px;\n}\n@media (min-width: 768px) {\n.comparision .description[data-v-cab06b90] {\n        width: 33%;\n        margin-left: 4%;\n}\n}\n.comparision .description .title[data-v-cab06b90] {\n      font-weight: 700;\n      text-transform: uppercase;\n}\n.comparision .description .compareText[data-v-cab06b90] {\n      color: #cccccc;\n      font-size: 16px;\n}\n.comparision .description .compareBtn[data-v-cab06b90] {\n      border: 0;\n      background: #eb5e57;\n      color: white;\n      border-radius: 2px;\n      padding: 10px 15px 10px 15px;\n      display: block;\n      margin-top: 20px;\n      cursor: pointer;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.comparision .description .compareBtn[data-v-cab06b90]:hover {\n      background: #ff6e69;\n}\n.comparision .description .compareBtn[data-v-cab06b90]:active, .comparision .description .compareBtn[data-v-cab06b90]:focus {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #444444;\n              box-shadow: 0 2px 4px #444444;\n}\n.comparision .imageContainer[data-v-cab06b90] {\n    padding: 40px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n@media (min-width: 768px) {\n.comparision .imageContainer[data-v-cab06b90] {\n        width: 63%;\n}\n}\n.comparision .imageContainer .image[data-v-cab06b90] {\n      width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -49519,11 +49531,11 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(90)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(92)
 /* template */
-var __vue_template__ = __webpack_require__(93)
+var __vue_template__ = __webpack_require__(108)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -49572,7 +49584,7 @@ var content = __webpack_require__(91);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("09457a6c", content, false, {});
+var update = __webpack_require__(1)("09457a6c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49591,12 +49603,12 @@ if(false) {
 /* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  margin-bottom: 100px;\n}\n.wrapper .claim[data-v-1907b3ce] {\n    height: 30vh;\n    background: #1e2124;\n    text-transform: uppercase;\n    font-family: 'Overpass', sans-serif;\n    font-weight: bold;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    padding-bottom: 1%;\n    padding-left: 4%;\n}\n@media (min-width: 476px) {\n.wrapper .claim[data-v-1907b3ce] {\n        padding-left: 8%;\n}\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      -ms-flex-item-align: end;\n          align-self: flex-end;\n      font-weight: 700;\n      color: white;\n      font-size: 30px;\n}\n@media (min-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 40px;\n}\n}\n@media (min-width: 1000px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 44px;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n      font-weight: 600;\n}\n.wrapper .main[data-v-1907b3ce] {\n    margin-left: auto;\n    margin-right: auto;\n    font-family: \"Roboto\", sans-serif;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.wrapper .main[data-v-1907b3ce] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.wrapper .main[data-v-1907b3ce] {\n        width: 1170px;\n}\n}\n.wrapper .main .announcements[data-v-1907b3ce] {\n      padding-top: 50px;\n      -webkit-box-shadow: 0 1px 2px #b9bbbe;\n              box-shadow: 0 1px 2px #b9bbbe;\n      position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .main .announcements[data-v-1907b3ce] {\n          width: 70%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: white;\n}\n.wrapper .claim[data-v-1907b3ce] {\n    height: 30vh;\n    background: #1e2124;\n    text-transform: uppercase;\n    font-family: 'Overpass', sans-serif;\n    font-weight: bold;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    padding-bottom: 1%;\n    padding-left: 4%;\n}\n@media (min-width: 476px) {\n.wrapper .claim[data-v-1907b3ce] {\n        padding-left: 8%;\n}\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      -ms-flex-item-align: end;\n          align-self: flex-end;\n      font-weight: 700;\n      color: white;\n      font-size: 30px;\n}\n@media (min-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 40px;\n}\n}\n@media (min-width: 1000px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 44px;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n      font-weight: 600;\n}\n.wrapper .main[data-v-1907b3ce] {\n    margin-left: auto;\n    margin-right: auto;\n    font-family: \"Roboto\", sans-serif;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.wrapper .main[data-v-1907b3ce] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.wrapper .main[data-v-1907b3ce] {\n        width: 1170px;\n}\n}\n.wrapper .main .announcements[data-v-1907b3ce] {\n      background: #f8fafc;\n      padding-top: 50px;\n      position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .main .announcements[data-v-1907b3ce] {\n          width: 70%;\n}\n}\n", ""]);
 
 // exports
 
@@ -49607,11 +49619,11 @@ exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  margin-bottom: 100px;\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sortBy_vue__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sortBy_vue__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sortBy_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sortBy_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_vue__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_vue__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__settings_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__announcementsList_vue__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__announcementsList_vue__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__announcementsList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__announcementsList_vue__);
 //
 //
@@ -49660,926 +49672,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "wrapper" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "section",
-      { staticClass: "main" },
-      [
-        _c("settings"),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "announcements" },
-          [
-            _c("sort-by", { on: { changeView: _vm.changeView } }),
-            _vm._v(" "),
-            _c("announcements-list", { attrs: { viewType: _vm.viewType } })
-          ],
-          1
-        )
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "claim" }, [
-      _c("div", { staticClass: "mainTitle" }, [
-        _c("h1", { staticClass: "mainTitle" }, [_vm._v("Car announcements")]),
-        _vm._v(" "),
-        _c("h4", { staticClass: "subTitle" }, [_vm._v("123 vehicles to buy")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1907b3ce", module.exports)
-  }
-}
-
-/***/ }),
-/* 94 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(95)
+  __webpack_require__(94)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(97)
+var __vue_script__ = __webpack_require__(96)
 /* template */
-var __vue_template__ = __webpack_require__(98)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-68d246d4"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/cars/cars.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-68d246d4", Component.options)
-  } else {
-    hotAPI.reload("data-v-68d246d4", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(96);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("16bff282", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68d246d4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cars.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68d246d4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cars.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.claim[data-v-68d246d4] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(24, 71, 97, 0.4)), to(rgba(40, 91, 133, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(24, 71, 97, 0.4), rgba(40, 91, 133, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 50vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-weight: 500;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-68d246d4] {\n    font-size: 64px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-68d246d4] {\n        font-size: 52px;\n}\n}\n.claim .subTitle[data-v-68d246d4] {\n    color: #dddddd;\n}\n.cars[data-v-68d246d4] {\n  background: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 6%;\n  font-family: \"Roboto\", sans-serif;\n}\n@media (min-width: 476px) {\n.cars[data-v-68d246d4] {\n      padding: 8%;\n}\n}\n.cars .car[data-v-68d246d4] {\n    margin: 5% 0 5% 0;\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 768px) {\n.cars .car[data-v-68d246d4] {\n        width: 45%;\n        margin: 3% 1.5% 3% 1.5%;\n}\n}\n@media (min-width: 1000px) {\n.cars .car[data-v-68d246d4] {\n        width: 30%;\n}\n}\n.cars .car .image[data-v-68d246d4] {\n      width: 100%;\n      -webkit-transition: .3s opacity ease-in-out;\n      transition: .3s opacity ease-in-out;\n      -webkit-backface-visibility: hidden;\n      cursor: pointer;\n}\n.cars .car .image[data-v-68d246d4]:hover {\n      opacity: 0.7;\n}\n.cars .car .description[data-v-68d246d4] {\n      padding: 15px;\n}\n.cars .car .description .title[data-v-68d246d4] {\n        padding-top: 5px;\n        font-weight: 500;\n}\n.cars .car .description .title .href[data-v-68d246d4] {\n          color: #274053;\n}\n.cars .car .description .title .href[data-v-68d246d4]:hover {\n          color: #395d79;\n}\n.cars .car .description .text[data-v-68d246d4] {\n        padding-top: 5px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 97 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "cars"
-});
-
-/***/ }),
-/* 98 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("main", [
-      _c("section", { staticClass: "claim" }, [
-        _c("div", [
-          _c("h1", { staticClass: "mainTitle" }, [_vm._v("Cars")]),
-          _vm._v(" "),
-          _c("h3", { staticClass: "subTitle" }, [
-            _vm._v("Find out more about electric cars")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "cars" }, [
-        _c("div", { staticClass: "car" }, [
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/nissanleaf.jpg" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "description" }, [
-            _c("div", [
-              _c("h3", { staticClass: "title" }, [
-                _c("a", { staticClass: "href", attrs: { href: "#" } }, [
-                  _vm._v("Nissan Leaf")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text" }, [
-              _vm._v(
-                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "car" }, [
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/nissanleaf.jpg" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "description" }, [
-            _c("div", [
-              _c("h3", { staticClass: "title" }, [
-                _c("a", { staticClass: "href", attrs: { href: "#" } }, [
-                  _vm._v("Nissan Leaf")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text" }, [
-              _vm._v(
-                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "car" }, [
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/nissanleaf.jpg" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "description" }, [
-            _c("div", [
-              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text" }, [
-              _vm._v(
-                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "car" }, [
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/nissanleaf.jpg" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "description" }, [
-            _c("div", [
-              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text" }, [
-              _vm._v(
-                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "car" }, [
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/nissanleaf.jpg" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "description" }, [
-            _c("div", [
-              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text" }, [
-              _vm._v(
-                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "car" }, [
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/nissanleaf.jpg" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "description" }, [
-            _c("div", [
-              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text" }, [
-              _vm._v(
-                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "car" }, [
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/nissanleaf.jpg" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "description" }, [
-            _c("div", [
-              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text" }, [
-              _vm._v(
-                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "car" }, [
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/nissanleaf.jpg" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "description" }, [
-            _c("div", [
-              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text" }, [
-              _vm._v(
-                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                    lobortis dignissim, pulvinar ac, lorem.\n\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-68d246d4", module.exports)
-  }
-}
-
-/***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(100)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(102)
-/* template */
-var __vue_template__ = __webpack_require__(103)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-0b85602f"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/cars/car.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0b85602f", Component.options)
-  } else {
-    hotAPI.reload("data-v-0b85602f", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 100 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(101);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("a143206c", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b85602f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./car.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b85602f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./car.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.claim[data-v-0b85602f] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(226, 62, 76, 0.4)), to(rgba(226, 48, 60, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(226, 62, 76, 0.4), rgba(226, 48, 60, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 50vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-weight: 500;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-0b85602f] {\n    font-size: 64px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-0b85602f] {\n        font-size: 52px;\n}\n}\n.claim .subTitle[data-v-0b85602f] {\n    color: #dddddd;\n}\n.wrapper[data-v-0b85602f] {\n  padding: 5%;\n  font-family: \"Roboto\", sans-serif;\n  position: relative;\n}\n@media (min-width: 768px) {\n.wrapper[data-v-0b85602f] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n}\n@media (min-width: 476px) {\n.wrapper[data-v-0b85602f] {\n      padding: 7%;\n}\n}\n.wrapper .info[data-v-0b85602f] {\n    -webkit-box-shadow: 0px 1px 2px #b9bbbe;\n            box-shadow: 0px 1px 2px #b9bbbe;\n}\n@media (max-width: 768px) {\n.wrapper .info[data-v-0b85602f] {\n        margin-bottom: 30px;\n}\n}\n@media (min-width: 1000px) {\n.wrapper .info[data-v-0b85602f] {\n        width: 33%;\n}\n}\n.wrapper .info .image[data-v-0b85602f] {\n      width: 100%;\n}\n.wrapper .description[data-v-0b85602f] {\n    -webkit-box-shadow: 0px 1px 2px #b9bbbe;\n            box-shadow: 0px 1px 2px #b9bbbe;\n    padding: 2.5%;\n}\n@media (min-width: 1000px) {\n.wrapper .description[data-v-0b85602f] {\n        width: 66%;\n}\n}\n.wrapper .description .mainTitle[data-v-0b85602f] {\n      color: #602a29;\n      font-weight: 500;\n      font-size: 42px;\n      padding-bottom: 10px;\n}\n.wrapper .description .text .subtitle[data-v-0b85602f] {\n      color: #602a29;\n      padding-top: 5px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 102 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "car"
-});
-
-/***/ }),
-/* 103 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("main", [
-      _c("section", { staticClass: "claim" }, [
-        _c("div", [
-          _c("h1", { staticClass: "mainTitle" }, [_vm._v("Nissan Leaf")]),
-          _vm._v(" "),
-          _c("h3", { staticClass: "subTitle" }, [
-            _vm._v("New Nissan Leaf. Zero Emission.")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "wrapper" }, [
-        _c("section", { staticClass: "info" }, [
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/nissanleaf.jpg" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "description" }, [
-          _c("h1", { staticClass: "mainTitle" }, [_vm._v("Nissan Leaf")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "text" }, [
-            _c("h5", { staticClass: "subtitle" }, [
-              _vm._v("Chińska Venucia e30")
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Prototyp auta został oparty na platformie Nissana Tiidy (Nissan Versa w USA i Kanadzie).\n                Zaprezentowano go 26 lipca 2009. Tydzień później przedstawiono wersję produkcyjną.\n\n                "
-              )
-            ]),
-            _c("p", [
-              _vm._v(
-                "Po raz pierwszy został zaprezentowany jako auto koncepcyjne na targach motoryzacyjnych Tokyo Motor\n                Show 9 października 2009 roku. Wersja produkcyjna zadebiutowała 16 grudnia 2010 roku. Magazyn\n                Time uznał auto za jeden z 50 najlepszych wynalazków roku 2009. Cena auta w 2010 roku wynosiła ok.\n                30 tys. euro. Samochód produkowany jest w japońskich zakładach w Oppama, od stycznia 2013 roku w\n                amerykańskich zakładach w Smyrna w stanie Tennessee, a od marca 2013 roku również w Sunderland w\n                Wielkiej Brytanii. Do sierpnia 2017 roku Nissan sprzedał na świecie 283 tys. egzemplarzy."
-              )
-            ]),
-            _vm._v(" "),
-            _c("h5", { staticClass: "subtitle" }, [_vm._v("Silnik")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Leaf jest napędzany silnikiem elektrycznym o mocy 80 kW/109 KM w zakresie 2730-9800 obr/min i\n                momencie obrotowym 280 Nm w zakresie 0-2730 obr/min. Zasięg samochodu wynosi 160 km, masa ok. 1540\n                kg. Auto w wersji Eu rozwija prędkość ograniczoną do 145 km/h. Przyspieszenie 0-100 km/h trwa 11,9\n                s, choć w praktyce często trwa to krócej o 1 s i wynosi około 10,5 s. W I połowie 2013 roku nieco\n                zmodernizowano napęd, mniejszy moment obrotowy 254 Nm jest osiągany w zakresie 0-3000 obr/min, moc\n                109 KM dostępna jest w zakresie 3000-10000 obr/min, przyspieszenie do 100 km/h wynosi 10,8 s, nieco\n                    zwiększono zasięg (do ok. 200 km)."
-              )
-            ]),
-            _vm._v(" "),
-            _c("h5", { staticClass: "subtitle" }, [_vm._v("Nagrody")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Nissan Leaf zdobył dwie prestiżowe nagrody. Model został ogłoszony Światowym Samochodem Roku 2011\n                oraz zwyciężył także w europejskim konkursie Car Of The Year, będąc tym samym pierwszym samochodem\n                    elektrycznym, który otrzymał ten tytuł."
-              )
-            ]),
-            _vm._v(" "),
-            _c("h5", { staticClass: "subtitle" }, [_vm._v("Modernizacja")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                'Około 2 lata po wprowadzeniu na rynek Leaf przechodzi facelifting, który obejmuje szereg ulepszeń.\n                Według producenta druga generacja wozu, to ponad 100 modyfikacji w stosunku do wcześniejszego\n                modelu. Udoskonalenia obejmują technologie zapewniające większy realny zasięg, wyższy poziom\n                zdatności do recyklingu, więcej przestrzeni w kabinie, wyższą efektywność ładowania, lepsze\n                wyposażenie oraz trzy dostępne wersje i większy wybór opcji modelu. Zmiany stylistyczne są subtelne,\n                ale dzięki delikatnemu przestylizowaniu przodu auta, obniżono jego i tak niską sprawność\n                aerodynamiczną. Najważniejsza zmiana to nowy, lżejszy elektryczny układ napędowy oraz\n                    wprowadzenie nowej wersji "S", bardziej przystępnej cenowo.'
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Zmieniony Leaf został zaprezentowany w Japonii, ale podobne uaktualnienia pojawią się w\n                północnoamerykańskiej odmianie, która dodatkowo już nie będzie importowana z Japonii, ale będzie\n                budowana w fabryce w miejscowości Smyrna w stanie Tennessee. Produkcja rozpoczęła się w styczniu\n                    2013 r., a do sprzedaży trafił w marcu 2013 roku."
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Elektryczny układ napędowy dostał nowe lub przeprojektowane elementy zaczynając od nowego silnika\n                elektrycznego. Ten będzie w przyszłości montowany w hybrydowych i elektrycznych samochodach spółki\n                Renault-Nissan. Według Nissana, bardziej przyjazny dla środowiska silnik zmniejsza wykorzystanie\n                dysprozu (Dy), metalu ziem rzadkich (RE) o 40% w porównaniu do konwencjonalnego silnika EV. Japoński\n                producent mówi również, że nowy zintegrowany silnik elektryczny i konwerter DC/DC spowodowały\n                10-procentową redukcję masy i 30-procentową redukcję objętości. Dzięki wykorzystaniu usprawnionego\n                modułu baterii i jeszcze kilku lekkich elementów nowy Leaf jest lżejszy o 80 kg. Dodatkowo Nissan\n                przeniósł urządzenie do ładowania akumulatorów z tylnej do przedniej części auta. Dzięki temu\n                zwiększyła się przestrzeń bagażowa z 330 do 370 litrów. Inne zmiany obejmują mniejsze zużycie\n                energii, bardziej efektywne regeneracyjne hamulce, zwiększenie zasięgu do 228 km z 142 według\n                japońskiego trybu JC08. Dodano również takie funkcje jak Hill Start Assist, nowy energooszczędny\n                system audio firmy Bose, poprawione wykończenie wnętrza, pojawią się nowe kolory nadwozia: Metal\n                    Dark Gray, Brilliant White Pearl i białe i nowe wzory felg aluminiowych."
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0b85602f", module.exports)
-  }
-}
-
-/***/ }),
-/* 104 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(113)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(111)
-/* template */
-var __vue_template__ = __webpack_require__(112)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-e2df705e"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/announcements/settings.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-e2df705e", Component.options)
-  } else {
-    hotAPI.reload("data-v-e2df705e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 109 */,
-/* 110 */,
-/* 111 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "settings"
-});
-
-/***/ }),
-/* 112 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "settings" })
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-e2df705e", module.exports)
-  }
-}
-
-/***/ }),
-/* 113 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(114);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(2)("33552686", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e2df705e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./settings.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e2df705e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./settings.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 114 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  padding-top: 100px;\n  background: white;\n  -webkit-box-shadow: 0px 1px 2px #b9bbbe;\n          box-shadow: 0px 1px 2px #b9bbbe;\n}\n@media (min-width: 1000px) {\n.settings[data-v-e2df705e] {\n      width: 30%;\n}\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 115 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(116)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(118)
-/* template */
-var __vue_template__ = __webpack_require__(119)
+var __vue_template__ = __webpack_require__(97)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -50618,17 +49720,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 116 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(117);
+var content = __webpack_require__(95);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("075df274", content, false, {});
+var update = __webpack_require__(1)("075df274", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -50644,21 +49746,21 @@ if(false) {
 }
 
 /***/ }),
-/* 117 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 5px;\n      margin-right: 5px;\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n}\n@media (max-width: 1000px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      background: #dfdfdf;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #dfdfdf;\n}\n.input[data-v-5e04827a] {\n  padding: 10px;\n  background: white;\n  cursor: pointer;\n  border: 1px solid #efefef;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
+exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 5px;\n      margin-right: 5px;\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n}\n@media (max-width: 476px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      background: #dfdfdf;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #dfdfdf;\n}\n.input[data-v-5e04827a] {\n  padding: 10px;\n  background: white;\n  cursor: pointer;\n  border: 1px solid #efefef;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 118 */
+/* 96 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50717,7 +49819,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 119 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -50804,19 +49906,266 @@ if (false) {
 }
 
 /***/ }),
-/* 120 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(121)
+  __webpack_require__(99)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(123)
+var __vue_script__ = __webpack_require__(101)
 /* template */
-var __vue_template__ = __webpack_require__(124)
+var __vue_template__ = __webpack_require__(102)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-e2df705e"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/announcements/settings.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-e2df705e", Component.options)
+  } else {
+    hotAPI.reload("data-v-e2df705e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(100);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("33552686", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e2df705e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./settings.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e2df705e\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./settings.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  padding-top: 60px;\n  background: white;\n}\n@media (min-width: 1000px) {\n.settings[data-v-e2df705e] {\n      width: 30%;\n}\n}\n.settings .setting[data-v-e2df705e] {\n    margin: 15px;\n    position: relative;\n}\n.settings .setting .showOption[data-v-e2df705e] {\n      width: 25px;\n      height: 25px;\n      border: 1px solid #aaaaaa;\n      font-size: 20px;\n      line-height: 60%;\n      padding-top: -100px;\n      color: #666666;\n      background: white;\n      font-family: \"Nunito\", sans-serif;\n      position: absolute;\n      right: 0;\n      top: 0;\n}\n.settings .setting .showOption .iconPlus[data-v-e2df705e] {\n        margin-top: -2px;\n}\n.settings .setting .showOption .iconMinus[data-v-e2df705e] {\n        margin-top: -10px;\n}\n.settings .setting .showOption[data-v-e2df705e]:focus, .settings .setting .showOption[data-v-e2df705e]:active {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #eeeeee;\n              box-shadow: 0 2px 4px #eeeeee;\n}\n.settings .setting .settingContent[data-v-e2df705e] {\n      padding: 15px 5px 5px 5px;\n      font-size: 16px;\n      position: relative;\n}\n.settings .setting .settingName[data-v-e2df705e] {\n      text-transform: uppercase;\n      font-weight: 500;\n      font-size: 16px;\n      color: #444444;\n}\n\n/*Checkboxes styles*/\ninput[type=\"checkbox\"][data-v-e2df705e] {\n  display: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e] {\n  display: block;\n  position: relative;\n  padding-left: 35px;\n  margin-bottom: 20px;\n  cursor: pointer;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:last-child {\n  margin-bottom: 0;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:before {\n  content: '';\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 2px solid #426274;\n  position: absolute;\n  left: 0;\n  top: 2px;\n  -webkit-transition: all .12s, border-color .08s;\n  transition: all .12s, border-color .08s;\n}\ninput[type=\"checkbox\"]:checked + label[data-v-e2df705e]:before {\n  width: 10px;\n  top: -2px;\n  left: 5px;\n  border-radius: 0;\n  opacity: 1;\n  border-top-color: transparent;\n  border-left-color: transparent;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 101 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "settings",
+    methods: {
+        submitMethod: function submitMethod() {
+            alert('xd');
+        },
+        showSetting: function showSetting(event) {
+            var innerHTML = event.target.innerHTML;
+
+            if (innerHTML === '+') {
+                event.target.innerHTML = '-';
+            } else {
+                event.target.innerHTML = '+';
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "settings" }, [
+    _c("form", { on: { submit: _vm.submitMethod } }, [
+      _c("div", { staticClass: "setting" }, [
+        _c("div", { staticClass: "settingName" }, [_vm._v("Condition")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "showOption",
+            attrs: {
+              type: "button",
+              "data-toggle": "collapse",
+              "data-target": "#conditionSetting",
+              "aria-expanded": "false",
+              "aria-controls": "collapseExample"
+            },
+            on: { click: _vm.showSetting }
+          },
+          [_vm._v("-\n            ")]
+        ),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "collapse show", attrs: { id: "conditionSetting" } },
+      [
+        _c("div", { staticClass: "settingContent" }, [
+          _c("input", {
+            attrs: {
+              id: "conditionAny",
+              type: "checkbox",
+              name: "condition",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "conditionAny" } }, [_vm._v("Any")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "conditionNew",
+              type: "checkbox",
+              name: "condition",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "conditionNew" } }, [_vm._v("New")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "conditionUsed",
+              type: "checkbox",
+              name: "condition",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "conditionUsed" } }, [_vm._v("Used")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "conditionCertified",
+              type: "checkbox",
+              name: "condition",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "conditionCertified" } }, [
+            _vm._v("Certified Pre-Owned")
+          ])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-e2df705e", module.exports)
+  }
+}
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(104)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(106)
+/* template */
+var __vue_template__ = __webpack_require__(107)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -50855,17 +50204,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 121 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(122);
+var content = __webpack_require__(105);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("22759f4b", content, false, {});
+var update = __webpack_require__(1)("22759f4b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -50881,25 +50230,63 @@ if(false) {
 }
 
 /***/ }),
-/* 122 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 1px 2px #efefef;\n            box-shadow: 0 1px 2px #efefef;\n    width: 100%;\n    margin-bottom: 40px;\n    background: white;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.listView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 15px;\n      word-wrap: break-word;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n.listView .announcement .utilities .price[data-v-c50082e8] {\n        display: block;\n        margin-top: 10px;\n        font-weight: 500;\n        font-size: 18px;\n        color: #a12932;\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1%;\n}\n.gridView .announcement[data-v-c50082e8] {\n    width: 30.33%;\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #efefef;\n            box-shadow: 0 1px 2px #efefef;\n    margin: 1.5%;\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.gridView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.gridView .announcement .utilities .price[data-v-c50082e8] {\n        display: block;\n        margin-top: 10px;\n        font-weight: 500;\n        font-size: 18px;\n        color: #a12932;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .3s opacity ease-in-out;\n  transition: .3s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    width: 100%;\n    margin-bottom: 40px;\n    background: white;\n    border-radius: 4px;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 4px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.listView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      font-family: \"Overpass\", sans-serif;\n      padding: 15px;\n      word-wrap: break-word;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1%;\n}\n.gridView .announcement[data-v-c50082e8] {\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    margin: 1.5%;\n    border-radius: 4px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.gridView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      font-family: \"Overpass\", sans-serif;\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  margin-top: 10px;\n  font-weight: 700;\n  font-size: 18px;\n  color: #a12932;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 123 */
+/* 106 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -51009,7 +50396,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 124 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51022,6 +50409,90 @@ var render = function() {
       _c("transition", { attrs: { name: "fade" } }, [
         _vm.viewType === "list"
           ? _c("div", { staticClass: "listView" }, [
+              _c("article", [
+                _c("div", { staticClass: "announcement" }, [
+                  _c("div", { staticClass: "imageContainer" }, [
+                    _c("img", {
+                      staticClass: "image",
+                      attrs: { src: "/images/cars/nissanleaf.jpg" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "info" }, [
+                    _c("h5", { staticClass: "title" }, [
+                      _vm._v("New Nissan Leaf 2017 LTZ CPZ")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "subtitle" }, [_vm._v("Type")]),
+                    _vm._v(" Electric\n                        "),
+                    _c("br"),
+                    _c("span", { staticClass: "subtitle" }, [
+                      _vm._v("Mileage")
+                    ]),
+                    _vm._v(" 10234 KM\n                        "),
+                    _c("span", { staticClass: "description" }, [
+                      _vm._v(
+                        "Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD"
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "utilities" }, [
+                    _c("i", { staticClass: "icon-phone" }, [
+                      _vm._v("123 435 235")
+                    ]),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "icon-mail" }, [
+                      _vm._v("pzdziarski.2001@gmail.com")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "price" }, [_vm._v("$14000")])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("article", [
+                _c("div", { staticClass: "announcement" }, [
+                  _c("div", { staticClass: "imageContainer" }, [
+                    _c("img", {
+                      staticClass: "image",
+                      attrs: { src: "/images/cars/nissanleaf.jpg" }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "info" }, [
+                    _c("h5", { staticClass: "title" }, [
+                      _vm._v("New Nissan Leaf 2017 LTZ CPZ")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "subtitle" }, [_vm._v("Type")]),
+                    _vm._v(" Electric\n                        "),
+                    _c("br"),
+                    _c("span", { staticClass: "subtitle" }, [
+                      _vm._v("Mileage")
+                    ]),
+                    _vm._v(" 10234 KM\n                        "),
+                    _c("span", { staticClass: "description" }, [
+                      _vm._v(
+                        "Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD"
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "utilities" }, [
+                    _c("i", { staticClass: "icon-phone" }, [
+                      _vm._v("123 435 235")
+                    ]),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "icon-mail" }, [
+                      _vm._v("pzdziarski.2001@gmail.com")
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "price" }, [_vm._v("$14000")])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
               _c("article", [
                 _c("div", { staticClass: "announcement" }, [
                   _c("div", { staticClass: "imageContainer" }, [
@@ -51237,6 +50708,785 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-c50082e8", module.exports)
   }
 }
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "wrapper" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "section",
+      { staticClass: "main" },
+      [
+        _c("settings"),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "announcements" },
+          [
+            _c("sort-by", { on: { changeView: _vm.changeView } }),
+            _vm._v(" "),
+            _c("announcements-list", { attrs: { viewType: _vm.viewType } })
+          ],
+          1
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "claim" }, [
+      _c("div", { staticClass: "mainTitle" }, [
+        _c("h1", { staticClass: "mainTitle" }, [
+          _vm._v("Electric car adverts")
+        ]),
+        _vm._v(" "),
+        _c("h4", { staticClass: "subTitle" }, [_vm._v("123 vehicles to buy")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1907b3ce", module.exports)
+  }
+}
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(110)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(112)
+/* template */
+var __vue_template__ = __webpack_require__(113)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-68d246d4"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/cars/cars.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-68d246d4", Component.options)
+  } else {
+    hotAPI.reload("data-v-68d246d4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(111);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("16bff282", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68d246d4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cars.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-68d246d4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./cars.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.claim[data-v-68d246d4] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(24, 71, 97, 0.4)), to(rgba(40, 91, 133, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(24, 71, 97, 0.4), rgba(40, 91, 133, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 50vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-weight: 500;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-68d246d4] {\n    font-size: 64px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-68d246d4] {\n        font-size: 52px;\n}\n}\n.claim .subTitle[data-v-68d246d4] {\n    color: #dddddd;\n}\n.cars[data-v-68d246d4] {\n  background: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 6%;\n  font-family: \"Roboto\", sans-serif;\n}\n@media (min-width: 476px) {\n.cars[data-v-68d246d4] {\n      padding: 8%;\n}\n}\n.cars .car[data-v-68d246d4] {\n    margin: 5% 0 5% 0;\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 768px) {\n.cars .car[data-v-68d246d4] {\n        width: 45%;\n        margin: 3% 1.5% 3% 1.5%;\n}\n}\n@media (min-width: 1000px) {\n.cars .car[data-v-68d246d4] {\n        width: 30%;\n}\n}\n.cars .car .image[data-v-68d246d4] {\n      width: 100%;\n      -webkit-transition: .3s opacity ease-in-out;\n      transition: .3s opacity ease-in-out;\n      -webkit-backface-visibility: hidden;\n      cursor: pointer;\n}\n.cars .car .image[data-v-68d246d4]:hover {\n      opacity: 0.7;\n}\n.cars .car .description[data-v-68d246d4] {\n      padding: 15px;\n}\n.cars .car .description .title[data-v-68d246d4] {\n        padding-top: 5px;\n        font-weight: 500;\n}\n.cars .car .description .title .href[data-v-68d246d4] {\n          color: #274053;\n}\n.cars .car .description .title .href[data-v-68d246d4]:hover {\n          color: #395d79;\n}\n.cars .car .description .text[data-v-68d246d4] {\n        padding-top: 5px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 112 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "cars"
+});
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("main", [
+      _c("section", { staticClass: "claim" }, [
+        _c("div", [
+          _c("h1", { staticClass: "mainTitle" }, [_vm._v("Cars")]),
+          _vm._v(" "),
+          _c("h3", { staticClass: "subTitle" }, [
+            _vm._v("Find out more about electric cars")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "cars" }, [
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [
+                _c("a", { staticClass: "href", attrs: { href: "#" } }, [
+                  _vm._v("Nissan Leaf")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [
+                _c("a", { staticClass: "href", attrs: { href: "#" } }, [
+                  _vm._v("Nissan Leaf")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "car" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "description" }, [
+            _c("div", [
+              _c("h3", { staticClass: "title" }, [_vm._v("Nissan Leaf")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text" }, [
+              _vm._v(
+                "\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                    Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod\n                    in,auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis,\n                    lobortis dignissim, pulvinar ac, lorem.\n                    lobortis dignissim, pulvinar ac, lorem.\n\n                "
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-68d246d4", module.exports)
+  }
+}
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(115)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(117)
+/* template */
+var __vue_template__ = __webpack_require__(118)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-0b85602f"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/cars/car.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0b85602f", Component.options)
+  } else {
+    hotAPI.reload("data-v-0b85602f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(116);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("a143206c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b85602f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./car.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0b85602f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./car.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.claim[data-v-0b85602f] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(226, 62, 76, 0.4)), to(rgba(226, 48, 60, 0.4))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(226, 62, 76, 0.4), rgba(226, 48, 60, 0.4)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 50vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-weight: 500;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-0b85602f] {\n    font-size: 64px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-0b85602f] {\n        font-size: 52px;\n}\n}\n.claim .subTitle[data-v-0b85602f] {\n    color: #dddddd;\n}\n.wrapper[data-v-0b85602f] {\n  padding: 5%;\n  font-family: \"Roboto\", sans-serif;\n  position: relative;\n}\n@media (min-width: 768px) {\n.wrapper[data-v-0b85602f] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n}\n}\n@media (min-width: 476px) {\n.wrapper[data-v-0b85602f] {\n      padding: 7%;\n}\n}\n.wrapper .info[data-v-0b85602f] {\n    -webkit-box-shadow: 0px 1px 2px #b9bbbe;\n            box-shadow: 0px 1px 2px #b9bbbe;\n}\n@media (max-width: 768px) {\n.wrapper .info[data-v-0b85602f] {\n        margin-bottom: 30px;\n}\n}\n@media (min-width: 1000px) {\n.wrapper .info[data-v-0b85602f] {\n        width: 33%;\n}\n}\n.wrapper .info .image[data-v-0b85602f] {\n      width: 100%;\n}\n.wrapper .description[data-v-0b85602f] {\n    -webkit-box-shadow: 0px 1px 2px #b9bbbe;\n            box-shadow: 0px 1px 2px #b9bbbe;\n    padding: 2.5%;\n}\n@media (min-width: 1000px) {\n.wrapper .description[data-v-0b85602f] {\n        width: 66%;\n}\n}\n.wrapper .description .mainTitle[data-v-0b85602f] {\n      color: #602a29;\n      font-weight: 500;\n      font-size: 42px;\n      padding-bottom: 10px;\n}\n.wrapper .description .text .subtitle[data-v-0b85602f] {\n      color: #602a29;\n      padding-top: 5px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 117 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "car"
+});
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("main", [
+      _c("section", { staticClass: "claim" }, [
+        _c("div", [
+          _c("h1", { staticClass: "mainTitle" }, [_vm._v("Nissan Leaf")]),
+          _vm._v(" "),
+          _c("h3", { staticClass: "subTitle" }, [
+            _vm._v("New Nissan Leaf. Zero Emission.")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "wrapper" }, [
+        _c("section", { staticClass: "info" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("section", { staticClass: "description" }, [
+          _c("h1", { staticClass: "mainTitle" }, [_vm._v("Nissan Leaf")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text" }, [
+            _c("h5", { staticClass: "subtitle" }, [
+              _vm._v("Chińska Venucia e30")
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Prototyp auta został oparty na platformie Nissana Tiidy (Nissan Versa w USA i Kanadzie).\n                Zaprezentowano go 26 lipca 2009. Tydzień później przedstawiono wersję produkcyjną.\n\n                "
+              )
+            ]),
+            _c("p", [
+              _vm._v(
+                "Po raz pierwszy został zaprezentowany jako auto koncepcyjne na targach motoryzacyjnych Tokyo Motor\n                Show 9 października 2009 roku. Wersja produkcyjna zadebiutowała 16 grudnia 2010 roku. Magazyn\n                Time uznał auto za jeden z 50 najlepszych wynalazków roku 2009. Cena auta w 2010 roku wynosiła ok.\n                30 tys. euro. Samochód produkowany jest w japońskich zakładach w Oppama, od stycznia 2013 roku w\n                amerykańskich zakładach w Smyrna w stanie Tennessee, a od marca 2013 roku również w Sunderland w\n                Wielkiej Brytanii. Do sierpnia 2017 roku Nissan sprzedał na świecie 283 tys. egzemplarzy."
+              )
+            ]),
+            _vm._v(" "),
+            _c("h5", { staticClass: "subtitle" }, [_vm._v("Silnik")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Leaf jest napędzany silnikiem elektrycznym o mocy 80 kW/109 KM w zakresie 2730-9800 obr/min i\n                momencie obrotowym 280 Nm w zakresie 0-2730 obr/min. Zasięg samochodu wynosi 160 km, masa ok. 1540\n                kg. Auto w wersji Eu rozwija prędkość ograniczoną do 145 km/h. Przyspieszenie 0-100 km/h trwa 11,9\n                s, choć w praktyce często trwa to krócej o 1 s i wynosi około 10,5 s. W I połowie 2013 roku nieco\n                zmodernizowano napęd, mniejszy moment obrotowy 254 Nm jest osiągany w zakresie 0-3000 obr/min, moc\n                109 KM dostępna jest w zakresie 3000-10000 obr/min, przyspieszenie do 100 km/h wynosi 10,8 s, nieco\n                    zwiększono zasięg (do ok. 200 km)."
+              )
+            ]),
+            _vm._v(" "),
+            _c("h5", { staticClass: "subtitle" }, [_vm._v("Nagrody")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Nissan Leaf zdobył dwie prestiżowe nagrody. Model został ogłoszony Światowym Samochodem Roku 2011\n                oraz zwyciężył także w europejskim konkursie Car Of The Year, będąc tym samym pierwszym samochodem\n                    elektrycznym, który otrzymał ten tytuł."
+              )
+            ]),
+            _vm._v(" "),
+            _c("h5", { staticClass: "subtitle" }, [_vm._v("Modernizacja")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                'Około 2 lata po wprowadzeniu na rynek Leaf przechodzi facelifting, który obejmuje szereg ulepszeń.\n                Według producenta druga generacja wozu, to ponad 100 modyfikacji w stosunku do wcześniejszego\n                modelu. Udoskonalenia obejmują technologie zapewniające większy realny zasięg, wyższy poziom\n                zdatności do recyklingu, więcej przestrzeni w kabinie, wyższą efektywność ładowania, lepsze\n                wyposażenie oraz trzy dostępne wersje i większy wybór opcji modelu. Zmiany stylistyczne są subtelne,\n                ale dzięki delikatnemu przestylizowaniu przodu auta, obniżono jego i tak niską sprawność\n                aerodynamiczną. Najważniejsza zmiana to nowy, lżejszy elektryczny układ napędowy oraz\n                    wprowadzenie nowej wersji "S", bardziej przystępnej cenowo.'
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Zmieniony Leaf został zaprezentowany w Japonii, ale podobne uaktualnienia pojawią się w\n                północnoamerykańskiej odmianie, która dodatkowo już nie będzie importowana z Japonii, ale będzie\n                budowana w fabryce w miejscowości Smyrna w stanie Tennessee. Produkcja rozpoczęła się w styczniu\n                    2013 r., a do sprzedaży trafił w marcu 2013 roku."
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Elektryczny układ napędowy dostał nowe lub przeprojektowane elementy zaczynając od nowego silnika\n                elektrycznego. Ten będzie w przyszłości montowany w hybrydowych i elektrycznych samochodach spółki\n                Renault-Nissan. Według Nissana, bardziej przyjazny dla środowiska silnik zmniejsza wykorzystanie\n                dysprozu (Dy), metalu ziem rzadkich (RE) o 40% w porównaniu do konwencjonalnego silnika EV. Japoński\n                producent mówi również, że nowy zintegrowany silnik elektryczny i konwerter DC/DC spowodowały\n                10-procentową redukcję masy i 30-procentową redukcję objętości. Dzięki wykorzystaniu usprawnionego\n                modułu baterii i jeszcze kilku lekkich elementów nowy Leaf jest lżejszy o 80 kg. Dodatkowo Nissan\n                przeniósł urządzenie do ładowania akumulatorów z tylnej do przedniej części auta. Dzięki temu\n                zwiększyła się przestrzeń bagażowa z 330 do 370 litrów. Inne zmiany obejmują mniejsze zużycie\n                energii, bardziej efektywne regeneracyjne hamulce, zwiększenie zasięgu do 228 km z 142 według\n                japońskiego trybu JC08. Dodano również takie funkcje jak Hill Start Assist, nowy energooszczędny\n                system audio firmy Bose, poprawione wykończenie wnętrza, pojawią się nowe kolory nadwozia: Metal\n                    Dark Gray, Brilliant White Pearl i białe i nowe wzory felg aluminiowych."
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0b85602f", module.exports)
+  }
+}
+
+/***/ }),
+/* 119 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

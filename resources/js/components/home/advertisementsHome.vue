@@ -1,6 +1,6 @@
 <template>
     <section class="advertisements">
-        <h1 class="title">Featured Announcements</h1>
+        <h1 class="title">Featured Adverts</h1>
         <div class="featured">
 
             <div class="advertisement">
@@ -80,7 +80,7 @@
             margin-top: 175px;
         }
         width: 100%;
-        background-image: url("/images/advertisementsHome.jpg");
+        background-image:url("/images/advertisementsHome.jpg");
         background-attachment: fixed;
         background-size: cover;
         background-position: 50%;
