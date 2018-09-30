@@ -3,15 +3,17 @@
         <div @click="showSidebar" id="settingButton" class="settingButton">
             <i class="icon-search"></i>
         </div>
-        <form class="settingForm">
-            <div class="setting">
-                <div class="settingContent">
-                    <input class="textInput" type="text" placeholder="Search for...">
+        <div class="nonScroll">
+            <form>
+                <div class="setting searchingSetting">
+                    <div class="settingContent">
+                        <input class="textInput" type="text" placeholder="Search for...">
+                    </div>
                 </div>
+            </form>
+            <div class="advancedSearching">
+                Advanced Searching
             </div>
-        </form>
-        <div class="advancedSearching">
-            Advanced Searching
         </div>
         <form @submit="submitMethod" class="settingForm">
             <div class="setting">
@@ -118,7 +120,8 @@
                         <input id="make_mercedes" type="checkbox" name="make_mercedes" value="any">
                         <label for="make_mercedes">Mercedes</label>
 
-                        <input id="make_micromobilitysystems" type="checkbox" name="make_micromobilitysystems" value="any">
+                        <input id="make_micromobilitysystems" type="checkbox" name="make_micromobilitysystems"
+                               value="any">
                         <label for="make_micromobilitysystems">Micro Mobility Systems</label>
 
                         <input id="make_mitsubishi" type="checkbox" name="make_mitsubishi" value="any">
@@ -256,7 +259,8 @@
                 </button>
                 <div class="collapse show" id="minimum_setting">
                     <div class="settingContent">
-                        <input maxlength="15" id="min_price" class="textInput priceInput" type="text" name="minimum_price">
+                        <input maxlength="15" id="min_price" class="textInput priceInput" type="text"
+                               name="minimum_price">
                         <label class="labelPrice" for="min_price">$</label>
                     </div>
                 </div>
@@ -269,7 +273,8 @@
                 </button>
                 <div class="collapse show" id="maximum_setting">
                     <div class="settingContent">
-                        <input maxlength="15" id="max_price" class="textInput priceInput" type="text" name="maximum_price">
+                        <input maxlength="15" id="max_price" class="textInput priceInput" type="text"
+                               name="maximum_price">
                         <label class="labelPrice" for="max_price">$</label>
                     </div>
                 </div>
@@ -288,7 +293,7 @@
         data() {
             return {
                 showSettings: false,
-                years: [2018,2017,2016, 2015, 2014, 2013, 2012, 2011]
+                years: [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011]
             }
         },
         mounted() {
@@ -300,7 +305,8 @@
 
                 return is_ie;
             }
-            if (isIE()){
+
+            if (isIE()) {
                 document.getElementById('settingButton').style.right = '100%';
                 document.getElementById('settingButton').style.left = '0';
                 document.getElementById('settingButton').style.width = '55px';
@@ -320,10 +326,10 @@
                 }
             },
             showSidebar() {
-                if(this.showSettings === false) {
+                if (this.showSettings === false) {
                     document.getElementById('settings').style.right = '0';
-                     this.showSettings = true;
-                } else  {
+                    this.showSettings = true;
+                } else {
                     document.getElementById('settings').style.right = '-250px';
                     this.showSettings = false;
                 }
@@ -335,25 +341,29 @@
 <style lang="scss" scoped>
     .settings {
         background: white;
-        width:250px;
+        width: 250px;
         right: -250px;
 
         @media(max-width: 999.99px) {
             transition: right .3s ease-in-out;
             position: fixed;
             height: 100vh;
-            z-index: 999;
+            z-index: 1001;
             top: 50%;
             transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             border-radius: 4px;
             box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);
-        }
 
+            .nonScroll {
+                position: relative;
+                height: 100px;
+            }
+        }
 
         @media(min-width: 1000px) {
             border-right: 1px solid #dfdfdf;
-            width:25%;
+            width: 25%;
             padding-top: 62px;
         }
 
@@ -367,7 +377,7 @@
             border-radius: 4px;
             top: 50%;
             right: 100%;
-            background:white;
+            background: white;
             cursor: pointer;
 
             @media(min-width: 1000px) {
@@ -375,7 +385,7 @@
             }
 
             .icon-search {
-                font-size:20px;
+                font-size: 20px;
                 color: #444444;
             }
         }
@@ -388,10 +398,9 @@
 
             @media(max-width: 999.99px) {
                 overflow-y: scroll;
-                max-height: 100vh;
+                height: 85vh;
             }
         }
-
 
         .setting {
             margin: 15px 15px 30px 15px;
@@ -425,11 +434,12 @@
                 box-shadow: 0 2px 4px #eeeeee;
             }
 
+
             .settingContent {
                 margin-top: 10px;
                 padding: 5px;
                 font-size: 16px;
-                position:relative;
+                position: relative;
                 max-height: 200px;
                 overflow-y: auto;
 
@@ -443,7 +453,6 @@
                     width: 40%;
                     padding-left: 5px;
                 }
-
 
                 .priceSetting:active, .priceSetting:focus {
                     outline: none;
@@ -459,7 +468,7 @@
                     width: 97%;
                     border: 0;
                     border-bottom: 1px solid #777;
-                    margin-bottom: 10px;
+                    margin-bottom: 5%;
                     color: #3d4852;
                 }
 
@@ -481,7 +490,7 @@
                 padding: 8px 16px 8px 16px;
                 display: block;
                 margin-top: 20px;
-                cursor:pointer;
+                cursor: pointer;
                 transition: background-color .3s ease-in-out;
             }
             .submitButton:hover {
@@ -502,21 +511,24 @@
 
         }
 
+        .searchingSetting {
 
-        .settingContent::-webkit-scrollbar-track
-        {
+            @media(max-width: 999.99px) {
+                margin-bottom: 10px !important;
+            }
+        }
+
+        .settingContent::-webkit-scrollbar-track {
             -webkit-box-shadow: inset 0 0 6px rgba(163, 163, 163, 0.3);
             background-color: #f5f5f5;
         }
 
-        .settingContent::-webkit-scrollbar
-        {
+        .settingContent::-webkit-scrollbar {
             width: 10px;
             background-color: #F5F5F5;
         }
 
-        .settingContent::-webkit-scrollbar-thumb
-        {
+        .settingContent::-webkit-scrollbar-thumb {
             -webkit-box-shadow: inset 0 0 6px rgba(168, 168, 168, 0.3);
             background-color: #e1dce5;
         }
@@ -530,9 +542,10 @@
         }
     }
 
-
     /*Checkboxes styles*/
-    input[type="checkbox"] { display: none; }
+    input[type="checkbox"] {
+        display: none;
+    }
 
     input[type="checkbox"] + label {
         display: block;
@@ -540,7 +553,7 @@
         padding-left: 35px;
         margin-bottom: 20px;
         cursor: pointer;
-        font-family: "Roboto",sans-serif;
+        font-family: "Roboto", sans-serif;
         color: #444444;
         font-size: 14px;
         -webkit-user-select: none;
@@ -548,7 +561,9 @@
         -ms-user-select: none;
     }
 
-    input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+    input[type="checkbox"] + label:last-child {
+        margin-bottom: 0;
+    }
 
     input[type="checkbox"] + label:before {
         content: '';
