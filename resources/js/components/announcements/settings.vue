@@ -3,7 +3,7 @@
         <div @click="showSidebar" id="settingButton" class="settingButton">
             <i class="icon-search"></i>
         </div>
-        <form @submit="submitMethod">
+        <form @submit="submitMethod" class="settingForm">
             <div class="setting">
                 <div class="settingName">Condition</div>
                 <button @click="showSetting" class="showOption" type="button" data-toggle="collapse"
@@ -36,29 +36,10 @@
                         <input id="yearAny" type="checkbox" name="condition" value="any" checked>
                         <label for="yearAny">Any</label>
 
-                        <input id="year2018" type="checkbox" name="condition" value="any">
-                        <label for="year2018">2018</label>
-
-                        <input id="year2017" type="checkbox" name="condition" value="any">
-                        <label for="year2017">2017</label>
-
-                        <input id="year2016" type="checkbox" name="condition" value="any">
-                        <label for="year2016">2016</label>
-
-                        <input id="year2015" type="checkbox" name="condition" value="any">
-                        <label for="year2015">2015</label>
-
-                        <input id="year2014" type="checkbox" name="condition" value="any">
-                        <label for="year2014">2014</label>
-
-                        <input id="year2013" type="checkbox" name="condition" value="any">
-                        <label for="year2013">2013</label>
-
-                        <input id="year2012" type="checkbox" name="condition" value="any">
-                        <label for="year2012">2012</label>
-
-                        <input id="year2011" type="checkbox" name="condition" value="any">
-                        <label for="year2011">2011</label>
+                        <div class="formRow" v-for="year in years">
+                            <input :id="'year' + year" type="checkbox" :name="'year' + year" :value="'year' + year">
+                            <label :for="'year' + year">{{ year }}</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -71,7 +52,23 @@
         name: "settings",
         data() {
             return {
-                showSettings: false
+                showSettings: false,
+                years: [2018,2017,2016, 2015, 2014, 2013, 2012, 2011]
+            }
+        },
+        mounted() {
+
+            //check if browser is ie to fix setting button not showing
+            function isIE() {
+                let uaSD = navigator.userAgent;
+                var is_ie = uaSD.indexOf("MSIE ") > -1 || uaSD.indexOf("Trident/") > -1;
+
+                return is_ie;
+            }
+            if (isIE()){
+                document.getElementById('settingButton').style.right = '100%';
+                document.getElementById('settingButton').style.left = '0';
+                document.getElementById('settingButton').style.width = '55px';
             }
         },
         methods: {
@@ -113,8 +110,15 @@
             z-index: 999;
             top: 50%;
             transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
             border-radius: 4px;
             box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);
+        }
+
+
+        @media(min-width: 1000px) {
+            width:25%;
+            padding-top: 62px;
         }
 
         .settingButton {
@@ -122,11 +126,11 @@
             position: fixed;
             z-index: 1001;
             transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
             box-shadow: 0 1px 2px #b9bbbe;
             border-radius: 4px;
             top: 50%;
             right: 100%;
-            user-select: none;
             background:white;
             cursor: pointer;
 
@@ -143,6 +147,15 @@
         .settingButton:hover {
             background: #f9f9f9;
         }
+
+        .settingForm {
+
+            @media(max-width: 999.99px) {
+                overflow-y: scroll;
+                max-height: 100vh;
+            }
+        }
+
 
         .setting {
             margin: 15px 15px 30px 15px;
@@ -183,6 +196,10 @@
                 position:relative;
                 max-height: 200px;
                 overflow-y: auto;
+
+                .formRow {
+                    margin-bottom: 20px;
+                }
             }
 
 

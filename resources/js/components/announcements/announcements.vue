@@ -95,7 +95,7 @@
             }
 
             @media(min-width: 1200px) {
-                width: 1170px;
+                width: 1100px;
             }
 
 
@@ -103,7 +103,7 @@
                 background: #f8fafc;
                 padding-top: 50px;
                 @media(min-width: 1000px) {
-                    width: 70%;
+                    width: 75%;
                 }
 
                 position: relative;
