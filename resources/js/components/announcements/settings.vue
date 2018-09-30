@@ -502,6 +502,7 @@
 
         }
 
+
         .settingContent::-webkit-scrollbar-track
         {
             -webkit-box-shadow: inset 0 0 6px rgba(163, 163, 163, 0.3);
