@@ -9,7 +9,7 @@
                         </div>
                         <div class="info">
                             <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                            <span class="subtitle">Type</span> Electric
+                            <span class="subtitle">Year</span> 2017
                             <br><span class="subtitle">Mileage</span> 10234 KM
                             <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
                         </div>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="info">
                             <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                            <span class="subtitle">Type</span> Electric
+                            <span class="subtitle">Year</span> 2017
                             <br><span class="subtitle">Mileage</span> 10234 KM
                             <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
                         </div>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="info">
                             <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                            <span class="subtitle">Type</span> Electric
+                            <span class="subtitle">Year</span> 2017
                             <br><span class="subtitle">Mileage</span> 10234 KM
                             <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
                         </div>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="info">
                         <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                        <span class="subtitle">Type</span> Electric
+                        <span class="subtitle">Year</span> 2017
                         <br><span class="subtitle">Mileage</span> 10234 KM
                         <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
                     </div>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="info">
                         <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                        <span class="subtitle">Type</span> Electric
+                        <span class="subtitle">Year</span> 2017
                         <br><span class="subtitle">Mileage</span> 10234 KM
                         <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
                     </div>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="info">
                         <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                        <span class="subtitle">Type</span> Electric
+                        <span class="subtitle">Year</span> 2017
                         <br><span class="subtitle">Mileage</span> 10234 KM
                         <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
                     </div>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="info">
                         <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                        <span class="subtitle">Type</span> Electric
+                        <span class="subtitle">Year</span> 2017
                         <br><span class="subtitle">Mileage</span> 10234 KM
                         <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
                     </div>
@@ -147,14 +147,14 @@
 
 <style lang="scss" scoped>
     .listView {
-        padding: 2.5%;
+        padding: 2.5% 2.5% 2.5% 3.5%;
 
         .announcement {
-            box-shadow: 0 1px 2px #dddddd;
+            box-shadow:  0 2px 10px #e5e8eb;
             width: 100%;
             margin-bottom: 40px;
             background: white;
-            border-radius: 4px;
+            border-radius: 2px;
 
             @media(min-width: 768px) {
                 display: flex;
@@ -174,7 +174,7 @@
 
                 .image {
                     width: 100%;
-                    border-radius: 4px;
+                    border-radius: 2px;
                 }
             }
 
@@ -187,7 +187,7 @@
                 color: #444444;
 
                 .title {
-                    color: #444444;
+                    color: #2a3744;;
                 }
 
                 .subtitle {
@@ -225,7 +225,7 @@
         width: 100%;
         flex-wrap: wrap;
         position: relative;
-        padding: 1%;
+        padding: 1% 1% 1% 2%;
 
         .announcement {
 

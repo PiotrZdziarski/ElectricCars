@@ -89,9 +89,11 @@
                 align-items: center;
                 font-size: 22px;
                 cursor: pointer;
+                border-radius: 5px;
                 margin: 5px;
                 background: white;
                 border: 1px solid #efefef;
+                color: #2a3744;
                 transition: background-color .3s ease-in-out;
             }
 
@@ -101,6 +103,7 @@
 
             .activeView {
                 background: #dfdfdf;
+                border: 1px solid #cfcfcf;
             }
             .activeView:hover {
                 background: #dfdfdf;

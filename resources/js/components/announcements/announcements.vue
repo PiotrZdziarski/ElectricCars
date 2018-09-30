@@ -43,7 +43,7 @@
 
 <style lang="scss" scoped>
     .wrapper {
-        background: white;
+        background: linear-gradient(to right,white 50%, #f8fafc 50%);
 
         .claim {
             height: 30vh;
