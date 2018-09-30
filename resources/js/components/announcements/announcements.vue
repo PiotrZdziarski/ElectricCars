@@ -45,7 +45,7 @@
     .wrapper {
         background: linear-gradient(to right,white 50%, #f4f6f8 50%);
 
-        .claim {
+       /* .claim {
             height: 30vh;
             background: #1e2124;
             text-transform: uppercase;
@@ -79,6 +79,32 @@
             .subTitle {
                 color: #dddddd;
                 font-weight: 600;
+            }
+        }*/
+
+        .claim {
+            background-image: linear-gradient(rgba(57, 57, 57, 0.4), rgba(72, 70, 74, 0.4)), url("/images/advertisementsHome.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: 50%;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            font-weight: 500;
+            font-family: "Roboto", sans-serif;
+            padding-top: 5%;
+            padding-left: 8%;
+
+            .mainTitle {
+                font-size: 64px;
+                @media(max-width: 476px) {
+                    font-size: 52px;
+                }
+            }
+
+            .subTitle {
+                color: #dddddd;
             }
         }
 

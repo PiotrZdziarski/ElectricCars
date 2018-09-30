@@ -458,7 +458,7 @@
                 .textInput {
                     width: 97%;
                     border: 0;
-                    border-bottom: 1px solid #666666;
+                    border-bottom: 1px solid #777;
                     margin-bottom: 10px;
                     color: #3d4852;
                 }
@@ -501,6 +501,7 @@
             }
 
         }
+
 
         .settingContent::-webkit-scrollbar-track
         {
@@ -554,7 +555,7 @@
         display: block;
         width: 20px;
         height: 20px;
-        border: 2px solid #aaafae;
+        border: 1px solid #aaafae;
         border-radius: 2px;
         position: absolute;
         left: 0;
