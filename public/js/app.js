@@ -49607,7 +49607,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: white;\n}\n.wrapper .claim[data-v-1907b3ce] {\n    height: 30vh;\n    background: #1e2124;\n    text-transform: uppercase;\n    font-family: 'Overpass', sans-serif;\n    font-weight: bold;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    padding-bottom: 1%;\n    padding-left: 4%;\n}\n@media (min-width: 476px) {\n.wrapper .claim[data-v-1907b3ce] {\n        padding-left: 8%;\n}\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      -ms-flex-item-align: end;\n          align-self: flex-end;\n      font-weight: 700;\n      color: white;\n      font-size: 30px;\n}\n@media (min-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 40px;\n}\n}\n@media (min-width: 1000px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 44px;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n      font-weight: 600;\n}\n.wrapper .main[data-v-1907b3ce] {\n    margin-left: auto;\n    margin-right: auto;\n    font-family: \"Roboto\", sans-serif;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.wrapper .main[data-v-1907b3ce] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.wrapper .main[data-v-1907b3ce] {\n        width: 1170px;\n}\n}\n.wrapper .main .announcements[data-v-1907b3ce] {\n      background: #f8fafc;\n      padding-top: 50px;\n      position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .main .announcements[data-v-1907b3ce] {\n          width: 70%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: white;\n}\n.wrapper .claim[data-v-1907b3ce] {\n    height: 30vh;\n    background: #1e2124;\n    text-transform: uppercase;\n    font-family: 'Overpass', sans-serif;\n    font-weight: bold;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    padding-bottom: 1%;\n    padding-left: 4%;\n}\n@media (min-width: 476px) {\n.wrapper .claim[data-v-1907b3ce] {\n        padding-left: 8%;\n}\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      -ms-flex-item-align: end;\n          align-self: flex-end;\n      font-weight: 700;\n      color: white;\n      font-size: 30px;\n}\n@media (min-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 40px;\n}\n}\n@media (min-width: 1000px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 44px;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n      font-weight: 600;\n}\n.wrapper .main[data-v-1907b3ce] {\n    margin-left: auto;\n    margin-right: auto;\n    font-family: \"Roboto\", sans-serif;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.wrapper .main[data-v-1907b3ce] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.wrapper .main[data-v-1907b3ce] {\n        width: 1100px;\n}\n}\n.wrapper .main .announcements[data-v-1907b3ce] {\n      background: #f8fafc;\n      padding-top: 50px;\n      position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .main .announcements[data-v-1907b3ce] {\n          width: 75%;\n}\n}\n", ""]);
 
 // exports
 
@@ -49990,7 +49990,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  background: white;\n  width: 250px;\n  right: -250px;\n}\n@media (max-width: 999.99px) {\n.settings[data-v-e2df705e] {\n      -webkit-transition: right .3s ease-in-out;\n      transition: right .3s ease-in-out;\n      position: fixed;\n      height: 100vh;\n      z-index: 999;\n      top: 50%;\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      border-radius: 4px;\n      -webkit-box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n              box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n}\n}\n.settings .settingButton[data-v-e2df705e] {\n    padding: 12px;\n    position: fixed;\n    z-index: 1001;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n    border-radius: 4px;\n    top: 50%;\n    right: 100%;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    background: white;\n    cursor: pointer;\n}\n@media (min-width: 1000px) {\n.settings .settingButton[data-v-e2df705e] {\n        display: none;\n}\n}\n.settings .settingButton .icon-search[data-v-e2df705e] {\n      font-size: 20px;\n      color: #444444;\n}\n.settings .settingButton[data-v-e2df705e]:hover {\n    background: #f9f9f9;\n}\n.settings .setting[data-v-e2df705e] {\n    margin: 15px 15px 30px 15px;\n    position: relative;\n}\n.settings .setting .showOption[data-v-e2df705e] {\n      width: 25px;\n      height: 25px;\n      border: 1px solid #aaaaaa;\n      font-size: 20px;\n      line-height: 60%;\n      padding-top: -100px;\n      color: #666666;\n      background: white;\n      font-family: \"Nunito\", sans-serif;\n      position: absolute;\n      right: 0;\n      top: 0;\n}\n.settings .setting .showOption .iconPlus[data-v-e2df705e] {\n        margin-top: -2px;\n}\n.settings .setting .showOption .iconMinus[data-v-e2df705e] {\n        margin-top: -10px;\n}\n.settings .setting .showOption[data-v-e2df705e]:focus, .settings .setting .showOption[data-v-e2df705e]:active {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #eeeeee;\n              box-shadow: 0 2px 4px #eeeeee;\n}\n.settings .setting .settingContent[data-v-e2df705e] {\n      margin-top: 10px;\n      padding: 5px;\n      font-size: 16px;\n      position: relative;\n      max-height: 200px;\n      overflow-y: auto;\n}\n.settings .setting .settingName[data-v-e2df705e] {\n      text-transform: uppercase;\n      font-weight: 500;\n      font-size: 16px;\n      color: #444444;\n}\n\n/*Checkboxes styles*/\ninput[type=\"checkbox\"][data-v-e2df705e] {\n  display: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e] {\n  display: block;\n  position: relative;\n  padding-left: 35px;\n  margin-bottom: 20px;\n  cursor: pointer;\n  font-family: \"Roboto\",sans-serif;\n  color: #444444;\n  font-size: 14px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:last-child {\n  margin-bottom: 0;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:before {\n  content: '';\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 1px solid #a8a6a2;\n  position: absolute;\n  left: 0;\n  top: 0;\n  -webkit-transition: all .12s, border-color .08s;\n  transition: all .12s, border-color .08s;\n}\ninput[type=\"checkbox\"]:checked + label[data-v-e2df705e]:before {\n  width: 10px;\n  top: -4px;\n  left: 5px;\n  border-radius: 0;\n  opacity: 1;\n  border-top-color: transparent;\n  border-left-color: transparent;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n", ""]);
+exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  background: white;\n  width: 250px;\n  right: -250px;\n}\n@media (max-width: 999.99px) {\n.settings[data-v-e2df705e] {\n      -webkit-transition: right .3s ease-in-out;\n      transition: right .3s ease-in-out;\n      position: fixed;\n      height: 100vh;\n      z-index: 999;\n      top: 50%;\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      -ms-transform: translateY(-50%);\n      border-radius: 4px;\n      -webkit-box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n              box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n}\n}\n@media (min-width: 1000px) {\n.settings[data-v-e2df705e] {\n      width: 25%;\n      padding-top: 62px;\n}\n}\n.settings .settingButton[data-v-e2df705e] {\n    padding: 12px;\n    position: fixed;\n    z-index: 1001;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -ms-transform: translateY(-50%);\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n    border-radius: 4px;\n    top: 50%;\n    right: 100%;\n    background: white;\n    cursor: pointer;\n}\n@media (min-width: 1000px) {\n.settings .settingButton[data-v-e2df705e] {\n        display: none;\n}\n}\n.settings .settingButton .icon-search[data-v-e2df705e] {\n      font-size: 20px;\n      color: #444444;\n}\n.settings .settingButton[data-v-e2df705e]:hover {\n    background: #f9f9f9;\n}\n@media (max-width: 999.99px) {\n.settings .settingForm[data-v-e2df705e] {\n      overflow-y: scroll;\n      max-height: 100vh;\n}\n}\n.settings .setting[data-v-e2df705e] {\n    margin: 15px 15px 30px 15px;\n    position: relative;\n}\n.settings .setting .showOption[data-v-e2df705e] {\n      width: 25px;\n      height: 25px;\n      border: 1px solid #aaaaaa;\n      font-size: 20px;\n      line-height: 60%;\n      padding-top: -100px;\n      color: #666666;\n      background: white;\n      font-family: \"Nunito\", sans-serif;\n      position: absolute;\n      right: 0;\n      top: 0;\n}\n.settings .setting .showOption .iconPlus[data-v-e2df705e] {\n        margin-top: -2px;\n}\n.settings .setting .showOption .iconMinus[data-v-e2df705e] {\n        margin-top: -10px;\n}\n.settings .setting .showOption[data-v-e2df705e]:focus, .settings .setting .showOption[data-v-e2df705e]:active {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #eeeeee;\n              box-shadow: 0 2px 4px #eeeeee;\n}\n.settings .setting .settingContent[data-v-e2df705e] {\n      margin-top: 10px;\n      padding: 5px;\n      font-size: 16px;\n      position: relative;\n      max-height: 200px;\n      overflow-y: auto;\n}\n.settings .setting .settingContent .formRow[data-v-e2df705e] {\n        margin-bottom: 20px;\n}\n.settings .setting .settingName[data-v-e2df705e] {\n      text-transform: uppercase;\n      font-weight: 500;\n      font-size: 16px;\n      color: #444444;\n}\n\n/*Checkboxes styles*/\ninput[type=\"checkbox\"][data-v-e2df705e] {\n  display: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e] {\n  display: block;\n  position: relative;\n  padding-left: 35px;\n  margin-bottom: 20px;\n  cursor: pointer;\n  font-family: \"Roboto\",sans-serif;\n  color: #444444;\n  font-size: 14px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:last-child {\n  margin-bottom: 0;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:before {\n  content: '';\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 1px solid #a8a6a2;\n  position: absolute;\n  left: 0;\n  top: 0;\n  -webkit-transition: all .12s, border-color .08s;\n  transition: all .12s, border-color .08s;\n}\ninput[type=\"checkbox\"]:checked + label[data-v-e2df705e]:before {\n  width: 10px;\n  top: -4px;\n  left: 5px;\n  border-radius: 0;\n  opacity: 1;\n  border-top-color: transparent;\n  border-left-color: transparent;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n", ""]);
 
 // exports
 
@@ -50050,32 +50050,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "settings",
     data: function data() {
         return {
-            showSettings: false
+            showSettings: false,
+            years: [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011]
         };
+    },
+    mounted: function mounted() {
+
+        //check if browser is ie to fix setting button not showing
+        function isIE() {
+            var uaSD = navigator.userAgent;
+            var is_ie = uaSD.indexOf("MSIE ") > -1 || uaSD.indexOf("Trident/") > -1;
+
+            return is_ie;
+        }
+        if (isIE()) {
+            document.getElementById('settingButton').style.right = '100%';
+            document.getElementById('settingButton').style.left = '0';
+            document.getElementById('settingButton').style.width = '55px';
+        }
     },
 
     methods: {
@@ -50122,51 +50119,95 @@ var render = function() {
       [_c("i", { staticClass: "icon-search" })]
     ),
     _vm._v(" "),
-    _c("form", { on: { submit: _vm.submitMethod } }, [
-      _c("div", { staticClass: "setting" }, [
-        _c("div", { staticClass: "settingName" }, [_vm._v("Condition")]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "showOption",
-            attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#conditionSetting",
-              "aria-expanded": "false",
-              "aria-controls": "collapseExample"
+    _c(
+      "form",
+      { staticClass: "settingForm", on: { submit: _vm.submitMethod } },
+      [
+        _c("div", { staticClass: "setting" }, [
+          _c("div", { staticClass: "settingName" }, [_vm._v("Condition")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "showOption",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "data-target": "#conditionSetting",
+                "aria-expanded": "false",
+                "aria-controls": "collapseExample"
+              },
+              on: { click: _vm.showSetting }
             },
-            on: { click: _vm.showSetting }
-          },
-          [_vm._v("-\n            ")]
-        ),
+            [_vm._v("-\n            ")]
+          ),
+          _vm._v(" "),
+          _vm._m(0)
+        ]),
         _vm._v(" "),
-        _vm._m(0)
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "setting" }, [
-        _c("div", { staticClass: "settingName" }, [_vm._v("Year")]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "showOption",
-            attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#yearSetting",
-              "aria-expanded": "false",
-              "aria-controls": "collapseExample"
+        _c("div", { staticClass: "setting" }, [
+          _c("div", { staticClass: "settingName" }, [_vm._v("Year")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "showOption",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "data-target": "#yearSetting",
+                "aria-expanded": "false",
+                "aria-controls": "collapseExample"
+              },
+              on: { click: _vm.showSetting }
             },
-            on: { click: _vm.showSetting }
-          },
-          [_vm._v("-\n            ")]
-        ),
-        _vm._v(" "),
-        _vm._m(1)
-      ])
-    ])
+            [_vm._v("-\n            ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "collapse show", attrs: { id: "yearSetting" } },
+            [
+              _c(
+                "div",
+                { staticClass: "settingContent" },
+                [
+                  _c("input", {
+                    attrs: {
+                      id: "yearAny",
+                      type: "checkbox",
+                      name: "condition",
+                      value: "any",
+                      checked: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "yearAny" } }, [_vm._v("Any")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.years, function(year) {
+                    return _c("div", { staticClass: "formRow" }, [
+                      _c("input", {
+                        attrs: {
+                          id: "year" + year,
+                          type: "checkbox",
+                          name: "year" + year
+                        },
+                        domProps: { value: "year" + year }
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "year" + year } }, [
+                        _vm._v(_vm._s(year))
+                      ])
+                    ])
+                  })
+                ],
+                2
+              )
+            ]
+          )
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -50225,118 +50266,6 @@ var staticRenderFns = [
           _c("label", { attrs: { for: "conditionCertified" } }, [
             _vm._v("Certified Pre-Owned")
           ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "collapse show", attrs: { id: "yearSetting" } },
-      [
-        _c("div", { staticClass: "settingContent" }, [
-          _c("input", {
-            attrs: {
-              id: "yearAny",
-              type: "checkbox",
-              name: "condition",
-              value: "any",
-              checked: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "yearAny" } }, [_vm._v("Any")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "year2018",
-              type: "checkbox",
-              name: "condition",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "year2018" } }, [_vm._v("2018")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "year2017",
-              type: "checkbox",
-              name: "condition",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "year2017" } }, [_vm._v("2017")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "year2016",
-              type: "checkbox",
-              name: "condition",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "year2016" } }, [_vm._v("2016")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "year2015",
-              type: "checkbox",
-              name: "condition",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "year2015" } }, [_vm._v("2015")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "year2014",
-              type: "checkbox",
-              name: "condition",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "year2014" } }, [_vm._v("2014")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "year2013",
-              type: "checkbox",
-              name: "condition",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "year2013" } }, [_vm._v("2013")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "year2012",
-              type: "checkbox",
-              name: "condition",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "year2012" } }, [_vm._v("2012")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "year2011",
-              type: "checkbox",
-              name: "condition",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "year2011" } }, [_vm._v("2011")])
         ])
       ]
     )
