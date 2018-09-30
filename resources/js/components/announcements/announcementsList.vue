@@ -150,7 +150,7 @@
         padding: 2.5% 2.5% 2.5% 3.5%;
 
         .announcement {
-            box-shadow:  0 2px 10px #e5e8eb;
+            box-shadow:  0 2px 6px #e5e8eb;
             width: 100%;
             margin-bottom: 40px;
             background: white;
@@ -284,7 +284,7 @@
         margin-top: 10px;
         font-weight: 700;
         font-size: 18px;
-        color: #a12932;
+        color: #bc4755;
     }
 
     .fade-enter-active {

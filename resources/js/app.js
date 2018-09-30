@@ -20,7 +20,6 @@ window.Vue = require('vue');
 //app
 Vue.component('navbar', require('./components/app/navbar.vue'));
 Vue.component('footerMain', require('./components/app/footerMain.vue'));
-Vue.component('scrollTop', require('./components/app/scrollTop.vue'));
 Vue.component('scrollEventListener', require('./components/app/scrollEventListener.vue'));
 
 //Home

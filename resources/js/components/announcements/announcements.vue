@@ -43,7 +43,7 @@
 
 <style lang="scss" scoped>
     .wrapper {
-        background: linear-gradient(to right,white 50%, #f8fafc 50%);
+        background: linear-gradient(to right,white 50%, #f4f6f8 50%);
 
         .claim {
             height: 30vh;
@@ -100,7 +100,7 @@
 
 
             .announcements {
-                background: #f8fafc;
+                background: #f4f6f8;
                 padding-top: 50px;
                 @media(min-width: 1000px) {
                     width: 75%;
