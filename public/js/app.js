@@ -49607,7 +49607,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: white;\n}\n.wrapper .claim[data-v-1907b3ce] {\n    height: 30vh;\n    background: #1e2124;\n    text-transform: uppercase;\n    font-family: 'Overpass', sans-serif;\n    font-weight: bold;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    padding-bottom: 1%;\n    padding-left: 4%;\n}\n@media (min-width: 476px) {\n.wrapper .claim[data-v-1907b3ce] {\n        padding-left: 8%;\n}\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      -ms-flex-item-align: end;\n          align-self: flex-end;\n      font-weight: 700;\n      color: white;\n      font-size: 30px;\n}\n@media (min-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 40px;\n}\n}\n@media (min-width: 1000px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 44px;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n      font-weight: 600;\n}\n.wrapper .main[data-v-1907b3ce] {\n    margin-left: auto;\n    margin-right: auto;\n    font-family: \"Roboto\", sans-serif;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.wrapper .main[data-v-1907b3ce] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.wrapper .main[data-v-1907b3ce] {\n        width: 1100px;\n}\n}\n.wrapper .main .announcements[data-v-1907b3ce] {\n      background: #f8fafc;\n      padding-top: 50px;\n      position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .main .announcements[data-v-1907b3ce] {\n          width: 75%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f8fafc));\n  background: linear-gradient(to right, white 50%, #f8fafc 50%);\n}\n.wrapper .claim[data-v-1907b3ce] {\n    height: 30vh;\n    background: #1e2124;\n    text-transform: uppercase;\n    font-family: 'Overpass', sans-serif;\n    font-weight: bold;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    padding-bottom: 1%;\n    padding-left: 4%;\n}\n@media (min-width: 476px) {\n.wrapper .claim[data-v-1907b3ce] {\n        padding-left: 8%;\n}\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      -ms-flex-item-align: end;\n          align-self: flex-end;\n      font-weight: 700;\n      color: white;\n      font-size: 30px;\n}\n@media (min-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 40px;\n}\n}\n@media (min-width: 1000px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 44px;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n      font-weight: 600;\n}\n.wrapper .main[data-v-1907b3ce] {\n    margin-left: auto;\n    margin-right: auto;\n    font-family: \"Roboto\", sans-serif;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.wrapper .main[data-v-1907b3ce] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.wrapper .main[data-v-1907b3ce] {\n        width: 1100px;\n}\n}\n.wrapper .main .announcements[data-v-1907b3ce] {\n      background: #f8fafc;\n      padding-top: 50px;\n      position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .main .announcements[data-v-1907b3ce] {\n          width: 75%;\n}\n}\n", ""]);
 
 // exports
 
@@ -49753,7 +49753,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 5px;\n      margin-right: 5px;\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n}\n@media (max-width: 476px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      background: #dfdfdf;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #dfdfdf;\n}\n.input[data-v-5e04827a] {\n  padding: 10px;\n  background: white;\n  cursor: pointer;\n  border: 1px solid #efefef;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
+exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 5px;\n      margin-right: 5px;\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n}\n@media (max-width: 476px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      border-radius: 5px;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      color: #2a3744;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      background: #dfdfdf;\n      border: 1px solid #cfcfcf;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #dfdfdf;\n}\n.input[data-v-5e04827a] {\n  padding: 10px;\n  background: white;\n  cursor: pointer;\n  border: 1px solid #efefef;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
 
 // exports
 
@@ -49990,7 +49990,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  background: white;\n  width: 250px;\n  right: -250px;\n}\n@media (max-width: 999.99px) {\n.settings[data-v-e2df705e] {\n      -webkit-transition: right .3s ease-in-out;\n      transition: right .3s ease-in-out;\n      position: fixed;\n      height: 100vh;\n      z-index: 999;\n      top: 50%;\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      -ms-transform: translateY(-50%);\n      border-radius: 4px;\n      -webkit-box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n              box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n}\n}\n@media (min-width: 1000px) {\n.settings[data-v-e2df705e] {\n      width: 25%;\n      padding-top: 62px;\n}\n}\n.settings .settingButton[data-v-e2df705e] {\n    padding: 12px;\n    position: fixed;\n    z-index: 1001;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -ms-transform: translateY(-50%);\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n    border-radius: 4px;\n    top: 50%;\n    right: 100%;\n    background: white;\n    cursor: pointer;\n}\n@media (min-width: 1000px) {\n.settings .settingButton[data-v-e2df705e] {\n        display: none;\n}\n}\n.settings .settingButton .icon-search[data-v-e2df705e] {\n      font-size: 20px;\n      color: #444444;\n}\n.settings .settingButton[data-v-e2df705e]:hover {\n    background: #f9f9f9;\n}\n@media (max-width: 999.99px) {\n.settings .settingForm[data-v-e2df705e] {\n      overflow-y: scroll;\n      max-height: 100vh;\n}\n}\n.settings .setting[data-v-e2df705e] {\n    margin: 15px 15px 30px 15px;\n    position: relative;\n}\n.settings .setting .showOption[data-v-e2df705e] {\n      width: 25px;\n      height: 25px;\n      border: 1px solid #aaaaaa;\n      font-size: 20px;\n      line-height: 60%;\n      padding-top: -100px;\n      color: #666666;\n      background: white;\n      font-family: \"Nunito\", sans-serif;\n      position: absolute;\n      right: 0;\n      top: 0;\n}\n.settings .setting .showOption .iconPlus[data-v-e2df705e] {\n        margin-top: -2px;\n}\n.settings .setting .showOption .iconMinus[data-v-e2df705e] {\n        margin-top: -10px;\n}\n.settings .setting .showOption[data-v-e2df705e]:focus, .settings .setting .showOption[data-v-e2df705e]:active {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #eeeeee;\n              box-shadow: 0 2px 4px #eeeeee;\n}\n.settings .setting .settingContent[data-v-e2df705e] {\n      margin-top: 10px;\n      padding: 5px;\n      font-size: 16px;\n      position: relative;\n      max-height: 200px;\n      overflow-y: auto;\n}\n.settings .setting .settingContent .formRow[data-v-e2df705e] {\n        margin-bottom: 20px;\n}\n.settings .setting .settingName[data-v-e2df705e] {\n      text-transform: uppercase;\n      font-weight: 500;\n      font-size: 16px;\n      color: #444444;\n}\n\n/*Checkboxes styles*/\ninput[type=\"checkbox\"][data-v-e2df705e] {\n  display: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e] {\n  display: block;\n  position: relative;\n  padding-left: 35px;\n  margin-bottom: 20px;\n  cursor: pointer;\n  font-family: \"Roboto\",sans-serif;\n  color: #444444;\n  font-size: 14px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:last-child {\n  margin-bottom: 0;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:before {\n  content: '';\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 1px solid #a8a6a2;\n  position: absolute;\n  left: 0;\n  top: 0;\n  -webkit-transition: all .12s, border-color .08s;\n  transition: all .12s, border-color .08s;\n}\ninput[type=\"checkbox\"]:checked + label[data-v-e2df705e]:before {\n  width: 10px;\n  top: -4px;\n  left: 5px;\n  border-radius: 0;\n  opacity: 1;\n  border-top-color: transparent;\n  border-left-color: transparent;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n", ""]);
+exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  background: white;\n  width: 250px;\n  right: -250px;\n}\n@media (max-width: 999.99px) {\n.settings[data-v-e2df705e] {\n      -webkit-transition: right .3s ease-in-out;\n      transition: right .3s ease-in-out;\n      position: fixed;\n      height: 100vh;\n      z-index: 999;\n      top: 50%;\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      -ms-transform: translateY(-50%);\n      border-radius: 4px;\n      -webkit-box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n              box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n}\n}\n@media (min-width: 1000px) {\n.settings[data-v-e2df705e] {\n      border-right: 1px solid #dfdfdf;\n      width: 25%;\n      padding-top: 62px;\n}\n}\n.settings .settingButton[data-v-e2df705e] {\n    padding: 12px;\n    position: fixed;\n    z-index: 1001;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -ms-transform: translateY(-50%);\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n    border-radius: 4px;\n    top: 50%;\n    right: 100%;\n    background: white;\n    cursor: pointer;\n}\n@media (min-width: 1000px) {\n.settings .settingButton[data-v-e2df705e] {\n        display: none;\n}\n}\n.settings .settingButton .icon-search[data-v-e2df705e] {\n      font-size: 20px;\n      color: #444444;\n}\n.settings .settingButton[data-v-e2df705e]:hover {\n    background: #f9f9f9;\n}\n@media (max-width: 999.99px) {\n.settings .settingForm[data-v-e2df705e] {\n      overflow-y: scroll;\n      max-height: 100vh;\n}\n}\n.settings .setting[data-v-e2df705e] {\n    margin: 15px 15px 30px 15px;\n    position: relative;\n}\n.settings .setting .showOption[data-v-e2df705e] {\n      width: 25px;\n      height: 25px;\n      border: 1px solid #aaaaaa;\n      font-size: 20px;\n      line-height: 60%;\n      padding-top: -100px;\n      color: #666666;\n      background: white;\n      font-family: \"Nunito\", sans-serif;\n      position: absolute;\n      right: 0;\n      top: 0;\n}\n.settings .setting .showOption .iconPlus[data-v-e2df705e] {\n        margin-top: -2px;\n}\n.settings .setting .showOption .iconMinus[data-v-e2df705e] {\n        margin-top: -10px;\n}\n.settings .setting .showOption[data-v-e2df705e]:focus, .settings .setting .showOption[data-v-e2df705e]:active {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #eeeeee;\n              box-shadow: 0 2px 4px #eeeeee;\n}\n.settings .setting .settingContent[data-v-e2df705e] {\n      margin-top: 10px;\n      padding: 5px;\n      font-size: 16px;\n      position: relative;\n      max-height: 250px;\n      overflow-y: auto;\n}\n.settings .setting .settingContent .formRow[data-v-e2df705e] {\n        margin-bottom: 20px;\n}\n.settings .setting .settingName[data-v-e2df705e] {\n      text-transform: uppercase;\n      font-weight: 500;\n      font-size: 18px;\n      color: #2a3744;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(163, 163, 163, 0.3);\n    background-color: #f5f5f5;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar {\n    width: 10px;\n    background-color: #F5F5F5;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar-thumb {\n    -webkit-box-shadow: inset 0 0 6px rgba(168, 168, 168, 0.3);\n    background-color: #e1dce5;\n}\n\n/*Checkboxes styles*/\ninput[type=\"checkbox\"][data-v-e2df705e] {\n  display: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e] {\n  display: block;\n  position: relative;\n  padding-left: 35px;\n  margin-bottom: 20px;\n  cursor: pointer;\n  font-family: \"Roboto\",sans-serif;\n  color: #444444;\n  font-size: 14px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:last-child {\n  margin-bottom: 0;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:before {\n  content: '';\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 2px solid #aaafae;\n  border-radius: 2px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  -webkit-transition: all .12s, border-color .08s;\n  transition: all .12s, border-color .08s;\n}\ninput[type=\"checkbox\"]:checked + label[data-v-e2df705e]:before {\n  width: 10px;\n  top: -4px;\n  left: 5px;\n  border-radius: 0;\n  opacity: 1;\n  border-top-color: transparent;\n  border-left-color: transparent;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n", ""]);
 
 // exports
 
@@ -50001,6 +50001,201 @@ exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  background: white;\n 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50133,7 +50328,7 @@ var render = function() {
               attrs: {
                 type: "button",
                 "data-toggle": "collapse",
-                "data-target": "#conditionSetting",
+                "data-target": "#condition_setting",
                 "aria-expanded": "false",
                 "aria-controls": "collapseExample"
               },
@@ -50155,7 +50350,7 @@ var render = function() {
               attrs: {
                 type: "button",
                 "data-toggle": "collapse",
-                "data-target": "#yearSetting",
+                "data-target": "#year_setting",
                 "aria-expanded": "false",
                 "aria-controls": "collapseExample"
               },
@@ -50166,7 +50361,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "collapse show", attrs: { id: "yearSetting" } },
+            { staticClass: "collapse show", attrs: { id: "year_setting" } },
             [
               _c(
                 "div",
@@ -50176,7 +50371,7 @@ var render = function() {
                     attrs: {
                       id: "yearAny",
                       type: "checkbox",
-                      name: "condition",
+                      name: "yearAny",
                       value: "any",
                       checked: ""
                     }
@@ -50188,14 +50383,14 @@ var render = function() {
                     return _c("div", { staticClass: "formRow" }, [
                       _c("input", {
                         attrs: {
-                          id: "year" + year,
+                          id: "year_" + year,
                           type: "checkbox",
-                          name: "year" + year
+                          name: "year_" + year
                         },
-                        domProps: { value: "year" + year }
+                        domProps: { value: year }
                       }),
                       _vm._v(" "),
-                      _c("label", { attrs: { for: "year" + year } }, [
+                      _c("label", { attrs: { for: "year_" + year } }, [
                         _vm._v(_vm._s(year))
                       ])
                     ])
@@ -50205,6 +50400,72 @@ var render = function() {
               )
             ]
           )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "setting" }, [
+          _c("div", { staticClass: "settingName" }, [_vm._v("Make")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "showOption",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "data-target": "#make_setting",
+                "aria-expanded": "false",
+                "aria-controls": "collapseExample"
+              },
+              on: { click: _vm.showSetting }
+            },
+            [_vm._v("-\n            ")]
+          ),
+          _vm._v(" "),
+          _vm._m(1)
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "setting" }, [
+          _c("div", { staticClass: "settingName" }, [_vm._v("Body Style")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "showOption",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "data-target": "#body_setting",
+                "aria-expanded": "false",
+                "aria-controls": "collapseExample"
+              },
+              on: { click: _vm.showSetting }
+            },
+            [_vm._v("-\n            ")]
+          ),
+          _vm._v(" "),
+          _vm._m(2)
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "setting" }, [
+          _c("div", { staticClass: "settingName" }, [_vm._v("Exterior Color")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "showOption",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "data-target": "#exteriorcolor_setting",
+                "aria-expanded": "false",
+                "aria-controls": "collapseExample"
+              },
+              on: { click: _vm.showSetting }
+            },
+            [_vm._v("-\n            ")]
+          ),
+          _vm._v(" "),
+          _vm._m(3)
         ])
       ]
     )
@@ -50217,55 +50478,735 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "collapse show", attrs: { id: "conditionSetting" } },
+      { staticClass: "collapse show", attrs: { id: "condition_setting" } },
       [
         _c("div", { staticClass: "settingContent" }, [
           _c("input", {
             attrs: {
-              id: "conditionAny",
+              id: "condition_any",
               type: "checkbox",
-              name: "condition",
+              name: "condition_any",
               value: "any",
               checked: ""
             }
           }),
           _vm._v(" "),
-          _c("label", { attrs: { for: "conditionAny" } }, [_vm._v("Any")]),
+          _c("label", { attrs: { for: "condition_any" } }, [_vm._v("Any")]),
           _vm._v(" "),
           _c("input", {
             attrs: {
-              id: "conditionNew",
+              id: "condition_new",
+              type: "checkbox",
+              name: "condition_new",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "condition_new" } }, [_vm._v("New")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "condition_used",
+              type: "checkbox",
+              name: "condition_used",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "condition_used" } }, [_vm._v("Used")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "condition_certified",
               type: "checkbox",
               name: "condition",
               value: "any"
             }
           }),
           _vm._v(" "),
-          _c("label", { attrs: { for: "conditionNew" } }, [_vm._v("New")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "conditionUsed",
-              type: "checkbox",
-              name: "condition",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "conditionUsed" } }, [_vm._v("Used")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "conditionCertified",
-              type: "checkbox",
-              name: "condition",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "conditionCertified" } }, [
+          _c("label", { attrs: { for: "condition_certified" } }, [
             _vm._v("Certified Pre-Owned")
           ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "collapse show", attrs: { id: "make_setting" } },
+      [
+        _c("div", { staticClass: "settingContent" }, [
+          _c("input", {
+            attrs: {
+              id: "make_any",
+              type: "checkbox",
+              name: "make_any",
+              value: "any",
+              checked: ""
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_any" } }, [_vm._v("Any")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_bmw",
+              type: "checkbox",
+              name: "make_bmw",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_bmw" } }, [_vm._v("BMW")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_bolloré",
+              type: "checkbox",
+              name: "make_bolloré",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_bolloré" } }, [_vm._v("Bolloré")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_byd",
+              type: "checkbox",
+              name: "make_byd",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_byd" } }, [_vm._v("BYD")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_chevrolet",
+              type: "checkbox",
+              name: "make_chevrolet",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_chevrolet" } }, [
+            _vm._v("Chevrolet")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_citroën",
+              type: "checkbox",
+              name: "make_citroën",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_citroën" } }, [_vm._v("Citroën")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_courb",
+              type: "checkbox",
+              name: "make_courb",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_courb" } }, [_vm._v("COURB")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_electrameccanica",
+              type: "checkbox",
+              name: "make_electrameccanica",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_electrameccanica" } }, [
+            _vm._v("ElectraMeccanica")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_fiat",
+              type: "checkbox",
+              name: "make_fiat",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_fiat" } }, [_vm._v("Fiat")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_ford",
+              type: "checkbox",
+              name: "make_ford",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_ford" } }, [_vm._v("Ford")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_honda",
+              type: "checkbox",
+              name: "make_honda",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_honda" } }, [_vm._v("Honda")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_hyundai",
+              type: "checkbox",
+              name: "make_hyundai",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_hyundai" } }, [_vm._v("Hyundai")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_jacmotors",
+              type: "checkbox",
+              name: "make_jacmotors",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_jacmotors" } }, [
+            _vm._v("JAC Motors")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_kewet",
+              type: "checkbox",
+              name: "make_kewet",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_kewet" } }, [_vm._v("Kewet")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_kia",
+              type: "checkbox",
+              name: "make_kia",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_kia" } }, [_vm._v("Kia")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_kyburz",
+              type: "checkbox",
+              name: "make_kyburz",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_kyburz" } }, [_vm._v("Kyburz")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_lightning",
+              type: "checkbox",
+              name: "make_lightning",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_lightning" } }, [
+            _vm._v("Lightning")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_mahindra",
+              type: "checkbox",
+              name: "make_mahindra",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_mahindra" } }, [
+            _vm._v("Mahindra")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_mercedes",
+              type: "checkbox",
+              name: "make_mercedes",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_mercedes" } }, [
+            _vm._v("Mercedes")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_micromobilitysystems",
+              type: "checkbox",
+              name: "make_micromobilitysystems",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_micromobilitysystems" } }, [
+            _vm._v("Micro Mobility Systems")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_mitsubishi",
+              type: "checkbox",
+              name: "make_mitsubishi",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_mitsubishi" } }, [
+            _vm._v("Mitsubishi")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_motoreslimpios",
+              type: "checkbox",
+              name: "make_motoreslimpios",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_motoreslimpios" } }, [
+            _vm._v("Motores Limpios")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_mwmotors",
+              type: "checkbox",
+              name: "make_mwmotors",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_mwmotors" } }, [
+            _vm._v("MW Motors")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_nissan",
+              type: "checkbox",
+              name: "make_nissan",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_nissan" } }, [_vm._v("Nissan")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_ecomove",
+              type: "checkbox",
+              name: "make_ecomove",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_ecomove" } }, [_vm._v("ECOmove")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_peugeot",
+              type: "checkbox",
+              name: "make_peugeot",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_peugeot" } }, [_vm._v("Peugeot")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_rayttle",
+              type: "checkbox",
+              name: "make_rayttle",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_rayttle" } }, [_vm._v("Rayttle")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_renault",
+              type: "checkbox",
+              name: "make_renault",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_renault" } }, [_vm._v("Renault")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_smart",
+              type: "checkbox",
+              name: "make_smart",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_smart" } }, [_vm._v("Smart")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_sonomotors",
+              type: "checkbox",
+              name: "make_sonomotors",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_sonomotors" } }, [
+            _vm._v("Sono Motors")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_stevens",
+              type: "checkbox",
+              name: "make_stevens",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_stevens" } }, [_vm._v("Stevens")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_tesla",
+              type: "checkbox",
+              name: "make_tesla",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_tesla" } }, [_vm._v("Tesla")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_venturi",
+              type: "checkbox",
+              name: "make_venturi",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_venturi" } }, [_vm._v("Venturi")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "make_volkswagen",
+              type: "checkbox",
+              name: "make_volkswagen",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "make_volkswagen" } }, [
+            _vm._v("Volkswagen")
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "collapse show", attrs: { id: "body_setting" } },
+      [
+        _c("div", { staticClass: "settingContent" }, [
+          _c("input", {
+            attrs: {
+              id: "body_any",
+              type: "checkbox",
+              name: "body_any",
+              value: "any",
+              checked: ""
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "body_any" } }, [_vm._v("Any")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "body_cargovan",
+              type: "checkbox",
+              name: "body_cargovan",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "body_cargovan" } }, [
+            _vm._v("Cargo Van")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "body_convertible",
+              type: "checkbox",
+              name: "body_convertible",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "body_convertible" } }, [
+            _vm._v("Convertible")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "body_coupe",
+              type: "checkbox",
+              name: "body_coupe",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "body_coupe" } }, [_vm._v("Coupe")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "body_crewcabpickup",
+              type: "checkbox",
+              name: "body_crewcabpickup",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "body_crewcabpickup" } }, [
+            _vm._v("Crew Cab Pickup")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "body_extendedcabpickup",
+              type: "checkbox",
+              name: "body_extendedcabpickup",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "body_extendedcabpickup" } }, [
+            _vm._v("Extended Cab Pickup")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "body_hatchback",
+              type: "checkbox",
+              name: "body_hatchback",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "body_hatchback" } }, [
+            _vm._v("Hatchback")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "body_minivan",
+              type: "checkbox",
+              name: "body_minivan",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "body_minivan" } }, [_vm._v("Minivan")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "body_sedan",
+              type: "checkbox",
+              name: "body_sedan",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "body_sedan" } }, [_vm._v("Sedan")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "body_crossover",
+              type: "checkbox",
+              name: "body_crossover",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "body_crossover" } }, [
+            _vm._v("Crossover")
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "collapse show", attrs: { id: "exteriorcolor_setting" } },
+      [
+        _c("div", { staticClass: "settingContent" }, [
+          _c("input", {
+            attrs: {
+              id: "color_any",
+              type: "checkbox",
+              name: "color_any",
+              value: "any",
+              checked: ""
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "color_any" } }, [_vm._v("Any")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "color_beige",
+              type: "checkbox",
+              name: "color_beige",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "color_beige" } }, [_vm._v("Beige")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "color_black",
+              type: "checkbox",
+              name: "color_black",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "color_black" } }, [_vm._v("Black")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "color_blue",
+              type: "checkbox",
+              name: "color_blue",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "color_blue" } }, [_vm._v("Blue")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "color_brown",
+              type: "checkbox",
+              name: "color_brown",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "color_brown" } }, [_vm._v("Brown")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "color_gold",
+              type: "checkbox",
+              name: "color_gold",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "color_gold" } }, [_vm._v("Gold")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "color_gray",
+              type: "checkbox",
+              name: "color_gray",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "color_gray" } }, [_vm._v("Gray")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "color_green",
+              type: "checkbox",
+              name: "color_green",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "color_green" } }, [_vm._v("Green")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "color_red",
+              type: "checkbox",
+              name: "color_red",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "color_red" } }, [_vm._v("Red")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "color_white",
+              type: "checkbox",
+              name: "color_white",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "color_white" } }, [_vm._v("White")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              id: "color_yellow",
+              type: "checkbox",
+              name: "color_yellow",
+              value: "any"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "color_yellow" } }, [_vm._v("Yellow")])
         ])
       ]
     )
@@ -50366,7 +51307,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    width: 100%;\n    margin-bottom: 40px;\n    background: white;\n    border-radius: 4px;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 4px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.listView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 15px;\n      word-wrap: break-word;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1%;\n}\n.gridView .announcement[data-v-c50082e8] {\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    margin: 1.5%;\n    border-radius: 4px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.gridView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  margin-top: 10px;\n  font-weight: 700;\n  font-size: 18px;\n  color: #a12932;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.5% 3.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 2px 10px #e5e8eb;\n            box-shadow: 0 2px 10px #e5e8eb;\n    width: 100%;\n    margin-bottom: 40px;\n    background: white;\n    border-radius: 2px;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 2px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .title[data-v-c50082e8] {\n        color: #2a3744;\n}\n.listView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 15px;\n      word-wrap: break-word;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1% 1% 1% 2%;\n}\n.gridView .announcement[data-v-c50082e8] {\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    margin: 1.5%;\n    border-radius: 4px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.gridView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  margin-top: 10px;\n  font-weight: 700;\n  font-size: 18px;\n  color: #a12932;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -50551,8 +51492,8 @@ var render = function() {
                       _vm._v("New Nissan Leaf 2017 LTZ CPZ")
                     ]),
                     _vm._v(" "),
-                    _c("span", { staticClass: "subtitle" }, [_vm._v("Type")]),
-                    _vm._v(" Electric\n                        "),
+                    _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
+                    _vm._v(" 2017\n                        "),
                     _c("br"),
                     _c("span", { staticClass: "subtitle" }, [
                       _vm._v("Mileage")
@@ -50593,8 +51534,8 @@ var render = function() {
                       _vm._v("New Nissan Leaf 2017 LTZ CPZ")
                     ]),
                     _vm._v(" "),
-                    _c("span", { staticClass: "subtitle" }, [_vm._v("Type")]),
-                    _vm._v(" Electric\n                        "),
+                    _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
+                    _vm._v(" 2017\n                        "),
                     _c("br"),
                     _c("span", { staticClass: "subtitle" }, [
                       _vm._v("Mileage")
@@ -50635,8 +51576,8 @@ var render = function() {
                       _vm._v("New Nissan Leaf 2017 LTZ CPZ")
                     ]),
                     _vm._v(" "),
-                    _c("span", { staticClass: "subtitle" }, [_vm._v("Type")]),
-                    _vm._v(" Electric\n                        "),
+                    _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
+                    _vm._v(" 2017\n                        "),
                     _c("br"),
                     _c("span", { staticClass: "subtitle" }, [
                       _vm._v("Mileage")
@@ -50682,8 +51623,8 @@ var render = function() {
                     _vm._v("New Nissan Leaf 2017 LTZ CPZ")
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Type")]),
-                  _vm._v(" Electric\n                    "),
+                  _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
+                  _vm._v(" 2017\n                    "),
                   _c("br"),
                   _c("span", { staticClass: "subtitle" }, [_vm._v("Mileage")]),
                   _vm._v(" 10234 KM\n                    "),
@@ -50720,8 +51661,8 @@ var render = function() {
                     _vm._v("New Nissan Leaf 2017 LTZ CPZ")
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Type")]),
-                  _vm._v(" Electric\n                    "),
+                  _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
+                  _vm._v(" 2017\n                    "),
                   _c("br"),
                   _c("span", { staticClass: "subtitle" }, [_vm._v("Mileage")]),
                   _vm._v(" 10234 KM\n                    "),
@@ -50758,8 +51699,8 @@ var render = function() {
                     _vm._v("New Nissan Leaf 2017 LTZ CPZ")
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Type")]),
-                  _vm._v(" Electric\n                    "),
+                  _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
+                  _vm._v(" 2017\n                    "),
                   _c("br"),
                   _c("span", { staticClass: "subtitle" }, [_vm._v("Mileage")]),
                   _vm._v(" 10234 KM\n                    "),
@@ -50796,8 +51737,8 @@ var render = function() {
                     _vm._v("New Nissan Leaf 2017 LTZ CPZ")
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Type")]),
-                  _vm._v(" Electric\n                    "),
+                  _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
+                  _vm._v(" 2017\n                    "),
                   _c("br"),
                   _c("span", { staticClass: "subtitle" }, [_vm._v("Mileage")]),
                   _vm._v(" 10234 KM\n                    "),
