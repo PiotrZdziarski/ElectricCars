@@ -3,6 +3,16 @@
         <div @click="showSidebar" id="settingButton" class="settingButton">
             <i class="icon-search"></i>
         </div>
+        <form class="settingForm">
+            <div class="setting">
+                <div class="settingContent">
+                    <input class="textInput" type="text" placeholder="Search for...">
+                </div>
+            </div>
+        </form>
+        <div class="advancedSearching">
+            Advanced Searching
+        </div>
         <form @submit="submitMethod" class="settingForm">
             <div class="setting">
                 <div class="settingName">Condition</div>
@@ -238,6 +248,36 @@
                     </div>
                 </div>
             </div>
+
+            <div class="setting">
+                <div class="settingName">Minimum Price</div>
+                <button @click="showSetting" class="showOption" type="button" data-toggle="collapse"
+                        data-target="#minimum_setting" aria-expanded="false" aria-controls="collapseExample">-
+                </button>
+                <div class="collapse show" id="minimum_setting">
+                    <div class="settingContent">
+                        <input maxlength="15" id="min_price" class="textInput priceInput" type="text" name="minimum_price">
+                        <label class="labelPrice" for="min_price">$</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setting">
+                <div class="settingName">Maximum Price</div>
+                <button @click="showSetting" class="showOption" type="button" data-toggle="collapse"
+                        data-target="#maximum_setting" aria-expanded="false" aria-controls="collapseExample">-
+                </button>
+                <div class="collapse show" id="maximum_setting">
+                    <div class="settingContent">
+                        <input maxlength="15" id="max_price" class="textInput priceInput" type="text" name="maximum_price">
+                        <label class="labelPrice" for="max_price">$</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setting">
+                <button class="submitButton" type="submit">Search</button>
+            </div>
         </form>
     </div>
 </template>
@@ -390,16 +430,68 @@
                 padding: 5px;
                 font-size: 16px;
                 position:relative;
-                max-height: 250px;
+                max-height: 200px;
                 overflow-y: auto;
 
                 .formRow {
                     margin-bottom: 20px;
                 }
+
+                .priceSetting {
+                    border: 1px solid #b9bbbe;
+                    border-radius: 2px;
+                    width: 40%;
+                    padding-left: 5px;
+                }
+
+
+                .priceSetting:active, .priceSetting:focus {
+                    outline: none;
+                    box-shadow: 0 1px 4px #dcdee2;
+                }
+
+                .labelPrice {
+                    font-size: 16px;
+                    padding-left: 3px;
+                }
+
+                .textInput {
+                    width: 97%;
+                    border: 0;
+                    border-bottom: 1px solid #666666;
+                    margin-bottom: 10px;
+                    color: #3d4852;
+                }
+
+                .textInput:focus, .textInput:active {
+                    outline: none;
+                    box-shadow: 0 8px 16px -8px #999999;
+                }
+
+                .priceInput {
+                    width: 40%;
+                }
             }
 
+            .submitButton {
+                border: 0;
+                background: #385d7a;
+                color: white;
+                border-radius: 2px;
+                padding: 8px 16px 8px 16px;
+                display: block;
+                margin-top: 20px;
+                cursor:pointer;
+                transition: background-color .3s ease-in-out;
+            }
+            .submitButton:hover {
+                background: #447295;
+            }
 
-
+            .submitButton:active, .submitButton:focus {
+                outline: none;
+                box-shadow: 0 2px 4px #b9bbbe;
+            }
 
             .settingName {
                 text-transform: uppercase;
@@ -426,6 +518,14 @@
         {
             -webkit-box-shadow: inset 0 0 6px rgba(168, 168, 168, 0.3);
             background-color: #e1dce5;
+        }
+
+        .advancedSearching {
+            left: 10%;
+            font-size: 20px;
+            color: #3d4852;
+            margin-bottom: 20px;
+            padding-left: 5%;
         }
     }
 

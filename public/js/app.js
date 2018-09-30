@@ -11786,7 +11786,6 @@ window.Vue = __webpack_require__(40);
 //app
 Vue.component('navbar', __webpack_require__(43));
 Vue.component('footerMain', __webpack_require__(49));
-Vue.component('scrollTop', __webpack_require__(54));
 Vue.component('scrollEventListener', __webpack_require__(59));
 
 //Home
@@ -48336,7 +48335,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48347,13 +48346,20 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scrollTop_vue__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__scrollTop_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__scrollTop_vue__);
 //
 //
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "scrollEvent",
+    components: {
+        scrollTop: __WEBPACK_IMPORTED_MODULE_0__scrollTop_vue___default.a
+    },
     data: function data() {
         return {
             show_scroll_top: false
@@ -49607,7 +49613,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f8fafc));\n  background: linear-gradient(to right, white 50%, #f8fafc 50%);\n}\n.wrapper .claim[data-v-1907b3ce] {\n    height: 30vh;\n    background: #1e2124;\n    text-transform: uppercase;\n    font-family: 'Overpass', sans-serif;\n    font-weight: bold;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    padding-bottom: 1%;\n    padding-left: 4%;\n}\n@media (min-width: 476px) {\n.wrapper .claim[data-v-1907b3ce] {\n        padding-left: 8%;\n}\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      -ms-flex-item-align: end;\n          align-self: flex-end;\n      font-weight: 700;\n      color: white;\n      font-size: 30px;\n}\n@media (min-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 40px;\n}\n}\n@media (min-width: 1000px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 44px;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n      font-weight: 600;\n}\n.wrapper .main[data-v-1907b3ce] {\n    margin-left: auto;\n    margin-right: auto;\n    font-family: \"Roboto\", sans-serif;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.wrapper .main[data-v-1907b3ce] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.wrapper .main[data-v-1907b3ce] {\n        width: 1100px;\n}\n}\n.wrapper .main .announcements[data-v-1907b3ce] {\n      background: #f8fafc;\n      padding-top: 50px;\n      position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .main .announcements[data-v-1907b3ce] {\n          width: 75%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f4f6f8));\n  background: linear-gradient(to right, white 50%, #f4f6f8 50%);\n}\n.wrapper .claim[data-v-1907b3ce] {\n    height: 30vh;\n    background: #1e2124;\n    text-transform: uppercase;\n    font-family: 'Overpass', sans-serif;\n    font-weight: bold;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    padding-bottom: 1%;\n    padding-left: 4%;\n}\n@media (min-width: 476px) {\n.wrapper .claim[data-v-1907b3ce] {\n        padding-left: 8%;\n}\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      -ms-flex-item-align: end;\n          align-self: flex-end;\n      font-weight: 700;\n      color: white;\n      font-size: 30px;\n}\n@media (min-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 40px;\n}\n}\n@media (min-width: 1000px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 44px;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n      font-weight: 600;\n}\n.wrapper .main[data-v-1907b3ce] {\n    margin-left: auto;\n    margin-right: auto;\n    font-family: \"Roboto\", sans-serif;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.wrapper .main[data-v-1907b3ce] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.wrapper .main[data-v-1907b3ce] {\n        width: 1100px;\n}\n}\n.wrapper .main .announcements[data-v-1907b3ce] {\n      background: #f4f6f8;\n      padding-top: 50px;\n      position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .main .announcements[data-v-1907b3ce] {\n          width: 75%;\n}\n}\n", ""]);
 
 // exports
 
@@ -49990,7 +49996,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  background: white;\n  width: 250px;\n  right: -250px;\n}\n@media (max-width: 999.99px) {\n.settings[data-v-e2df705e] {\n      -webkit-transition: right .3s ease-in-out;\n      transition: right .3s ease-in-out;\n      position: fixed;\n      height: 100vh;\n      z-index: 999;\n      top: 50%;\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      -ms-transform: translateY(-50%);\n      border-radius: 4px;\n      -webkit-box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n              box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n}\n}\n@media (min-width: 1000px) {\n.settings[data-v-e2df705e] {\n      border-right: 1px solid #dfdfdf;\n      width: 25%;\n      padding-top: 62px;\n}\n}\n.settings .settingButton[data-v-e2df705e] {\n    padding: 12px;\n    position: fixed;\n    z-index: 1001;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -ms-transform: translateY(-50%);\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n    border-radius: 4px;\n    top: 50%;\n    right: 100%;\n    background: white;\n    cursor: pointer;\n}\n@media (min-width: 1000px) {\n.settings .settingButton[data-v-e2df705e] {\n        display: none;\n}\n}\n.settings .settingButton .icon-search[data-v-e2df705e] {\n      font-size: 20px;\n      color: #444444;\n}\n.settings .settingButton[data-v-e2df705e]:hover {\n    background: #f9f9f9;\n}\n@media (max-width: 999.99px) {\n.settings .settingForm[data-v-e2df705e] {\n      overflow-y: scroll;\n      max-height: 100vh;\n}\n}\n.settings .setting[data-v-e2df705e] {\n    margin: 15px 15px 30px 15px;\n    position: relative;\n}\n.settings .setting .showOption[data-v-e2df705e] {\n      width: 25px;\n      height: 25px;\n      border: 1px solid #aaaaaa;\n      font-size: 20px;\n      line-height: 60%;\n      padding-top: -100px;\n      color: #666666;\n      background: white;\n      font-family: \"Nunito\", sans-serif;\n      position: absolute;\n      right: 0;\n      top: 0;\n}\n.settings .setting .showOption .iconPlus[data-v-e2df705e] {\n        margin-top: -2px;\n}\n.settings .setting .showOption .iconMinus[data-v-e2df705e] {\n        margin-top: -10px;\n}\n.settings .setting .showOption[data-v-e2df705e]:focus, .settings .setting .showOption[data-v-e2df705e]:active {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #eeeeee;\n              box-shadow: 0 2px 4px #eeeeee;\n}\n.settings .setting .settingContent[data-v-e2df705e] {\n      margin-top: 10px;\n      padding: 5px;\n      font-size: 16px;\n      position: relative;\n      max-height: 250px;\n      overflow-y: auto;\n}\n.settings .setting .settingContent .formRow[data-v-e2df705e] {\n        margin-bottom: 20px;\n}\n.settings .setting .settingName[data-v-e2df705e] {\n      text-transform: uppercase;\n      font-weight: 500;\n      font-size: 18px;\n      color: #2a3744;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(163, 163, 163, 0.3);\n    background-color: #f5f5f5;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar {\n    width: 10px;\n    background-color: #F5F5F5;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar-thumb {\n    -webkit-box-shadow: inset 0 0 6px rgba(168, 168, 168, 0.3);\n    background-color: #e1dce5;\n}\n\n/*Checkboxes styles*/\ninput[type=\"checkbox\"][data-v-e2df705e] {\n  display: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e] {\n  display: block;\n  position: relative;\n  padding-left: 35px;\n  margin-bottom: 20px;\n  cursor: pointer;\n  font-family: \"Roboto\",sans-serif;\n  color: #444444;\n  font-size: 14px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:last-child {\n  margin-bottom: 0;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:before {\n  content: '';\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 2px solid #aaafae;\n  border-radius: 2px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  -webkit-transition: all .12s, border-color .08s;\n  transition: all .12s, border-color .08s;\n}\ninput[type=\"checkbox\"]:checked + label[data-v-e2df705e]:before {\n  width: 10px;\n  top: -4px;\n  left: 5px;\n  border-radius: 0;\n  opacity: 1;\n  border-top-color: transparent;\n  border-left-color: transparent;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n", ""]);
+exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  background: white;\n  width: 250px;\n  right: -250px;\n}\n@media (max-width: 999.99px) {\n.settings[data-v-e2df705e] {\n      -webkit-transition: right .3s ease-in-out;\n      transition: right .3s ease-in-out;\n      position: fixed;\n      height: 100vh;\n      z-index: 999;\n      top: 50%;\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      -ms-transform: translateY(-50%);\n      border-radius: 4px;\n      -webkit-box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n              box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n}\n}\n@media (min-width: 1000px) {\n.settings[data-v-e2df705e] {\n      border-right: 1px solid #dfdfdf;\n      width: 25%;\n      padding-top: 62px;\n}\n}\n.settings .settingButton[data-v-e2df705e] {\n    padding: 12px;\n    position: fixed;\n    z-index: 1001;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -ms-transform: translateY(-50%);\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n    border-radius: 4px;\n    top: 50%;\n    right: 100%;\n    background: white;\n    cursor: pointer;\n}\n@media (min-width: 1000px) {\n.settings .settingButton[data-v-e2df705e] {\n        display: none;\n}\n}\n.settings .settingButton .icon-search[data-v-e2df705e] {\n      font-size: 20px;\n      color: #444444;\n}\n.settings .settingButton[data-v-e2df705e]:hover {\n    background: #f9f9f9;\n}\n@media (max-width: 999.99px) {\n.settings .settingForm[data-v-e2df705e] {\n      overflow-y: scroll;\n      max-height: 100vh;\n}\n}\n.settings .setting[data-v-e2df705e] {\n    margin: 15px 15px 30px 15px;\n    position: relative;\n}\n.settings .setting .showOption[data-v-e2df705e] {\n      width: 25px;\n      height: 25px;\n      border: 1px solid #aaaaaa;\n      font-size: 20px;\n      line-height: 60%;\n      padding-top: -100px;\n      color: #666666;\n      background: white;\n      font-family: \"Nunito\", sans-serif;\n      position: absolute;\n      right: 0;\n      top: 0;\n}\n.settings .setting .showOption .iconPlus[data-v-e2df705e] {\n        margin-top: -2px;\n}\n.settings .setting .showOption .iconMinus[data-v-e2df705e] {\n        margin-top: -10px;\n}\n.settings .setting .showOption[data-v-e2df705e]:focus, .settings .setting .showOption[data-v-e2df705e]:active {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #eeeeee;\n              box-shadow: 0 2px 4px #eeeeee;\n}\n.settings .setting .settingContent[data-v-e2df705e] {\n      margin-top: 10px;\n      padding: 5px;\n      font-size: 16px;\n      position: relative;\n      max-height: 200px;\n      overflow-y: auto;\n}\n.settings .setting .settingContent .formRow[data-v-e2df705e] {\n        margin-bottom: 20px;\n}\n.settings .setting .settingContent .priceSetting[data-v-e2df705e] {\n        border: 1px solid #b9bbbe;\n        border-radius: 2px;\n        width: 40%;\n        padding-left: 5px;\n}\n.settings .setting .settingContent .priceSetting[data-v-e2df705e]:active, .settings .setting .settingContent .priceSetting[data-v-e2df705e]:focus {\n        outline: none;\n        -webkit-box-shadow: 0 1px 4px #dcdee2;\n                box-shadow: 0 1px 4px #dcdee2;\n}\n.settings .setting .settingContent .labelPrice[data-v-e2df705e] {\n        font-size: 16px;\n        padding-left: 3px;\n}\n.settings .setting .settingContent .textInput[data-v-e2df705e] {\n        width: 97%;\n        border: 0;\n        border-bottom: 1px solid #666666;\n        margin-bottom: 10px;\n        color: #3d4852;\n}\n.settings .setting .settingContent .textInput[data-v-e2df705e]:focus, .settings .setting .settingContent .textInput[data-v-e2df705e]:active {\n        outline: none;\n        -webkit-box-shadow: 0 8px 16px -8px #999999;\n                box-shadow: 0 8px 16px -8px #999999;\n}\n.settings .setting .settingContent .priceInput[data-v-e2df705e] {\n        width: 40%;\n}\n.settings .setting .submitButton[data-v-e2df705e] {\n      border: 0;\n      background: #385d7a;\n      color: white;\n      border-radius: 2px;\n      padding: 8px 16px 8px 16px;\n      display: block;\n      margin-top: 20px;\n      cursor: pointer;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.settings .setting .submitButton[data-v-e2df705e]:hover {\n      background: #447295;\n}\n.settings .setting .submitButton[data-v-e2df705e]:active, .settings .setting .submitButton[data-v-e2df705e]:focus {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #b9bbbe;\n              box-shadow: 0 2px 4px #b9bbbe;\n}\n.settings .setting .settingName[data-v-e2df705e] {\n      text-transform: uppercase;\n      font-weight: 500;\n      font-size: 18px;\n      color: #2a3744;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(163, 163, 163, 0.3);\n    background-color: #f5f5f5;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar {\n    width: 10px;\n    background-color: #F5F5F5;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar-thumb {\n    -webkit-box-shadow: inset 0 0 6px rgba(168, 168, 168, 0.3);\n    background-color: #e1dce5;\n}\n.settings .advancedSearching[data-v-e2df705e] {\n    left: 10%;\n    font-size: 20px;\n    color: #3d4852;\n    margin-bottom: 20px;\n    padding-left: 5%;\n}\n\n/*Checkboxes styles*/\ninput[type=\"checkbox\"][data-v-e2df705e] {\n  display: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e] {\n  display: block;\n  position: relative;\n  padding-left: 35px;\n  margin-bottom: 20px;\n  cursor: pointer;\n  font-family: \"Roboto\",sans-serif;\n  color: #444444;\n  font-size: 14px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:last-child {\n  margin-bottom: 0;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:before {\n  content: '';\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 2px solid #aaafae;\n  border-radius: 2px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  -webkit-transition: all .12s, border-color .08s;\n  transition: all .12s, border-color .08s;\n}\ninput[type=\"checkbox\"]:checked + label[data-v-e2df705e]:before {\n  width: 10px;\n  top: -4px;\n  left: 5px;\n  border-radius: 0;\n  opacity: 1;\n  border-top-color: transparent;\n  border-left-color: transparent;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n", ""]);
 
 // exports
 
@@ -50001,6 +50007,46 @@ exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  background: white;\n 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50314,6 +50360,12 @@ var render = function() {
       [_c("i", { staticClass: "icon-search" })]
     ),
     _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "advancedSearching" }, [
+      _vm._v("\n        Advanced Searching\n    ")
+    ]),
+    _vm._v(" "),
     _c(
       "form",
       { staticClass: "settingForm", on: { submit: _vm.submitMethod } },
@@ -50337,7 +50389,7 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(0)
+          _vm._m(1)
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "setting" }, [
@@ -50421,7 +50473,7 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(2)
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "setting" }, [
@@ -50443,7 +50495,7 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(2)
+          _vm._m(3)
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "setting" }, [
@@ -50465,13 +50517,74 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(3)
-        ])
+          _vm._m(4)
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "setting" }, [
+          _c("div", { staticClass: "settingName" }, [_vm._v("Minimum Price")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "showOption",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "data-target": "#minimum_setting",
+                "aria-expanded": "false",
+                "aria-controls": "collapseExample"
+              },
+              on: { click: _vm.showSetting }
+            },
+            [_vm._v("-\n            ")]
+          ),
+          _vm._v(" "),
+          _vm._m(5)
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "setting" }, [
+          _c("div", { staticClass: "settingName" }, [_vm._v("Maximum Price")]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "showOption",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "data-target": "#maximum_setting",
+                "aria-expanded": "false",
+                "aria-controls": "collapseExample"
+              },
+              on: { click: _vm.showSetting }
+            },
+            [_vm._v("-\n            ")]
+          ),
+          _vm._v(" "),
+          _vm._m(6)
+        ]),
+        _vm._v(" "),
+        _vm._m(7)
       ]
     )
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("form", { staticClass: "settingForm" }, [
+      _c("div", { staticClass: "setting" }, [
+        _c("div", { staticClass: "settingContent" }, [
+          _c("input", {
+            staticClass: "textInput",
+            attrs: { type: "text", placeholder: "Search for..." }
+          })
+        ])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -51210,6 +51323,72 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "collapse show", attrs: { id: "minimum_setting" } },
+      [
+        _c("div", { staticClass: "settingContent" }, [
+          _c("input", {
+            staticClass: "textInput priceInput",
+            attrs: {
+              maxlength: "15",
+              id: "min_price",
+              type: "text",
+              name: "minimum_price"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "labelPrice", attrs: { for: "min_price" } },
+            [_vm._v("$")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "collapse show", attrs: { id: "maximum_setting" } },
+      [
+        _c("div", { staticClass: "settingContent" }, [
+          _c("input", {
+            staticClass: "textInput priceInput",
+            attrs: {
+              maxlength: "15",
+              id: "max_price",
+              type: "text",
+              name: "maximum_price"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "labelPrice", attrs: { for: "max_price" } },
+            [_vm._v("$")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "setting" }, [
+      _c("button", { staticClass: "submitButton", attrs: { type: "submit" } }, [
+        _vm._v("Search")
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -51307,7 +51486,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.5% 3.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 2px 10px #e5e8eb;\n            box-shadow: 0 2px 10px #e5e8eb;\n    width: 100%;\n    margin-bottom: 40px;\n    background: white;\n    border-radius: 2px;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 2px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .title[data-v-c50082e8] {\n        color: #2a3744;\n}\n.listView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 15px;\n      word-wrap: break-word;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1% 1% 1% 2%;\n}\n.gridView .announcement[data-v-c50082e8] {\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    margin: 1.5%;\n    border-radius: 4px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.gridView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  margin-top: 10px;\n  font-weight: 700;\n  font-size: 18px;\n  color: #a12932;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.5% 3.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 2px 6px #e5e8eb;\n            box-shadow: 0 2px 6px #e5e8eb;\n    width: 100%;\n    margin-bottom: 40px;\n    background: white;\n    border-radius: 2px;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 2px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .title[data-v-c50082e8] {\n        color: #2a3744;\n}\n.listView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 15px;\n      word-wrap: break-word;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1% 1% 1% 2%;\n}\n.gridView .announcement[data-v-c50082e8] {\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    margin: 1.5%;\n    border-radius: 4px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.gridView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  margin-top: 10px;\n  font-weight: 700;\n  font-size: 18px;\n  color: #bc4755;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 

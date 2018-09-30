@@ -3,8 +3,13 @@
 </template>
 
 <script>
+    import scrollTop from './scrollTop.vue';
+
     export default {
         name: "scrollEvent",
+        components: {
+            scrollTop: scrollTop
+        },
         data() {
             return {
                 show_scroll_top: false
