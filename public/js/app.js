@@ -52234,7 +52234,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 40vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  margin-top: 10vh;\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: 5vh;\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1100px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px;\n}\n.main .mainContent[data-v-f65d2816] {\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.main .mainContent .left[data-v-f65d2816] {\n      height: 100vh;\n      -webkit-box-shadow: 0 1px 2px #b9bbbe;\n              box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n          width: 70%;\n}\n}\n.main .mainContent .right[data-v-f65d2816] {\n      background: #f5f5f5;\n      height: 100vh;\n      -webkit-box-shadow: 0 1px 2px #b9bbbe;\n              box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n}\n}\n.main .mainContent .right .price[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 38px;\n        color: #444444;\n        font-weight: 700;\n        padding: 30px 0 30px 0;\n}\n", ""]);
+exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 40vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  margin-top: 10vh;\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: 5vh;\n}\n@media (min-width: 768px) {\n.borderLine[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1100px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px 15px 5px 15px;\n}\n@media (min-width: 768px) and (max-width: 999.99px) {\n.main[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.main[data-v-f65d2816] {\n      padding: 5px;\n}\n}\n.main .mainContent[data-v-f65d2816] {\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n        width: 70%;\n}\n}\n.main .mainContent .left .details[data-v-f65d2816] {\n      margin-top: 25px;\n}\n.main .mainContent .left .details .detail[data-v-f65d2816] {\n        border-bottom: 1px solid #dddddd;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        padding: 5px 1px 5px 1px;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n}\n.main .mainContent .left .details .detail .detailTitle[data-v-f65d2816] {\n          width: 30%;\n          text-transform: uppercase;\n          color: #888888;\n}\n.main .mainContent .left .details .detail .detailValue[data-v-f65d2816] {\n          width: 70%;\n          color: #444;\n}\n.main .mainContent .left .sellerComment[data-v-f65d2816] {\n      color: #444;\n}\n.main .mainContent .left .features ul[data-v-f65d2816] {\n      padding-left: 16px;\n      margin-top: 15px;\n}\n.main .mainContent .left .features li[data-v-f65d2816] {\n      color: #ff4d52;\n      font-size: 16px;\n      margin-bottom: 20px;\n}\n.main .mainContent .left .features span[data-v-f65d2816] {\n      color: #444345;\n}\n.main .mainContent .right[data-v-f65d2816] {\n      background: #f5f5f5;\n      height: 100vh;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n}\n}\n.main .mainContent .right .price[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 38px;\n        color: #444444;\n        font-weight: 700;\n        padding: 30px 0 30px 0;\n}\n.leftTitle[data-v-f65d2816] {\n  margin-top: 40px;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 500;\n  color: #212c33;\n}\n", ""]);
 
 // exports
 
@@ -52276,6 +52276,114 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -52300,9 +52408,24 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "main" }, [
       _c("div", { staticClass: "mainContent" }, [
-        _c("div", { staticClass: "left" }, [_c("carousel-announcement")], 1),
+        _c(
+          "div",
+          { staticClass: "left" },
+          [
+            _c("carousel-announcement"),
+            _vm._v(" "),
+            _c("h2", { staticClass: "leftTitle" }, [_vm._v("Vehicle details")]),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3)
+          ],
+          1
+        ),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(4)
       ])
     ])
   ])
@@ -52324,6 +52447,138 @@ var staticRenderFns = [
             _vm._v("\n                    Back to adverts\n                ")
           ])
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "details" }, [
+      _c("div", { staticClass: "detail" }, [
+        _c("div", { staticClass: "detailTitle" }, [
+          _vm._v(
+            "\n                            Weight\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "detailValue" }, [
+          _vm._v(
+            "\n                            1470kg\n                        "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "detail" }, [
+        _c("div", { staticClass: "detailTitle" }, [
+          _vm._v(
+            "\n                            Weight\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "detailValue" }, [
+          _vm._v(
+            "\n                            1470kg\n                        "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "detail" }, [
+        _c("div", { staticClass: "detailTitle" }, [
+          _vm._v(
+            "\n                            ENGINE\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "detailValue" }, [
+          _vm._v(
+            "\n                            3.6L V6 24V GDI DOHC Twin Turbo\n                        "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "detail" }, [
+        _c("div", { staticClass: "detailTitle" }, [
+          _vm._v("\n                            Year\n                        ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "detailValue" }, [
+          _vm._v("\n                            106\n                        ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "detail" }, [
+        _c("div", { staticClass: "detailTitle" }, [
+          _vm._v(
+            "\n                            Weight\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "detailValue" }, [
+          _vm._v(
+            "\n                            1470kg\n                        "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "detail" }, [
+        _c("div", { staticClass: "detailTitle" }, [
+          _vm._v("\n                            VNS\n                        ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "detailValue" }, [
+          _vm._v(
+            "\n                            12494283 21ob2 12bio\n                        "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "detail" }, [
+        _c("div", { staticClass: "detailTitle" }, [
+          _vm._v(
+            "\n                            Full name\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "detailValue" }, [
+          _vm._v(
+            "\n                            23981 829 01380 Nissa Leaft\n                        "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sellerComment" }, [
+      _c("h2", { staticClass: "leftTitle" }, [_vm._v("Seller comment")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "\n                        Nulla venenatis. In pede mi, aliquet sit amet, euismod in,auctor ut, ligula. Aliquam dapibus\n                        tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac,\n                        lorem.\n                        Vestibulum sed ante. Donec sagittis euismod purus. Sed ut perspiciatis unde omnis iste natus\n                        error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae\n                        ab\n                        illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim\n                        ipsam\n                        voluptatem quia voluptas sit aspernatur.\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "features" }, [
+      _c("h2", { staticClass: "leftTitle" }, [_vm._v("Features")]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [_c("span", [_vm._v("Twoja Stara pijana")])]),
+        _vm._v(" "),
+        _c("li", [_c("span", [_vm._v("Twoja Stara pijana")])]),
+        _vm._v(" "),
+        _c("li", [_c("span", [_vm._v("Twoja Stara pijana")])]),
+        _vm._v(" "),
+        _c("li", [_c("span", [_vm._v("Twoja Stara pijana")])]),
+        _vm._v(" "),
+        _c("li", [_c("span", [_vm._v("Twoja Stara pijana")])])
       ])
     ])
   },
@@ -53158,7 +53413,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.carouselAnnouncement[data-v-cf554916] {\n  width: 100%;\n  padding: 5px;\n}\n.carouselAnnouncement .imageContainer[data-v-cf554916] {\n    background: #eaeaea;\n    height: 400px;\n    position: relative;\n}\n.carouselAnnouncement .imageContainer .carouselItemContainer[data-v-cf554916] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      height: 400px;\n}\n.carouselAnnouncement .imageContainer .image[data-v-cf554916] {\n      max-width: 100%;\n      max-height: 100%;\n}\n.carouselAnnouncement .carousel-control-next[data-v-cf554916] {\n    -webkit-transition: opacity .2s  ease-in-out;\n    transition: opacity .2s  ease-in-out;\n}\n.carouselAnnouncement .angle[data-v-cf554916] {\n    font-size: 24px;\n    font-weight: 500;\n    color: white;\n    background: rgba(100, 100, 100, 0.6);\n    border-radius: 4px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916] {\n    margin-top: 10px;\n    width: 100%;\n    height: 150px;\n    border: 1px solid #efefef;\n    padding: 5px;\n    overflow-x: auto;\n    overflow-y: hidden;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.carouselAnnouncement .carouselPreview .image[data-v-cf554916] {\n      height: 100%;\n      padding-right: 2.5px;\n      padding-left: 2.5px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(187, 187, 187, 0.4);\n    background-color: #efefef;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar {\n    background-color: #F5F5F5;\n    height: 11px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-thumb {\n    background-color: #ff5268;\n    border-radius: 4px;\n}\n", ""]);
+exports.push([module.i, "\n.carouselAnnouncement[data-v-cf554916] {\n  width: 100%;\n  padding: 5px;\n}\n.carouselAnnouncement .imageContainer[data-v-cf554916] {\n    background: #f1f1f1;\n    height: 400px;\n    position: relative;\n}\n.carouselAnnouncement .imageContainer .carouselItemContainer[data-v-cf554916] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      height: 400px;\n}\n.carouselAnnouncement .imageContainer .image[data-v-cf554916] {\n      max-width: 100%;\n      max-height: 100%;\n}\n.carouselAnnouncement .carousel-control-next[data-v-cf554916] {\n    -webkit-transition: opacity .2s  ease-in-out;\n    transition: opacity .2s  ease-in-out;\n}\n.carouselAnnouncement .angle[data-v-cf554916] {\n    font-size: 24px;\n    font-weight: 500;\n    color: white;\n    background: rgba(100, 100, 100, 0.6);\n    border-radius: 4px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916] {\n    margin-top: 10px;\n    width: 100%;\n    height: 150px;\n    border: 1px solid #f3f3f3;\n    padding: 5px;\n    overflow-x: auto;\n    overflow-y: hidden;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.carouselAnnouncement .carouselPreview .image[data-v-cf554916] {\n      height: 100%;\n      padding: 7px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(187, 187, 187, 0.4);\n    background-color: #efefef;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar {\n    background-color: #F5F5F5;\n    height: 11px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-thumb {\n    background-color: #403b3e;\n    border-radius: 4px;\n}\n", ""]);
 
 // exports
 
