@@ -63,8 +63,12 @@
             align-items: center;
 
             .sortChild {
-                margin-left: 5px;
-                margin-right: 5px;
+                margin-left: 2px;
+                margin-right: 2px;
+                @media(min-width: 476px) {
+                    margin-left: 5px;
+                    margin-right: 5px;
+                }
             }
 
             .sortChild:first-child {

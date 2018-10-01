@@ -52,5 +52,10 @@
         justify-content:center;
         align-items: center;
         cursor: pointer;
+
+        @media(max-width: 476px) {
+            right: 20px;
+            bottom: 20px;
+        }
     }
 </style>

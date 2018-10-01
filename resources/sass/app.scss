@@ -1,18 +1,13 @@
-
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
 
 a:hover {
   text-decoration: none;
 }
-
 
 .backgroundWhite {
   background: white !important;
@@ -26,10 +21,27 @@ a:hover {
 .hrefColor {
   color: #444345 !important;
 }
+
 .hrefColor > .menuItem > a:hover {
   color: #297ba7 !important;
 }
 
 .navTransition {
   transition: .4s background-color ease-in-out;
+}
+
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+
+  @media (min-width: 1000px) {
+    display: flex;
+    width: 970px;
+  }
+
+  @media(min-width: 1200px) {
+    width: 1100px;
+  }
 }

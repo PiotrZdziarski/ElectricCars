@@ -19,5 +19,6 @@ Auth::routes();
 Route::get('/cars', 'SitesController@cars');
 Route::get('/car/{id}', 'SitesController@car');
 
-//announcements
+//adverts
 Route::get('/adverts', 'SitesController@adverts');
+Route::get('/advert/{id}', 'SitesController@advert');
