@@ -368,7 +368,7 @@
         }
 
         .settingButton {
-            padding: 12px;
+            padding: 10px;
             position: fixed;
             z-index: 1001;
             transform: translateY(-50%);

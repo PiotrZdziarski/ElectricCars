@@ -19,7 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fontello.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fontello2.css') }}" rel="stylesheet">
 </head>
 <body>
 

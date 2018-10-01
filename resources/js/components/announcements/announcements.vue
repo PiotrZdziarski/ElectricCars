@@ -29,9 +29,9 @@
             announcementsList: announcementsList
         },
         data() {
-           return {
+            return {
                 viewType: 'list'
-           }
+            }
         },
         methods: {
             changeView(type) {
@@ -43,44 +43,7 @@
 
 <style lang="scss" scoped>
     .wrapper {
-        background: linear-gradient(to right,white 50%, #f4f6f8 50%);
-
-       /* .claim {
-            height: 30vh;
-            background: #1e2124;
-            text-transform: uppercase;
-            font-family: 'Overpass', sans-serif;
-            font-weight: bold;
-            display: flex;
-            padding-bottom: 1%;
-            padding-left: 4%;
-
-            @media(min-width: 476px) {
-                padding-left: 8%;
-
-            }
-
-
-            .mainTitle {
-                align-self: flex-end;
-                font-weight: 700;
-                color:white;
-                font-size: 30px;
-
-                @media(min-width: 476px) {
-                    font-size: 40px;
-                }
-
-                @media(min-width: 1000px) {
-                    font-size: 44px;
-                }
-            }
-
-            .subTitle {
-                color: #dddddd;
-                font-weight: 600;
-            }
-        }*/
+        background: linear-gradient(to right, white 50%, #f4f6f8 50%);
 
         .claim {
             background-image: linear-gradient(rgba(57, 57, 57, 0.4), rgba(72, 70, 74, 0.4)), url("/images/advertisementsHome.jpg");
@@ -99,6 +62,7 @@
             .mainTitle {
                 font-size: 64px;
                 @media(max-width: 476px) {
+                    padding-top: 20px;
                     font-size: 52px;
                 }
             }
@@ -108,32 +72,15 @@
             }
         }
 
-
-        .main {
-            margin-left: auto;
-            margin-right: auto;
-            font-family: "Roboto", sans-serif;
-            width: 100%;
-
-            @media (min-width: 1000px) {
-                display: flex;
-                width: 970px;
+        .announcements {
+            background: #f4f6f8;
+            padding-top: 50px;
+            @media(min-width: 1000px) {
+                width: 75%;
             }
 
-            @media(min-width: 1200px) {
-                width: 1100px;
-            }
-
-
-            .announcements {
-                background: #f4f6f8;
-                padding-top: 50px;
-                @media(min-width: 1000px) {
-                    width: 75%;
-                }
-
-                position: relative;
-            }
+            position: relative;
         }
+
     }
 </style>

@@ -4,37 +4,31 @@ namespace App\Http\Controllers;
 
 class SitesController extends Controller
 {
-    /**
-     * Home page
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
+
     public function home() {
         return view('home');
     }
 
 
-    /**
-     * Cars subpage
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
+    //Cars
     public function cars() {
         return view('sites.cars');
     }
-    /**
-     * Car subpage
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
+
+
     public function car() {
         return view('sites.car');
     }
 
 
-    /**
-     * adverts subpage
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
+
+    //Adverts
     public function adverts(){
         return view('sites.announcements');
+    }
+
+    public function advert() {
+        return view('sites.announcement');
     }
 
 }

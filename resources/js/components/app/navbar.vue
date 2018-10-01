@@ -207,8 +207,8 @@
 
         top: 7px;
         right: 8%;
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
         cursor: pointer;
     }
 
@@ -254,7 +254,7 @@
     .burger div:after {
         width: 100%;
         height: 5px;
-        background: #373c40;
+        background: #3e474a;
         border-radius: 2px;
         -webkit-transition: all 0.4s ease;
         -moz-transition: all 0.4s ease;

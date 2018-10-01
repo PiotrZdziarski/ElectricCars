@@ -11757,7 +11757,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(119);
+module.exports = __webpack_require__(124);
 
 
 /***/ }),
@@ -11797,10 +11797,11 @@ Vue.component('comparisionHome', __webpack_require__(84));
 
 //Announcements
 Vue.component('announcements', __webpack_require__(89));
+Vue.component('announcement', __webpack_require__(109));
 
 //Cars
-Vue.component('cars', __webpack_require__(109));
-Vue.component('car', __webpack_require__(114));
+Vue.component('cars', __webpack_require__(114));
+Vue.component('car', __webpack_require__(119));
 
 var app = new Vue({
   el: '#app'
@@ -47713,7 +47714,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n#mainnav[data-v-5ccadd49] {\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  background: transparent;\n  color: white;\n}\n#mainnav .desktopNav[data-v-5ccadd49] {\n    display: none;\n}\n@media (min-width: 1000px) {\n#mainnav .mobileNav[data-v-5ccadd49] {\n      display: none;\n}\n#mainnav .desktopNav[data-v-5ccadd49] {\n      height: 70px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      width: 100%;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n#mainnav .desktopNav .title[data-v-5ccadd49] {\n        text-align: center;\n        width: 30%;\n}\n#mainnav .desktopNav .menu[data-v-5ccadd49] {\n        width: 60%;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        margin-left: 10%;\n}\n#mainnav .desktopNav .menu .menuItem[data-v-5ccadd49] {\n          width: 50%;\n          font-size: 16px;\n          font-family: \"Roboto\", sans-serif;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49] {\n            color: inherit;\n            font-weight: 500;\n            -webkit-transition: color .2s ease-in-out;\n            transition: color .2s ease-in-out;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49]:hover {\n            color: #2684ba;\n}\n}\n.logo[data-v-5ccadd49] {\n  margin-left: 2%;\n  width: 50%;\n}\n.boxShadow[data-v-5ccadd49] {\n  -webkit-box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n          box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n}\n.mobileNav[data-v-5ccadd49] {\n  width: 100%;\n  z-index: 1000;\n  background: white;\n  position: fixed;\n}\n@media (min-width: 1000px) {\n.mobileNav[data-v-5ccadd49] {\n      display: none;\n}\n}\n.mobileNav .initialNav[data-v-5ccadd49] {\n    height: 60px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.mobileNav .collapseItem[data-v-5ccadd49] {\n    width: 100%;\n    height: 40px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    border-bottom: 1px solid #f1f1f1;\n}\n.mobileNav .collapseItem .href[data-v-5ccadd49] {\n      color: #444345;\n      font-size: 18px;\n      -webkit-transition: color .2s ease-in-out;\n      transition: color .2s ease-in-out;\n}\n.mobileNav .collapseItem .href[data-v-5ccadd49]:hover {\n      color: #297ba7;\n}\n.mobileNav .collapseItem[data-v-5ccadd49]:first-child {\n    border-top: 1px solid #f1f1f1;\n}\n.mobileNav .collapseItem[data-v-5ccadd49]:last-child {\n    -webkit-box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n            box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n}\n.burger[data-v-5ccadd49] {\n  display: block;\n  position: absolute;\n  top: 7px;\n  right: 8%;\n  width: 40px;\n  height: 40px;\n  cursor: pointer;\n}\n.burger.open div[data-v-5ccadd49] {\n  background: none;\n  -webkit-box-shadow: none !important;\n          box-shadow: none !important;\n}\n.burger.open div[data-v-5ccadd49]:before, .burger.open div[data-v-5ccadd49]:after {\n  top: 0;\n}\n.burger.open div[data-v-5ccadd49]:before {\n  -webkit-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.burger.open div[data-v-5ccadd49]:after {\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.burger.open:hover div[data-v-5ccadd49]:before {\n  -webkit-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.burger.open:hover div[data-v-5ccadd49]:after {\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.burger:hover:not(.open) div[data-v-5ccadd49]:before {\n  top: -15px;\n}\n.burger:hover:not(.open) div[data-v-5ccadd49]:after {\n  top: 15px;\n}\n.burger div[data-v-5ccadd49],\n.burger div[data-v-5ccadd49]:before,\n.burger div[data-v-5ccadd49]:after {\n  width: 100%;\n  height: 5px;\n  background: #373c40;\n  border-radius: 2px;\n  -webkit-transition: all 0.4s ease;\n  transition: all 0.4s ease;\n}\n.burger div[data-v-5ccadd49] {\n  position: relative;\n  margin: 20px auto 0;\n}\n.burger div[data-v-5ccadd49]:before, div[data-v-5ccadd49]:after {\n  content: \"\";\n  position: absolute;\n}\n.burger div[data-v-5ccadd49]:before {\n  top: -15px;\n}\n.burger div[data-v-5ccadd49]:after {\n  top: 15px;\n}\n", ""]);
+exports.push([module.i, "\n#mainnav[data-v-5ccadd49] {\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  background: transparent;\n  color: white;\n}\n#mainnav .desktopNav[data-v-5ccadd49] {\n    display: none;\n}\n@media (min-width: 1000px) {\n#mainnav .mobileNav[data-v-5ccadd49] {\n      display: none;\n}\n#mainnav .desktopNav[data-v-5ccadd49] {\n      height: 70px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      width: 100%;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n#mainnav .desktopNav .title[data-v-5ccadd49] {\n        text-align: center;\n        width: 30%;\n}\n#mainnav .desktopNav .menu[data-v-5ccadd49] {\n        width: 60%;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        margin-left: 10%;\n}\n#mainnav .desktopNav .menu .menuItem[data-v-5ccadd49] {\n          width: 50%;\n          font-size: 16px;\n          font-family: \"Roboto\", sans-serif;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49] {\n            color: inherit;\n            font-weight: 500;\n            -webkit-transition: color .2s ease-in-out;\n            transition: color .2s ease-in-out;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49]:hover {\n            color: #2684ba;\n}\n}\n.logo[data-v-5ccadd49] {\n  margin-left: 2%;\n  width: 50%;\n}\n.boxShadow[data-v-5ccadd49] {\n  -webkit-box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n          box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n}\n.mobileNav[data-v-5ccadd49] {\n  width: 100%;\n  z-index: 1000;\n  background: white;\n  position: fixed;\n}\n@media (min-width: 1000px) {\n.mobileNav[data-v-5ccadd49] {\n      display: none;\n}\n}\n.mobileNav .initialNav[data-v-5ccadd49] {\n    height: 60px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.mobileNav .collapseItem[data-v-5ccadd49] {\n    width: 100%;\n    height: 40px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    border-bottom: 1px solid #f1f1f1;\n}\n.mobileNav .collapseItem .href[data-v-5ccadd49] {\n      color: #444345;\n      font-size: 18px;\n      -webkit-transition: color .2s ease-in-out;\n      transition: color .2s ease-in-out;\n}\n.mobileNav .collapseItem .href[data-v-5ccadd49]:hover {\n      color: #297ba7;\n}\n.mobileNav .collapseItem[data-v-5ccadd49]:first-child {\n    border-top: 1px solid #f1f1f1;\n}\n.mobileNav .collapseItem[data-v-5ccadd49]:last-child {\n    -webkit-box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n            box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n}\n.burger[data-v-5ccadd49] {\n  display: block;\n  position: absolute;\n  top: 7px;\n  right: 8%;\n  width: 38px;\n  height: 38px;\n  cursor: pointer;\n}\n.burger.open div[data-v-5ccadd49] {\n  background: none;\n  -webkit-box-shadow: none !important;\n          box-shadow: none !important;\n}\n.burger.open div[data-v-5ccadd49]:before, .burger.open div[data-v-5ccadd49]:after {\n  top: 0;\n}\n.burger.open div[data-v-5ccadd49]:before {\n  -webkit-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.burger.open div[data-v-5ccadd49]:after {\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.burger.open:hover div[data-v-5ccadd49]:before {\n  -webkit-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.burger.open:hover div[data-v-5ccadd49]:after {\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.burger:hover:not(.open) div[data-v-5ccadd49]:before {\n  top: -15px;\n}\n.burger:hover:not(.open) div[data-v-5ccadd49]:after {\n  top: 15px;\n}\n.burger div[data-v-5ccadd49],\n.burger div[data-v-5ccadd49]:before,\n.burger div[data-v-5ccadd49]:after {\n  width: 100%;\n  height: 5px;\n  background: #3e474a;\n  border-radius: 2px;\n  -webkit-transition: all 0.4s ease;\n  transition: all 0.4s ease;\n}\n.burger div[data-v-5ccadd49] {\n  position: relative;\n  margin: 20px auto 0;\n}\n.burger div[data-v-5ccadd49]:before, div[data-v-5ccadd49]:after {\n  content: \"\";\n  position: absolute;\n}\n.burger div[data-v-5ccadd49]:before {\n  top: -15px;\n}\n.burger div[data-v-5ccadd49]:after {\n  top: 15px;\n}\n", ""]);
 
 // exports
 
@@ -48468,7 +48469,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.slide-fade-enter-active[data-v-35a308c2] {\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n}\n.slide-fade-leave-active[data-v-35a308c2] {\n  -webkit-transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n  opacity: 0;\n}\n.slide-fade-enter[data-v-35a308c2], .slide-fade-leave-to[data-v-35a308c2] {\n  -webkit-transform: translateX(200px);\n          transform: translateX(200px);\n  opacity: 0;\n}\n.scrollTop[data-v-35a308c2] {\n  width: 45px;\n  height: 45px;\n  position: fixed;\n  z-index: 1000;\n  right: 30px;\n  bottom: 30px;\n  background: white;\n  -webkit-box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n          box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n  font-size: 20px;\n  color: #394345;\n  border-radius: 50%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.slide-fade-enter-active[data-v-35a308c2] {\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n}\n.slide-fade-leave-active[data-v-35a308c2] {\n  -webkit-transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n  opacity: 0;\n}\n.slide-fade-enter[data-v-35a308c2], .slide-fade-leave-to[data-v-35a308c2] {\n  -webkit-transform: translateX(200px);\n          transform: translateX(200px);\n  opacity: 0;\n}\n.scrollTop[data-v-35a308c2] {\n  width: 45px;\n  height: 45px;\n  position: fixed;\n  z-index: 1000;\n  right: 30px;\n  bottom: 30px;\n  background: white;\n  -webkit-box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n          box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n  font-size: 20px;\n  color: #394345;\n  border-radius: 50%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  cursor: pointer;\n}\n@media (max-width: 476px) {\n.scrollTop[data-v-35a308c2] {\n      right: 20px;\n      bottom: 20px;\n}\n}\n", ""]);
 
 // exports
 
@@ -49738,7 +49739,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f4f6f8));\n  background: linear-gradient(to right, white 50%, #f4f6f8 50%);\n  /* .claim {\n        height: 30vh;\n        background: #1e2124;\n        text-transform: uppercase;\n        font-family: 'Overpass', sans-serif;\n        font-weight: bold;\n        display: flex;\n        padding-bottom: 1%;\n        padding-left: 4%;\n\n        @media(min-width: 476px) {\n            padding-left: 8%;\n\n        }\n\n\n        .mainTitle {\n            align-self: flex-end;\n            font-weight: 700;\n            color:white;\n            font-size: 30px;\n\n            @media(min-width: 476px) {\n                font-size: 40px;\n            }\n\n            @media(min-width: 1000px) {\n                font-size: 44px;\n            }\n        }\n\n        .subTitle {\n            color: #dddddd;\n            font-weight: 600;\n        }\n    }*/\n}\n.wrapper .claim[data-v-1907b3ce] {\n    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(57, 57, 57, 0.4)), to(rgba(72, 70, 74, 0.4))), url(\"/images/advertisementsHome.jpg\");\n    background-image: linear-gradient(rgba(57, 57, 57, 0.4), rgba(72, 70, 74, 0.4)), url(\"/images/advertisementsHome.jpg\");\n    background-attachment: fixed;\n    background-size: cover;\n    background-position: 50%;\n    height: 50vh;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: white;\n    font-weight: 500;\n    font-family: \"Roboto\", sans-serif;\n    padding-top: 5%;\n    padding-left: 8%;\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      font-size: 64px;\n}\n@media (max-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          font-size: 52px;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n}\n.wrapper .main[data-v-1907b3ce] {\n    margin-left: auto;\n    margin-right: auto;\n    font-family: \"Roboto\", sans-serif;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.wrapper .main[data-v-1907b3ce] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.wrapper .main[data-v-1907b3ce] {\n        width: 1100px;\n}\n}\n.wrapper .main .announcements[data-v-1907b3ce] {\n      background: #f4f6f8;\n      padding-top: 50px;\n      position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .main .announcements[data-v-1907b3ce] {\n          width: 75%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f4f6f8));\n  background: linear-gradient(to right, white 50%, #f4f6f8 50%);\n}\n.wrapper .claim[data-v-1907b3ce] {\n    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(57, 57, 57, 0.4)), to(rgba(72, 70, 74, 0.4))), url(\"/images/advertisementsHome.jpg\");\n    background-image: linear-gradient(rgba(57, 57, 57, 0.4), rgba(72, 70, 74, 0.4)), url(\"/images/advertisementsHome.jpg\");\n    background-attachment: fixed;\n    background-size: cover;\n    background-position: 50%;\n    height: 50vh;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: white;\n    font-weight: 500;\n    font-family: \"Roboto\", sans-serif;\n    padding-top: 5%;\n    padding-left: 8%;\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      font-size: 64px;\n}\n@media (max-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          padding-top: 20px;\n          font-size: 52px;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n}\n.wrapper .announcements[data-v-1907b3ce] {\n    background: #f4f6f8;\n    padding-top: 50px;\n    position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .announcements[data-v-1907b3ce] {\n        width: 75%;\n}\n}\n", ""]);
 
 // exports
 
@@ -49884,7 +49885,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 5px;\n      margin-right: 5px;\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n}\n@media (max-width: 476px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      border-radius: 5px;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      color: #2a3744;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      background: #dfdfdf;\n      border: 1px solid #cfcfcf;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #dfdfdf;\n}\n.input[data-v-5e04827a] {\n  padding: 10px;\n  background: white;\n  cursor: pointer;\n  border: 1px solid #efefef;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
+exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 2px;\n      margin-right: 2px;\n}\n@media (min-width: 476px) {\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n          margin-left: 5px;\n          margin-right: 5px;\n}\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n}\n@media (max-width: 476px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      border-radius: 5px;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      color: #2a3744;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      background: #dfdfdf;\n      border: 1px solid #cfcfcf;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #dfdfdf;\n}\n.input[data-v-5e04827a] {\n  padding: 10px;\n  background: white;\n  cursor: pointer;\n  border: 1px solid #efefef;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
 
 // exports
 
@@ -50121,7 +50122,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  background: white;\n  width: 250px;\n  right: -250px;\n}\n@media (max-width: 999.99px) {\n.settings[data-v-e2df705e] {\n      -webkit-transition: right .3s ease-in-out;\n      transition: right .3s ease-in-out;\n      position: fixed;\n      height: 100vh;\n      z-index: 1001;\n      top: 50%;\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      -ms-transform: translateY(-50%);\n      border-radius: 4px;\n      -webkit-box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n              box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n}\n.settings .nonScroll[data-v-e2df705e] {\n        position: relative;\n        height: 100px;\n}\n}\n@media (min-width: 1000px) {\n.settings[data-v-e2df705e] {\n      border-right: 1px solid #dfdfdf;\n      width: 25%;\n      padding-top: 62px;\n}\n}\n.settings .settingButton[data-v-e2df705e] {\n    padding: 12px;\n    position: fixed;\n    z-index: 1001;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -ms-transform: translateY(-50%);\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n    border-radius: 4px;\n    top: 50%;\n    right: 100%;\n    background: white;\n    cursor: pointer;\n}\n@media (min-width: 1000px) {\n.settings .settingButton[data-v-e2df705e] {\n        display: none;\n}\n}\n.settings .settingButton .icon-search[data-v-e2df705e] {\n      font-size: 20px;\n      color: #444444;\n}\n.settings .settingButton[data-v-e2df705e]:hover {\n    background: #f9f9f9;\n}\n@media (max-width: 999.99px) {\n.settings .settingForm[data-v-e2df705e] {\n      overflow-y: scroll;\n      height: 85vh;\n}\n}\n.settings .setting[data-v-e2df705e] {\n    margin: 15px 15px 30px 15px;\n    position: relative;\n}\n.settings .setting .showOption[data-v-e2df705e] {\n      width: 25px;\n      height: 25px;\n      border: 1px solid #aaaaaa;\n      font-size: 20px;\n      line-height: 60%;\n      padding-top: -100px;\n      color: #666666;\n      background: white;\n      font-family: \"Nunito\", sans-serif;\n      position: absolute;\n      right: 0;\n      top: 0;\n}\n.settings .setting .showOption .iconPlus[data-v-e2df705e] {\n        margin-top: -2px;\n}\n.settings .setting .showOption .iconMinus[data-v-e2df705e] {\n        margin-top: -10px;\n}\n.settings .setting .showOption[data-v-e2df705e]:focus, .settings .setting .showOption[data-v-e2df705e]:active {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #eeeeee;\n              box-shadow: 0 2px 4px #eeeeee;\n}\n.settings .setting .settingContent[data-v-e2df705e] {\n      margin-top: 10px;\n      padding: 5px;\n      font-size: 16px;\n      position: relative;\n      max-height: 200px;\n      overflow-y: auto;\n}\n.settings .setting .settingContent .formRow[data-v-e2df705e] {\n        margin-bottom: 20px;\n}\n.settings .setting .settingContent .priceSetting[data-v-e2df705e] {\n        border: 1px solid #b9bbbe;\n        border-radius: 2px;\n        width: 40%;\n        padding-left: 5px;\n}\n.settings .setting .settingContent .priceSetting[data-v-e2df705e]:active, .settings .setting .settingContent .priceSetting[data-v-e2df705e]:focus {\n        outline: none;\n        -webkit-box-shadow: 0 1px 4px #dcdee2;\n                box-shadow: 0 1px 4px #dcdee2;\n}\n.settings .setting .settingContent .labelPrice[data-v-e2df705e] {\n        font-size: 16px;\n        padding-left: 3px;\n}\n.settings .setting .settingContent .textInput[data-v-e2df705e] {\n        width: 97%;\n        border: 0;\n        border-bottom: 1px solid #777;\n        margin-bottom: 5%;\n        color: #3d4852;\n}\n.settings .setting .settingContent .textInput[data-v-e2df705e]:focus, .settings .setting .settingContent .textInput[data-v-e2df705e]:active {\n        outline: none;\n        -webkit-box-shadow: 0 8px 16px -8px #999999;\n                box-shadow: 0 8px 16px -8px #999999;\n}\n.settings .setting .settingContent .priceInput[data-v-e2df705e] {\n        width: 40%;\n}\n.settings .setting .submitButton[data-v-e2df705e] {\n      border: 0;\n      background: #385d7a;\n      color: white;\n      border-radius: 2px;\n      padding: 8px 16px 8px 16px;\n      display: block;\n      margin-top: 20px;\n      cursor: pointer;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.settings .setting .submitButton[data-v-e2df705e]:hover {\n      background: #447295;\n}\n.settings .setting .submitButton[data-v-e2df705e]:active, .settings .setting .submitButton[data-v-e2df705e]:focus {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #b9bbbe;\n              box-shadow: 0 2px 4px #b9bbbe;\n}\n.settings .setting .settingName[data-v-e2df705e] {\n      text-transform: uppercase;\n      font-weight: 500;\n      font-size: 18px;\n      color: #2a3744;\n}\n@media (max-width: 999.99px) {\n.settings .searchingSetting[data-v-e2df705e] {\n      margin-bottom: 10px !important;\n}\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(163, 163, 163, 0.3);\n    background-color: #f5f5f5;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar {\n    width: 10px;\n    background-color: #F5F5F5;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar-thumb {\n    -webkit-box-shadow: inset 0 0 6px rgba(168, 168, 168, 0.3);\n    background-color: #e1dce5;\n}\n.settings .advancedSearching[data-v-e2df705e] {\n    left: 10%;\n    font-size: 20px;\n    color: #3d4852;\n    margin-bottom: 20px;\n    padding-left: 5%;\n}\n\n/*Checkboxes styles*/\ninput[type=\"checkbox\"][data-v-e2df705e] {\n  display: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e] {\n  display: block;\n  position: relative;\n  padding-left: 35px;\n  margin-bottom: 20px;\n  cursor: pointer;\n  font-family: \"Roboto\", sans-serif;\n  color: #444444;\n  font-size: 14px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:last-child {\n  margin-bottom: 0;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:before {\n  content: '';\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 1px solid #aaafae;\n  border-radius: 2px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  -webkit-transition: all .12s, border-color .08s;\n  transition: all .12s, border-color .08s;\n}\ninput[type=\"checkbox\"]:checked + label[data-v-e2df705e]:before {\n  width: 10px;\n  top: -4px;\n  left: 5px;\n  border-radius: 0;\n  opacity: 1;\n  border-top-color: transparent;\n  border-left-color: transparent;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n", ""]);
+exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  background: white;\n  width: 250px;\n  right: -250px;\n}\n@media (max-width: 999.99px) {\n.settings[data-v-e2df705e] {\n      -webkit-transition: right .3s ease-in-out;\n      transition: right .3s ease-in-out;\n      position: fixed;\n      height: 100vh;\n      z-index: 1001;\n      top: 50%;\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      -ms-transform: translateY(-50%);\n      border-radius: 4px;\n      -webkit-box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n              box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.2);\n}\n.settings .nonScroll[data-v-e2df705e] {\n        position: relative;\n        height: 100px;\n}\n}\n@media (min-width: 1000px) {\n.settings[data-v-e2df705e] {\n      border-right: 1px solid #dfdfdf;\n      width: 25%;\n      padding-top: 62px;\n}\n}\n.settings .settingButton[data-v-e2df705e] {\n    padding: 10px;\n    position: fixed;\n    z-index: 1001;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -ms-transform: translateY(-50%);\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n    border-radius: 4px;\n    top: 50%;\n    right: 100%;\n    background: white;\n    cursor: pointer;\n}\n@media (min-width: 1000px) {\n.settings .settingButton[data-v-e2df705e] {\n        display: none;\n}\n}\n.settings .settingButton .icon-search[data-v-e2df705e] {\n      font-size: 20px;\n      color: #444444;\n}\n.settings .settingButton[data-v-e2df705e]:hover {\n    background: #f9f9f9;\n}\n@media (max-width: 999.99px) {\n.settings .settingForm[data-v-e2df705e] {\n      overflow-y: scroll;\n      height: 85vh;\n}\n}\n.settings .setting[data-v-e2df705e] {\n    margin: 15px 15px 30px 15px;\n    position: relative;\n}\n.settings .setting .showOption[data-v-e2df705e] {\n      width: 25px;\n      height: 25px;\n      border: 1px solid #aaaaaa;\n      font-size: 20px;\n      line-height: 60%;\n      padding-top: -100px;\n      color: #666666;\n      background: white;\n      font-family: \"Nunito\", sans-serif;\n      position: absolute;\n      right: 0;\n      top: 0;\n}\n.settings .setting .showOption .iconPlus[data-v-e2df705e] {\n        margin-top: -2px;\n}\n.settings .setting .showOption .iconMinus[data-v-e2df705e] {\n        margin-top: -10px;\n}\n.settings .setting .showOption[data-v-e2df705e]:focus, .settings .setting .showOption[data-v-e2df705e]:active {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #eeeeee;\n              box-shadow: 0 2px 4px #eeeeee;\n}\n.settings .setting .settingContent[data-v-e2df705e] {\n      margin-top: 10px;\n      padding: 5px;\n      font-size: 16px;\n      position: relative;\n      max-height: 200px;\n      overflow-y: auto;\n}\n.settings .setting .settingContent .formRow[data-v-e2df705e] {\n        margin-bottom: 20px;\n}\n.settings .setting .settingContent .priceSetting[data-v-e2df705e] {\n        border: 1px solid #b9bbbe;\n        border-radius: 2px;\n        width: 40%;\n        padding-left: 5px;\n}\n.settings .setting .settingContent .priceSetting[data-v-e2df705e]:active, .settings .setting .settingContent .priceSetting[data-v-e2df705e]:focus {\n        outline: none;\n        -webkit-box-shadow: 0 1px 4px #dcdee2;\n                box-shadow: 0 1px 4px #dcdee2;\n}\n.settings .setting .settingContent .labelPrice[data-v-e2df705e] {\n        font-size: 16px;\n        padding-left: 3px;\n}\n.settings .setting .settingContent .textInput[data-v-e2df705e] {\n        width: 97%;\n        border: 0;\n        border-bottom: 1px solid #777;\n        margin-bottom: 5%;\n        color: #3d4852;\n}\n.settings .setting .settingContent .textInput[data-v-e2df705e]:focus, .settings .setting .settingContent .textInput[data-v-e2df705e]:active {\n        outline: none;\n        -webkit-box-shadow: 0 8px 16px -8px #999999;\n                box-shadow: 0 8px 16px -8px #999999;\n}\n.settings .setting .settingContent .priceInput[data-v-e2df705e] {\n        width: 40%;\n}\n.settings .setting .submitButton[data-v-e2df705e] {\n      border: 0;\n      background: #385d7a;\n      color: white;\n      border-radius: 2px;\n      padding: 8px 16px 8px 16px;\n      display: block;\n      margin-top: 20px;\n      cursor: pointer;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.settings .setting .submitButton[data-v-e2df705e]:hover {\n      background: #447295;\n}\n.settings .setting .submitButton[data-v-e2df705e]:active, .settings .setting .submitButton[data-v-e2df705e]:focus {\n      outline: none;\n      -webkit-box-shadow: 0 2px 4px #b9bbbe;\n              box-shadow: 0 2px 4px #b9bbbe;\n}\n.settings .setting .settingName[data-v-e2df705e] {\n      text-transform: uppercase;\n      font-weight: 500;\n      font-size: 18px;\n      color: #2a3744;\n}\n@media (max-width: 999.99px) {\n.settings .searchingSetting[data-v-e2df705e] {\n      margin-bottom: 10px !important;\n}\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(163, 163, 163, 0.3);\n    background-color: #f5f5f5;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar {\n    width: 10px;\n    background-color: #F5F5F5;\n}\n.settings .settingContent[data-v-e2df705e]::-webkit-scrollbar-thumb {\n    -webkit-box-shadow: inset 0 0 6px rgba(168, 168, 168, 0.3);\n    background-color: #e1dce5;\n}\n.settings .advancedSearching[data-v-e2df705e] {\n    left: 10%;\n    font-size: 20px;\n    color: #3d4852;\n    margin-bottom: 20px;\n    padding-left: 5%;\n}\n\n/*Checkboxes styles*/\ninput[type=\"checkbox\"][data-v-e2df705e] {\n  display: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e] {\n  display: block;\n  position: relative;\n  padding-left: 35px;\n  margin-bottom: 20px;\n  cursor: pointer;\n  font-family: \"Roboto\", sans-serif;\n  color: #444444;\n  font-size: 14px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:last-child {\n  margin-bottom: 0;\n}\ninput[type=\"checkbox\"] + label[data-v-e2df705e]:before {\n  content: '';\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 1px solid #aaafae;\n  border-radius: 2px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  -webkit-transition: all .12s, border-color .08s;\n  transition: all .12s, border-color .08s;\n}\ninput[type=\"checkbox\"]:checked + label[data-v-e2df705e]:before {\n  width: 10px;\n  top: -4px;\n  left: 5px;\n  border-radius: 0;\n  opacity: 1;\n  border-top-color: transparent;\n  border-left-color: transparent;\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n", ""]);
 
 // exports
 
@@ -52166,6 +52167,193 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
+var __vue_scopeId__ = "data-v-f65d2816"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/announcements/announcement.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-f65d2816", Component.options)
+  } else {
+    hotAPI.reload("data-v-f65d2816", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(111);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("1d257914", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f65d2816\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./announcement.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f65d2816\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./announcement.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 40vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  margin-top: 10vh;\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: 5vh;\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1100px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px;\n}\n.main .mainContent[data-v-f65d2816] {\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.main .mainContent .left[data-v-f65d2816] {\n      height: 100vh;\n      -webkit-box-shadow: 0 1px 2px #b9bbbe;\n              box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n          width: 70%;\n}\n}\n.main .mainContent .right[data-v-f65d2816] {\n      height: 100vh;\n      -webkit-box-shadow: 0 1px 2px #b9bbbe;\n              box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n}\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 112 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "announcement"
+});
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { staticClass: "claim" }, [
+        _c("div", { staticClass: "mainTitle" }, [
+          _c("h1", { staticClass: "mainTitle" }, [
+            _vm._v("Certified 2016 Porsche Cayenne 2017 ctz 8g")
+          ]),
+          _vm._v(" "),
+          _c("h4", { staticClass: "subTitle" }, [
+            _c(
+              "a",
+              { staticClass: "advertsHref", attrs: { href: "/adverts" } },
+              [
+                _c("i", { staticClass: "icon-undo" }),
+                _vm._v(
+                  "\n                    Back to adverts\n                "
+                )
+              ]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "borderLine" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "main" }, [
+        _c("div", { staticClass: "mainContent" }, [
+          _c("div", { staticClass: "left" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "right" })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-f65d2816", module.exports)
+  }
+}
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(115)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(117)
+/* template */
+var __vue_template__ = __webpack_require__(118)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
 var __vue_scopeId__ = "data-v-68d246d4"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
@@ -52199,13 +52387,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 110 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(111);
+var content = __webpack_require__(116);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -52225,7 +52413,7 @@ if(false) {
 }
 
 /***/ }),
-/* 111 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -52239,7 +52427,7 @@ exports.push([module.i, "\n.claim[data-v-68d246d4] {\n  background-image: -webki
 
 
 /***/ }),
-/* 112 */
+/* 117 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52385,7 +52573,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 113 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52584,19 +52772,19 @@ if (false) {
 }
 
 /***/ }),
-/* 114 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(115)
+  __webpack_require__(120)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(117)
+var __vue_script__ = __webpack_require__(122)
 /* template */
-var __vue_template__ = __webpack_require__(118)
+var __vue_template__ = __webpack_require__(123)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52635,13 +52823,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 115 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(116);
+var content = __webpack_require__(121);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -52661,7 +52849,7 @@ if(false) {
 }
 
 /***/ }),
-/* 116 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -52675,7 +52863,7 @@ exports.push([module.i, "\n.claim[data-v-0b85602f] {\n  background-image: -webki
 
 
 /***/ }),
-/* 117 */
+/* 122 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52761,7 +52949,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 118 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52864,7 +53052,7 @@ if (false) {
 }
 
 /***/ }),
-/* 119 */
+/* 124 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

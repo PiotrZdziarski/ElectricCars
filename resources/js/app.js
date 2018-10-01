@@ -31,6 +31,7 @@ Vue.component('comparisionHome', require('./components/home/comparisionHome.vue'
 
 //Announcements
 Vue.component('announcements', require('./components/announcements/announcements.vue'));
+Vue.component('announcement', require('./components/announcements/announcement.vue'));
 
 //Cars
 Vue.component('cars', require('./components/cars/cars.vue'));
