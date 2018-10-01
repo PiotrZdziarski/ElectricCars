@@ -15,10 +15,12 @@
         <div class="main">
             <div class="mainContent">
                 <div class="left">
-
+                    <carousel-announcement></carousel-announcement>
                 </div>
                 <div class="right">
-
+                    <div class="price">
+                        $76.234
+                    </div>
                 </div>
             </div>
         </div>
@@ -26,8 +28,12 @@
 </template>
 
 <script>
+    import carouselAnnouncement from './carouselAnnouncement.vue';
     export default {
-        name: "announcement"
+        name: "announcement",
+        components: {
+            carouselAnnouncement: carouselAnnouncement
+        }
     }
 </script>
 
@@ -101,11 +107,23 @@
             }
 
             .right {
+                background: #f5f5f5;
                 @media(min-width: 1000px) {
                     width: 30%;
                 }
                 height: 100vh;
                 box-shadow: 0 1px 2px #b9bbbe;
+
+
+                .price {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 38px;
+                    color: #444444;
+                    font-weight: 700;
+                    padding: 30px 0 30px 0;
+                }
             }
 
         }

@@ -52234,7 +52234,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 40vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  margin-top: 10vh;\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: 5vh;\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1100px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px;\n}\n.main .mainContent[data-v-f65d2816] {\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.main .mainContent .left[data-v-f65d2816] {\n      height: 100vh;\n      -webkit-box-shadow: 0 1px 2px #b9bbbe;\n              box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n          width: 70%;\n}\n}\n.main .mainContent .right[data-v-f65d2816] {\n      height: 100vh;\n      -webkit-box-shadow: 0 1px 2px #b9bbbe;\n              box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 40vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  margin-top: 10vh;\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: 5vh;\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1100px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px;\n}\n.main .mainContent[data-v-f65d2816] {\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.main .mainContent .left[data-v-f65d2816] {\n      height: 100vh;\n      -webkit-box-shadow: 0 1px 2px #b9bbbe;\n              box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n          width: 70%;\n}\n}\n.main .mainContent .right[data-v-f65d2816] {\n      background: #f5f5f5;\n      height: 100vh;\n      -webkit-box-shadow: 0 1px 2px #b9bbbe;\n              box-shadow: 0 1px 2px #b9bbbe;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n}\n}\n.main .mainContent .right .price[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 38px;\n        color: #444444;\n        font-weight: 700;\n        padding: 30px 0 30px 0;\n}\n", ""]);
 
 // exports
 
@@ -52245,6 +52245,10 @@ exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webki
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__carouselAnnouncement_vue__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__carouselAnnouncement_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__carouselAnnouncement_vue__);
+//
+//
 //
 //
 //
@@ -52273,8 +52277,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "announcement"
+    name: "announcement",
+    components: {
+        carouselAnnouncement: __WEBPACK_IMPORTED_MODULE_0__carouselAnnouncement_vue___default.a
+    }
 });
 
 /***/ }),
@@ -52285,43 +52293,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("section", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "borderLine" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "main" }, [
+      _c("div", { staticClass: "mainContent" }, [
+        _c("div", { staticClass: "left" }, [_c("carousel-announcement")], 1),
+        _vm._v(" "),
+        _vm._m(1)
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", [
-      _c("div", { staticClass: "claim" }, [
-        _c("div", { staticClass: "mainTitle" }, [
-          _c("h1", { staticClass: "mainTitle" }, [
-            _vm._v("Certified 2016 Porsche Cayenne 2017 ctz 8g")
-          ]),
-          _vm._v(" "),
-          _c("h4", { staticClass: "subTitle" }, [
-            _c(
-              "a",
-              { staticClass: "advertsHref", attrs: { href: "/adverts" } },
-              [
-                _c("i", { staticClass: "icon-undo" }),
-                _vm._v(
-                  "\n                    Back to adverts\n                "
-                )
-              ]
-            )
+    return _c("div", { staticClass: "claim" }, [
+      _c("div", { staticClass: "mainTitle" }, [
+        _c("h1", { staticClass: "mainTitle" }, [
+          _vm._v("Certified 2016 Porsche Cayenne 2017 ctz 8g")
+        ]),
+        _vm._v(" "),
+        _c("h4", { staticClass: "subTitle" }, [
+          _c("a", { staticClass: "advertsHref", attrs: { href: "/adverts" } }, [
+            _c("i", { staticClass: "icon-undo" }),
+            _vm._v("\n                    Back to adverts\n                ")
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "borderLine" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "main" }, [
-        _c("div", { staticClass: "mainContent" }, [
-          _c("div", { staticClass: "left" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "right" })
-        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "right" }, [
+      _c("div", { staticClass: "price" }, [
+        _vm._v("\n                    $76.234\n                ")
       ])
     ])
   }
@@ -53056,6 +53068,344 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(129)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(131)
+/* template */
+var __vue_template__ = __webpack_require__(132)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-cf554916"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/announcements/carouselAnnouncement.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-cf554916", Component.options)
+  } else {
+    hotAPI.reload("data-v-cf554916", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 129 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(130);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("71c9d55e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cf554916\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./carouselAnnouncement.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cf554916\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./carouselAnnouncement.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 130 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.carouselAnnouncement[data-v-cf554916] {\n  width: 100%;\n  padding: 5px;\n}\n.carouselAnnouncement .imageContainer[data-v-cf554916] {\n    height: 400px;\n    position: relative;\n}\n.carouselAnnouncement .imageContainer .carouselItemContainer[data-v-cf554916] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      height: 400px;\n}\n.carouselAnnouncement .imageContainer .image[data-v-cf554916] {\n      width: 100%;\n      height: 100%;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916] {\n    margin-top: 10px;\n    width: 100%;\n    height: 150px;\n    border: 1px solid black;\n    overflow-x: scroll;\n    overflow-y: hidden;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.carouselAnnouncement .carouselPreview .image[data-v-cf554916] {\n      height: 100%;\n      padding-right: 2.5px;\n      padding-left: 2.5px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 131 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "carouselAnnouncement",
+    data: function data() {
+        return {
+            currentSlide: 1
+        };
+    }
+});
+
+/***/ }),
+/* 132 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "carouselAnnouncement" }, [
+      _c("section", [
+        _c(
+          "div",
+          {
+            staticClass: "carousel slide",
+            attrs: { id: "carouselExampleControls", "data-ride": "carousel" }
+          },
+          [
+            _c("div", { staticClass: "carousel-inner imageContainer" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "carousel-item active  ",
+                  attrs: { id: "slide1" }
+                },
+                [
+                  _c("div", { staticClass: "carouselItemContainer" }, [
+                    _c("img", {
+                      staticClass: "image",
+                      attrs: { src: "/images/cars/nissanleaf.jpg" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "carousel-item ", attrs: { id: "slide2" } },
+                [
+                  _c("div", { staticClass: "carouselItemContainer" }, [
+                    _c("img", {
+                      staticClass: "image",
+                      attrs: { src: "/images/cars/bmwi3.jpg" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "carousel-item  ", attrs: { id: "slide3" } },
+                [
+                  _c("div", { staticClass: "carouselItemContainer" }, [
+                    _c("div", [
+                      _c("img", {
+                        staticClass: "image",
+                        attrs: { src: "/images/cars/teslas.jpg" }
+                      })
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "carousel-item", attrs: { id: "slide3" } },
+                [
+                  _c("div", { staticClass: "carouselItemContainer" }, [
+                    _c("div", [
+                      _c("img", {
+                        staticClass: "image",
+                        attrs: { src: "/images/cars/carvertical.jpg" }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "carousel-control-prev",
+                attrs: {
+                  href: "#carouselExampleControls",
+                  role: "button",
+                  "data-slide": "prev"
+                }
+              },
+              [
+                _c("span", {
+                  staticClass: "carousel-control-prev-icon",
+                  attrs: { "aria-hidden": "true" }
+                }),
+                _vm._v(" "),
+                _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "carousel-control-next",
+                attrs: {
+                  href: "#carouselExampleControls",
+                  role: "button",
+                  "data-slide": "next"
+                }
+              },
+              [
+                _c("span", {
+                  staticClass: "carousel-control-next-icon",
+                  attrs: { "aria-hidden": "true" }
+                }),
+                _vm._v(" "),
+                _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+              ]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("section", [
+        _c("div", { staticClass: "carouselPreview" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/teslas.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/carvertical.jpg" }
+          })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-cf554916", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
