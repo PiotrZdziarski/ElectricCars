@@ -84,7 +84,7 @@
         padding: 5px;
 
         .imageContainer {
-            background: #eaeaea;
+            background: #f1f1f1;
             height: 400px;
             position: relative;
 
@@ -116,7 +116,7 @@
             margin-top: 10px;
             width: 100%;
             height: 150px;
-            border: 1px solid #efefef;
+            border: 1px solid #f3f3f3;
             padding: 5px;
             overflow-x: auto;
             overflow-y: hidden;
@@ -124,8 +124,7 @@
 
             .image {
                 height: 100%;
-                padding-right: 2.5px;
-                padding-left: 2.5px;
+                padding: 7px;
             }
         }
 
@@ -140,7 +139,7 @@
         }
 
         .carouselPreview::-webkit-scrollbar-thumb {
-            background-color:  #ff5268;
+            background-color: #403b3e;
             border-radius: 4px;
         }
     }
