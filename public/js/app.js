@@ -53158,7 +53158,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.carouselAnnouncement[data-v-cf554916] {\n  width: 100%;\n  padding: 5px;\n}\n.carouselAnnouncement .imageContainer[data-v-cf554916] {\n    height: 400px;\n    position: relative;\n}\n.carouselAnnouncement .imageContainer .carouselItemContainer[data-v-cf554916] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      height: 400px;\n}\n.carouselAnnouncement .imageContainer .image[data-v-cf554916] {\n      width: 100%;\n      height: 100%;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916] {\n    margin-top: 10px;\n    width: 100%;\n    height: 150px;\n    border: 1px solid black;\n    overflow-x: scroll;\n    overflow-y: hidden;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.carouselAnnouncement .carouselPreview .image[data-v-cf554916] {\n      height: 100%;\n      padding-right: 2.5px;\n      padding-left: 2.5px;\n}\n", ""]);
+exports.push([module.i, "\n.carouselAnnouncement[data-v-cf554916] {\n  width: 100%;\n  padding: 5px;\n}\n.carouselAnnouncement .imageContainer[data-v-cf554916] {\n    background: #eaeaea;\n    height: 400px;\n    position: relative;\n}\n.carouselAnnouncement .imageContainer .carouselItemContainer[data-v-cf554916] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      height: 400px;\n}\n.carouselAnnouncement .imageContainer .image[data-v-cf554916] {\n      max-width: 100%;\n      max-height: 100%;\n}\n.carouselAnnouncement .carousel-control-next[data-v-cf554916] {\n    -webkit-transition: opacity .2s  ease-in-out;\n    transition: opacity .2s  ease-in-out;\n}\n.carouselAnnouncement .angle[data-v-cf554916] {\n    font-size: 24px;\n    font-weight: 500;\n    color: white;\n    background: rgba(100, 100, 100, 0.6);\n    border-radius: 4px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916] {\n    margin-top: 10px;\n    width: 100%;\n    height: 150px;\n    border: 1px solid #efefef;\n    padding: 5px;\n    overflow-x: auto;\n    overflow-y: hidden;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.carouselAnnouncement .carouselPreview .image[data-v-cf554916] {\n      height: 100%;\n      padding-right: 2.5px;\n      padding-left: 2.5px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(187, 187, 187, 0.4);\n    background-color: #efefef;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar {\n    background-color: #F5F5F5;\n    height: 11px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-thumb {\n    background-color: #ff5268;\n    border-radius: 4px;\n}\n", ""]);
 
 // exports
 
@@ -53231,9 +53231,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "carouselAnnouncement",
@@ -53241,6 +53238,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             currentSlide: 1
         };
+    },
+
+    methods: {
+        showImageBox: function showImageBox() {
+            alert(0);
+        }
     }
 });
 
@@ -53272,15 +53275,26 @@ var staticRenderFns = [
               _c(
                 "div",
                 {
-                  staticClass: "carousel-item active  ",
+                  staticClass: "carousel-item active",
                   attrs: { id: "slide1" }
                 },
                 [
                   _c("div", { staticClass: "carouselItemContainer" }, [
-                    _c("img", {
-                      staticClass: "image",
-                      attrs: { src: "/images/cars/nissanleaf.jpg" }
-                    })
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          "data-fancybox": "gallery",
+                          href: "/images/cars/nissanleaf.jpg"
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "image",
+                          attrs: { src: "/images/cars/nissanleaf.jpg" }
+                        })
+                      ]
+                    )
                   ])
                 ]
               ),
@@ -53290,10 +53304,21 @@ var staticRenderFns = [
                 { staticClass: "carousel-item ", attrs: { id: "slide2" } },
                 [
                   _c("div", { staticClass: "carouselItemContainer" }, [
-                    _c("img", {
-                      staticClass: "image",
-                      attrs: { src: "/images/cars/bmwi3.jpg" }
-                    })
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          "data-fancybox": "gallery",
+                          href: "/images/cars/bmwi3.jpg"
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "image",
+                          attrs: { src: "/images/cars/bmwi3.jpg" }
+                        })
+                      ]
+                    )
                   ])
                 ]
               ),
@@ -53340,10 +53365,11 @@ var staticRenderFns = [
                 }
               },
               [
-                _c("span", {
-                  staticClass: "carousel-control-prev-icon",
-                  attrs: { "aria-hidden": "true" }
-                }),
+                _c(
+                  "span",
+                  { staticClass: "angle", attrs: { "aria-hidden": "true" } },
+                  [_c("i", { staticClass: "icon-angle-left" })]
+                ),
                 _vm._v(" "),
                 _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
               ]
@@ -53360,10 +53386,11 @@ var staticRenderFns = [
                 }
               },
               [
-                _c("span", {
-                  staticClass: "carousel-control-next-icon",
-                  attrs: { "aria-hidden": "true" }
-                }),
+                _c(
+                  "span",
+                  { staticClass: "angle", attrs: { "aria-hidden": "true" } },
+                  [_c("i", { staticClass: "icon-angle-right" })]
+                ),
                 _vm._v(" "),
                 _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
               ]
@@ -53386,12 +53413,42 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("img", {
             staticClass: "image",
-            attrs: { src: "/images/cars/teslas.jpg" }
+            attrs: { src: "/images/cars/bmwi3.jpg" }
           }),
           _vm._v(" "),
           _c("img", {
             staticClass: "image",
-            attrs: { src: "/images/cars/carvertical.jpg" }
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
           })
         ])
       ])
