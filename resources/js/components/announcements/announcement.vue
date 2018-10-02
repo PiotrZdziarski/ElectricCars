@@ -304,8 +304,8 @@
                     color: #444444;
                     font-weight: 700;
                     padding: 30px 0 30px 0;
-                    border-bottom: 1px solid #cccccc;
-                    border-top: 1px solid #cccccc;
+                    border-bottom: 1px solid #ddd;
+                    border-top: 1px solid #ddd;
                 }
 
                 .utility {
