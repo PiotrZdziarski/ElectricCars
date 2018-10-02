@@ -11757,7 +11757,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(124);
+module.exports = __webpack_require__(129);
 
 
 /***/ }),
@@ -11800,8 +11800,8 @@ Vue.component('announcements', __webpack_require__(89));
 Vue.component('announcement', __webpack_require__(109));
 
 //Cars
-Vue.component('cars', __webpack_require__(114));
-Vue.component('car', __webpack_require__(119));
+Vue.component('cars', __webpack_require__(119));
+Vue.component('car', __webpack_require__(124));
 
 var app = new Vue({
   el: '#app'
@@ -52161,7 +52161,7 @@ var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(112)
 /* template */
-var __vue_template__ = __webpack_require__(113)
+var __vue_template__ = __webpack_require__(118)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52234,7 +52234,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 40vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n  padding-left: 8%;\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  margin-top: 10vh;\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: 5vh;\n}\n@media (min-width: 768px) {\n.borderLine[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1100px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px 15px 5px 15px;\n}\n@media (min-width: 768px) and (max-width: 999.99px) {\n.main[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.main[data-v-f65d2816] {\n      padding: 5px;\n}\n}\n.main .mainContent[data-v-f65d2816] {\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n        width: 70%;\n}\n}\n.main .mainContent .left .details[data-v-f65d2816] {\n      margin-top: 25px;\n}\n.main .mainContent .left .details .detail[data-v-f65d2816] {\n        border-bottom: 1px solid #dddddd;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        padding: 5px 1px 5px 1px;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n}\n.main .mainContent .left .details .detail .detailTitle[data-v-f65d2816] {\n          width: 30%;\n          text-transform: uppercase;\n          color: #888888;\n}\n.main .mainContent .left .details .detail .detailValue[data-v-f65d2816] {\n          width: 70%;\n          color: #444;\n}\n.main .mainContent .left .sellerComment[data-v-f65d2816] {\n      color: #444;\n}\n.main .mainContent .left .features ul[data-v-f65d2816] {\n      padding-left: 16px;\n      margin-top: 15px;\n}\n.main .mainContent .left .features li[data-v-f65d2816] {\n      color: #ff4d52;\n      font-size: 16px;\n      margin-bottom: 20px;\n}\n.main .mainContent .left .features span[data-v-f65d2816] {\n      color: #444345;\n}\n.main .mainContent .right[data-v-f65d2816] {\n      background: #f5f5f5;\n      height: 100vh;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n}\n}\n.main .mainContent .right .price[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 38px;\n        color: #444444;\n        font-weight: 700;\n        padding: 30px 0 30px 0;\n}\n.leftTitle[data-v-f65d2816] {\n  margin-top: 40px;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 500;\n  color: #212c33;\n}\n", ""]);
+exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 60vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n}\n@media (min-width: 768px) {\n.claim[data-v-f65d2816] {\n      height: 50vh;\n      padding-left: 5%;\n}\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n    padding: 15px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    padding-left: 15px;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  margin-top: 10vh;\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: 5vh;\n}\n@media (min-width: 768px) {\n.borderLine[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1100px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px 15px 5px 15px;\n}\n@media (min-width: 768px) and (max-width: 999.99px) {\n.main[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.main[data-v-f65d2816] {\n      padding: 5px;\n}\n}\n.main .mainContent[data-v-f65d2816] {\n    margin-bottom: 100px;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n        width: 70%;\n}\n}\n.main .mainContent .left .details[data-v-f65d2816] {\n      margin-top: 25px;\n}\n.main .mainContent .left .details .detail[data-v-f65d2816] {\n        border-bottom: 1px solid #dddddd;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        padding: 5px 1px 5px 1px;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n}\n.main .mainContent .left .details .detail .detailTitle[data-v-f65d2816] {\n          width: 30%;\n          text-transform: uppercase;\n          color: #888888;\n}\n.main .mainContent .left .details .detail .detailValue[data-v-f65d2816] {\n          width: 70%;\n          color: #444;\n}\n.main .mainContent .left .sellerComment[data-v-f65d2816] {\n      color: #444;\n}\n.main .mainContent .left .features ul[data-v-f65d2816] {\n      padding-left: 16px;\n      margin-top: 15px;\n}\n.main .mainContent .left .features li[data-v-f65d2816] {\n      color: #ff4d52;\n      font-size: 16px;\n      margin-bottom: 20px;\n}\n.main .mainContent .left .features span[data-v-f65d2816] {\n      color: #444345;\n}\n.main .mainContent .right[data-v-f65d2816] {\n      background: #f5f5f5;\n      margin-left: 15px;\n      margin-right: 15px;\n      padding: 5px 10px 5px 10px;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n}\n}\n.main .mainContent .right .price[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 38px;\n        color: #444444;\n        font-weight: 700;\n        padding: 30px 0 30px 0;\n        border-bottom: 1px solid #cccccc;\n        border-top: 1px solid #cccccc;\n}\n.main .mainContent .right .utility[data-v-f65d2816] {\n        margin-top: 30px;\n        padding: 14px 5px 14px 5px;\n        color: white;\n        border-radius: 4px;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 18px;\n        overflow-x: auto;\n}\n.main .mainContent .right .contactNumber[data-v-f65d2816] {\n        background: #ed1c24;\n}\n.main .mainContent .right .email[data-v-f65d2816] {\n        background: #22292f;\n        font-size: 16px;\n}\n.main .mainContent .right .email .icon-mail[data-v-f65d2816] {\n          padding-right: 5px;\n}\n.main .mainContent .right .compare[data-v-f65d2816] {\n        background: #4159e5;\n        cursor: pointer;\n        -webkit-transition: .2s background-color ease-in-out;\n        transition: .2s background-color ease-in-out;\n}\n.main .mainContent .right .compare .href[data-v-f65d2816] {\n          color: white;\n}\n.main .mainContent .right .compare[data-v-f65d2816]:hover {\n        background: #4a68ff;\n}\n.leftTitle[data-v-f65d2816] {\n  margin-top: 40px;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 500;\n  color: #212c33;\n}\n", ""]);
 
 // exports
 
@@ -52245,8 +52245,21 @@ exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webki
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__carouselAnnouncement_vue__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__carouselAnnouncement_vue__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__carouselAnnouncement_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__carouselAnnouncement_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -52397,6 +52410,380 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(114)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(116)
+/* template */
+var __vue_template__ = __webpack_require__(117)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-cf554916"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/announcements/carouselAnnouncement.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-cf554916", Component.options)
+  } else {
+    hotAPI.reload("data-v-cf554916", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(115);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("71c9d55e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cf554916\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./carouselAnnouncement.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cf554916\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./carouselAnnouncement.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.carouselAnnouncement[data-v-cf554916] {\n  width: 100%;\n  padding: 5px;\n}\n.carouselAnnouncement .imageContainer[data-v-cf554916] {\n    background: #f1f1f1;\n    height: 400px;\n    position: relative;\n}\n.carouselAnnouncement .imageContainer .carouselItemContainer[data-v-cf554916] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      height: 400px;\n}\n.carouselAnnouncement .imageContainer .image[data-v-cf554916] {\n      max-width: 100%;\n      max-height: 100%;\n}\n.carouselAnnouncement .carousel-control-next[data-v-cf554916] {\n    -webkit-transition: opacity .2s  ease-in-out;\n    transition: opacity .2s  ease-in-out;\n}\n.carouselAnnouncement .angle[data-v-cf554916] {\n    font-size: 24px;\n    font-weight: 500;\n    color: white;\n    background: rgba(100, 100, 100, 0.6);\n    border-radius: 4px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916] {\n    margin-top: 10px;\n    width: 100%;\n    height: 150px;\n    border: 1px solid #f3f3f3;\n    padding: 5px;\n    overflow-x: auto;\n    overflow-y: hidden;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.carouselAnnouncement .carouselPreview .image[data-v-cf554916] {\n      height: 100%;\n      padding: 7px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(187, 187, 187, 0.4);\n    background-color: #efefef;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar {\n    background-color: #F5F5F5;\n    height: 11px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-thumb {\n    background-color: #403b3e;\n    border-radius: 4px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 116 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "carouselAnnouncement",
+    data: function data() {
+        return {
+            currentSlide: 1
+        };
+    },
+
+    methods: {
+        showImageBox: function showImageBox() {
+            alert(0);
+        }
+    }
+});
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "carouselAnnouncement" }, [
+      _c("section", [
+        _c(
+          "div",
+          {
+            staticClass: "carousel slide",
+            attrs: { id: "carouselExampleControls", "data-ride": "carousel" }
+          },
+          [
+            _c("div", { staticClass: "carousel-inner imageContainer" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "carousel-item active",
+                  attrs: { id: "slide1" }
+                },
+                [
+                  _c("div", { staticClass: "carouselItemContainer" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          "data-fancybox": "gallery",
+                          href: "/images/cars/nissanleaf.jpg"
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "image",
+                          attrs: { src: "/images/cars/nissanleaf.jpg" }
+                        })
+                      ]
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "carousel-item ", attrs: { id: "slide2" } },
+                [
+                  _c("div", { staticClass: "carouselItemContainer" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          "data-fancybox": "gallery",
+                          href: "/images/cars/bmwi3.jpg"
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "image",
+                          attrs: { src: "/images/cars/bmwi3.jpg" }
+                        })
+                      ]
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "carousel-item  ", attrs: { id: "slide3" } },
+                [
+                  _c("div", { staticClass: "carouselItemContainer" }, [
+                    _c("div", [
+                      _c("img", {
+                        staticClass: "image",
+                        attrs: { src: "/images/cars/teslas.jpg" }
+                      })
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "carousel-item", attrs: { id: "slide3" } },
+                [
+                  _c("div", { staticClass: "carouselItemContainer" }, [
+                    _c("div", [
+                      _c("img", {
+                        staticClass: "image",
+                        attrs: { src: "/images/cars/carvertical.jpg" }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "carousel-control-prev",
+                attrs: {
+                  href: "#carouselExampleControls",
+                  role: "button",
+                  "data-slide": "prev"
+                }
+              },
+              [
+                _c(
+                  "span",
+                  { staticClass: "angle", attrs: { "aria-hidden": "true" } },
+                  [_c("i", { staticClass: "icon-angle-left" })]
+                ),
+                _vm._v(" "),
+                _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "carousel-control-next",
+                attrs: {
+                  href: "#carouselExampleControls",
+                  role: "button",
+                  "data-slide": "next"
+                }
+              },
+              [
+                _c(
+                  "span",
+                  { staticClass: "angle", attrs: { "aria-hidden": "true" } },
+                  [_c("i", { staticClass: "icon-angle-right" })]
+                ),
+                _vm._v(" "),
+                _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+              ]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("section", [
+        _c("div", { staticClass: "carouselPreview" }, [
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/nissanleaf.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/bmwi3.jpg" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "image",
+            attrs: { src: "/images/cars/carvertical.jpg" }
+          })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-cf554916", module.exports)
+  }
+}
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -52438,7 +52825,9 @@ var staticRenderFns = [
     return _c("div", { staticClass: "claim" }, [
       _c("div", { staticClass: "mainTitle" }, [
         _c("h1", { staticClass: "mainTitle" }, [
-          _vm._v("Certified 2016 Porsche Cayenne 2017 ctz 8g")
+          _vm._v(
+            "Certified 2016 Porsche  eqwij eqiw eoiqwje oiqw jeoiqwj eoiqwj eoqiCayenne 2017 ctz 8g"
+          )
         ]),
         _vm._v(" "),
         _c("h4", { staticClass: "subTitle" }, [
@@ -52586,9 +52975,26 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "right" }, [
+    return _c("div", { staticClass: "right", attrs: { id: "rightContent" } }, [
       _c("div", { staticClass: "price" }, [
-        _vm._v("\n                    $76.234\n                ")
+        _vm._v("\n                    $76123\n                ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "contactNumber utility" }, [
+        _c("i", { staticClass: "icon-phone" }),
+        _vm._v(" 487 472 123\n                ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "email utility" }, [
+        _c("i", { staticClass: "icon-mail" }),
+        _vm._v(" jan.kowalski1960Stefan@gmail.com\n                ")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "href", attrs: { href: "#" } }, [
+        _c("div", { staticClass: "compare utility" }, [
+          _c("i", { staticClass: "icon-flow-cross" }),
+          _vm._v("Compare\n                    ")
+        ])
       ])
     ])
   }
@@ -52603,19 +53009,19 @@ if (false) {
 }
 
 /***/ }),
-/* 114 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(115)
+  __webpack_require__(120)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(117)
+var __vue_script__ = __webpack_require__(122)
 /* template */
-var __vue_template__ = __webpack_require__(118)
+var __vue_template__ = __webpack_require__(123)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52654,13 +53060,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 115 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(116);
+var content = __webpack_require__(121);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -52680,7 +53086,7 @@ if(false) {
 }
 
 /***/ }),
-/* 116 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -52694,7 +53100,7 @@ exports.push([module.i, "\n.claim[data-v-68d246d4] {\n  background-image: -webki
 
 
 /***/ }),
-/* 117 */
+/* 122 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52840,7 +53246,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 118 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -53039,19 +53445,19 @@ if (false) {
 }
 
 /***/ }),
-/* 119 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(120)
+  __webpack_require__(125)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(122)
+var __vue_script__ = __webpack_require__(127)
 /* template */
-var __vue_template__ = __webpack_require__(123)
+var __vue_template__ = __webpack_require__(128)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -53090,13 +53496,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 120 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(121);
+var content = __webpack_require__(126);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -53116,7 +53522,7 @@ if(false) {
 }
 
 /***/ }),
-/* 121 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -53130,7 +53536,7 @@ exports.push([module.i, "\n.claim[data-v-0b85602f] {\n  background-image: -webki
 
 
 /***/ }),
-/* 122 */
+/* 127 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53216,7 +53622,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 123 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -53319,405 +53725,10 @@ if (false) {
 }
 
 /***/ }),
-/* 124 */
+/* 129 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(129)
-}
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(131)
-/* template */
-var __vue_template__ = __webpack_require__(132)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-cf554916"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/announcements/carouselAnnouncement.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-cf554916", Component.options)
-  } else {
-    hotAPI.reload("data-v-cf554916", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 129 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(130);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(1)("71c9d55e", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cf554916\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./carouselAnnouncement.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cf554916\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./carouselAnnouncement.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 130 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.carouselAnnouncement[data-v-cf554916] {\n  width: 100%;\n  padding: 5px;\n}\n.carouselAnnouncement .imageContainer[data-v-cf554916] {\n    background: #f1f1f1;\n    height: 400px;\n    position: relative;\n}\n.carouselAnnouncement .imageContainer .carouselItemContainer[data-v-cf554916] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      height: 400px;\n}\n.carouselAnnouncement .imageContainer .image[data-v-cf554916] {\n      max-width: 100%;\n      max-height: 100%;\n}\n.carouselAnnouncement .carousel-control-next[data-v-cf554916] {\n    -webkit-transition: opacity .2s  ease-in-out;\n    transition: opacity .2s  ease-in-out;\n}\n.carouselAnnouncement .angle[data-v-cf554916] {\n    font-size: 24px;\n    font-weight: 500;\n    color: white;\n    background: rgba(100, 100, 100, 0.6);\n    border-radius: 4px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916] {\n    margin-top: 10px;\n    width: 100%;\n    height: 150px;\n    border: 1px solid #f3f3f3;\n    padding: 5px;\n    overflow-x: auto;\n    overflow-y: hidden;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.carouselAnnouncement .carouselPreview .image[data-v-cf554916] {\n      height: 100%;\n      padding: 7px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(187, 187, 187, 0.4);\n    background-color: #efefef;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar {\n    background-color: #F5F5F5;\n    height: 11px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-thumb {\n    background-color: #403b3e;\n    border-radius: 4px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 131 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "carouselAnnouncement",
-    data: function data() {
-        return {
-            currentSlide: 1
-        };
-    },
-
-    methods: {
-        showImageBox: function showImageBox() {
-            alert(0);
-        }
-    }
-});
-
-/***/ }),
-/* 132 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "carouselAnnouncement" }, [
-      _c("section", [
-        _c(
-          "div",
-          {
-            staticClass: "carousel slide",
-            attrs: { id: "carouselExampleControls", "data-ride": "carousel" }
-          },
-          [
-            _c("div", { staticClass: "carousel-inner imageContainer" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "carousel-item active",
-                  attrs: { id: "slide1" }
-                },
-                [
-                  _c("div", { staticClass: "carouselItemContainer" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: {
-                          "data-fancybox": "gallery",
-                          href: "/images/cars/nissanleaf.jpg"
-                        }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "image",
-                          attrs: { src: "/images/cars/nissanleaf.jpg" }
-                        })
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "carousel-item ", attrs: { id: "slide2" } },
-                [
-                  _c("div", { staticClass: "carouselItemContainer" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: {
-                          "data-fancybox": "gallery",
-                          href: "/images/cars/bmwi3.jpg"
-                        }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "image",
-                          attrs: { src: "/images/cars/bmwi3.jpg" }
-                        })
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "carousel-item  ", attrs: { id: "slide3" } },
-                [
-                  _c("div", { staticClass: "carouselItemContainer" }, [
-                    _c("div", [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: { src: "/images/cars/teslas.jpg" }
-                      })
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "carousel-item", attrs: { id: "slide3" } },
-                [
-                  _c("div", { staticClass: "carouselItemContainer" }, [
-                    _c("div", [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: { src: "/images/cars/carvertical.jpg" }
-                      })
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "carousel-control-prev",
-                attrs: {
-                  href: "#carouselExampleControls",
-                  role: "button",
-                  "data-slide": "prev"
-                }
-              },
-              [
-                _c(
-                  "span",
-                  { staticClass: "angle", attrs: { "aria-hidden": "true" } },
-                  [_c("i", { staticClass: "icon-angle-left" })]
-                ),
-                _vm._v(" "),
-                _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "carousel-control-next",
-                attrs: {
-                  href: "#carouselExampleControls",
-                  role: "button",
-                  "data-slide": "next"
-                }
-              },
-              [
-                _c(
-                  "span",
-                  { staticClass: "angle", attrs: { "aria-hidden": "true" } },
-                  [_c("i", { staticClass: "icon-angle-right" })]
-                ),
-                _vm._v(" "),
-                _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-              ]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("section", [
-        _c("div", { staticClass: "carouselPreview" }, [
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/nissanleaf.jpg" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/bmwi3.jpg" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/bmwi3.jpg" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/bmwi3.jpg" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/bmwi3.jpg" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/bmwi3.jpg" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/bmwi3.jpg" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/bmwi3.jpg" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/bmwi3.jpg" }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "image",
-            attrs: { src: "/images/cars/bmwi3.jpg" }
-          })
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-cf554916", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);

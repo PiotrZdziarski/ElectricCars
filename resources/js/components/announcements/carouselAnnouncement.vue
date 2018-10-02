@@ -51,10 +51,7 @@
                 <img class="image" src="/images/cars/bmwi3.jpg">
                 <img class="image" src="/images/cars/bmwi3.jpg">
                 <img class="image" src="/images/cars/bmwi3.jpg">
-                <img class="image" src="/images/cars/bmwi3.jpg">
-                <img class="image" src="/images/cars/bmwi3.jpg">
-                <img class="image" src="/images/cars/bmwi3.jpg">
-                <img class="image" src="/images/cars/bmwi3.jpg">
+                <img class="image" src="/images/cars/carvertical.jpg">
             </div>
         </section>
     </div>

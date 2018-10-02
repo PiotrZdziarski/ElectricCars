@@ -2,7 +2,7 @@
     <section>
         <div class="claim">
             <div class="mainTitle">
-                <h1 class="mainTitle">Certified 2016 Porsche Cayenne 2017 ctz 8g</h1>
+                <h1 class="mainTitle">Certified 2016 Porsche  eqwij eqiw eoiqwje oiqw jeoiqwj eoiqwj eoqiCayenne 2017 ctz 8g</h1>
                 <h4 class="subTitle">
                     <a class="advertsHref" href="/adverts">
                         <i class="icon-undo"></i>
@@ -124,10 +124,23 @@
                         </ul>
                     </div>
                 </div>
-                <div class="right">
+                <div id="rightContent" class="right">
                     <div class="price">
-                        $76.234
+                        $76123
                     </div>
+
+                    <div class="contactNumber utility">
+                        <i class="icon-phone"></i> 487 472 123
+                    </div>
+
+                    <div class="email utility">
+                        <i class="icon-mail"></i> jan.kowalski1960Stefan@gmail.com
+                    </div>
+                    <a class="href" href="#">
+                        <div class="compare utility">
+                            <i class="icon-flow-cross"></i>Compare
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -151,17 +164,22 @@
         background-attachment: fixed;
         background-size: cover;
         background-position: 50%;
-        height: 40vh;
+        height: 60vh;
         display: flex;
         align-items: center;
         color: white;
         font-family: "Roboto", sans-serif;
         padding-top: 5%;
-        padding-left: 8%;
+        @media(min-width: 768px) {
+            height: 50vh;
+            padding-left: 5%;
+        }
+
 
         .mainTitle {
             font-size: 42px;
             font-weight: 500;
+            padding: 15px;
             @media(max-width: 476px) {
                 padding-top: 20px;
                 font-size: 32px;
@@ -170,6 +188,7 @@
 
         .advertsHref {
             font-weight: 400;
+            padding-left: 15px;
             color: #e9e9e9;
             transition: .2s color ease-in-out;
         }
@@ -213,6 +232,7 @@
         }
 
         .mainContent {
+            margin-bottom: 100px;
             width: 100%;
             @media(min-width: 1000px) {
                 display: flex;
@@ -222,7 +242,6 @@
                 @media(min-width: 1000px) {
                     width: 70%;
                 }
-
 
                 .details {
                     margin-top: 25px;
@@ -253,7 +272,7 @@
 
                 .features {
                     ul {
-                       padding-left: 16px;
+                        padding-left: 16px;
                         margin-top: 15px;
                     }
                     li {
@@ -273,7 +292,9 @@
                 @media(min-width: 1000px) {
                     width: 30%;
                 }
-                height: 100vh;
+                margin-left: 15px;
+                margin-right: 15px;
+                padding: 5px 10px 5px 10px;
 
                 .price {
                     display: flex;
@@ -283,12 +304,50 @@
                     color: #444444;
                     font-weight: 700;
                     padding: 30px 0 30px 0;
+                    border-bottom: 1px solid #cccccc;
+                    border-top: 1px solid #cccccc;
                 }
+
+                .utility {
+                    margin-top: 30px;
+                    padding: 14px 5px 14px 5px;
+                    color: white;
+                    border-radius: 4px;
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    font-size: 18px;
+                    overflow-x: auto;
+                }
+
+                .contactNumber {
+                    background: #ed1c24;
+                }
+
+                .email {
+                    background: #22292f;
+                    font-size: 16px;
+                    .icon-mail {
+                        padding-right: 5px;
+                    }
+                }
+
+                .compare {
+                    background: #4159e5;
+                    cursor: pointer;
+                    transition: .2s background-color ease-in-out;
+                    .href {
+                        color: white;
+                    }
+                }
+                .compare:hover {
+                    background: #4a68ff;
+                }
+
             }
 
         }
     }
-
 
     .leftTitle {
         margin-top: 40px;
