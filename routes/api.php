@@ -18,4 +18,4 @@ use Illuminate\Http\Request;
 //});
 
 //adverts
-Route::get('/adverts/{per_page?}', 'AdvertsController@index');
+Route::get('/announcements/{per_page?}/{order_by?}', 'AdvertsController@index');
