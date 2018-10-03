@@ -6,21 +6,21 @@
             </div>
             <div class="sortChild">
                 <select @input="sortByMethod" class="input">
-                    <option value="newest" class="input">Newest</option>
-                    <option value="oldest" class="input">Oldest</option>
-                    <option value="name" class="input">Name</option>
-                    <option value="lowest_price" class="input">Lowest Price</option>
-                    <option value="highest_price" class="input">Highest Price</option>
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="name">Name</option>
+                    <option value="lowest_price">Lowest Price</option>
+                    <option value="highest_price">Highest Price</option>
                 </select>
             </div>
-            <div class="sortChild">
+            <div class="sortChild perPage">
                 Per Page
             </div>
             <div class="sortChild">
                 <select @input="perPageMethod" class="input">
-                    <option value="12" class="input">12</option>
-                    <option value="16" class="input">16</option>
-                    <option value="20" class="input">20</option>
+                    <option value="12">12</option>
+                    <option value="16">16</option>
+                    <option value="20">20</option>
                 </select>
             </div>
         </div>
@@ -74,14 +74,15 @@
 
             .sortChild {
                 margin-left: 2px;
-                margin-right: 2px;
+                color: #666;
+                text-transform: uppercase;
                 @media(min-width: 476px) {
                     margin-left: 5px;
-                    margin-right: 5px;
                 }
             }
 
-            .sortChild:first-child {
+            .perPage {
+                margin-left: 25px;
             }
         }
 

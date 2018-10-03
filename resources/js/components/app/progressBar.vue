@@ -17,7 +17,7 @@
             //initial incrementing value
             let initialIncrement = window.innerWidth / 100;
             //faster loading after data retrieved
-            let afterLoadIncrement = window.innerWidth / 50;
+            let afterLoadIncrement = window.innerWidth / 20;
 
             let progress = setInterval(() => {
 
@@ -45,17 +45,17 @@
     .progressBar {
         position: fixed;
         width: 100%;
-        background: #b9bbbe;
-        height: 4px;
+        background: #eeeeee;
+        height: 3px;
         top:0;
         left:0;
         z-index: 1002;
 
         #progress {
-            width: 5px;
-            background: red;
-            height: 4px;
-            border-radius: 4px;
+            width: 0;
+            background: #ff4853;
+            height: 3px;
+            border-radius: 5px;
 
         }
     }

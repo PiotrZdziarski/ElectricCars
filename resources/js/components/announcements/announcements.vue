@@ -49,7 +49,7 @@
         methods: {
             //retrieve adverts from db
             retrieveRecords() {
-                axios.get(`/api/announcements/${this.per_page}/${this.sort_by}`).then((Response) => {
+                axios.get(`/api/announcements/${this.per_page}/${this.sort_by}`).then(Response => {
                     this.records = Response.data.data;
                     this.dataRetrieved = true;
                 });
@@ -87,6 +87,13 @@
 <style lang="scss" scoped>
     .wrapper {
         background: linear-gradient(to right, white 50%, #f4f6f8 50%);
+
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .2s;
+        }
+        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+            opacity: 0;
+        }
 
         .claim {
             background-image: linear-gradient(rgba(57, 57, 57, 0.4), rgba(72, 70, 74, 0.4)), url("/images/advertisementsHome.jpg");
