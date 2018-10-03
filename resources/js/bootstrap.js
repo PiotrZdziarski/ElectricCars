@@ -1,6 +1,9 @@
 
 window._ = require('lodash');
 
+//es6 promise for IE
+require('es6-promise').polyfill();
+
 // Popper
 // window.Popper = require('popper.js').default;
 
