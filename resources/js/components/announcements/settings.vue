@@ -7,7 +7,7 @@
             <form>
                 <div class="setting searchingSetting">
                     <div class="settingContent">
-                        <input class="textInput" type="text" placeholder="Search for...">
+                        <input class="textInput" maxlength="10" type="text" placeholder="Search for...">
                     </div>
                 </div>
             </form>

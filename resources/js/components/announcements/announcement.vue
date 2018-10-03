@@ -216,7 +216,7 @@
         }
 
         @media(min-width: 1200px) {
-            width: 1100px;
+            width: 1150px;
         }
     }
 
@@ -288,24 +288,23 @@
             }
 
             .right {
-                background: #f5f5f5;
+                background: #f3f3f3;
                 @media(min-width: 1000px) {
                     width: 30%;
                 }
                 margin-left: 15px;
                 margin-right: 15px;
-                padding: 5px 10px 5px 10px;
+                padding: 15px;
 
                 .price {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     font-size: 38px;
-                    color: #444444;
+                    color: #2c3a4b;
                     font-weight: 700;
                     padding: 30px 0 30px 0;
                     border-bottom: 1px solid #ddd;
-                    border-top: 1px solid #ddd;
                 }
 
                 .utility {

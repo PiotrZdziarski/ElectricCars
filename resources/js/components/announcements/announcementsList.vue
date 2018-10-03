@@ -2,59 +2,21 @@
     <section>
         <transition name="fade">
             <div v-if="viewType === 'list'" class="listView">
-                <article>
+                <article v-for="record in records">
                     <div class="announcement">
                         <div class="imageContainer">
                             <img class="image" src="/images/cars/nissanleaf.jpg">
                         </div>
                         <div class="info">
-                            <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                            <span class="subtitle">Year</span> 2017
-                            <br><span class="subtitle">Mileage</span> 10234 KM
-                            <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
+                            <h5 class="title">{{ record.title }}</h5>
+                            <span class="subtitle">Year</span> {{ record.year }}
+                            <br><span class="subtitle">Mileage</span> {{ record.mileage }} KM
+                            <span class="description">{{ record.type_of_drive }}, {{ record.engine }}, {{ record.torque }}, {{ record.body_style }}, {{ record.exterior_color }}</span>
                         </div>
                         <div class="utilities">
-                            <i class="icon-phone">123 435 235</i>
-                            <i class="icon-mail">pzdziarski.2001@gmail.com</i>
-                            <span class="price">$14000</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="announcement">
-                        <div class="imageContainer">
-                            <img class="image" src="/images/cars/nissanleaf.jpg">
-                        </div>
-                        <div class="info">
-                            <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                            <span class="subtitle">Year</span> 2017
-                            <br><span class="subtitle">Mileage</span> 10234 KM
-                            <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
-                        </div>
-                        <div class="utilities">
-                            <i class="icon-phone">123 435 235</i>
-                            <i class="icon-mail">pzdziarski.2001@gmail.com</i>
-                            <span class="price">$14000</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="announcement">
-                        <div class="imageContainer">
-                            <img class="image" src="/images/cars/nissanleaf.jpg">
-                        </div>
-                        <div class="info">
-                            <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                            <span class="subtitle">Year</span> 2017
-                            <br><span class="subtitle">Mileage</span> 10234 KM
-                            <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
-                        </div>
-                        <div class="utilities">
-                            <i class="icon-phone">123 435 235</i>
-                            <i class="icon-mail">pzdziarski.2001@gmail.com</i>
-                            <span class="price">$14000</span>
+                            <i class="icon-phone">{{ record.contact_number }}</i>
+                            <i class="icon-mail">{{ record.email }}</i>
+                            <span class="price">${{ record.price }}</span>
                         </div>
                     </div>
                 </article>
@@ -141,6 +103,23 @@
             viewType: {
                 Type: String
             }
+        },
+        data() {
+            return {
+                records: []
+            }
+        },
+        mounted() {
+            this.retrieveRecords();
+        },
+        methods: {
+
+            //retrieve adverts from db
+            retrieveRecords() {
+                axios.get('/api/adverts').then((Response) => {
+                    this.records = Response.data.data;
+                });
+            }
         }
     }
 </script>
@@ -150,7 +129,7 @@
         padding: 2.5% 2.5% 2.5% 3.5%;
 
         .announcement {
-            box-shadow:  0 2px 6px #e5e8eb;
+            box-shadow: 0 2px 6px #e5e8eb;
             width: 100%;
             margin-bottom: 40px;
             background: white;
