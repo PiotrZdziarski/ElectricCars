@@ -1,5 +1,8 @@
 <template>
     <div class="wrapper">
+        <transition name="fade">
+            <progress-bar v-if="loading" @finishedLoading="finishedLoading" :data-retrieved="dataRetrieved"></progress-bar>
+        </transition>
         <div class="claim">
             <div class="mainTitle">
                 <h1 class="mainTitle">Electric car adverts</h1>
@@ -10,7 +13,7 @@
             <settings></settings>
             <div class="announcements">
                 <sort-by @perPage="perPage($event)" @sortBy="sortBy($event)" @changeView="changeView"></sort-by>
-                <announcements-list :loading="loading" :records="records" :viewType="viewType"></announcements-list>
+                <announcements-list :records="records" :viewType="viewType"></announcements-list>
             </div>
         </section>
     </div>
@@ -20,13 +23,15 @@
     import sortBy from './sortBy.vue';
     import settings from './settings.vue';
     import announcementsList from './announcementsList.vue';
+    import progressBar from '../app/progressBar.vue';
 
     export default {
         name: "announcements",
         components: {
             sortBy: sortBy,
             settings: settings,
-            announcementsList: announcementsList
+            announcementsList: announcementsList,
+            progressBar: progressBar
         },
         data() {
             return {
@@ -34,7 +39,8 @@
                 records: [],
                 per_page: 12,
                 sort_by: 'newest',
-                loading: true
+                loading: true,
+                dataRetrieved: false,
             }
         },
         mounted() {
@@ -45,7 +51,7 @@
             retrieveRecords() {
                 axios.get(`/api/announcements/${this.per_page}/${this.sort_by}`).then((Response) => {
                     this.records = Response.data.data;
-                    this.loading = false;
+                    this.dataRetrieved = true;
                 });
             },
 
@@ -62,8 +68,12 @@
             //parent method for choosing sorting type and how much adverts display by page
             sorting() {
                 this.loading = true;
-                this.records = [];
                 this.retrieveRecords();
+            },
+
+            finishedLoading() {
+                this.dataRetrieved = false;
+                this.loading = false;
             },
 
             //choose view type grid or list
@@ -114,6 +124,9 @@
 
             position: relative;
         }
+    }
+
+    .fade {
 
     }
 </style>
