@@ -5,22 +5,22 @@
                 Sort By
             </div>
             <div class="sortChild">
-                <select class="input">
-                    <option class="input">Newest</option>
-                    <option class="input">Oldest</option>
-                    <option class="input">Name</option>
-                    <option class="input">Lowest Price</option>
-                    <option class="input">Highest Price</option>
+                <select @input="sortByMethod" class="input">
+                    <option value="newest" class="input">Newest</option>
+                    <option value="oldest" class="input">Oldest</option>
+                    <option value="name" class="input">Name</option>
+                    <option value="lowest_price" class="input">Lowest Price</option>
+                    <option value="highest_price" class="input">Highest Price</option>
                 </select>
             </div>
             <div class="sortChild">
                 Per Page
             </div>
             <div class="sortChild">
-                <select class="input">
-                    <option class="input">12</option>
-                    <option class="input">16</option>
-                    <option class="input">20</option>
+                <select @input="perPageMethod" class="input">
+                    <option value="12" class="input">12</option>
+                    <option value="16" class="input">16</option>
+                    <option value="20" class="input">20</option>
                 </select>
             </div>
         </div>
@@ -49,6 +49,14 @@
                     document.getElementById('listView').classList.remove('activeView');
                     this.$emit('changeView', 'grid');
                 }
+            },
+
+            sortByMethod(event) {
+                this.$emit('sortBy', event.target.value);
+            },
+
+            perPageMethod(event) {
+                this.$emit('perPage', event.target.value);
             }
         }
     }

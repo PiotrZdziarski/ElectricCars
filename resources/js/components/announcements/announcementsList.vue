@@ -1,5 +1,11 @@
 <template>
     <section>
+        <div v-if="loading" class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <transition name="fade">
             <div v-if="viewType === 'list'" class="listView">
                 <article v-for="record in records">
@@ -25,72 +31,24 @@
 
         <transition name="fade">
             <div v-if="viewType === 'grid'" class="gridView">
-                <div class="announcement">
+
+                <div class="announcement" v-for="record in records">
                     <div class="imageContainer">
                         <img class="image" src="/images/cars/nissanleaf.jpg">
                     </div>
                     <div class="info">
-                        <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                        <span class="subtitle">Year</span> 2017
-                        <br><span class="subtitle">Mileage</span> 10234 KM
-                        <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
+                        <h5 class="title">{{ record.title }}</h5>
+                        <span class="subtitle">Year</span> {{ record.year }}
+                        <br><span class="subtitle">Mileage</span> {{ record.mileage }} KM
+                        <span class="description">{{ record.type_of_drive }}, {{ record.engine }}, {{ record.torque }}, {{ record.body_style }}, {{ record.exterior_color }}</span>
                     </div>
                     <div class="utilities">
-                        <i class="icon-phone">123 435 235</i>
-                        <i class="icon-mail">pzdziarski.2001@gmail.com</i>
-                        <span class="price">$14000</span>
+                        <i class="icon-phone">{{ record.contact_number }}</i>
+                        <i class="icon-mail">{{ record.email }}</i>
+                        <span class="price">${{ record.price }}</span>
                     </div>
                 </div>
 
-                <div class="announcement">
-                    <div class="imageContainer">
-                        <img class="image" src="/images/cars/nissanleaf.jpg">
-                    </div>
-                    <div class="info">
-                        <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                        <span class="subtitle">Year</span> 2017
-                        <br><span class="subtitle">Mileage</span> 10234 KM
-                        <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
-                    </div>
-                    <div class="utilities">
-                        <i class="icon-phone">123 435 235</i>
-                        <i class="icon-mail">pzdziarski.2001@gmail.com</i>
-                        <span class="price">$14000</span>
-                    </div>
-                </div>
-                <div class="announcement">
-                    <div class="imageContainer">
-                        <img class="image" src="/images/cars/nissanleaf.jpg">
-                    </div>
-                    <div class="info">
-                        <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                        <span class="subtitle">Year</span> 2017
-                        <br><span class="subtitle">Mileage</span> 10234 KM
-                        <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
-                    </div>
-                    <div class="utilities">
-                        <i class="icon-phone">123 435 235</i>
-                        <i class="icon-mail">pzdziarski.2001@gmail.com</i>
-                        <span class="price">$14000</span>
-                    </div>
-                </div>
-
-                <div class="announcement">
-                    <div class="imageContainer">
-                        <img class="image" src="/images/cars/nissanleaf.jpg">
-                    </div>
-                    <div class="info">
-                        <h5 class="title">New Nissan Leaf 2017 LTZ CPZ</h5>
-                        <span class="subtitle">Year</span> 2017
-                        <br><span class="subtitle">Mileage</span> 10234 KM
-                        <span class="description">Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD</span>
-                    </div>
-                    <div class="utilities">
-                        <i class="icon-phone">123 435 235</i>
-                        <i class="icon-mail">pzdziarski.2001@gmail.com</i>
-                        <span class="price">$14000</span>
-                    </div>
-                </div>
             </div>
         </transition>
     </section>
@@ -102,23 +60,12 @@
         props: {
             viewType: {
                 Type: String
-            }
-        },
-        data() {
-            return {
-                records: []
-            }
-        },
-        mounted() {
-            this.retrieveRecords();
-        },
-        methods: {
-
-            //retrieve adverts from db
-            retrieveRecords() {
-                axios.get('/api/adverts').then((Response) => {
-                    this.records = Response.data.data;
-                });
+            },
+            records: {
+                Type: Array
+            },
+            loading: {
+                Type: Boolean
             }
         }
     }
@@ -205,6 +152,7 @@
         flex-wrap: wrap;
         position: relative;
         padding: 1% 1% 1% 2%;
+        margin-bottom: 50px;
 
         .announcement {
 
@@ -272,5 +220,48 @@
 
     .fade-enter, .fade-leave-to {
         opacity: 0;
+    }
+
+    .lds-ring {
+        display: inline-block;
+        position: absolute;
+        top: 350px;
+        left: 50%;
+        width: 120px;
+        height: 120px;
+    }
+
+    .lds-ring div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        margin: 6px;
+        border: 8px solid #999;
+        border-radius: 50%;
+        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: #b4aab4 transparent transparent transparent;
+    }
+
+    .lds-ring div:nth-child(1) {
+        animation-delay: -0.45s;
+    }
+
+    .lds-ring div:nth-child(2) {
+        animation-delay: -0.3s;
+    }
+
+    .lds-ring div:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+
+    @keyframes lds-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 </style>

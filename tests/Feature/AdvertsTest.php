@@ -32,15 +32,15 @@ class AdvertsTest extends TestCase
     {
         $adverts = Advert::take(12)->get();
 
-        $this->get('/api/adverts/12')
+        $this->get('/api/announcements/12')
             ->assertStatus(200)
             ->assertSee($adverts);
 
-        $this->get('/api/adverts')
+        $this->get('/api/announcements')
             ->assertStatus(200)
             ->assertSee($adverts);
 
-        $this->json('GET', '/api/adverts')
+        $this->json('GET', '/api/announcements')
             ->assertSee(json_encode($this->advertsController->index()));
     }
 }

@@ -49788,11 +49788,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            viewType: 'list'
+            viewType: 'list',
+            records: [],
+            per_page: 12,
+            sort_by: 'newest',
+            loading: true
         };
+    },
+    mounted: function mounted() {
+        this.retrieveRecords();
     },
 
     methods: {
+        //retrieve adverts from db
+        retrieveRecords: function retrieveRecords() {
+            var _this = this;
+
+            axios.get('/api/announcements/' + this.per_page + '/' + this.sort_by).then(function (Response) {
+                _this.records = Response.data.data;
+                _this.loading = false;
+            });
+        },
+        sortBy: function sortBy(type) {
+            this.sort_by = type;
+            this.sorting();
+        },
+        perPage: function perPage(_perPage) {
+            this.per_page = _perPage;
+            this.sorting();
+        },
+
+
+        //parent method for choosing sorting type and how much adverts display by page
+        sorting: function sorting() {
+            this.loading = true;
+            this.records = [];
+            this.retrieveRecords();
+        },
+
+
+        //choose view type grid or list
         changeView: function changeView(type) {
             this.viewType = type;
         }
@@ -49947,6 +49982,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 document.getElementById('listView').classList.remove('activeView');
                 this.$emit('changeView', 'grid');
             }
+        },
+        sortByMethod: function sortByMethod(event) {
+            this.$emit('sortBy', event.target.value);
+        },
+        perPageMethod: function perPageMethod(event) {
+            this.$emit('perPage', event.target.value);
         }
     }
 });
@@ -49960,7 +50001,67 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "sorting" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "sortBy" }, [
+      _c("div", { staticClass: "sortChild" }, [
+        _vm._v("\n            Sort By\n        ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "sortChild" }, [
+        _c(
+          "select",
+          { staticClass: "input", on: { input: _vm.sortByMethod } },
+          [
+            _c("option", { staticClass: "input", attrs: { value: "newest" } }, [
+              _vm._v("Newest")
+            ]),
+            _vm._v(" "),
+            _c("option", { staticClass: "input", attrs: { value: "oldest" } }, [
+              _vm._v("Oldest")
+            ]),
+            _vm._v(" "),
+            _c("option", { staticClass: "input", attrs: { value: "name" } }, [
+              _vm._v("Name")
+            ]),
+            _vm._v(" "),
+            _c(
+              "option",
+              { staticClass: "input", attrs: { value: "lowest_price" } },
+              [_vm._v("Lowest Price")]
+            ),
+            _vm._v(" "),
+            _c(
+              "option",
+              { staticClass: "input", attrs: { value: "highest_price" } },
+              [_vm._v("Highest Price")]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "sortChild" }, [
+        _vm._v("\n            Per Page\n        ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "sortChild" }, [
+        _c(
+          "select",
+          { staticClass: "input", on: { input: _vm.perPageMethod } },
+          [
+            _c("option", { staticClass: "input", attrs: { value: "12" } }, [
+              _vm._v("12")
+            ]),
+            _vm._v(" "),
+            _c("option", { staticClass: "input", attrs: { value: "16" } }, [
+              _vm._v("16")
+            ]),
+            _vm._v(" "),
+            _c("option", { staticClass: "input", attrs: { value: "20" } }, [
+              _vm._v("20")
+            ])
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "lookType" }, [
       _c(
@@ -49993,46 +50094,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sortBy" }, [
-      _c("div", { staticClass: "sortChild" }, [
-        _vm._v("\n            Sort By\n        ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sortChild" }, [
-        _c("select", { staticClass: "input" }, [
-          _c("option", { staticClass: "input" }, [_vm._v("Newest")]),
-          _vm._v(" "),
-          _c("option", { staticClass: "input" }, [_vm._v("Oldest")]),
-          _vm._v(" "),
-          _c("option", { staticClass: "input" }, [_vm._v("Name")]),
-          _vm._v(" "),
-          _c("option", { staticClass: "input" }, [_vm._v("Lowest Price")]),
-          _vm._v(" "),
-          _c("option", { staticClass: "input" }, [_vm._v("Highest Price")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sortChild" }, [
-        _vm._v("\n            Per Page\n        ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "sortChild" }, [
-        _c("select", { staticClass: "input" }, [
-          _c("option", { staticClass: "input" }, [_vm._v("12")]),
-          _vm._v(" "),
-          _c("option", { staticClass: "input" }, [_vm._v("16")]),
-          _vm._v(" "),
-          _c("option", { staticClass: "input" }, [_vm._v("20")])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -51630,7 +51692,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.5% 3.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 2px 6px #e5e8eb;\n            box-shadow: 0 2px 6px #e5e8eb;\n    width: 100%;\n    margin-bottom: 40px;\n    background: white;\n    border-radius: 2px;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 2px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .title[data-v-c50082e8] {\n        color: #2a3744;\n}\n.listView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 15px;\n      word-wrap: break-word;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1% 1% 1% 2%;\n}\n.gridView .announcement[data-v-c50082e8] {\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    margin: 1.5%;\n    border-radius: 4px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.gridView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  margin-top: 10px;\n  font-weight: 700;\n  font-size: 18px;\n  color: #bc4755;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.5% 3.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 2px 6px #e5e8eb;\n            box-shadow: 0 2px 6px #e5e8eb;\n    width: 100%;\n    margin-bottom: 40px;\n    background: white;\n    border-radius: 2px;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 2px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .title[data-v-c50082e8] {\n        color: #2a3744;\n}\n.listView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 15px;\n      word-wrap: break-word;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1% 1% 1% 2%;\n  margin-bottom: 50px;\n}\n.gridView .announcement[data-v-c50082e8] {\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    margin: 1.5%;\n    border-radius: 4px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.gridView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  margin-top: 10px;\n  font-weight: 700;\n  font-size: 18px;\n  color: #bc4755;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n.lds-ring[data-v-c50082e8] {\n  display: inline-block;\n  position: absolute;\n  top: 350px;\n  left: 50%;\n  width: 120px;\n  height: 120px;\n}\n.lds-ring div[data-v-c50082e8] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  display: block;\n  position: absolute;\n  width: 70px;\n  height: 70px;\n  margin: 6px;\n  border: 8px solid #999;\n  border-radius: 50%;\n  -webkit-animation: lds-ring-data-v-c50082e8 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\n          animation: lds-ring-data-v-c50082e8 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\n  border-color: #b4aab4 transparent transparent transparent;\n}\n.lds-ring div[data-v-c50082e8]:nth-child(1) {\n  -webkit-animation-delay: -0.45s;\n          animation-delay: -0.45s;\n}\n.lds-ring div[data-v-c50082e8]:nth-child(2) {\n  -webkit-animation-delay: -0.3s;\n          animation-delay: -0.3s;\n}\n.lds-ring div[data-v-c50082e8]:nth-child(3) {\n  -webkit-animation-delay: -0.15s;\n          animation-delay: -0.15s;\n}\n@-webkit-keyframes lds-ring-data-v-c50082e8 {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes lds-ring-data-v-c50082e8 {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n", ""]);
 
 // exports
 
@@ -51697,74 +51759,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "announcementsList",
     props: {
         viewType: {
             Type: String
-        }
-    },
-    data: function data() {
-        return {
-            records: []
-        };
-    },
-    mounted: function mounted() {
-        this.retrieveRecords();
-    },
-
-    methods: {
-
-        //retrieve adverts from db
-        retrieveRecords: function retrieveRecords() {
-            var _this = this;
-
-            axios.get('/api/adverts').then(function (Response) {
-                _this.records = Response.data.data;
-            });
+        },
+        records: {
+            Type: Array
+        },
+        loading: {
+            Type: Boolean
         }
     }
 });
@@ -51780,6 +51786,18 @@ var render = function() {
   return _c(
     "section",
     [
+      _vm.loading
+        ? _c("div", { staticClass: "lds-ring" }, [
+            _c("div"),
+            _vm._v(" "),
+            _c("div"),
+            _vm._v(" "),
+            _c("div"),
+            _vm._v(" "),
+            _c("div")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
       _c("transition", { attrs: { name: "fade" } }, [
         _vm.viewType === "list"
           ? _c(
@@ -51850,159 +51868,65 @@ var render = function() {
       _vm._v(" "),
       _c("transition", { attrs: { name: "fade" } }, [
         _vm.viewType === "grid"
-          ? _c("div", { staticClass: "gridView" }, [
-              _c("div", { staticClass: "announcement" }, [
-                _c("div", { staticClass: "imageContainer" }, [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: { src: "/images/cars/nissanleaf.jpg" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "info" }, [
-                  _c("h5", { staticClass: "title" }, [
-                    _vm._v("New Nissan Leaf 2017 LTZ CPZ")
+          ? _c(
+              "div",
+              { staticClass: "gridView" },
+              _vm._l(_vm.records, function(record) {
+                return _c("div", { staticClass: "announcement" }, [
+                  _c("div", { staticClass: "imageContainer" }, [
+                    _c("img", {
+                      staticClass: "image",
+                      attrs: { src: "/images/cars/nissanleaf.jpg" }
+                    })
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
-                  _vm._v(" 2017\n                    "),
-                  _c("br"),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Mileage")]),
-                  _vm._v(" 10234 KM\n                    "),
-                  _c("span", { staticClass: "description" }, [
+                  _c("div", { staticClass: "info" }, [
+                    _c("h5", { staticClass: "title" }, [
+                      _vm._v(_vm._s(record.title))
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
                     _vm._v(
-                      "Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD"
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "utilities" }, [
-                  _c("i", { staticClass: "icon-phone" }, [
-                    _vm._v("123 435 235")
-                  ]),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "icon-mail" }, [
-                    _vm._v("pzdziarski.2001@gmail.com")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "price" }, [_vm._v("$14000")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "announcement" }, [
-                _c("div", { staticClass: "imageContainer" }, [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: { src: "/images/cars/nissanleaf.jpg" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "info" }, [
-                  _c("h5", { staticClass: "title" }, [
-                    _vm._v("New Nissan Leaf 2017 LTZ CPZ")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
-                  _vm._v(" 2017\n                    "),
-                  _c("br"),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Mileage")]),
-                  _vm._v(" 10234 KM\n                    "),
-                  _c("span", { staticClass: "description" }, [
+                      " " + _vm._s(record.year) + "\n                    "
+                    ),
+                    _c("br"),
+                    _c("span", { staticClass: "subtitle" }, [
+                      _vm._v("Mileage")
+                    ]),
                     _vm._v(
-                      "Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD"
-                    )
+                      " " + _vm._s(record.mileage) + " KM\n                    "
+                    ),
+                    _c("span", { staticClass: "description" }, [
+                      _vm._v(
+                        _vm._s(record.type_of_drive) +
+                          ", " +
+                          _vm._s(record.engine) +
+                          ", " +
+                          _vm._s(record.torque) +
+                          ", " +
+                          _vm._s(record.body_style) +
+                          ", " +
+                          _vm._s(record.exterior_color)
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "utilities" }, [
+                    _c("i", { staticClass: "icon-phone" }, [
+                      _vm._v(_vm._s(record.contact_number))
+                    ]),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "icon-mail" }, [
+                      _vm._v(_vm._s(record.email))
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "price" }, [
+                      _vm._v("$" + _vm._s(record.price))
+                    ])
                   ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "utilities" }, [
-                  _c("i", { staticClass: "icon-phone" }, [
-                    _vm._v("123 435 235")
-                  ]),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "icon-mail" }, [
-                    _vm._v("pzdziarski.2001@gmail.com")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "price" }, [_vm._v("$14000")])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "announcement" }, [
-                _c("div", { staticClass: "imageContainer" }, [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: { src: "/images/cars/nissanleaf.jpg" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "info" }, [
-                  _c("h5", { staticClass: "title" }, [
-                    _vm._v("New Nissan Leaf 2017 LTZ CPZ")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
-                  _vm._v(" 2017\n                    "),
-                  _c("br"),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Mileage")]),
-                  _vm._v(" 10234 KM\n                    "),
-                  _c("span", { staticClass: "description" }, [
-                    _vm._v(
-                      "Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD"
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "utilities" }, [
-                  _c("i", { staticClass: "icon-phone" }, [
-                    _vm._v("123 435 235")
-                  ]),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "icon-mail" }, [
-                    _vm._v("pzdziarski.2001@gmail.com")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "price" }, [_vm._v("$14000")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "announcement" }, [
-                _c("div", { staticClass: "imageContainer" }, [
-                  _c("img", {
-                    staticClass: "image",
-                    attrs: { src: "/images/cars/nissanleaf.jpg" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "info" }, [
-                  _c("h5", { staticClass: "title" }, [
-                    _vm._v("New Nissan Leaf 2017 LTZ CPZ")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
-                  _vm._v(" 2017\n                    "),
-                  _c("br"),
-                  _c("span", { staticClass: "subtitle" }, [_vm._v("Mileage")]),
-                  _vm._v(" 10234 KM\n                    "),
-                  _c("span", { staticClass: "description" }, [
-                    _vm._v(
-                      "Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD"
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "utilities" }, [
-                  _c("i", { staticClass: "icon-phone" }, [
-                    _vm._v("123 435 235")
-                  ]),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "icon-mail" }, [
-                    _vm._v("pzdziarski.2001@gmail.com")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "price" }, [_vm._v("$14000")])
-                ])
-              ])
-            ])
+              })
+            )
           : _vm._e()
       ])
     ],
@@ -52040,9 +51964,25 @@ var render = function() {
           "div",
           { staticClass: "announcements" },
           [
-            _c("sort-by", { on: { changeView: _vm.changeView } }),
+            _c("sort-by", {
+              on: {
+                perPage: function($event) {
+                  _vm.perPage($event)
+                },
+                sortBy: function($event) {
+                  _vm.sortBy($event)
+                },
+                changeView: _vm.changeView
+              }
+            }),
             _vm._v(" "),
-            _c("announcements-list", { attrs: { viewType: _vm.viewType } })
+            _c("announcements-list", {
+              attrs: {
+                loading: _vm.loading,
+                records: _vm.records,
+                viewType: _vm.viewType
+              }
+            })
           ],
           1
         )

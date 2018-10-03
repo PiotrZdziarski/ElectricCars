@@ -9,8 +9,8 @@
         <section class="main">
             <settings></settings>
             <div class="announcements">
-                <sort-by @changeView="changeView"></sort-by>
-                <announcements-list :viewType="viewType"></announcements-list>
+                <sort-by @perPage="perPage($event)" @sortBy="sortBy($event)" @changeView="changeView"></sort-by>
+                <announcements-list :loading="loading" :records="records" :viewType="viewType"></announcements-list>
             </div>
         </section>
     </div>
@@ -30,13 +30,46 @@
         },
         data() {
             return {
-                viewType: 'list'
+                viewType: 'list',
+                records: [],
+                per_page: 12,
+                sort_by: 'newest',
+                loading: true
             }
         },
+        mounted() {
+            this.retrieveRecords();
+        },
         methods: {
+            //retrieve adverts from db
+            retrieveRecords() {
+                axios.get(`/api/announcements/${this.per_page}/${this.sort_by}`).then((Response) => {
+                    this.records = Response.data.data;
+                    this.loading = false;
+                });
+            },
+
+            sortBy(type) {
+                this.sort_by = type;
+                this.sorting();
+            },
+
+            perPage(perPage) {
+                this.per_page = perPage;
+                this.sorting();
+            },
+
+            //parent method for choosing sorting type and how much adverts display by page
+            sorting() {
+                this.loading = true;
+                this.records = [];
+                this.retrieveRecords();
+            },
+
+            //choose view type grid or list
             changeView(type) {
                 this.viewType = type;
-            }
+            },
         }
     }
 </script>
