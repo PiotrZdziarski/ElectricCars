@@ -49885,7 +49885,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 2px;\n      margin-right: 2px;\n}\n@media (min-width: 476px) {\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n          margin-left: 5px;\n          margin-right: 5px;\n}\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n}\n@media (max-width: 476px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      border-radius: 5px;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      color: #2a3744;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      background: #dfdfdf;\n      border: 1px solid #cfcfcf;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #dfdfdf;\n}\n.input[data-v-5e04827a] {\n  padding: 10px;\n  background: white;\n  cursor: pointer;\n  border: 1px solid #efefef;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
+exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 2px;\n      margin-right: 2px;\n}\n@media (min-width: 476px) {\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n          margin-left: 5px;\n          margin-right: 5px;\n}\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n}\n@media (max-width: 476px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      border-radius: 5px;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      color: #2a3744;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      background: #dfdfdf;\n      border: 1px solid #cfcfcf;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #dfdfdf;\n}\n.input[data-v-5e04827a] {\n  padding: 10px;\n  background: transparent;\n  cursor: pointer;\n  border: 0;\n  border-bottom: 1px solid #b9bbbe;\n  -webkit-transition: .2s box-shadow ease-in-out;\n  transition: .2s box-shadow ease-in-out;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:hover {\n  outline: none;\n  -webkit-box-shadow: 0 8px 16px -8px #999999;\n          box-shadow: 0 8px 16px -8px #999999;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
 
 // exports
 
@@ -49896,6 +49896,8 @@ exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -50003,6 +50005,10 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "sortChild" }, [
         _c("select", { staticClass: "input" }, [
+          _c("option", { staticClass: "input" }, [_vm._v("Newest")]),
+          _vm._v(" "),
+          _c("option", { staticClass: "input" }, [_vm._v("Oldest")]),
+          _vm._v(" "),
           _c("option", { staticClass: "input" }, [_vm._v("Name")]),
           _vm._v(" "),
           _c("option", { staticClass: "input" }, [_vm._v("Lowest Price")]),
@@ -50708,7 +50714,11 @@ var staticRenderFns = [
           _c("div", { staticClass: "settingContent" }, [
             _c("input", {
               staticClass: "textInput",
-              attrs: { type: "text", placeholder: "Search for..." }
+              attrs: {
+                maxlength: "10",
+                type: "text",
+                placeholder: "Search for..."
+              }
             })
           ])
         ])
@@ -51729,50 +51739,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "announcementsList",
     props: {
         viewType: {
             Type: String
+        }
+    },
+    data: function data() {
+        return {
+            records: []
+        };
+    },
+    mounted: function mounted() {
+        this.retrieveRecords();
+    },
+
+    methods: {
+
+        //retrieve adverts from db
+        retrieveRecords: function retrieveRecords() {
+            var _this = this;
+
+            axios.get('/api/adverts').then(function (Response) {
+                _this.records = Response.data.data;
+            });
         }
     }
 });
@@ -51790,133 +51782,69 @@ var render = function() {
     [
       _c("transition", { attrs: { name: "fade" } }, [
         _vm.viewType === "list"
-          ? _c("div", { staticClass: "listView" }, [
-              _c("article", [
-                _c("div", { staticClass: "announcement" }, [
-                  _c("div", { staticClass: "imageContainer" }, [
-                    _c("img", {
-                      staticClass: "image",
-                      attrs: { src: "/images/cars/nissanleaf.jpg" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("h5", { staticClass: "title" }, [
-                      _vm._v("New Nissan Leaf 2017 LTZ CPZ")
+          ? _c(
+              "div",
+              { staticClass: "listView" },
+              _vm._l(_vm.records, function(record) {
+                return _c("article", [
+                  _c("div", { staticClass: "announcement" }, [
+                    _c("div", { staticClass: "imageContainer" }, [
+                      _c("img", {
+                        staticClass: "image",
+                        attrs: { src: "/images/cars/nissanleaf.jpg" }
+                      })
                     ]),
                     _vm._v(" "),
-                    _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
-                    _vm._v(" 2017\n                        "),
-                    _c("br"),
-                    _c("span", { staticClass: "subtitle" }, [
-                      _vm._v("Mileage")
-                    ]),
-                    _vm._v(" 10234 KM\n                        "),
-                    _c("span", { staticClass: "description" }, [
+                    _c("div", { staticClass: "info" }, [
+                      _c("h5", { staticClass: "title" }, [
+                        _vm._v(_vm._s(record.title))
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
                       _vm._v(
-                        "Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD"
-                      )
+                        " " + _vm._s(record.year) + "\n                        "
+                      ),
+                      _c("br"),
+                      _c("span", { staticClass: "subtitle" }, [
+                        _vm._v("Mileage")
+                      ]),
+                      _vm._v(
+                        " " +
+                          _vm._s(record.mileage) +
+                          " KM\n                        "
+                      ),
+                      _c("span", { staticClass: "description" }, [
+                        _vm._v(
+                          _vm._s(record.type_of_drive) +
+                            ", " +
+                            _vm._s(record.engine) +
+                            ", " +
+                            _vm._s(record.torque) +
+                            ", " +
+                            _vm._s(record.body_style) +
+                            ", " +
+                            _vm._s(record.exterior_color)
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "utilities" }, [
+                      _c("i", { staticClass: "icon-phone" }, [
+                        _vm._v(_vm._s(record.contact_number))
+                      ]),
+                      _vm._v(" "),
+                      _c("i", { staticClass: "icon-mail" }, [
+                        _vm._v(_vm._s(record.email))
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "price" }, [
+                        _vm._v("$" + _vm._s(record.price))
+                      ])
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "utilities" }, [
-                    _c("i", { staticClass: "icon-phone" }, [
-                      _vm._v("123 435 235")
-                    ]),
-                    _vm._v(" "),
-                    _c("i", { staticClass: "icon-mail" }, [
-                      _vm._v("pzdziarski.2001@gmail.com")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "price" }, [_vm._v("$14000")])
                   ])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("article", [
-                _c("div", { staticClass: "announcement" }, [
-                  _c("div", { staticClass: "imageContainer" }, [
-                    _c("img", {
-                      staticClass: "image",
-                      attrs: { src: "/images/cars/nissanleaf.jpg" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("h5", { staticClass: "title" }, [
-                      _vm._v("New Nissan Leaf 2017 LTZ CPZ")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
-                    _vm._v(" 2017\n                        "),
-                    _c("br"),
-                    _c("span", { staticClass: "subtitle" }, [
-                      _vm._v("Mileage")
-                    ]),
-                    _vm._v(" 10234 KM\n                        "),
-                    _c("span", { staticClass: "description" }, [
-                      _vm._v(
-                        "Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD"
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "utilities" }, [
-                    _c("i", { staticClass: "icon-phone" }, [
-                      _vm._v("123 435 235")
-                    ]),
-                    _vm._v(" "),
-                    _c("i", { staticClass: "icon-mail" }, [
-                      _vm._v("pzdziarski.2001@gmail.com")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "price" }, [_vm._v("$14000")])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("article", [
-                _c("div", { staticClass: "announcement" }, [
-                  _c("div", { staticClass: "imageContainer" }, [
-                    _c("img", {
-                      staticClass: "image",
-                      attrs: { src: "/images/cars/nissanleaf.jpg" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
-                    _c("h5", { staticClass: "title" }, [
-                      _vm._v("New Nissan Leaf 2017 LTZ CPZ")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
-                    _vm._v(" 2017\n                        "),
-                    _c("br"),
-                    _c("span", { staticClass: "subtitle" }, [
-                      _vm._v("Mileage")
-                    ]),
-                    _vm._v(" 10234 KM\n                        "),
-                    _c("span", { staticClass: "description" }, [
-                      _vm._v(
-                        "Monsoon Gray Metallic (ext), Black (int), 7-Speed Automatic with Auto-Shift, AWD"
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "utilities" }, [
-                    _c("i", { staticClass: "icon-phone" }, [
-                      _vm._v("123 435 235")
-                    ]),
-                    _vm._v(" "),
-                    _c("i", { staticClass: "icon-mail" }, [
-                      _vm._v("pzdziarski.2001@gmail.com")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "price" }, [_vm._v("$14000")])
-                  ])
-                ])
-              ])
-            ])
+              })
+            )
           : _vm._e()
       ]),
       _vm._v(" "),
@@ -52234,7 +52162,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 60vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n}\n@media (min-width: 768px) {\n.claim[data-v-f65d2816] {\n      height: 50vh;\n      padding-left: 5%;\n}\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n    padding: 15px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    padding-left: 15px;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  margin-top: 10vh;\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: 5vh;\n}\n@media (min-width: 768px) {\n.borderLine[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1100px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px 15px 5px 15px;\n}\n@media (min-width: 768px) and (max-width: 999.99px) {\n.main[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.main[data-v-f65d2816] {\n      padding: 5px;\n}\n}\n.main .mainContent[data-v-f65d2816] {\n    margin-bottom: 100px;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n        width: 70%;\n}\n}\n.main .mainContent .left .details[data-v-f65d2816] {\n      margin-top: 25px;\n}\n.main .mainContent .left .details .detail[data-v-f65d2816] {\n        border-bottom: 1px solid #dddddd;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        padding: 5px 1px 5px 1px;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n}\n.main .mainContent .left .details .detail .detailTitle[data-v-f65d2816] {\n          width: 30%;\n          text-transform: uppercase;\n          color: #888888;\n}\n.main .mainContent .left .details .detail .detailValue[data-v-f65d2816] {\n          width: 70%;\n          color: #444;\n}\n.main .mainContent .left .sellerComment[data-v-f65d2816] {\n      color: #444;\n}\n.main .mainContent .left .features ul[data-v-f65d2816] {\n      padding-left: 16px;\n      margin-top: 15px;\n}\n.main .mainContent .left .features li[data-v-f65d2816] {\n      color: #ff4d52;\n      font-size: 16px;\n      margin-bottom: 20px;\n}\n.main .mainContent .left .features span[data-v-f65d2816] {\n      color: #444345;\n}\n.main .mainContent .right[data-v-f65d2816] {\n      background: #f5f5f5;\n      margin-left: 15px;\n      margin-right: 15px;\n      padding: 5px 10px 5px 10px;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n}\n}\n.main .mainContent .right .price[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 38px;\n        color: #444444;\n        font-weight: 700;\n        padding: 30px 0 30px 0;\n        border-bottom: 1px solid #ddd;\n        border-top: 1px solid #ddd;\n}\n.main .mainContent .right .utility[data-v-f65d2816] {\n        margin-top: 30px;\n        padding: 14px 5px 14px 5px;\n        color: white;\n        border-radius: 4px;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 18px;\n        overflow-x: auto;\n}\n.main .mainContent .right .contactNumber[data-v-f65d2816] {\n        background: #ed1c24;\n}\n.main .mainContent .right .email[data-v-f65d2816] {\n        background: #22292f;\n        font-size: 16px;\n}\n.main .mainContent .right .email .icon-mail[data-v-f65d2816] {\n          padding-right: 5px;\n}\n.main .mainContent .right .compare[data-v-f65d2816] {\n        background: #4159e5;\n        cursor: pointer;\n        -webkit-transition: .2s background-color ease-in-out;\n        transition: .2s background-color ease-in-out;\n}\n.main .mainContent .right .compare .href[data-v-f65d2816] {\n          color: white;\n}\n.main .mainContent .right .compare[data-v-f65d2816]:hover {\n        background: #4a68ff;\n}\n.leftTitle[data-v-f65d2816] {\n  margin-top: 40px;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 500;\n  color: #212c33;\n}\n", ""]);
+exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  height: 60vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n}\n@media (min-width: 768px) {\n.claim[data-v-f65d2816] {\n      height: 50vh;\n      padding-left: 5%;\n}\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n    padding: 15px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    padding-left: 15px;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  margin-top: 10vh;\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: 5vh;\n}\n@media (min-width: 768px) {\n.borderLine[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1150px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px 15px 5px 15px;\n}\n@media (min-width: 768px) and (max-width: 999.99px) {\n.main[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.main[data-v-f65d2816] {\n      padding: 5px;\n}\n}\n.main .mainContent[data-v-f65d2816] {\n    margin-bottom: 100px;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n        width: 70%;\n}\n}\n.main .mainContent .left .details[data-v-f65d2816] {\n      margin-top: 25px;\n}\n.main .mainContent .left .details .detail[data-v-f65d2816] {\n        border-bottom: 1px solid #dddddd;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        padding: 5px 1px 5px 1px;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n}\n.main .mainContent .left .details .detail .detailTitle[data-v-f65d2816] {\n          width: 30%;\n          text-transform: uppercase;\n          color: #888888;\n}\n.main .mainContent .left .details .detail .detailValue[data-v-f65d2816] {\n          width: 70%;\n          color: #444;\n}\n.main .mainContent .left .sellerComment[data-v-f65d2816] {\n      color: #444;\n}\n.main .mainContent .left .features ul[data-v-f65d2816] {\n      padding-left: 16px;\n      margin-top: 15px;\n}\n.main .mainContent .left .features li[data-v-f65d2816] {\n      color: #ff4d52;\n      font-size: 16px;\n      margin-bottom: 20px;\n}\n.main .mainContent .left .features span[data-v-f65d2816] {\n      color: #444345;\n}\n.main .mainContent .right[data-v-f65d2816] {\n      background: #f3f3f3;\n      margin-left: 15px;\n      margin-right: 15px;\n      padding: 15px;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n}\n}\n.main .mainContent .right .price[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 38px;\n        color: #2c3a4b;\n        font-weight: 700;\n        padding: 30px 0 30px 0;\n        border-bottom: 1px solid #ddd;\n}\n.main .mainContent .right .utility[data-v-f65d2816] {\n        margin-top: 30px;\n        padding: 14px 5px 14px 5px;\n        color: white;\n        border-radius: 4px;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 18px;\n        overflow-x: auto;\n}\n.main .mainContent .right .contactNumber[data-v-f65d2816] {\n        background: #ed1c24;\n}\n.main .mainContent .right .email[data-v-f65d2816] {\n        background: #22292f;\n        font-size: 16px;\n}\n.main .mainContent .right .email .icon-mail[data-v-f65d2816] {\n          padding-right: 5px;\n}\n.main .mainContent .right .compare[data-v-f65d2816] {\n        background: #4159e5;\n        cursor: pointer;\n        -webkit-transition: .2s background-color ease-in-out;\n        transition: .2s background-color ease-in-out;\n}\n.main .mainContent .right .compare .href[data-v-f65d2816] {\n          color: white;\n}\n.main .mainContent .right .compare[data-v-f65d2816]:hover {\n        background: #4a68ff;\n}\n.leftTitle[data-v-f65d2816] {\n  margin-top: 40px;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 500;\n  color: #212c33;\n}\n", ""]);
 
 // exports
 

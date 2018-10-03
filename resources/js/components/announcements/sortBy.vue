@@ -6,6 +6,8 @@
             </div>
             <div class="sortChild">
                 <select class="input">
+                    <option class="input">Newest</option>
+                    <option class="input">Oldest</option>
                     <option class="input">Name</option>
                     <option class="input">Lowest Price</option>
                     <option class="input">Highest Price</option>
@@ -117,9 +119,16 @@
 
     .input {
         padding: 10px;
-        background: white;
+        background: transparent;
         cursor: pointer;
-        border: 1px solid #efefef;
+        border: 0;
+        border-bottom: 1px solid #b9bbbe;
+        transition: .2s box-shadow ease-in-out;
+    }
+
+     .input:focus, .input:hover {
+        outline: none;
+         box-shadow: 0 8px 16px -8px #999999;
     }
 
     .input:focus, .input:active {

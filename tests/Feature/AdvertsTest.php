@@ -15,7 +15,6 @@ class AdvertsTest extends TestCase
      * @var AdvertsController
      */
     private $advertsController;
-    private $index;
 
     /**
      * Set up AdvertController
@@ -24,7 +23,6 @@ class AdvertsTest extends TestCase
     {
         parent::setUp();
         $this->advertsController = new AdvertsController();
-        $this->index = $this->advertsController->index();
     }
 
     /**
@@ -43,6 +41,6 @@ class AdvertsTest extends TestCase
             ->assertSee($adverts);
 
         $this->json('GET', '/api/adverts')
-            ->assertSee(json_encode($this->index));
+            ->assertSee(json_encode($this->advertsController->index()));
     }
 }
