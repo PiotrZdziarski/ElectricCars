@@ -13,7 +13,7 @@
             <settings></settings>
             <div class="announcements">
                 <sort-by @perPage="perPage($event)" @sortBy="sortBy($event)" @changeView="changeView"></sort-by>
-                <announcements-list :records="records" :viewType="viewType"></announcements-list>
+                <announcements-list :links="links" :meta="meta" :records="records" :viewType="viewType"></announcements-list>
             </div>
         </section>
     </div>
@@ -41,6 +41,8 @@
                 sort_by: 'newest',
                 loading: true,
                 dataRetrieved: false,
+                meta: {},
+                links: {},
             }
         },
         mounted() {
@@ -51,6 +53,8 @@
             retrieveRecords() {
                 axios.get(`/api/announcements/${this.per_page}/${this.sort_by}`).then(Response => {
                     this.records = Response.data.data;
+                    this.meta = Response.data.meta;
+                    this.links = Response.data.links;
                     this.dataRetrieved = true;
                 });
             },

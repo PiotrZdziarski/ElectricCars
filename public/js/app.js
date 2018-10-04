@@ -50993,7 +50993,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             per_page: 12,
             sort_by: 'newest',
             loading: true,
-            dataRetrieved: false
+            dataRetrieved: false,
+            meta: {},
+            links: {}
         };
     },
     mounted: function mounted() {
@@ -51007,6 +51009,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.get('/api/announcements/' + this.per_page + '/' + this.sort_by).then(function (Response) {
                 _this.records = Response.data.data;
+                _this.meta = Response.data.meta;
+                _this.links = Response.data.links;
                 _this.dataRetrieved = true;
             });
         },
@@ -52891,6 +52895,10 @@ exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pagination_vue__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pagination_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__pagination_vue__);
+//
+//
 //
 //
 //
@@ -52942,14 +52950,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "announcementsList",
+    components: {
+        pagination: __WEBPACK_IMPORTED_MODULE_0__pagination_vue___default.a
+    },
     props: {
         viewType: {
             Type: String
         },
         records: {
             Type: Array
+        },
+        links: {
+            Type: Object
+        },
+        meta: {
+            Type: Object
         }
     }
 });
@@ -53095,7 +53114,9 @@ var render = function() {
               })
             )
           : _vm._e()
-      ])
+      ]),
+      _vm._v(" "),
+      _c("pagination", { attrs: { links: _vm.links, meta: _vm.meta } })
     ],
     1
   )
@@ -53228,7 +53249,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //initial incrementing value
         var initialIncrement = window.innerWidth / 100;
         //faster loading after data retrieved
-        var afterLoadIncrement = window.innerWidth / 20;
+        var afterLoadIncrement = window.innerWidth / 10;
 
         var progress = setInterval(function () {
 
@@ -53331,7 +53352,12 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("announcements-list", {
-                attrs: { records: _vm.records, viewType: _vm.viewType }
+                attrs: {
+                  links: _vm.links,
+                  meta: _vm.meta,
+                  records: _vm.records,
+                  viewType: _vm.viewType
+                }
               })
             ],
             1
@@ -54949,6 +54975,219 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(140)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(142)
+/* template */
+var __vue_template__ = __webpack_require__(143)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-38403b70"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/announcements/pagination.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-38403b70", Component.options)
+  } else {
+    hotAPI.reload("data-v-38403b70", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(141);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("14f0f7d6", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-38403b70\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./pagination.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-38403b70\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./pagination.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 141 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.pages[data-v-38403b70] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-bottom: 50px;\n}\n.pages .page[data-v-38403b70] {\n    min-height: 40px;\n    min-width: 40px;\n    padding: 10px;\n    margin-right: 5px;\n    background: #e8e8e8;\n    text-align: center;\n    cursor: pointer;\n    font-size: 16px;\n    font-weight: 500;\n    -webkit-transition: .2s background-color ease-in-out;\n    transition: .2s background-color ease-in-out;\n    color: #333;\n    -webkit-box-shadow: 0 1px 2px #b9bbbe;\n            box-shadow: 0 1px 2px #b9bbbe;\n}\n.pages .activePage[data-v-38403b70] {\n    background: #d9d9d9;\n    border: 1px solid #d1d1d1;\n    cursor: auto;\n}\n.pages .activePage[data-v-38403b70]:hover {\n    background: #d9d9d9 !important;\n}\n.pages .page[data-v-38403b70]:hover {\n    background: #f5f5f5;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 142 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "pagination",
+    props: {
+        links: {
+            Type: Object
+        },
+        meta: {
+            Type: Object
+        }
+    },
+    data: function data() {
+        return {
+            visible: {
+                first: true,
+                backwardBy2: true,
+                backward: true,
+                forward: true,
+                forwardBy2: true,
+                last: true
+            }
+        };
+    },
+
+    watch: {
+        meta: function meta() {
+            this.configurePages();
+        }
+    },
+    methods: {
+        configurePages: function configurePages() {
+
+            //if there is only one page
+            if (this.meta.current_page === this.meta.last_page) {
+                this.visible = _.mapValues(this.visible, function () {
+                    return false;
+                });
+            }
+
+            //if there are only 2 pages
+            if (this.meta.last_page === 2) {
+                if (this.meta.current_page === 1) {
+                    this.visible = _.mapValues(this.visible, function (param, index) {
+                        console.log(index);
+                    });
+                }
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.meta.path
+    ? _c("div", { staticClass: "pages" }, [
+        _vm.visible["first"]
+          ? _c("div", { staticClass: "page" }, [_vm._v(" 1 ")])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.visible["backwardBy2"]
+          ? _c("div", { staticClass: "page" }, [_vm._v("4")])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.visible["backward"]
+          ? _c("div", { staticClass: "page" }, [_vm._v("5")])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "page activePage" }, [
+          _vm._v(" " + _vm._s(_vm.meta.current_page))
+        ]),
+        _vm._v(" "),
+        _vm.visible["forward"]
+          ? _c("div", { staticClass: "page" }, [_vm._v("7")])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.visible["forwardBy2"]
+          ? _c("div", { staticClass: "page" }, [_vm._v("8")])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.visible["last"]
+          ? _c("div", { staticClass: "page" }, [_vm._v(" 1231 ")])
+          : _vm._e()
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-38403b70", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
