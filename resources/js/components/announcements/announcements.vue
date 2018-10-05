@@ -11,9 +11,9 @@
         </div>
         <section class="main">
             <settings></settings>
-            <div class="announcements">
+            <div class="announcements" id="announcements">
                 <sort-by @perPage="perPage($event)" @sortBy="sortBy($event)" @changeView="changeView"></sort-by>
-                <announcements-list :records="records" :viewType="viewType"></announcements-list>
+                <announcements-list @changePage="changePage($event)" :links="links" :meta="meta" :records="records" :viewType="viewType"></announcements-list>
             </div>
         </section>
     </div>
@@ -41,6 +41,9 @@
                 sort_by: 'newest',
                 loading: true,
                 dataRetrieved: false,
+                meta: {},
+                links: {},
+                page: 1
             }
         },
         mounted() {
@@ -49,8 +52,10 @@
         methods: {
             //retrieve adverts from db
             retrieveRecords() {
-                axios.get(`/api/announcements/${this.per_page}/${this.sort_by}`).then(Response => {
+                axios.get(`/api/announcements/${this.per_page}/${this.sort_by}?page=${this.page}`).then(Response => {
                     this.records = Response.data.data;
+                    this.meta = Response.data.meta;
+                    this.links = Response.data.links;
                     this.dataRetrieved = true;
                 });
             },
@@ -80,6 +85,39 @@
             changeView(type) {
                 this.viewType = type;
             },
+
+            changePage(page) {
+                this.loading = true;
+
+                if(page === 'first'){
+                    this.page = this.meta.from;
+                }
+
+                else if(page === 'backwardBy2') {
+                    this.page -= 2;
+                }
+
+                else if(page === 'backward') {
+                    this.page -= 1;
+                }
+
+                else if(page === 'forward') {
+                    this.page += 1;
+                }
+
+                else if(page === 'forwardBy2') {
+                    this.page += 2;
+                }
+
+                else if(page === 'last') {
+                    this.page += this.meta.last_page;
+                }
+
+                this.retrieveRecords();
+                // $('html, body').animate({
+                //     scrollTop: $("#announcements").offset().top
+                // }, 400);
+            }
         }
     }
 </script>

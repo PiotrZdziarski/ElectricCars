@@ -45,18 +45,36 @@
 
             </div>
         </transition>
+
+        <pagination @changePage="changePage($event)" :links="links" :meta="meta"></pagination>
     </section>
 </template>
 
 <script>
+    import pagination from './pagination.vue';
+
     export default {
         name: "announcementsList",
+        components: {
+            pagination: pagination
+        },
         props: {
             viewType: {
                 Type: String
             },
             records: {
                 Type: Array
+            },
+            links: {
+                Type: Object
+            },
+            meta: {
+                Type: Object
+            }
+        },
+        methods: {
+            changePage(page) {
+                this.$emit('changePage', page);
             }
         }
     }

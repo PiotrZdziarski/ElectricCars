@@ -17,7 +17,7 @@
             //initial incrementing value
             let initialIncrement = window.innerWidth / 100;
             //faster loading after data retrieved
-            let afterLoadIncrement = window.innerWidth / 20;
+            let afterLoadIncrement = window.innerWidth / 10;
 
             let progress = setInterval(() => {
 
