@@ -46,7 +46,7 @@
             </div>
         </transition>
 
-        <pagination :links="links" :meta="meta"></pagination>
+        <pagination @changePage="changePage($event)" :links="links" :meta="meta"></pagination>
     </section>
 </template>
 
@@ -70,6 +70,11 @@
             },
             meta: {
                 Type: Object
+            }
+        },
+        methods: {
+            changePage(page) {
+                this.$emit('changePage', page);
             }
         }
     }
