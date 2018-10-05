@@ -90,7 +90,7 @@
                 this.loading = true;
 
                 if(page === 'first'){
-                    this.page = this.meta.from;
+                    this.page = 1;
                 }
 
                 else if(page === 'backwardBy2') {
@@ -110,7 +110,7 @@
                 }
 
                 else if(page === 'last') {
-                    this.page += this.meta.last_page;
+                    this.page = this.meta.last_page;
                 }
 
                 this.retrieveRecords();
