@@ -51044,7 +51044,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.loading = true;
 
             if (page === 'first') {
-                this.page = this.meta.from;
+                this.page = 1;
             } else if (page === 'backwardBy2') {
                 this.page -= 2;
             } else if (page === 'backward') {
@@ -51054,7 +51054,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else if (page === 'forwardBy2') {
                 this.page += 2;
             } else if (page === 'last') {
-                this.page += this.meta.last_page;
+                this.page = this.meta.last_page;
             }
 
             this.retrieveRecords();
@@ -53146,8 +53146,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.meta.last_page === 2) {
 
                 if (this.meta.current_page === 1) {
+                    this.visible.backward = false;
                     this.visible.forward = true;
                 } else {
+                    this.visible.forward = false;
                     this.visible.backward = true;
                 }
             }
@@ -53170,6 +53172,111 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     this.visible.forward = false;
                     this.visible.backward = true;
                     this.visible.backwardBy2 = true;
+                }
+            }
+
+            //if page number equals 4 or is above 4 we can already set up last and first page
+            if (this.meta.last_page >= 4) {
+                if (this.meta.current_page === 1) {
+                    this.visible.first = false;
+                    this.visible.backwardBy2 = false;
+                    this.visible.backward = false;
+                    this.visible.forward = true;
+                    this.visible.forwardBy2 = true;
+                    this.visible.last = true;
+                } else if (this.meta.current_page === this.meta.last_page) {
+                    this.visible.first = true;
+                    this.visible.backwardBy2 = true;
+                    this.visible.backward = true;
+                    this.visible.forward = false;
+                    this.visible.forwardBy2 = false;
+                    this.visible.last = false;
+                }
+            }
+
+            //if there are only 4 pages
+            if (this.meta.last_page === 4) {
+
+                if (this.meta.current_page === 2) {
+                    this.visible.first = false;
+                    this.visible.backwardBy2 = false;
+                    this.visible.backward = true;
+                    this.visible.forward = true;
+                    this.visible.forwardBy2 = true;
+                    this.visible.last = false;
+                } else if (this.meta.current_page === 3) {
+                    this.visible.first = false;
+                    this.visible.backwardBy2 = true;
+                    this.visible.backward = true;
+                    this.visible.forward = true;
+                    this.visible.forwardBy2 = false;
+                    this.visible.last = false;
+                }
+            }
+
+            //if there are 5 or above 5 pages we can already set one before last page and one after first page
+            if (this.meta.last_page >= 5) {
+
+                if (this.meta.current_page === 2) {
+                    this.visible.first = false;
+                    this.visible.backwardBy2 = false;
+                    this.visible.backward = true;
+                    this.visible.forward = true;
+                    this.visible.forwardBy2 = true;
+                    this.visible.last = true;
+                } else if (this.meta.current_page === this.meta.last_page - 1) {
+                    this.visible.first = true;
+                    this.visible.backwardBy2 = true;
+                    this.visible.backward = true;
+                    this.visible.forward = true;
+                    this.visible.forwardBy2 = false;
+                    this.visible.last = false;
+                }
+            }
+
+            //if there are only 5 pages
+            if (this.meta.last_page === 5) {
+
+                if (this.meta.current_page === 3) {
+                    this.visible.first = false;
+                    this.visible.backwardBy2 = true;
+                    this.visible.backward = true;
+                    this.visible.forward = true;
+                    this.visible.forwardBy2 = true;
+                    this.visible.last = false;
+                }
+            }
+
+            //if there are 6 or above 6 pages we can set two before last page and two after first page
+            if (this.meta.last_page >= 6) {
+
+                if (this.meta.current_page === 3) {
+                    this.visible.first = false;
+                    this.visible.backwardBy2 = true;
+                    this.visible.backward = true;
+                    this.visible.forward = true;
+                    this.visible.forwardBy2 = true;
+                    this.visible.last = true;
+                } else if (this.meta.current_page === this.meta.last_page - 2) {
+                    this.visible.first = true;
+                    this.visible.backwardBy2 = true;
+                    this.visible.backward = true;
+                    this.visible.forward = true;
+                    this.visible.forwardBy2 = true;
+                    this.visible.last = false;
+                }
+            }
+
+            //if there are 7 or above 7 pages the situation in this condition always will be same
+            if (this.meta.last_page >= 7) {
+
+                if (this.meta.current_page > 3 && this.meta.current_page < this.meta.last_page - 2) {
+                    this.visible.first = true;
+                    this.visible.backwardBy2 = true;
+                    this.visible.backward = true;
+                    this.visible.forward = true;
+                    this.visible.forwardBy2 = true;
+                    this.visible.last = true;
                 }
             }
         },
@@ -53200,7 +53307,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v(" 1")]
+              [_vm._v("1")]
             )
           : _vm._e(),
         _vm._v(" "),
@@ -53279,7 +53386,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v(" 1231")]
+              [_vm._v(_vm._s(_vm.meta.last_page))]
             )
           : _vm._e()
       ])
