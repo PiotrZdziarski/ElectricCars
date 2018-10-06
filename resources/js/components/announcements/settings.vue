@@ -7,7 +7,7 @@
             <form>
                 <div class="setting searchingSetting">
                     <div class="settingContent">
-                        <input class="textInput" maxlength="10" type="text" placeholder="Search for...">
+                        <input @input="basicSearching" class="textInput" maxlength="150" type="text" placeholder="Search for...">
                     </div>
                 </div>
             </form>
@@ -288,6 +288,9 @@
 </template>
 
 <script>
+    import lodash from 'lodash';
+    import debounce from 'lodash.debounce';
+
     export default {
         name: "settings",
         data() {
@@ -333,7 +336,10 @@
                     document.getElementById('settings').style.right = '-250px';
                     this.showSettings = false;
                 }
-            }
+            },
+            basicSearching: debounce(function(event){
+                this.$emit('basicSearching', event.target.value);
+            }, 500)
         }
     }
 </script>

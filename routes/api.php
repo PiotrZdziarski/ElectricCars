@@ -19,3 +19,4 @@ use Illuminate\Http\Request;
 
 //adverts
 Route::get('/announcements', 'AdvertsController@index');
+Route::get('/search_announcements', 'AdvertsController@search');

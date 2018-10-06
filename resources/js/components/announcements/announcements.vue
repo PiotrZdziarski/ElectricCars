@@ -10,7 +10,7 @@
             </div>
         </div>
         <section class="main">
-            <settings></settings>
+            <settings @basicSearching="basicSearching($event)"></settings>
             <div class="announcements" id="announcements">
                 <sort-by @perPage="perPage($event)" @sortBy="sortBy($event)" @changeView="changeView"></sort-by>
                 <announcements-list @changePage="changePage($event)" :links="links" :meta="meta" :records="records" :viewType="viewType"></announcements-list>
@@ -43,7 +43,8 @@
                 dataRetrieved: false,
                 meta: {},
                 links: {},
-                page: 1
+                page: 1,
+                looking_for: '',
             }
         },
         mounted() {
@@ -52,7 +53,7 @@
         methods: {
             //retrieve adverts from db
             retrieveRecords(scroll = false) {
-                axios.get(`/api/announcements?per_page=${this.per_page}&order_by=${this.sort_by}&page=${this.page}`).then(Response => {
+                axios.get(`/api/announcements?per_page=${this.per_page}&order_by=${this.sort_by}&page=${this.page}&looking_for=${this.looking_for}`).then(Response => {
                     this.records = Response.data.data;
                     this.meta = Response.data.meta;
                     this.links = Response.data.links;
@@ -119,6 +120,13 @@
                 }
 
                 this.retrieveRecords(true);
+            },
+
+            basicSearching(looking_for) {
+                this.looking_for = looking_for;
+                this.page = 1;
+                this.loading = true;
+                this.retrieveRecords();
             }
         }
     }
