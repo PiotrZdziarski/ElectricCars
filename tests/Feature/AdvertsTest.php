@@ -4,11 +4,8 @@ namespace Tests\Feature;
 
 use App\Advert;
 use App\Http\Controllers\AdvertsController;
-use App\Http\Resources\AdvertResource;
 use Illuminate\Http\Request;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AdvertsTest extends TestCase
 {
@@ -23,7 +20,7 @@ class AdvertsTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->advertsController = new AdvertsController();
+        $this->advertsController = new AdvertsController(new Advert());
     }
 
     /**
@@ -37,11 +34,11 @@ class AdvertsTest extends TestCase
             ->assertStatus(200)
             ->assertSee(json_encode($this->advertsController->index($request)));
 
-
         //with data
         $data = [
             'per_page' => 20,
-            'order_by' => 'lowest_price'
+            'order_by' => 'lowest_price',
+            'looking_for' => 'eA'
         ];
         $request = Request::create('', 'GET', $data);
         $this->json('GET', '/api/announcements', $data)

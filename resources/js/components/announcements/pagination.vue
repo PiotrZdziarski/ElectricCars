@@ -3,7 +3,7 @@
         <div class="page" @click="changePage('first')" v-if="visible['first']">1</div>
         <div class="page" @click="changePage('backwardBy2')" v-if="visible['backwardBy2']">{{ meta.current_page - 2 }}</div>
         <div class="page" @click="changePage('backward')" v-if="visible['backward']">{{ meta.current_page - 1 }}</div>
-        <div class="page activePage"> {{ meta.current_page }}</div>
+        <div class="page activePage" v-if="!nothingHere"> {{ meta.current_page }}</div>
         <div class="page" @click="changePage('forward')" v-if="visible['forward']">{{ meta.current_page + 1 }}</div>
         <div class="page" @click="changePage('forwardBy2')" v-if="visible['forwardBy2']">{{ meta.current_page + 2 }}</div>
         <div class="page" @click="changePage('last')" v-if="visible['last']">{{ meta.last_page }}</div>
@@ -23,13 +23,14 @@
         },
         data() {
             return {
+                nothingHere: false,
                 visible: {
                     first: false,
                     backwardBy2: false,
                     backward: false,
                     forward: false,
                     forwardBy2: false,
-                    last: false
+                    last: false,
                 }
             }
         },
@@ -41,15 +42,36 @@
         methods: {
             configurePages() {
 
+                //if no records
+                if(this.meta.from === null) {
+                    this.nothingHere = true;
+                    this.visible.first = false;
+                    this.visible.backwardBy2 = false;
+                    this.visible.backward = false;
+                    this.visible.forward = false;
+                    this.visible.forwardBy2 = false;
+                    this.visible.last = false;
+                } else {
+                    this.nothingHere = false;
+                }
+
                 //if there are only 2 pages
                 if (this.meta.last_page === 2) {
 
                     if (this.meta.current_page === 1) {
+                        this.visible.last = false;
+                        this.visible.backwardBy2 = false;
                         this.visible.backward = false;
                         this.visible.forward = true;
+                        this.visible.forwardBy2 = false;
+                        this.visible.last = false;
                     } else {
-                        this.visible.forward = false;
+                        this.visible.last = false;
+                        this.visible.backwardBy2 = false;
                         this.visible.backward = true;
+                        this.visible.forward = false;
+                        this.visible.forwardBy2 = false;
+                        this.visible.last = false;
                     }
                 }
 
@@ -57,24 +79,30 @@
                 if (this.meta.last_page === 3) {
 
                     if(this.meta.current_page === 1) {
+                        this.visible.first = false;
                         this.visible.backwardBy2 = false;
                         this.visible.backward = false;
                         this.visible.forward = true;
                         this.visible.forwardBy2 = true;
+                        this.visible.last = false;
                     }
 
                     else if(this.meta.current_page === 2) {
+                        this.visible.first = false;
                         this.visible.forwardBy2 = false;
                         this.visible.backwardBy2 = false;
                         this.visible.backward = true;
                         this.visible.forward = true;
+                        this.visible.last = false;
                     }
 
                     else {
+                        this.visible.first = false;
                         this.visible.forwardBy2 = false;
                         this.visible.forward = false;
                         this.visible.backward = true;
                         this.visible.backwardBy2 = true;
+                        this.visible.last = false;
                     }
                 }
 
