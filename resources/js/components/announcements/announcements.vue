@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <transition name="fade">
-            <progress-bar v-if="loading" @finishedLoading="finishedLoading" :data-retrieved="dataRetrieved"></progress-bar>
+            <progress-bar v-if="loading" @finishedLoading="finishedLoading" :data_retrieved="data_retrieved"></progress-bar>
         </transition>
         <div class="claim">
             <div class="mainTitle">
@@ -10,10 +10,10 @@
             </div>
         </div>
         <section class="main">
-            <settings @basicSearching="basicSearching($event)"></settings>
+            <settings :per_page="per_page" :order_by="sort_by" :looking_for="looking_for" :searching_settings="searching_settings" @basicSearching="basicSearching($event)"></settings>
             <div class="announcements" id="announcements">
                 <sort-by @perPage="perPage($event)" @sortBy="sortBy($event)" @changeView="changeView"></sort-by>
-                <announcements-list @changePage="changePage($event)" :links="links" :meta="meta" :records="records" :viewType="viewType"></announcements-list>
+                <announcements-list @changePage="changePage($event)" :links="links" :meta="meta" :records="records" :view_type="view_type"></announcements-list>
             </div>
         </section>
     </div>
@@ -33,14 +33,19 @@
             announcementsList: announcementsList,
             progressBar: progressBar
         },
+        props: {
+            searching_settings: {
+                Type: Object
+            }
+        },
         data() {
             return {
-                viewType: 'list',
+                view_type: 'list',
                 records: [],
                 per_page: 12,
                 sort_by: 'newest',
                 loading: true,
-                dataRetrieved: false,
+                data_retrieved: false,
                 meta: {},
                 links: {},
                 page: 1,
@@ -61,7 +66,7 @@
                     if(scroll === true) {
                         document.getElementById('announcements').scrollIntoView();
                     }
-                    this.dataRetrieved = true;
+                    this.data_retrieved = true;
                 });
             },
 
@@ -83,13 +88,13 @@
             },
 
             finishedLoading() {
-                this.dataRetrieved = false;
+                this.data_retrieved = false;
                 this.loading = false;
             },
 
             //choose view type grid or list
             changeView(type) {
-                this.viewType = type;
+                this.view_type = type;
             },
 
             changePage(page) {

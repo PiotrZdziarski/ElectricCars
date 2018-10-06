@@ -12,6 +12,7 @@ class AdvertsController extends Controller
      * @var Advert
      */
     private $advert;
+    private $looking_for;
 
     /**
      * Constructor with Advert DI
@@ -56,8 +57,27 @@ class AdvertsController extends Controller
         return $adverts;
     }
 
+    private function basicSearching($adverts, $looking_for) {
+
+        $this->looking_for = $looking_for;
+
+        $adverts = $adverts->where( function($query) {
+            $query->where('title', 'like', '%'.$this->looking_for.'%')
+                ->orWhere('title', 'like', '%'.$this->looking_for.'%')
+                ->orWhere('make', 'like', '%'.$this->looking_for.'%')
+                ->orWhere('model', 'like', '%'.$this->looking_for.'%')
+                ->orWhere('exterior_color', 'like', '%'.$this->looking_for.'%')
+                ->orWhere('year', 'like', '%'.$this->looking_for.'%')
+                ->orWhere('body_style', 'like', '%'.$this->looking_for.'%')
+                ->orWhere('condition', 'like', '%'.$this->looking_for.'%')
+                ->orWhere('torque', 'like', '%'.$this->looking_for.'%');
+        });
+
+        return $adverts;
+    }
+
     /**
-     * Basic adverts retrieve
+     * Adverts retrieve
      * @param Request $request
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
@@ -66,21 +86,38 @@ class AdvertsController extends Controller
         $per_page = $request->get('per_page');
         $order_by = $request->get('order_by');
         $looking_for = $request->get('looking_for');
+        $adverts = $this->advert;
 
-        $adverts = $this->advert->where('title', $looking_for)
-            ->orWhere('title', 'like', '%'.$looking_for.'%')
-            ->orWhere('make', 'like', '%'.$looking_for.'%')
-            ->orWhere('model', 'like', '%'.$looking_for.'%')
-            ->orWhere('exterior_color', 'like', '%'.$looking_for.'%')
-            ->orWhere('year', 'like', '%'.$looking_for.'%')
-            ->orWhere('body_style', 'like', '%'.$looking_for.'%')
-            ->orWhere('condition', 'like', '%'.$looking_for.'%')
-            ->orWhere('torque', 'like', '%'.$looking_for.'%');
-
-        $adverts = $this->sorting($adverts, $per_page, $order_by);
+        $adverts =$this->basicSearching($adverts, $looking_for);
+        $adverts = $this->sorting($adverts,$per_page, $order_by);
 
         return AdvertResource::collection($adverts);
     }
+
+
+
+    public function advanced_search(Request $request)
+    {
+        $per_page = $request->get('per_page');
+        $order_by = $request->get('order_by');
+        $looking_for = $request->get('looking_for');
+        $adverts = $this->advert;
+
+        $adverts =$this->basicSearching($adverts, $looking_for);
+
+        foreach (SEARCHING_SETTING as $settingName => $setting) {
+            $option = $request->get("$settingName");
+            if($option[0] !== "Any") {
+                foreach ($option as $value) {
+                    $adverts = $adverts->where('condition', $value);
+                }
+            }
+        }
+
+        $adverts = $this->sorting($adverts,$per_page, $order_by);
+
+        return AdvertResource::collection($adverts);
+      }
 
 
 }

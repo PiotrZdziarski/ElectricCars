@@ -23,17 +23,10 @@
                 </button>
                 <div class="collapse show" id="condition_setting">
                     <div class="settingContent">
-                        <input id="condition_any" type="checkbox" name="condition_any" value="any" checked>
-                        <label for="condition_any">Any</label>
-
-                        <input id="condition_new" type="checkbox" name="condition_new" value="any">
-                        <label for="condition_new">New</label>
-
-                        <input id="condition_used" type="checkbox" name="condition_used" value="any">
-                        <label for="condition_used">Used</label>
-
-                        <input id="condition_certified" type="checkbox" name="condition" value="any">
-                        <label for="condition_certified">Certified Pre-Owned</label>
+                        <div class="formRow" v-for="(condition,index) in conditions">
+                            <input :id="'condition' + condition" type="checkbox" :value="condition" :name="'condition' + condition" :checked="index === 0">
+                            <label :for="'condition' + condition">{{ condition }}</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -288,18 +281,39 @@
 </template>
 
 <script>
-    import lodash from 'lodash';
     import debounce from 'lodash.debounce';
 
     export default {
         name: "settings",
+        props: {
+            searching_settings: {
+                Type: Object
+            },
+            per_page: {
+                Type: Number
+            },
+            order_by: {
+                Type: String
+            },
+            looking_for: {
+                Type: String
+            }
+        },
+        computed: {
+            searching_settings_compute: function()  {
+                return JSON.parse(this.searching_settings);
+            }
+        },
         data() {
             return {
                 showSettings: false,
-                years: [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011]
+                years: [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011],
+                conditions: [],
             }
         },
         mounted() {
+            const searching_settings = this.searching_settings_compute;
+            this.conditions = searching_settings.condition;
 
             //check if browser is ie to fix setting button not showing
             function isIE() {
@@ -316,8 +330,24 @@
             }
         },
         methods: {
-            submitMethod() {
-                alert('xd');
+            submitMethod(event) {
+                event.preventDefault();
+
+                let conditions = [];
+                this.conditions.forEach((condition) => {
+                    if(document.getElementById('condition' + condition).checked) {
+                        conditions.push(document.getElementById('condition' + condition).value);
+                    }
+                });
+
+                axios.post(`/api/advanced_search`, {
+                    'per_page': this.per_page,
+                    'order_by': this.order_by,
+                    'looking_for': this.looking_for,
+                    'condition': conditions
+                }).then((Response) => {
+                   console.log(Response.data);
+                });
             },
             showSetting(event) {
                 let innerHTML = event.target.innerHTML;

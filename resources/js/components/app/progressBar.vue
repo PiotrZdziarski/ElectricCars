@@ -8,7 +8,7 @@
     export default {
         name: "progressBar",
         props: {
-            dataRetrieved: {
+            data_retrieved: {
                 Type: Boolean,
             }
         },
@@ -27,7 +27,7 @@
                     document.getElementById('progress').style.width = `${progressWidth}px`;
                 }
                 //after data is retrieved faster loading
-                if(this.dataRetrieved === true) {
+                if(this.data_retrieved === true) {
                     progressWidth += afterLoadIncrement;
                     document.getElementById('progress').style.width = `${progressWidth}px`;
                 }
