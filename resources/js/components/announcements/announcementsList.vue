@@ -1,7 +1,7 @@
 <template>
     <section>
         <transition name="fade">
-            <div v-if="viewType === 'list'" class="listView">
+            <div v-if="view_type === 'list'" class="listView">
                 <article v-for="record in records">
                     <div class="announcement">
                         <div class="imageContainer">
@@ -24,7 +24,7 @@
         </transition>
 
         <transition name="fade">
-            <div v-if="viewType === 'grid'" class="gridView">
+            <div v-if="view_type === 'grid'" class="gridView">
 
                 <div class="announcement" v-for="record in records">
                     <div class="imageContainer">
@@ -59,7 +59,7 @@
             pagination: pagination
         },
         props: {
-            viewType: {
+            view_type: {
                 Type: String
             },
             records: {

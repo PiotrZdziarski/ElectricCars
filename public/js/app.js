@@ -50986,14 +50986,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         announcementsList: __WEBPACK_IMPORTED_MODULE_2__announcementsList_vue___default.a,
         progressBar: __WEBPACK_IMPORTED_MODULE_3__app_progressBar_vue___default.a
     },
+    props: {
+        searching_settings: {
+            Type: Object
+        }
+    },
     data: function data() {
         return {
-            viewType: 'list',
+            view_type: 'list',
             records: [],
             per_page: 12,
             sort_by: 'newest',
             loading: true,
-            dataRetrieved: false,
+            data_retrieved: false,
             meta: {},
             links: {},
             page: 1,
@@ -51019,7 +51024,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (scroll === true) {
                     document.getElementById('announcements').scrollIntoView();
                 }
-                _this.dataRetrieved = true;
+                _this.data_retrieved = true;
             });
         },
         sortBy: function sortBy(type) {
@@ -51039,14 +51044,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.retrieveRecords();
         },
         finishedLoading: function finishedLoading() {
-            this.dataRetrieved = false;
+            this.data_retrieved = false;
             this.loading = false;
         },
 
 
         //choose view type grid or list
         changeView: function changeView(type) {
-            this.viewType = type;
+            this.view_type = type;
         },
         changePage: function changePage(page) {
             this.loading = true;
@@ -51427,10 +51432,8 @@ exports.push([module.i, "\n.settings[data-v-e2df705e] {\n  background: white;\n 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_debounce__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_debounce___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash_debounce__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_debounce__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_debounce___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash_debounce__);
 //
 //
 //
@@ -51713,26 +51716,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "settings",
+    props: {
+        searching_settings: {
+            Type: Object
+        },
+        per_page: {
+            Type: Number
+        },
+        order_by: {
+            Type: String
+        },
+        looking_for: {
+            Type: String
+        }
+    },
+    computed: {
+        searching_settings_compute: function searching_settings_compute() {
+            return JSON.parse(this.searching_settings);
+        }
+    },
     data: function data() {
         return {
             showSettings: false,
-            years: [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011]
+            years: [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011],
+            conditions: []
         };
     },
     mounted: function mounted() {
+        var searching_settings = this.searching_settings_compute;
+        this.conditions = searching_settings.condition;
 
         //check if browser is ie to fix setting button not showing
         function isIE() {
@@ -51750,8 +51767,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
-        submitMethod: function submitMethod() {
-            alert('xd');
+        submitMethod: function submitMethod(event) {
+            event.preventDefault();
+
+            var conditions = [];
+            this.conditions.forEach(function (condition) {
+                if (document.getElementById('condition' + condition).checked) {
+                    conditions.push(document.getElementById('condition' + condition).value);
+                }
+            });
+
+            axios.post("/api/advanced_search", {
+                'per_page': this.per_page,
+                'order_by': this.order_by,
+                'looking_for': this.looking_for,
+                'condition': conditions
+            }).then(function (Response) {
+                console.log(Response.data);
+            });
         },
         showSetting: function showSetting(event) {
             var innerHTML = event.target.innerHTML;
@@ -51772,7 +51805,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
 
-        basicSearching: __WEBPACK_IMPORTED_MODULE_1_lodash_debounce___default()(function (event) {
+        basicSearching: __WEBPACK_IMPORTED_MODULE_0_lodash_debounce___default()(function (event) {
             this.$emit('basicSearching', event.target.value);
         }, 500)
     }
@@ -51842,7 +51875,35 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(0)
+          _c(
+            "div",
+            {
+              staticClass: "collapse show",
+              attrs: { id: "condition_setting" }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "settingContent" },
+                _vm._l(_vm.conditions, function(condition, index) {
+                  return _c("div", { staticClass: "formRow" }, [
+                    _c("input", {
+                      attrs: {
+                        id: "condition" + condition,
+                        type: "checkbox",
+                        name: "condition" + condition
+                      },
+                      domProps: { value: condition, checked: index === 0 }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "condition" + condition } }, [
+                      _vm._v(_vm._s(condition))
+                    ])
+                  ])
+                })
+              )
+            ]
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "setting" }, [
@@ -51926,7 +51987,7 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "setting" }, [
@@ -51948,7 +52009,7 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(2)
+          _vm._m(1)
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "setting" }, [
@@ -51970,7 +52031,7 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(3)
+          _vm._m(2)
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "setting" }, [
@@ -51992,7 +52053,7 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(4)
+          _vm._m(3)
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "setting" }, [
@@ -52014,74 +52075,15 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(5)
+          _vm._m(4)
         ]),
         _vm._v(" "),
-        _vm._m(6)
+        _vm._m(5)
       ]
     )
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "collapse show", attrs: { id: "condition_setting" } },
-      [
-        _c("div", { staticClass: "settingContent" }, [
-          _c("input", {
-            attrs: {
-              id: "condition_any",
-              type: "checkbox",
-              name: "condition_any",
-              value: "any",
-              checked: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "condition_any" } }, [_vm._v("Any")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "condition_new",
-              type: "checkbox",
-              name: "condition_new",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "condition_new" } }, [_vm._v("New")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "condition_used",
-              type: "checkbox",
-              name: "condition_used",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "condition_used" } }, [_vm._v("Used")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "condition_certified",
-              type: "checkbox",
-              name: "condition",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "condition_certified" } }, [
-            _vm._v("Certified Pre-Owned")
-          ])
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -52998,7 +53000,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         pagination: __WEBPACK_IMPORTED_MODULE_0__pagination_vue___default.a
     },
     props: {
-        viewType: {
+        view_type: {
             Type: String
         },
         records: {
@@ -53461,7 +53463,7 @@ var render = function() {
     "section",
     [
       _c("transition", { attrs: { name: "fade" } }, [
-        _vm.viewType === "list"
+        _vm.view_type === "list"
           ? _c(
               "div",
               { staticClass: "listView" },
@@ -53529,7 +53531,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("transition", { attrs: { name: "fade" } }, [
-        _vm.viewType === "grid"
+        _vm.view_type === "grid"
           ? _c(
               "div",
               { staticClass: "gridView" },
@@ -53721,7 +53723,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "progressBar",
     props: {
-        dataRetrieved: {
+        data_retrieved: {
             Type: Boolean
         }
     },
@@ -53742,7 +53744,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 document.getElementById('progress').style.width = progressWidth + 'px';
             }
             //after data is retrieved faster loading
-            if (_this.dataRetrieved === true) {
+            if (_this.data_retrieved === true) {
                 progressWidth += afterLoadIncrement;
                 document.getElementById('progress').style.width = progressWidth + 'px';
             }
@@ -53802,7 +53804,7 @@ var render = function() {
         [
           _vm.loading
             ? _c("progress-bar", {
-                attrs: { "data-retrieved": _vm.dataRetrieved },
+                attrs: { data_retrieved: _vm.data_retrieved },
                 on: { finishedLoading: _vm.finishedLoading }
               })
             : _vm._e()
@@ -53817,6 +53819,12 @@ var render = function() {
         { staticClass: "main" },
         [
           _c("settings", {
+            attrs: {
+              per_page: _vm.per_page,
+              order_by: _vm.sort_by,
+              looking_for: _vm.looking_for,
+              searching_settings: _vm.searching_settings
+            },
             on: {
               basicSearching: function($event) {
                 _vm.basicSearching($event)
@@ -53845,7 +53853,7 @@ var render = function() {
                   links: _vm.links,
                   meta: _vm.meta,
                   records: _vm.records,
-                  viewType: _vm.viewType
+                  view_type: _vm.view_type
                 },
                 on: {
                   changePage: function($event) {

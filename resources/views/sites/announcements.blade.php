@@ -6,5 +6,5 @@
 @endsection
 
 @section('content')
-    <announcements></announcements>
+    <announcements searching_settings='{{json_encode(SEARCHING_SETTING)}}'></announcements>
 @endsection
