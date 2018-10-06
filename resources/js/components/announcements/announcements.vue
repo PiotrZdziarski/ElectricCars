@@ -51,11 +51,15 @@
         },
         methods: {
             //retrieve adverts from db
-            retrieveRecords() {
-                axios.get(`/api/announcements/${this.per_page}/${this.sort_by}?page=${this.page}`).then(Response => {
+            retrieveRecords(scroll = false) {
+                axios.get(`/api/announcements?per_page=${this.per_page}&order_by=${this.sort_by}&page=${this.page}`).then(Response => {
                     this.records = Response.data.data;
                     this.meta = Response.data.meta;
                     this.links = Response.data.links;
+
+                    if(scroll === true) {
+                        document.getElementById('announcements').scrollIntoView();
+                    }
                     this.dataRetrieved = true;
                 });
             },
@@ -73,6 +77,7 @@
             //parent method for choosing sorting type and how much adverts display by page
             sorting() {
                 this.loading = true;
+                this.page = 1;
                 this.retrieveRecords();
             },
 
@@ -113,10 +118,7 @@
                     this.page = this.meta.last_page;
                 }
 
-                this.retrieveRecords();
-                // $('html, body').animate({
-                //     scrollTop: $("#announcements").offset().top
-                // }, 400);
+                this.retrieveRecords(true);
             }
         }
     }

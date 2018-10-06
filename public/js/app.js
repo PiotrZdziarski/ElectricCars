@@ -51008,10 +51008,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         retrieveRecords: function retrieveRecords() {
             var _this = this;
 
-            axios.get('/api/announcements/' + this.per_page + '/' + this.sort_by + '?page=' + this.page).then(function (Response) {
+            var scroll = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+            axios.get('/api/announcements?per_page=' + this.per_page + '&order_by=' + this.sort_by + '&page=' + this.page).then(function (Response) {
                 _this.records = Response.data.data;
                 _this.meta = Response.data.meta;
                 _this.links = Response.data.links;
+
+                if (scroll === true) {
+                    document.getElementById('announcements').scrollIntoView();
+                }
                 _this.dataRetrieved = true;
             });
         },
@@ -51028,6 +51034,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //parent method for choosing sorting type and how much adverts display by page
         sorting: function sorting() {
             this.loading = true;
+            this.page = 1;
             this.retrieveRecords();
         },
         finishedLoading: function finishedLoading() {
@@ -51057,10 +51064,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.page = this.meta.last_page;
             }
 
-            this.retrieveRecords();
-            // $('html, body').animate({
-            //     scrollTop: $("#announcements").offset().top
-            // }, 400);
+            this.retrieveRecords(true);
         }
     }
 });
@@ -51240,7 +51244,7 @@ var render = function() {
       _c("div", { staticClass: "sortChild" }, [
         _c(
           "select",
-          { staticClass: "input", on: { input: _vm.sortByMethod } },
+          { staticClass: "input", on: { change: _vm.sortByMethod } },
           [
             _c("option", { attrs: { value: "newest" } }, [_vm._v("Newest")]),
             _vm._v(" "),
@@ -51266,7 +51270,7 @@ var render = function() {
       _c("div", { staticClass: "sortChild" }, [
         _c(
           "select",
-          { staticClass: "input", on: { input: _vm.perPageMethod } },
+          { staticClass: "input", on: { change: _vm.perPageMethod } },
           [
             _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
             _vm._v(" "),
@@ -53267,7 +53271,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             }
 
-            //if there are 7 or above 7 pages the situation in this condition always will be same
+            //if there are 7 or above 7 pages we can finally display all 6 page buttons
             if (this.meta.last_page >= 7) {
 
                 if (this.meta.current_page > 3 && this.meta.current_page < this.meta.last_page - 2) {

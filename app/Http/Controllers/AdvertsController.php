@@ -9,8 +9,10 @@ use Illuminate\Http\Request;
 class AdvertsController extends Controller
 {
 
-    public function index($per_page = 12, $order_by = 'newest')
+    public function index(Request $request)
     {
+        $per_page = $request->get('per_page');
+        $order_by = $request->get('order_by');
 
         switch ($order_by) {
             case 'newest':
@@ -36,4 +38,6 @@ class AdvertsController extends Controller
 
         return AdvertResource::collection($adverts);
     }
+
+
 }

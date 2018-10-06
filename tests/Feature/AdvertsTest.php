@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Advert;
 use App\Http\Controllers\AdvertsController;
 use App\Http\Resources\AdvertResource;
+use Illuminate\Http\Request;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -30,17 +31,21 @@ class AdvertsTest extends TestCase
      */
     public function testIndexMethod()
     {
-        $adverts = Advert::take(12)->get();
-
-        $this->get('/api/announcements/12')
-            ->assertStatus(200)
-            ->assertSee($adverts);
-
-        $this->get('/api/announcements')
-            ->assertStatus(200)
-            ->assertSee($adverts);
-
+        //without any data
+        $request = Request::create('', 'GET');
         $this->json('GET', '/api/announcements')
-            ->assertSee(json_encode($this->advertsController->index()));
+            ->assertStatus(200)
+            ->assertSee(json_encode($this->advertsController->index($request)));
+
+
+        //with data
+        $data = [
+            'per_page' => 20,
+            'order_by' => 'lowest_price'
+        ];
+        $request = Request::create('', 'GET', $data);
+        $this->json('GET', '/api/announcements', $data)
+            ->assertStatus(200)
+            ->assertSee(json_encode($this->advertsController->index($request)));
     }
 }
