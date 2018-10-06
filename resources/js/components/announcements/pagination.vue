@@ -180,7 +180,7 @@
                     }
                 }
 
-               //if there are 7 or above 7 pages the situation in this condition always will be same
+               //if there are 7 or above 7 pages we can finally display all 6 page buttons
                 if(this.meta.last_page >= 7) {
 
                     if(this.meta.current_page > 3 && this.meta.current_page < this.meta.last_page - 2) {

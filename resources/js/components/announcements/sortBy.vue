@@ -5,7 +5,7 @@
                 Sort By
             </div>
             <div class="sortChild">
-                <select @input="sortByMethod" class="input">
+                <select @change="sortByMethod" class="input">
                     <option value="newest">Newest</option>
                     <option value="oldest">Oldest</option>
                     <option value="name">Name</option>
@@ -17,7 +17,7 @@
                 Per Page
             </div>
             <div class="sortChild">
-                <select @input="perPageMethod" class="input">
+                <select @change="perPageMethod" class="input">
                     <option value="12">12</option>
                     <option value="16">16</option>
                     <option value="20">20</option>
