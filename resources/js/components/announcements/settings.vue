@@ -154,8 +154,7 @@
                     'min_price': document.getElementById('min_price').value,
                     'max_price': document.getElementById('max_price').value
                 }).then((Response) => {
-                    //this.$emit('advancedSearching', Response);
-                    console.log(Response.data);
+                    this.$emit('advancedSearching', Response);
                 });
             },
 

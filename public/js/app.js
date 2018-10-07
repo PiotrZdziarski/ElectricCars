@@ -51580,6 +51580,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         submitMethod: function submitMethod(event) {
+            var _this = this;
+
             event.preventDefault();
 
             //outer options array will be covered with single option arrays
@@ -51608,8 +51610,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 'min_price': document.getElementById('min_price').value,
                 'max_price': document.getElementById('max_price').value
             }).then(function (Response) {
-                //this.$emit('advancedSearching', Response);
-                console.log(Response.data);
+                _this.$emit('advancedSearching', Response);
             });
         },
         showSetting: function showSetting(event) {

@@ -99,6 +99,7 @@ class AdvertsController extends Controller
     }
 
 
+
     public function advanced_search(Request $request)
     {
         $per_page = $request->get('per_page');
@@ -123,20 +124,19 @@ class AdvertsController extends Controller
         //foreach option in advanced searching, frontend is rendered from that const too
         foreach (SEARCHING_SETTING as $settingName => $setting) {
 
-            //values are retrieved from setting.vue - data structure is indexed array in array
-            if (isset($user_settings[$index])) {
-                $choosenSettingValues = $user_settings[$index];
-            }
+            //column in database have underscore instead of space
+            $settingName = str_replace(' ', '_', $settingName);
 
-            //first option in advanced searching is Any - filter results only if Any is not checked
-            if(isset($choosenSettingValues)) {
+            //values are retrieved from setting.vue - data structure is indexed arrays in outer indexed array
+            $choosenSettingValues = $user_settings[$index];
+
+
+            //first option in advanced searching is Any - filter results only if Any is not checked and if array isnt empty
+            if($choosenSettingValues != []) {
                 if ($choosenSettingValues[0] !== "Any") {
-                    return $settingName;
                     $adverts = $adverts->whereIn("$settingName", $choosenSettingValues);
                 }
             }
-
-
 
             $index++;
         }
