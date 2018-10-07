@@ -10,7 +10,15 @@
             </div>
         </div>
         <section class="main">
-            <settings :per_page="per_page" :order_by="sort_by" :looking_for="looking_for" :searching_settings="searching_settings" @basicSearching="basicSearching($event)"></settings>
+            <settings
+                    @advancedSearching="advancedSearching($event)"
+                    @advancedSearchBegin="advancedSearchBegin"
+                    :per_page="per_page"
+                    :order_by="sort_by"
+                    :looking_for="looking_for"
+                    :searching_settings="searching_settings"
+                    @basicSearching="basicSearching($event)">
+            </settings>
             <div class="announcements" id="announcements">
                 <sort-by @perPage="perPage($event)" @sortBy="sortBy($event)" @changeView="changeView"></sort-by>
                 <announcements-list @changePage="changePage($event)" :links="links" :meta="meta" :records="records" :view_type="view_type"></announcements-list>
@@ -132,6 +140,18 @@
                 this.page = 1;
                 this.loading = true;
                 this.retrieveRecords();
+            },
+
+            advancedSearchBegin() {
+                this.loading = true;
+            },
+
+            advancedSearching(Response) {
+                this.records = Response.data.data;
+                this.meta = Response.data.meta;
+                this.links = Response.data.links;
+                this.page = 1;
+                this.data_retrieved = true;
             }
         }
     }

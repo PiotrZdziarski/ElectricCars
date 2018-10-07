@@ -17,214 +17,21 @@
             </div>
         </div>
         <form @submit="submitMethod" class="settingForm">
+
             <div class="setting" v-for="(key_name, keyIndex) in key_names">
                 <div class="settingName">{{ key_name }}</div>
                 <button @click="showSetting" class="showOption" type="button" data-toggle="collapse"
-                        data-target="#condition_setting" aria-expanded="false" aria-controls="collapseExample">-
+                        :data-target="'#setting_' + keyIndex" aria-expanded="false" aria-controls="collapseExample">-
                 </button>
-                <div class="collapse show" id="condition_setting">
+                <div class="collapse show" :id="'setting_' + keyIndex">
                     <div class="settingContent">
                         <div class="formRow" v-for="(option,index) in settings_data[keyIndex]">
-                            <input :id="key_names[keyIndex].toString() + option.toString()" type="checkbox"
-                                   :value="option" :name="key_names[index] + option" :checked="index === 0">
-                            <label :for="key_names[keyIndex].toString()  + option.toString()">{{ option }}</label>
+                            <input :id="'setting_child' + keyIndex + option"
+                                   type="checkbox"
+                                   :value="option"
+                                   :checked="index === 0">
+                            <label :for="'setting_child' + keyIndex + option">{{ option }}</label>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="setting">
-                <div class="settingName">Make</div>
-                <button @click="showSetting" class="showOption" type="button" data-toggle="collapse"
-                        data-target="#make_setting" aria-expanded="false" aria-controls="collapseExample">-
-                </button>
-                <div class="collapse show" id="make_setting">
-                    <div class="settingContent">
-                        <input id="make_any" type="checkbox" name="make_any" value="any" checked>
-                        <label for="make_any">Any</label>
-
-                        <input id="make_bmw" type="checkbox" name="make_bmw" value="any">
-                        <label for="make_bmw">BMW</label>
-
-                        <input id="make_bolloré" type="checkbox" name="make_bolloré" value="any">
-                        <label for="make_bolloré">Bolloré</label>
-
-                        <input id="make_byd" type="checkbox" name="make_byd" value="any">
-                        <label for="make_byd">BYD</label>
-
-                        <input id="make_chevrolet" type="checkbox" name="make_chevrolet" value="any">
-                        <label for="make_chevrolet">Chevrolet</label>
-
-                        <input id="make_citroën" type="checkbox" name="make_citroën" value="any">
-                        <label for="make_citroën">Citroën</label>
-
-                        <input id="make_courb" type="checkbox" name="make_courb" value="any">
-                        <label for="make_courb">COURB</label>
-
-                        <input id="make_electrameccanica" type="checkbox" name="make_electrameccanica" value="any">
-                        <label for="make_electrameccanica">ElectraMeccanica</label>
-
-                        <input id="make_fiat" type="checkbox" name="make_fiat" value="any">
-                        <label for="make_fiat">Fiat</label>
-
-                        <input id="make_ford" type="checkbox" name="make_ford" value="any">
-                        <label for="make_ford">Ford</label>
-
-                        <input id="make_honda" type="checkbox" name="make_honda" value="any">
-                        <label for="make_honda">Honda</label>
-
-                        <input id="make_hyundai" type="checkbox" name="make_hyundai" value="any">
-                        <label for="make_hyundai">Hyundai</label>
-
-                        <input id="make_jacmotors" type="checkbox" name="make_jacmotors" value="any">
-                        <label for="make_jacmotors">JAC Motors</label>
-
-                        <input id="make_kewet" type="checkbox" name="make_kewet" value="any">
-                        <label for="make_kewet">Kewet</label>
-
-                        <input id="make_kia" type="checkbox" name="make_kia" value="any">
-                        <label for="make_kia">Kia</label>
-
-                        <input id="make_kyburz" type="checkbox" name="make_kyburz" value="any">
-                        <label for="make_kyburz">Kyburz</label>
-
-                        <input id="make_lightning" type="checkbox" name="make_lightning" value="any">
-                        <label for="make_lightning">Lightning</label>
-
-                        <input id="make_mahindra" type="checkbox" name="make_mahindra" value="any">
-                        <label for="make_mahindra">Mahindra</label>
-
-                        <input id="make_mercedes" type="checkbox" name="make_mercedes" value="any">
-                        <label for="make_mercedes">Mercedes</label>
-
-                        <input id="make_micromobilitysystems" type="checkbox" name="make_micromobilitysystems"
-                               value="any">
-                        <label for="make_micromobilitysystems">Micro Mobility Systems</label>
-
-                        <input id="make_mitsubishi" type="checkbox" name="make_mitsubishi" value="any">
-                        <label for="make_mitsubishi">Mitsubishi</label>
-
-                        <input id="make_motoreslimpios" type="checkbox" name="make_motoreslimpios" value="any">
-                        <label for="make_motoreslimpios">Motores Limpios</label>
-
-                        <input id="make_mwmotors" type="checkbox" name="make_mwmotors" value="any">
-                        <label for="make_mwmotors">MW Motors</label>
-
-                        <input id="make_nissan" type="checkbox" name="make_nissan" value="any">
-                        <label for="make_nissan">Nissan</label>
-
-                        <input id="make_ecomove" type="checkbox" name="make_ecomove" value="any">
-                        <label for="make_ecomove">ECOmove</label>
-
-                        <input id="make_peugeot" type="checkbox" name="make_peugeot" value="any">
-                        <label for="make_peugeot">Peugeot</label>
-
-                        <input id="make_rayttle" type="checkbox" name="make_rayttle" value="any">
-                        <label for="make_rayttle">Rayttle</label>
-
-                        <input id="make_renault" type="checkbox" name="make_renault" value="any">
-                        <label for="make_renault">Renault</label>
-
-                        <input id="make_smart" type="checkbox" name="make_smart" value="any">
-                        <label for="make_smart">Smart</label>
-
-                        <input id="make_sonomotors" type="checkbox" name="make_sonomotors" value="any">
-                        <label for="make_sonomotors">Sono Motors</label>
-
-                        <input id="make_stevens" type="checkbox" name="make_stevens" value="any">
-                        <label for="make_stevens">Stevens</label>
-
-                        <input id="make_tesla" type="checkbox" name="make_tesla" value="any">
-                        <label for="make_tesla">Tesla</label>
-
-                        <input id="make_venturi" type="checkbox" name="make_venturi" value="any">
-                        <label for="make_venturi">Venturi</label>
-
-                        <input id="make_volkswagen" type="checkbox" name="make_volkswagen" value="any">
-                        <label for="make_volkswagen">Volkswagen</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="setting">
-                <div class="settingName">Body Style</div>
-                <button @click="showSetting" class="showOption" type="button" data-toggle="collapse"
-                        data-target="#body_setting" aria-expanded="false" aria-controls="collapseExample">-
-                </button>
-                <div class="collapse show" id="body_setting">
-                    <div class="settingContent">
-                        <input id="body_any" type="checkbox" name="body_any" value="any" checked>
-                        <label for="body_any">Any</label>
-
-                        <input id="body_cargovan" type="checkbox" name="body_cargovan" value="any">
-                        <label for="body_cargovan">Cargo Van</label>
-
-                        <input id="body_convertible" type="checkbox" name="body_convertible" value="any">
-                        <label for="body_convertible">Convertible</label>
-
-                        <input id="body_coupe" type="checkbox" name="body_coupe" value="any">
-                        <label for="body_coupe">Coupe</label>
-
-                        <input id="body_crewcabpickup" type="checkbox" name="body_crewcabpickup" value="any">
-                        <label for="body_crewcabpickup">Crew Cab Pickup</label>
-
-                        <input id="body_extendedcabpickup" type="checkbox" name="body_extendedcabpickup" value="any">
-                        <label for="body_extendedcabpickup">Extended Cab Pickup</label>
-
-                        <input id="body_hatchback" type="checkbox" name="body_hatchback" value="any">
-                        <label for="body_hatchback">Hatchback</label>
-
-                        <input id="body_minivan" type="checkbox" name="body_minivan" value="any">
-                        <label for="body_minivan">Minivan</label>
-
-                        <input id="body_sedan" type="checkbox" name="body_sedan" value="any">
-                        <label for="body_sedan">Sedan</label>
-
-                        <input id="body_crossover" type="checkbox" name="body_crossover" value="any">
-                        <label for="body_crossover">Crossover</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="setting">
-                <div class="settingName">Exterior Color</div>
-                <button @click="showSetting" class="showOption" type="button" data-toggle="collapse"
-                        data-target="#exteriorcolor_setting" aria-expanded="false" aria-controls="collapseExample">-
-                </button>
-                <div class="collapse show" id="exteriorcolor_setting">
-                    <div class="settingContent">
-                        <input id="color_any" type="checkbox" name="color_any" value="any" checked>
-                        <label for="color_any">Any</label>
-
-                        <input id="color_beige" type="checkbox" name="color_beige" value="any">
-                        <label for="color_beige">Beige</label>
-
-                        <input id="color_black" type="checkbox" name="color_black" value="any">
-                        <label for="color_black">Black</label>
-
-                        <input id="color_blue" type="checkbox" name="color_blue" value="any">
-                        <label for="color_blue">Blue</label>
-
-                        <input id="color_brown" type="checkbox" name="color_brown" value="any">
-                        <label for="color_brown">Brown</label>
-
-                        <input id="color_gold" type="checkbox" name="color_gold" value="any">
-                        <label for="color_gold">Gold</label>
-
-                        <input id="color_gray" type="checkbox" name="color_gray" value="any">
-                        <label for="color_gray">Gray</label>
-
-                        <input id="color_green" type="checkbox" name="color_green" value="any">
-                        <label for="color_green">Green</label>
-
-                        <input id="color_red" type="checkbox" name="color_red" value="any">
-                        <label for="color_red">Red</label>
-
-                        <input id="color_white" type="checkbox" name="color_white" value="any">
-                        <label for="color_white">White</label>
-
-                        <input id="color_yellow" type="checkbox" name="color_yellow" value="any">
-                        <label for="color_yellow">Yellow</label>
                     </div>
                 </div>
             </div>
@@ -236,7 +43,7 @@
                 </button>
                 <div class="collapse show" id="minimum_setting">
                     <div class="settingContent">
-                        <input maxlength="15" id="min_price" class="textInput priceInput" type="text"
+                        <input min="0" max="1000000000" id="min_price" class="textInput priceInput" type="number"
                                name="minimum_price">
                         <label class="labelPrice" for="min_price">$</label>
                     </div>
@@ -250,7 +57,7 @@
                 </button>
                 <div class="collapse show" id="maximum_setting">
                     <div class="settingContent">
-                        <input maxlength="15" id="max_price" class="textInput priceInput" type="text"
+                        <input min="0"  max="1000000000" id="max_price" class="textInput priceInput" type="number"
                                name="maximum_price">
                         <label class="labelPrice" for="max_price">$</label>
                     </div>
@@ -292,7 +99,7 @@
             return {
                 showSettings: false,
                 settings_data: [],
-                key_names: []
+                key_names: [],
             }
         },
         mounted() {
@@ -311,9 +118,10 @@
             }
 
             if (isIE()) {
-                document.getElementById('settingButton').style.right = '100%';
-                document.getElementById('settingButton').style.left = '0';
-                document.getElementById('settingButton').style.width = '55px';
+                let settingButton = document.getElementById('settingButton');
+                settingButton.style.right = '100%';
+                settingButton.style.left = '0';
+                settingButton.style.width = '55px';
             }
         },
         methods: {
@@ -328,7 +136,7 @@
                     let selectedOptionsFromSingleSetting = [];
 
                     setting.forEach((settingValue) => {
-                        if (document.getElementById(this.key_names[key].toString() + settingValue.toString()).checked) {
+                        if (document.getElementById('setting_child' + key + settingValue).checked) {
                             selectedOptionsFromSingleSetting.push(settingValue);
                         }
                     });
@@ -336,12 +144,17 @@
                     userSettings.push(selectedOptionsFromSingleSetting);
                 });
 
+                this.$emit('advancedSearchBegin');
+
                 axios.post(`/api/advanced_search`, {
                     'per_page': this.per_page,
                     'order_by': this.order_by,
                     'looking_for': this.looking_for,
-                    'user_settings': userSettings
+                    'user_settings': userSettings,
+                    'min_price': document.getElementById('min_price').value,
+                    'max_price': document.getElementById('max_price').value
                 }).then((Response) => {
+                    //this.$emit('advancedSearching', Response);
                     console.log(Response.data);
                 });
             },

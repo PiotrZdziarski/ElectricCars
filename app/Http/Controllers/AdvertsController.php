@@ -30,7 +30,8 @@ class AdvertsController extends Controller
      * @param $order_by
      * @return mixed
      */
-    private function sorting($adverts, $per_page, $order_by) {
+    private function sorting($adverts, $per_page, $order_by)
+    {
 
         switch ($order_by) {
             case 'newest':
@@ -57,22 +58,23 @@ class AdvertsController extends Controller
         return $adverts;
     }
 
-    private function basicSearching($adverts, $looking_for) {
+    private function basicSearching($adverts, $looking_for)
+    {
 
         $this->looking_for = $looking_for;
 
         /* need to use query for basic searching, because if user would use advanced searching
         where clauses would be like where(//)->orWhere(//)->where(//) -
         this would return inaccurate results */
-        $adverts = $adverts->where( function($query) {
-            $query->where('title', 'like', '%'.$this->looking_for.'%')
-                ->orWhere('make', 'like', '%'.$this->looking_for.'%')
-                ->orWhere('model', 'like', '%'.$this->looking_for.'%')
-                ->orWhere('exterior_color', 'like', '%'.$this->looking_for.'%')
-                ->orWhere('year', 'like', '%'.$this->looking_for.'%')
-                ->orWhere('body_style', 'like', '%'.$this->looking_for.'%')
-                ->orWhere('condition', 'like', '%'.$this->looking_for.'%')
-                ->orWhere('torque', 'like', '%'.$this->looking_for.'%');
+        $adverts = $adverts->where(function ($query) {
+            $query->where('title', 'like', '%' . $this->looking_for . '%')
+                ->orWhere('make', 'like', '%' . $this->looking_for . '%')
+                ->orWhere('model', 'like', '%' . $this->looking_for . '%')
+                ->orWhere('exterior_color', 'like', '%' . $this->looking_for . '%')
+                ->orWhere('year', 'like', '%' . $this->looking_for . '%')
+                ->orWhere('body_style', 'like', '%' . $this->looking_for . '%')
+                ->orWhere('condition', 'like', '%' . $this->looking_for . '%')
+                ->orWhere('torque', 'like', '%' . $this->looking_for . '%');
         });
 
         return $adverts;
@@ -90,12 +92,11 @@ class AdvertsController extends Controller
         $looking_for = $request->get('looking_for');
         $adverts = $this->advert;
 
-        $adverts =$this->basicSearching($adverts, $looking_for);
-        $adverts = $this->sorting($adverts,$per_page, $order_by);
+        $adverts = $this->basicSearching($adverts, $looking_for);
+        $adverts = $this->sorting($adverts, $per_page, $order_by);
 
         return AdvertResource::collection($adverts);
     }
-
 
 
     public function advanced_search(Request $request)
@@ -103,26 +104,47 @@ class AdvertsController extends Controller
         $per_page = $request->get('per_page');
         $order_by = $request->get('order_by');
         $looking_for = $request->get('looking_for');
+        $user_settings = $request->get('user_settings');
+        $min_price = $request->get('min_price');
+        $max_price = $request->get('max_price');
         $adverts = $this->advert;
 
-        $adverts =$this->basicSearching($adverts, $looking_for);
+        $adverts = $this->basicSearching($adverts, $looking_for);
 
+        if ($min_price != '') {
+            $adverts->where('price', '>', (int)$min_price);
+        }
+        if ($max_price != '') {
+            $adverts->where('price', '<', (int)$max_price);
+        }
+
+
+        $index = 0;
         //foreach option in advanced searching, frontend is rendered from that const too
         foreach (SEARCHING_SETTING as $settingName => $setting) {
 
-            //values are retrieved from setting.vue
-            $choosenSettingValues = $request->get("$settingName");
+            //values are retrieved from setting.vue - data structure is indexed array in array
+            if (isset($user_settings[$index])) {
+                $choosenSettingValues = $user_settings[$index];
+            }
 
             //first option in advanced searching is Any - filter results only if Any is not checked
-            if($choosenSettingValues[0] !== "Any") {
-                $adverts = $adverts->whereIn('condition', $choosenSettingValues);
+            if(isset($choosenSettingValues)) {
+                if ($choosenSettingValues[0] !== "Any") {
+                    return $settingName;
+                    $adverts = $adverts->whereIn("$settingName", $choosenSettingValues);
+                }
             }
+
+
+
+            $index++;
         }
 
-        $adverts = $this->sorting($adverts,$per_page, $order_by);
+        $adverts = $this->sorting($adverts, $per_page, $order_by);
 
         return AdvertResource::collection($adverts);
-      }
+    }
 
 
 }
