@@ -7,7 +7,8 @@
             <form>
                 <div class="setting searchingSetting">
                     <div class="settingContent">
-                        <input @input="basicSearching" class="textInput" maxlength="150" type="text" placeholder="Search for...">
+                        <input @input="basicSearching" class="textInput" maxlength="150" type="text"
+                               placeholder="Search for...">
                     </div>
                 </div>
             </form>
@@ -16,34 +17,17 @@
             </div>
         </div>
         <form @submit="submitMethod" class="settingForm">
-            <div class="setting">
-                <div class="settingName">Condition</div>
+            <div class="setting" v-for="(key_name, keyIndex) in key_names">
+                <div class="settingName">{{ key_name }}</div>
                 <button @click="showSetting" class="showOption" type="button" data-toggle="collapse"
                         data-target="#condition_setting" aria-expanded="false" aria-controls="collapseExample">-
                 </button>
                 <div class="collapse show" id="condition_setting">
                     <div class="settingContent">
-                        <div class="formRow" v-for="(condition,index) in conditions">
-                            <input :id="'condition' + condition" type="checkbox" :value="condition" :name="'condition' + condition" :checked="index === 0">
-                            <label :for="'condition' + condition">{{ condition }}</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="setting">
-                <div class="settingName">Year</div>
-                <button @click="showSetting" class="showOption" type="button" data-toggle="collapse"
-                        data-target="#year_setting" aria-expanded="false" aria-controls="collapseExample">-
-                </button>
-                <div class="collapse show" id="year_setting">
-                    <div class="settingContent">
-                        <input id="yearAny" type="checkbox" name="yearAny" value="any" checked>
-                        <label for="yearAny">Any</label>
-
-                        <div class="formRow" v-for="year in years">
-                            <input :id="'year_' + year" type="checkbox" :name="'year_' + year" :value="year">
-                            <label :for="'year_' + year">{{ year }}</label>
+                        <div class="formRow" v-for="(option,index) in settings_data[keyIndex]">
+                            <input :id="key_names[keyIndex].toString() + option.toString()" type="checkbox"
+                                   :value="option" :name="key_names[index] + option" :checked="index === 0">
+                            <label :for="key_names[keyIndex].toString()  + option.toString()">{{ option }}</label>
                         </div>
                     </div>
                 </div>
@@ -300,20 +284,23 @@
             }
         },
         computed: {
-            searching_settings_compute: function()  {
+            searching_settings_compute: function () {
                 return JSON.parse(this.searching_settings);
             }
         },
         data() {
             return {
                 showSettings: false,
-                years: [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011],
-                conditions: [],
+                settings_data: [],
+                key_names: []
             }
         },
         mounted() {
-            const searching_settings = this.searching_settings_compute;
-            this.conditions = searching_settings.condition;
+            //all settings are retrieved from constants.php
+            let settings_object = this.searching_settings_compute;
+            this.key_names = Object.keys(settings_object);
+            this.settings_data = _.values(settings_object);
+
 
             //check if browser is ie to fix setting button not showing
             function isIE() {
@@ -333,22 +320,32 @@
             submitMethod(event) {
                 event.preventDefault();
 
-                let conditions = [];
-                this.conditions.forEach((condition) => {
-                    if(document.getElementById('condition' + condition).checked) {
-                        conditions.push(document.getElementById('condition' + condition).value);
-                    }
+                //outer options array will be covered with single option arrays
+                let userSettings = [];
+
+                this.settings_data.forEach((setting, key) => {
+
+                    let selectedOptionsFromSingleSetting = [];
+
+                    setting.forEach((settingValue) => {
+                        if (document.getElementById(this.key_names[key].toString() + settingValue.toString()).checked) {
+                            selectedOptionsFromSingleSetting.push(settingValue);
+                        }
+                    });
+
+                    userSettings.push(selectedOptionsFromSingleSetting);
                 });
 
                 axios.post(`/api/advanced_search`, {
                     'per_page': this.per_page,
                     'order_by': this.order_by,
                     'looking_for': this.looking_for,
-                    'condition': conditions
+                    'user_settings': userSettings
                 }).then((Response) => {
-                   console.log(Response.data);
+                    console.log(Response.data);
                 });
             },
+
             showSetting(event) {
                 let innerHTML = event.target.innerHTML;
 
@@ -358,6 +355,7 @@
                     event.target.innerHTML = '+';
                 }
             },
+
             showSidebar() {
                 if (this.showSettings === false) {
                     document.getElementById('settings').style.right = '0';
@@ -367,9 +365,10 @@
                     this.showSettings = false;
                 }
             },
-            basicSearching: debounce(function(event){
+
+            basicSearching: debounce(function (event) {
                 this.$emit('basicSearching', event.target.value);
-            }, 500)
+            }, 500),
         }
     }
 </script>
@@ -469,7 +468,6 @@
                 outline: none;
                 box-shadow: 0 2px 4px #eeeeee;
             }
-
 
             .settingContent {
                 margin-top: 10px;
