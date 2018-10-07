@@ -61,9 +61,11 @@ class AdvertsController extends Controller
 
         $this->looking_for = $looking_for;
 
+        /* need to use query for basic searching, because if user would use advanced searching
+        where clauses would be like where(//)->orWhere(//)->where(//) -
+        this would return inaccurate results */
         $adverts = $adverts->where( function($query) {
             $query->where('title', 'like', '%'.$this->looking_for.'%')
-                ->orWhere('title', 'like', '%'.$this->looking_for.'%')
                 ->orWhere('make', 'like', '%'.$this->looking_for.'%')
                 ->orWhere('model', 'like', '%'.$this->looking_for.'%')
                 ->orWhere('exterior_color', 'like', '%'.$this->looking_for.'%')
@@ -105,12 +107,15 @@ class AdvertsController extends Controller
 
         $adverts =$this->basicSearching($adverts, $looking_for);
 
+        //foreach option in advanced searching, frontend is rendered from that const too
         foreach (SEARCHING_SETTING as $settingName => $setting) {
-            $option = $request->get("$settingName");
-            if($option[0] !== "Any") {
-                foreach ($option as $value) {
-                    $adverts = $adverts->where('condition', $value);
-                }
+
+            //values are retrieved from setting.vue
+            $choosenSettingValues = $request->get("$settingName");
+
+            //first option in advanced searching is Any - filter results only if Any is not checked
+            if($choosenSettingValues[0] !== "Any") {
+                $adverts = $adverts->whereIn('condition', $choosenSettingValues);
             }
         }
 
