@@ -14,22 +14,32 @@
         },
         mounted() {
             let firstCheckpoint = (window.innerWidth * 40) / 100;
+            let secondCheckpoint = (window.innerWidth * 60) / 100;
+
             //initial incrementing value
             let initialIncrement = window.innerWidth / 100;
+            //to 60% width incrementing value
+            let secondIncrement = window.innerWidth / 300;
+
             //faster loading after data retrieved
             let afterLoadIncrement = window.innerWidth / 10;
+            const progressBar = document.getElementById('progress');
 
             let progress = setInterval(() => {
 
-                let progressWidth = document.getElementById('progress').offsetWidth + initialIncrement;
+                let progressWidth = progressBar.offsetWidth + initialIncrement;
+                let progressSecondWidth = progressBar.offsetWidth + secondIncrement;
                 //initial load
                 if(progressWidth < firstCheckpoint) {
-                    document.getElementById('progress').style.width = `${progressWidth}px`;
+                    progressBar.style.width = `${progressWidth}px`;
+                }
+                else if(progressWidth > firstCheckpoint && progressWidth < secondCheckpoint) {
+                    progressBar.style.width = `${progressSecondWidth}px`
                 }
                 //after data is retrieved faster loading
                 if(this.data_retrieved === true) {
                     progressWidth += afterLoadIncrement;
-                    document.getElementById('progress').style.width = `${progressWidth}px`;
+                    progressBar.style.width = `${progressWidth}px`;
                 }
                 //stop if finished
                 if(progressWidth >= window.innerWidth) {

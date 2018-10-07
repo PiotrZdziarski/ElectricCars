@@ -50972,6 +50972,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -51077,6 +51085,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.page = 1;
             this.loading = true;
             this.retrieveRecords();
+        },
+        advancedSearchBegin: function advancedSearchBegin() {
+            this.loading = true;
+        },
+        advancedSearching: function advancedSearching(Response) {
+            this.records = Response.data.data;
+            this.meta = Response.data.meta;
+            this.links = Response.data.links;
+            this.page = 1;
+            this.data_retrieved = true;
         }
     }
 });
@@ -51507,199 +51525,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -51746,16 +51571,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
 
         if (isIE()) {
-            document.getElementById('settingButton').style.right = '100%';
-            document.getElementById('settingButton').style.left = '0';
-            document.getElementById('settingButton').style.width = '55px';
+            var settingButton = document.getElementById('settingButton');
+            settingButton.style.right = '100%';
+            settingButton.style.left = '0';
+            settingButton.style.width = '55px';
         }
     },
 
     methods: {
         submitMethod: function submitMethod(event) {
-            var _this = this;
-
             event.preventDefault();
 
             //outer options array will be covered with single option arrays
@@ -51766,7 +51590,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var selectedOptionsFromSingleSetting = [];
 
                 setting.forEach(function (settingValue) {
-                    if (document.getElementById(_this.key_names[key].toString() + settingValue.toString()).checked) {
+                    if (document.getElementById('setting_child' + key + settingValue).checked) {
                         selectedOptionsFromSingleSetting.push(settingValue);
                     }
                 });
@@ -51774,12 +51598,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 userSettings.push(selectedOptionsFromSingleSetting);
             });
 
+            this.$emit('advancedSearchBegin');
+
             axios.post("/api/advanced_search", {
                 'per_page': this.per_page,
                 'order_by': this.order_by,
                 'looking_for': this.looking_for,
-                'user_settings': userSettings
+                'user_settings': userSettings,
+                'min_price': document.getElementById('min_price').value,
+                'max_price': document.getElementById('max_price').value
             }).then(function (Response) {
+                //this.$emit('advancedSearching', Response);
                 console.log(Response.data);
             });
         },
@@ -52251,7 +52080,7 @@ var render = function() {
                 attrs: {
                   type: "button",
                   "data-toggle": "collapse",
-                  "data-target": "#condition_setting",
+                  "data-target": "#setting_" + keyIndex,
                   "aria-expanded": "false",
                   "aria-controls": "collapseExample"
                 },
@@ -52264,7 +52093,7 @@ var render = function() {
               "div",
               {
                 staticClass: "collapse show",
-                attrs: { id: "condition_setting" }
+                attrs: { id: "setting_" + keyIndex }
               },
               [
                 _c(
@@ -52274,24 +52103,15 @@ var render = function() {
                     return _c("div", { staticClass: "formRow" }, [
                       _c("input", {
                         attrs: {
-                          id:
-                            _vm.key_names[keyIndex].toString() +
-                            option.toString(),
-                          type: "checkbox",
-                          name: _vm.key_names[index] + option
+                          id: "setting_child" + keyIndex + option,
+                          type: "checkbox"
                         },
                         domProps: { value: option, checked: index === 0 }
                       }),
                       _vm._v(" "),
                       _c(
                         "label",
-                        {
-                          attrs: {
-                            for:
-                              _vm.key_names[keyIndex].toString() +
-                              option.toString()
-                          }
-                        },
+                        { attrs: { for: "setting_child" + keyIndex + option } },
                         [_vm._v(_vm._s(option))]
                       )
                     ])
@@ -52301,72 +52121,6 @@ var render = function() {
             )
           ])
         }),
-        _vm._v(" "),
-        _c("div", { staticClass: "setting" }, [
-          _c("div", { staticClass: "settingName" }, [_vm._v("Make")]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "showOption",
-              attrs: {
-                type: "button",
-                "data-toggle": "collapse",
-                "data-target": "#make_setting",
-                "aria-expanded": "false",
-                "aria-controls": "collapseExample"
-              },
-              on: { click: _vm.showSetting }
-            },
-            [_vm._v("-\n            ")]
-          ),
-          _vm._v(" "),
-          _vm._m(0)
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "setting" }, [
-          _c("div", { staticClass: "settingName" }, [_vm._v("Body Style")]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "showOption",
-              attrs: {
-                type: "button",
-                "data-toggle": "collapse",
-                "data-target": "#body_setting",
-                "aria-expanded": "false",
-                "aria-controls": "collapseExample"
-              },
-              on: { click: _vm.showSetting }
-            },
-            [_vm._v("-\n            ")]
-          ),
-          _vm._v(" "),
-          _vm._m(1)
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "setting" }, [
-          _c("div", { staticClass: "settingName" }, [_vm._v("Exterior Color")]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "showOption",
-              attrs: {
-                type: "button",
-                "data-toggle": "collapse",
-                "data-target": "#exteriorcolor_setting",
-                "aria-expanded": "false",
-                "aria-controls": "collapseExample"
-              },
-              on: { click: _vm.showSetting }
-            },
-            [_vm._v("-\n            ")]
-          ),
-          _vm._v(" "),
-          _vm._m(2)
-        ]),
         _vm._v(" "),
         _c("div", { staticClass: "setting" }, [
           _c("div", { staticClass: "settingName" }, [_vm._v("Minimum Price")]),
@@ -52387,7 +52141,7 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(3)
+          _vm._m(0)
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "setting" }, [
@@ -52409,10 +52163,10 @@ var render = function() {
             [_vm._v("-\n            ")]
           ),
           _vm._v(" "),
-          _vm._m(4)
+          _vm._m(1)
         ]),
         _vm._v(" "),
-        _vm._m(5)
+        _vm._m(2)
       ],
       2
     )
@@ -52425,695 +52179,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "collapse show", attrs: { id: "make_setting" } },
-      [
-        _c("div", { staticClass: "settingContent" }, [
-          _c("input", {
-            attrs: {
-              id: "make_any",
-              type: "checkbox",
-              name: "make_any",
-              value: "any",
-              checked: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_any" } }, [_vm._v("Any")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_bmw",
-              type: "checkbox",
-              name: "make_bmw",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_bmw" } }, [_vm._v("BMW")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_bolloré",
-              type: "checkbox",
-              name: "make_bolloré",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_bolloré" } }, [_vm._v("Bolloré")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_byd",
-              type: "checkbox",
-              name: "make_byd",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_byd" } }, [_vm._v("BYD")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_chevrolet",
-              type: "checkbox",
-              name: "make_chevrolet",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_chevrolet" } }, [
-            _vm._v("Chevrolet")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_citroën",
-              type: "checkbox",
-              name: "make_citroën",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_citroën" } }, [_vm._v("Citroën")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_courb",
-              type: "checkbox",
-              name: "make_courb",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_courb" } }, [_vm._v("COURB")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_electrameccanica",
-              type: "checkbox",
-              name: "make_electrameccanica",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_electrameccanica" } }, [
-            _vm._v("ElectraMeccanica")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_fiat",
-              type: "checkbox",
-              name: "make_fiat",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_fiat" } }, [_vm._v("Fiat")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_ford",
-              type: "checkbox",
-              name: "make_ford",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_ford" } }, [_vm._v("Ford")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_honda",
-              type: "checkbox",
-              name: "make_honda",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_honda" } }, [_vm._v("Honda")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_hyundai",
-              type: "checkbox",
-              name: "make_hyundai",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_hyundai" } }, [_vm._v("Hyundai")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_jacmotors",
-              type: "checkbox",
-              name: "make_jacmotors",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_jacmotors" } }, [
-            _vm._v("JAC Motors")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_kewet",
-              type: "checkbox",
-              name: "make_kewet",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_kewet" } }, [_vm._v("Kewet")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_kia",
-              type: "checkbox",
-              name: "make_kia",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_kia" } }, [_vm._v("Kia")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_kyburz",
-              type: "checkbox",
-              name: "make_kyburz",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_kyburz" } }, [_vm._v("Kyburz")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_lightning",
-              type: "checkbox",
-              name: "make_lightning",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_lightning" } }, [
-            _vm._v("Lightning")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_mahindra",
-              type: "checkbox",
-              name: "make_mahindra",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_mahindra" } }, [
-            _vm._v("Mahindra")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_mercedes",
-              type: "checkbox",
-              name: "make_mercedes",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_mercedes" } }, [
-            _vm._v("Mercedes")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_micromobilitysystems",
-              type: "checkbox",
-              name: "make_micromobilitysystems",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_micromobilitysystems" } }, [
-            _vm._v("Micro Mobility Systems")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_mitsubishi",
-              type: "checkbox",
-              name: "make_mitsubishi",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_mitsubishi" } }, [
-            _vm._v("Mitsubishi")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_motoreslimpios",
-              type: "checkbox",
-              name: "make_motoreslimpios",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_motoreslimpios" } }, [
-            _vm._v("Motores Limpios")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_mwmotors",
-              type: "checkbox",
-              name: "make_mwmotors",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_mwmotors" } }, [
-            _vm._v("MW Motors")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_nissan",
-              type: "checkbox",
-              name: "make_nissan",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_nissan" } }, [_vm._v("Nissan")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_ecomove",
-              type: "checkbox",
-              name: "make_ecomove",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_ecomove" } }, [_vm._v("ECOmove")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_peugeot",
-              type: "checkbox",
-              name: "make_peugeot",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_peugeot" } }, [_vm._v("Peugeot")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_rayttle",
-              type: "checkbox",
-              name: "make_rayttle",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_rayttle" } }, [_vm._v("Rayttle")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_renault",
-              type: "checkbox",
-              name: "make_renault",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_renault" } }, [_vm._v("Renault")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_smart",
-              type: "checkbox",
-              name: "make_smart",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_smart" } }, [_vm._v("Smart")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_sonomotors",
-              type: "checkbox",
-              name: "make_sonomotors",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_sonomotors" } }, [
-            _vm._v("Sono Motors")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_stevens",
-              type: "checkbox",
-              name: "make_stevens",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_stevens" } }, [_vm._v("Stevens")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_tesla",
-              type: "checkbox",
-              name: "make_tesla",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_tesla" } }, [_vm._v("Tesla")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_venturi",
-              type: "checkbox",
-              name: "make_venturi",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_venturi" } }, [_vm._v("Venturi")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "make_volkswagen",
-              type: "checkbox",
-              name: "make_volkswagen",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "make_volkswagen" } }, [
-            _vm._v("Volkswagen")
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "collapse show", attrs: { id: "body_setting" } },
-      [
-        _c("div", { staticClass: "settingContent" }, [
-          _c("input", {
-            attrs: {
-              id: "body_any",
-              type: "checkbox",
-              name: "body_any",
-              value: "any",
-              checked: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "body_any" } }, [_vm._v("Any")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "body_cargovan",
-              type: "checkbox",
-              name: "body_cargovan",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "body_cargovan" } }, [
-            _vm._v("Cargo Van")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "body_convertible",
-              type: "checkbox",
-              name: "body_convertible",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "body_convertible" } }, [
-            _vm._v("Convertible")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "body_coupe",
-              type: "checkbox",
-              name: "body_coupe",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "body_coupe" } }, [_vm._v("Coupe")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "body_crewcabpickup",
-              type: "checkbox",
-              name: "body_crewcabpickup",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "body_crewcabpickup" } }, [
-            _vm._v("Crew Cab Pickup")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "body_extendedcabpickup",
-              type: "checkbox",
-              name: "body_extendedcabpickup",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "body_extendedcabpickup" } }, [
-            _vm._v("Extended Cab Pickup")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "body_hatchback",
-              type: "checkbox",
-              name: "body_hatchback",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "body_hatchback" } }, [
-            _vm._v("Hatchback")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "body_minivan",
-              type: "checkbox",
-              name: "body_minivan",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "body_minivan" } }, [_vm._v("Minivan")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "body_sedan",
-              type: "checkbox",
-              name: "body_sedan",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "body_sedan" } }, [_vm._v("Sedan")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "body_crossover",
-              type: "checkbox",
-              name: "body_crossover",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "body_crossover" } }, [
-            _vm._v("Crossover")
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "collapse show", attrs: { id: "exteriorcolor_setting" } },
-      [
-        _c("div", { staticClass: "settingContent" }, [
-          _c("input", {
-            attrs: {
-              id: "color_any",
-              type: "checkbox",
-              name: "color_any",
-              value: "any",
-              checked: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "color_any" } }, [_vm._v("Any")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "color_beige",
-              type: "checkbox",
-              name: "color_beige",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "color_beige" } }, [_vm._v("Beige")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "color_black",
-              type: "checkbox",
-              name: "color_black",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "color_black" } }, [_vm._v("Black")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "color_blue",
-              type: "checkbox",
-              name: "color_blue",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "color_blue" } }, [_vm._v("Blue")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "color_brown",
-              type: "checkbox",
-              name: "color_brown",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "color_brown" } }, [_vm._v("Brown")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "color_gold",
-              type: "checkbox",
-              name: "color_gold",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "color_gold" } }, [_vm._v("Gold")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "color_gray",
-              type: "checkbox",
-              name: "color_gray",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "color_gray" } }, [_vm._v("Gray")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "color_green",
-              type: "checkbox",
-              name: "color_green",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "color_green" } }, [_vm._v("Green")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "color_red",
-              type: "checkbox",
-              name: "color_red",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "color_red" } }, [_vm._v("Red")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "color_white",
-              type: "checkbox",
-              name: "color_white",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "color_white" } }, [_vm._v("White")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: {
-              id: "color_yellow",
-              type: "checkbox",
-              name: "color_yellow",
-              value: "any"
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "color_yellow" } }, [_vm._v("Yellow")])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
       { staticClass: "collapse show", attrs: { id: "minimum_setting" } },
       [
         _c("div", { staticClass: "settingContent" }, [
           _c("input", {
             staticClass: "textInput priceInput",
             attrs: {
-              maxlength: "15",
+              min: "0",
+              max: "1000000000",
               id: "min_price",
-              type: "text",
+              type: "number",
               name: "minimum_price"
             }
           }),
@@ -53139,9 +52214,10 @@ var staticRenderFns = [
           _c("input", {
             staticClass: "textInput priceInput",
             attrs: {
-              maxlength: "15",
+              min: "0",
+              max: "1000000000",
               id: "max_price",
-              type: "text",
+              type: "number",
               name: "maximum_price"
             }
           }),
@@ -54066,22 +53142,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         var firstCheckpoint = window.innerWidth * 40 / 100;
+        var secondCheckpoint = window.innerWidth * 60 / 100;
+
         //initial incrementing value
         var initialIncrement = window.innerWidth / 100;
+        //to 60% width incrementing value
+        var secondIncrement = window.innerWidth / 300;
+
         //faster loading after data retrieved
         var afterLoadIncrement = window.innerWidth / 10;
+        var progressBar = document.getElementById('progress');
 
         var progress = setInterval(function () {
 
-            var progressWidth = document.getElementById('progress').offsetWidth + initialIncrement;
+            var progressWidth = progressBar.offsetWidth + initialIncrement;
+            var progressSecondWidth = progressBar.offsetWidth + secondIncrement;
             //initial load
             if (progressWidth < firstCheckpoint) {
-                document.getElementById('progress').style.width = progressWidth + 'px';
+                progressBar.style.width = progressWidth + 'px';
+            } else if (progressWidth > firstCheckpoint && progressWidth < secondCheckpoint) {
+                progressBar.style.width = progressSecondWidth + 'px';
             }
             //after data is retrieved faster loading
             if (_this.data_retrieved === true) {
                 progressWidth += afterLoadIncrement;
-                document.getElementById('progress').style.width = progressWidth + 'px';
+                progressBar.style.width = progressWidth + 'px';
             }
             //stop if finished
             if (progressWidth >= window.innerWidth) {
@@ -54161,6 +53246,10 @@ var render = function() {
               searching_settings: _vm.searching_settings
             },
             on: {
+              advancedSearching: function($event) {
+                _vm.advancedSearching($event)
+              },
+              advancedSearchBegin: _vm.advancedSearchBegin,
               basicSearching: function($event) {
                 _vm.basicSearching($event)
               }
