@@ -26,5 +26,7 @@ $factory->define(\App\Advert::class, function (Faker $faker) {
         'email' => 'asdasdwqeqwasdas20d@gmail.com',
         'main_image' => $faker->text(20),
         'date' => now(),
+        'country' => 'United Kingdom',
+        'Location' => 'Las Vegas',
     ];
 });

@@ -67,6 +67,12 @@
         display: flex;
         position: relative;
         padding: 20px;
+        background: white;
+        border-radius: 5px;
+
+        @media(min-width: 1000px) {
+            margin-left: 15px;
+        }
 
         .sortBy {
             display: flex;
@@ -82,8 +88,16 @@
             }
 
             .perPage {
-                margin-left: 25px;
-            }
+                margin-left: 10px;
+
+                @media(min-width: 476px) {
+                    margin-left: 25px;
+                }
+
+                @media(min-width: 476px) and (max-width: 510px) {
+                    margin-left: 0;
+                }
+             }
         }
 
         .lookType {
@@ -91,6 +105,7 @@
             position: absolute;
             display: flex;
             right: 0;
+            bottom: 12px;
 
             @media(max-width: 476px) {
                 display: none;
@@ -130,12 +145,16 @@
     }
 
     .input {
-        padding: 10px;
         background: transparent;
         cursor: pointer;
         border: 0;
         border-bottom: 1px solid #b9bbbe;
         transition: .2s box-shadow ease-in-out;
+        padding: 7px;
+
+        @media(min-width: 476px) {
+            padding: 10px;
+        }
     }
 
      .input:focus, .input:hover {

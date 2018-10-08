@@ -234,14 +234,14 @@
     .pages {
         display: flex;
         justify-content: center;
-        margin-bottom: 50px;
+        padding-bottom: 50px;
 
         .page {
             min-height: 40px;
             min-width: 40px;
             padding: 10px;
             margin-right: 5px;
-            background: #e8e8e8;
+            background: #f9f9f9;
             text-align: center;
             cursor: pointer;
             font-size: 16px;
@@ -263,7 +263,7 @@
         }
 
         .page:hover {
-            background: #f5f5f5;
+            background: #f1f1f1;
         }
     }
 

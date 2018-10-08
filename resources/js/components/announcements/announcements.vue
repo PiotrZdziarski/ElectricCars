@@ -5,7 +5,7 @@
         </transition>
         <div class="claim">
             <div class="mainTitle">
-                <h1 class="mainTitle">Electric car adverts</h1>
+                <h1 class="mainTitle">Electric cars for sale</h1>
                 <h4 class="subTitle">123 vehicles to buy</h4>
             </div>
         </div>
@@ -159,7 +159,7 @@
 
 <style lang="scss" scoped>
     .wrapper {
-        background: linear-gradient(to right, white 50%, #f4f6f8 50%);
+        background: linear-gradient(to right, white 50%, #edeff1 50%);
 
         .fade-enter-active, .fade-leave-active {
             transition: opacity .2s;
@@ -200,7 +200,7 @@
         }
 
         .announcements {
-            background: #f4f6f8;
+            background: #edeff1;;
             padding-top: 50px;
             @media(min-width: 1000px) {
                 width: 75%;

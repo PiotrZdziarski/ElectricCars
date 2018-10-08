@@ -128,7 +128,6 @@ class AdvertsController extends Controller
             //values are retrieved from setting.vue - data structure is indexed arrays in outer indexed array
             $choosenSettingValues = $user_settings[$index];
 
-
             //first option in advanced searching is Any - filter results only if Any is not checked and if array isnt empty
             if($choosenSettingValues != []) {
                 if ($choosenSettingValues[0] !== "Any") {
