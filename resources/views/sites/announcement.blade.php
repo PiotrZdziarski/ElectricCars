@@ -13,5 +13,5 @@
 @endsection
 
 @section('content')
-    <announcement></announcement>
+    <announcement advert="{{$advert}}"></announcement>
 @endsection

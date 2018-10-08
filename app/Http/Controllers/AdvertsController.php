@@ -110,8 +110,6 @@ class AdvertsController extends Controller
         $max_price = $request->get('max_price');
         $adverts = $this->advert;
 
-        $adverts = $this->basicSearching($adverts, $looking_for);
-
         if ($min_price != '') {
             $adverts->where('price', '>', (int)$min_price);
         }
@@ -141,6 +139,7 @@ class AdvertsController extends Controller
             $index++;
         }
 
+        $adverts = $this->basicSearching($adverts, $looking_for);
         $adverts = $this->sorting($adverts, $per_page, $order_by);
 
         return AdvertResource::collection($adverts);

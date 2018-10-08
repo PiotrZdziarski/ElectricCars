@@ -133,15 +133,16 @@
 
                 this.settings_data.forEach((setting, key) => {
 
-                    let selectedOptionsFromSingleSetting = [];
+                    //selected options from single setting
+                    let options = [];
 
                     setting.forEach((settingValue) => {
                         if (document.getElementById('setting_child' + key + settingValue).checked) {
-                            selectedOptionsFromSingleSetting.push(settingValue);
+                            options.push(settingValue);
                         }
                     });
 
-                    userSettings.push(selectedOptionsFromSingleSetting);
+                    userSettings.push(options);
                 });
 
                 this.$emit('advancedSearchBegin');

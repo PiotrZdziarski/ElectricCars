@@ -1,48 +1,32 @@
 <template>
     <section>
         <transition name="fade">
-            <div v-if="view_type === 'list'" class="listView">
-                <article v-for="record in records">
-                    <div class="announcement">
-                        <div class="imageContainer">
-                            <img class="image" src="/images/cars/nissanleaf.jpg">
-                        </div>
-                        <div class="info">
-                            <h5 class="title">{{ record.title }}</h5>
-                            <span class="subtitle">Year</span> {{ record.year }}
-                            <br><span class="subtitle">Mileage</span> {{ record.mileage }} KM
-                            <span class="description">{{ record.type_of_drive }}, {{ record.engine }}, {{ record.torque }}, {{ record.body_style }}, {{ record.exterior_color }}</span>
-                        </div>
-                        <div class="utilities">
-                            <i class="icon-phone">{{ record.contact_number }}</i>
-                            <i class="icon-mail">{{ record.email }}</i>
-                            <span class="price">${{ record.price }}</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </transition>
-
-        <transition name="fade">
-            <div v-if="view_type === 'grid'" class="gridView">
-
+            <div :class="{listView: view_type === 'list', gridView: view_type ==='grid'}">
                 <div class="announcement" v-for="record in records">
+
                     <div class="imageContainer">
                         <img class="image" src="/images/cars/nissanleaf.jpg">
                     </div>
+
                     <div class="info">
-                        <h5 class="title">{{ record.title }}</h5>
+                        <a class="hrefTitle" :href="'/advert/' + record.id">
+                            <h5 class="title">{{ record.title }}</h5>
+                        </a>
                         <span class="subtitle">Year</span> {{ record.year }}
                         <br><span class="subtitle">Mileage</span> {{ record.mileage }} KM
                         <span class="description">{{ record.type_of_drive }}, {{ record.engine }}, {{ record.torque }}, {{ record.body_style }}, {{ record.exterior_color }}</span>
                     </div>
+
                     <div class="utilities">
-                        <i class="icon-phone">{{ record.contact_number }}</i>
-                        <i class="icon-mail">{{ record.email }}</i>
+                        <div class="utility">
+                        <i class="icon-phone"></i>{{ record.contact_number }}1
+                        </div>
+                        <div class="utility">
+                        <i class="icon-calendar"></i>{{ record.date.slice(0,10) }}
+                        </div>
                         <span class="price">${{ record.price }}</span>
                     </div>
                 </div>
-
             </div>
         </transition>
 
@@ -89,7 +73,7 @@
             width: 100%;
             margin-bottom: 40px;
             background: white;
-            border-radius: 2px;
+            border-radius: 4px;
 
             @media(min-width: 768px) {
                 display: flex;
@@ -102,6 +86,9 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                @media(min-width: 768px) {
+                    padding-left: 15px;
+                }
                 /*background-image: url("/images/cars/nissanleaf.jpg");*/
                 /*background-size: cover;*/
                 /*background-position: 50%;*/
@@ -121,10 +108,6 @@
                 padding: 20px;
                 color: #444444;
 
-                .title {
-                    color: #2a3744;;
-                }
-
                 .subtitle {
                     color: #777777;
                     text-transform: uppercase;
@@ -135,6 +118,7 @@
                 .description {
                     display: block;
                     font-size: 12px;
+                    color: #777;
                     padding-top: 15px;
                 }
             }
@@ -145,6 +129,24 @@
                 }
                 padding: 15px;
                 word-wrap: break-word;
+                position: relative;
+                font-size: 12px;
+                color: #444;
+
+                .utility {
+                    background: #728aa0;
+                    width: 100%;
+                    color: white;
+                    padding: 5px;
+                    border-radius: 4px;
+                    margin-bottom: 10px;
+                }
+
+                .utility:first-child {
+                    color: white;
+                    background: #4169e5 !important;
+                }
+
 
                 @media(max-width: 768px) {
                     .icon-mail {
@@ -186,13 +188,11 @@
                 }
             }
 
+
             .info {
                 padding: 20px;
                 color: #444444;
 
-                .title {
-                    color: #444444;
-                }
 
                 .subtitle {
                     color: #777777;
@@ -208,6 +208,7 @@
                 }
             }
 
+
             .utilities {
                 padding: 0 15px 15px 15px;
                 word-wrap: break-word;
@@ -215,12 +216,23 @@
         }
     }
 
+    .title {
+        color: #394d72;
+    }
+    .title:hover {
+        color: #496292;
+    }
+
     .price {
         display: block;
-        margin-top: 10px;
         font-weight: 700;
+        margin-top: 20px;
         font-size: 18px;
-        color: #bc4755;
+        text-align: center;
+        padding: 10px;
+        background: #ff667d;
+        border-radius: 4px;
+        color: white;
     }
 
     .fade-enter-active {
