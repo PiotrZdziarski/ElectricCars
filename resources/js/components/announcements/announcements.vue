@@ -169,13 +169,13 @@
         }
 
         .claim {
-            background-image: linear-gradient(rgba(57, 57, 57, 0.4), rgba(72, 70, 74, 0.4)), url("/images/advertisementsHome.jpg");
+            background-image: linear-gradient(rgba(67, 88, 182, 0.5), rgba(89, 124, 152, 0.5)), url("/images/advertisementsHome.jpg");
             background-attachment: fixed;
             background-size: cover;
             background-position: 50%;
-            height: 50vh;
             display: flex;
             align-items: center;
+            height: 45vh;
             color: white;
             font-weight: 500;
             font-family: "Roboto", sans-serif;
@@ -188,6 +188,10 @@
                     padding-top: 20px;
                     font-size: 52px;
                 }
+            }
+
+            @media(min-width: 768px) {
+                height: 35vh;
             }
 
             .subTitle {

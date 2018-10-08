@@ -22,8 +22,9 @@ $factory->define(\App\Advert::class, function (Faker $faker) {
         'doors' => random_int(2, 6),
         'weight' => random_int(500, 3500),
         'description' => $faker->text(300),
-        'contact_number' => $faker->randomFloat(0,900000000, 10000000000000),
-        'email' => $faker->text(20),
+        'contact_number' => $faker->randomFloat(0,900000000, 1000000000),
+        'email' => 'asdasdwqeqwasdas20d@gmail.com',
         'main_image' => $faker->text(20),
+        'date' => now(),
     ];
 });

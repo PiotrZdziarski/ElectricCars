@@ -50932,7 +50932,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f4f6f8));\n  background: linear-gradient(to right, white 50%, #f4f6f8 50%);\n}\n.wrapper .fade-enter-active[data-v-1907b3ce], .wrapper .fade-leave-active[data-v-1907b3ce] {\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n}\n.wrapper .fade-enter[data-v-1907b3ce], .wrapper .fade-leave-to[data-v-1907b3ce] {\n    opacity: 0;\n}\n.wrapper .claim[data-v-1907b3ce] {\n    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(57, 57, 57, 0.4)), to(rgba(72, 70, 74, 0.4))), url(\"/images/advertisementsHome.jpg\");\n    background-image: linear-gradient(rgba(57, 57, 57, 0.4), rgba(72, 70, 74, 0.4)), url(\"/images/advertisementsHome.jpg\");\n    background-attachment: fixed;\n    background-size: cover;\n    background-position: 50%;\n    height: 50vh;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    color: white;\n    font-weight: 500;\n    font-family: \"Roboto\", sans-serif;\n    padding-top: 5%;\n    padding-left: 8%;\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      font-size: 64px;\n}\n@media (max-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          padding-top: 20px;\n          font-size: 52px;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n}\n.wrapper .announcements[data-v-1907b3ce] {\n    background: #f4f6f8;\n    padding-top: 50px;\n    position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .announcements[data-v-1907b3ce] {\n        width: 75%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f4f6f8));\n  background: linear-gradient(to right, white 50%, #f4f6f8 50%);\n}\n.wrapper .fade-enter-active[data-v-1907b3ce], .wrapper .fade-leave-active[data-v-1907b3ce] {\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n}\n.wrapper .fade-enter[data-v-1907b3ce], .wrapper .fade-leave-to[data-v-1907b3ce] {\n    opacity: 0;\n}\n.wrapper .claim[data-v-1907b3ce] {\n    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(67, 88, 182, 0.5)), to(rgba(89, 124, 152, 0.5))), url(\"/images/advertisementsHome.jpg\");\n    background-image: linear-gradient(rgba(67, 88, 182, 0.5), rgba(89, 124, 152, 0.5)), url(\"/images/advertisementsHome.jpg\");\n    background-attachment: fixed;\n    background-size: cover;\n    background-position: 50%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    height: 45vh;\n    color: white;\n    font-weight: 500;\n    font-family: \"Roboto\", sans-serif;\n    padding-top: 5%;\n    padding-left: 8%;\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      font-size: 64px;\n}\n@media (max-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          padding-top: 20px;\n          font-size: 52px;\n}\n}\n@media (min-width: 768px) {\n.wrapper .claim[data-v-1907b3ce] {\n        height: 35vh;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n}\n.wrapper .announcements[data-v-1907b3ce] {\n    background: #f4f6f8;\n    padding-top: 50px;\n    position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .announcements[data-v-1907b3ce] {\n        width: 75%;\n}\n}\n", ""]);
 
 // exports
 
@@ -51185,7 +51185,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 2px;\n      color: #666;\n      text-transform: uppercase;\n}\n@media (min-width: 476px) {\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n          margin-left: 5px;\n}\n}\n.sorting .sortBy .perPage[data-v-5e04827a] {\n      margin-left: 25px;\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n}\n@media (max-width: 476px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      border-radius: 5px;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      color: #2a3744;\n      -webkit-transition: background-color .3s ease-in-out;\n      transition: background-color .3s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      background: #dfdfdf;\n      border: 1px solid #cfcfcf;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #dfdfdf;\n}\n.input[data-v-5e04827a] {\n  padding: 10px;\n  background: transparent;\n  cursor: pointer;\n  border: 0;\n  border-bottom: 1px solid #b9bbbe;\n  -webkit-transition: .2s box-shadow ease-in-out;\n  transition: .2s box-shadow ease-in-out;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:hover {\n  outline: none;\n  -webkit-box-shadow: 0 8px 16px -8px #999999;\n          box-shadow: 0 8px 16px -8px #999999;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
+exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 2px;\n      color: #666;\n      text-transform: uppercase;\n}\n@media (min-width: 476px) {\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n          margin-left: 5px;\n}\n}\n.sorting .sortBy .perPage[data-v-5e04827a] {\n      margin-left: 25px;\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n}\n@media (max-width: 476px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      border-radius: 5px;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      color: #4e4f51;\n      -webkit-transition: background-color .2s ease-in-out;\n      transition: background-color .2s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n      border: 1px solid #dfdfdf;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      cursor: auto;\n      background: #ebe3ef;\n      -webkit-box-shadow: 0 1px 1px 1px #b9bbbe;\n              box-shadow: 0 1px 1px 1px #b9bbbe;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #ebe3ef;\n      border: 1px solid #efefef;\n}\n.input[data-v-5e04827a] {\n  padding: 10px;\n  background: transparent;\n  cursor: pointer;\n  border: 0;\n  border-bottom: 1px solid #b9bbbe;\n  -webkit-transition: .2s box-shadow ease-in-out;\n  transition: .2s box-shadow ease-in-out;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:hover {\n  outline: none;\n  -webkit-box-shadow: 0 8px 16px -8px #999999;\n          box-shadow: 0 8px 16px -8px #999999;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
 
 // exports
 
@@ -51304,9 +51304,9 @@ var render = function() {
           [
             _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
             _vm._v(" "),
-            _c("option", { attrs: { value: "16" } }, [_vm._v("16")]),
+            _c("option", { attrs: { value: "18" } }, [_vm._v("18")]),
             _vm._v(" "),
-            _c("option", { attrs: { value: "20" } }, [_vm._v("20")])
+            _c("option", { attrs: { value: "24" } }, [_vm._v("24")])
           ]
         )
       ])
@@ -51589,15 +51589,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.settings_data.forEach(function (setting, key) {
 
-                var selectedOptionsFromSingleSetting = [];
+                //selected options from single setting
+                var options = [];
 
                 setting.forEach(function (settingValue) {
                     if (document.getElementById('setting_child' + key + settingValue).checked) {
-                        selectedOptionsFromSingleSetting.push(settingValue);
+                        options.push(settingValue);
                     }
                 });
 
-                userSettings.push(selectedOptionsFromSingleSetting);
+                userSettings.push(options);
             });
 
             this.$emit('advancedSearchBegin');
@@ -52338,7 +52339,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.5% 3.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 2px 6px #e5e8eb;\n            box-shadow: 0 2px 6px #e5e8eb;\n    width: 100%;\n    margin-bottom: 40px;\n    background: white;\n    border-radius: 2px;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 2px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .title[data-v-c50082e8] {\n        color: #2a3744;\n}\n.listView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 15px;\n      word-wrap: break-word;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1% 1% 1% 2%;\n  margin-bottom: 50px;\n}\n.gridView .announcement[data-v-c50082e8] {\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    margin: 1.5%;\n    border-radius: 4px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .title[data-v-c50082e8] {\n        color: #444444;\n}\n.gridView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  margin-top: 10px;\n  font-weight: 700;\n  font-size: 18px;\n  color: #bc4755;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.5% 3.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 2px 6px #e5e8eb;\n            box-shadow: 0 2px 6px #e5e8eb;\n    width: 100%;\n    margin-bottom: 40px;\n    background: white;\n    border-radius: 4px;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          padding-left: 15px;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 2px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        color: #777;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 15px;\n      word-wrap: break-word;\n      position: relative;\n      font-size: 12px;\n      color: #444;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n.listView .announcement .utilities .utility[data-v-c50082e8] {\n        background: #728aa0;\n        width: 100%;\n        color: white;\n        padding: 5px;\n        border-radius: 4px;\n        margin-bottom: 10px;\n}\n.listView .announcement .utilities .utility[data-v-c50082e8]:first-child {\n        color: white;\n        background: #4169e5 !important;\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1% 1% 1% 2%;\n  margin-bottom: 50px;\n}\n.gridView .announcement[data-v-c50082e8] {\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    margin: 1.5%;\n    border-radius: 4px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.title[data-v-c50082e8] {\n  color: #394d72;\n}\n.title[data-v-c50082e8]:hover {\n  color: #496292;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  font-weight: 700;\n  margin-top: 20px;\n  font-size: 18px;\n  text-align: center;\n  padding: 10px;\n  background: #ff667d;\n  border-radius: 4px;\n  color: white;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -52351,22 +52352,6 @@ exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pagination_vue__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pagination_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__pagination_vue__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -52875,135 +52860,81 @@ var render = function() {
     "section",
     [
       _c("transition", { attrs: { name: "fade" } }, [
-        _vm.view_type === "list"
-          ? _c(
-              "div",
-              { staticClass: "listView" },
-              _vm._l(_vm.records, function(record) {
-                return _c("article", [
-                  _c("div", { staticClass: "announcement" }, [
-                    _c("div", { staticClass: "imageContainer" }, [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: { src: "/images/cars/nissanleaf.jpg" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "info" }, [
-                      _c("h5", { staticClass: "title" }, [
-                        _vm._v(_vm._s(record.title))
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
-                      _vm._v(
-                        " " + _vm._s(record.year) + "\n                        "
-                      ),
-                      _c("br"),
-                      _c("span", { staticClass: "subtitle" }, [
-                        _vm._v("Mileage")
-                      ]),
-                      _vm._v(
-                        " " +
-                          _vm._s(record.mileage) +
-                          " KM\n                        "
-                      ),
-                      _c("span", { staticClass: "description" }, [
-                        _vm._v(
-                          _vm._s(record.type_of_drive) +
-                            ", " +
-                            _vm._s(record.engine) +
-                            ", " +
-                            _vm._s(record.torque) +
-                            ", " +
-                            _vm._s(record.body_style) +
-                            ", " +
-                            _vm._s(record.exterior_color)
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "utilities" }, [
-                      _c("i", { staticClass: "icon-phone" }, [
-                        _vm._v(_vm._s(record.contact_number))
-                      ]),
-                      _vm._v(" "),
-                      _c("i", { staticClass: "icon-mail" }, [
-                        _vm._v(_vm._s(record.email))
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "price" }, [
-                        _vm._v("$" + _vm._s(record.price))
-                      ])
-                    ])
-                  ])
-                ])
-              })
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "fade" } }, [
-        _vm.view_type === "grid"
-          ? _c(
-              "div",
-              { staticClass: "gridView" },
-              _vm._l(_vm.records, function(record) {
-                return _c("div", { staticClass: "announcement" }, [
-                  _c("div", { staticClass: "imageContainer" }, [
-                    _c("img", {
-                      staticClass: "image",
-                      attrs: { src: "/images/cars/nissanleaf.jpg" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info" }, [
+        _c(
+          "div",
+          {
+            class: {
+              listView: _vm.view_type === "list",
+              gridView: _vm.view_type === "grid"
+            }
+          },
+          _vm._l(_vm.records, function(record) {
+            return _c("div", { staticClass: "announcement" }, [
+              _c("div", { staticClass: "imageContainer" }, [
+                _c("img", {
+                  staticClass: "image",
+                  attrs: { src: "/images/cars/nissanleaf.jpg" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "info" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "hrefTitle",
+                    attrs: { href: "/advert/" + record.id }
+                  },
+                  [
                     _c("h5", { staticClass: "title" }, [
                       _vm._v(_vm._s(record.title))
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
-                    _vm._v(
-                      " " + _vm._s(record.year) + "\n                    "
-                    ),
-                    _c("br"),
-                    _c("span", { staticClass: "subtitle" }, [
-                      _vm._v("Mileage")
-                    ]),
-                    _vm._v(
-                      " " + _vm._s(record.mileage) + " KM\n                    "
-                    ),
-                    _c("span", { staticClass: "description" }, [
-                      _vm._v(
-                        _vm._s(record.type_of_drive) +
-                          ", " +
-                          _vm._s(record.engine) +
-                          ", " +
-                          _vm._s(record.torque) +
-                          ", " +
-                          _vm._s(record.body_style) +
-                          ", " +
-                          _vm._s(record.exterior_color)
-                      )
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "utilities" }, [
-                    _c("i", { staticClass: "icon-phone" }, [
-                      _vm._v(_vm._s(record.contact_number))
-                    ]),
-                    _vm._v(" "),
-                    _c("i", { staticClass: "icon-mail" }, [
-                      _vm._v(_vm._s(record.email))
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "price" }, [
-                      _vm._v("$" + _vm._s(record.price))
-                    ])
-                  ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
+                _vm._v(" " + _vm._s(record.year) + "\n                    "),
+                _c("br"),
+                _c("span", { staticClass: "subtitle" }, [_vm._v("Mileage")]),
+                _vm._v(
+                  " " + _vm._s(record.mileage) + " KM\n                    "
+                ),
+                _c("span", { staticClass: "description" }, [
+                  _vm._v(
+                    _vm._s(record.type_of_drive) +
+                      ", " +
+                      _vm._s(record.engine) +
+                      ", " +
+                      _vm._s(record.torque) +
+                      ", " +
+                      _vm._s(record.body_style) +
+                      ", " +
+                      _vm._s(record.exterior_color)
+                  )
                 ])
-              })
-            )
-          : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "utilities" }, [
+                _c("div", { staticClass: "utility" }, [
+                  _c("i", { staticClass: "icon-phone" }),
+                  _vm._v(
+                    _vm._s(record.contact_number) + "1\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "utility" }, [
+                  _c("i", { staticClass: "icon-calendar" }),
+                  _vm._v(
+                    _vm._s(record.date.slice(0, 10)) + "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "price" }, [
+                  _vm._v("$" + _vm._s(record.price))
+                ])
+              ])
+            ])
+          })
+        )
       ]),
       _vm._v(" "),
       _c("pagination", {

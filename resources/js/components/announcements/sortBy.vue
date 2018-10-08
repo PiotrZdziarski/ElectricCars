@@ -19,8 +19,8 @@
             <div class="sortChild">
                 <select @change="perPageMethod" class="input">
                     <option value="12">12</option>
-                    <option value="16">16</option>
-                    <option value="20">20</option>
+                    <option value="18">18</option>
+                    <option value="24">24</option>
                 </select>
             </div>
         </div>
@@ -108,20 +108,23 @@
                 margin: 5px;
                 background: white;
                 border: 1px solid #efefef;
-                color: #2a3744;
-                transition: background-color .3s ease-in-out;
+                color: #4e4f51;
+                transition: background-color .2s ease-in-out;
             }
 
             .chooseView:hover {
                 background: #efefef;
+                border: 1px solid #dfdfdf;
             }
 
             .activeView {
-                background: #dfdfdf;
-                border: 1px solid #cfcfcf;
+                cursor: auto;
+                background: #ebe3ef;
+                box-shadow: 0 1px 1px 1px #b9bbbe;
             }
             .activeView:hover {
-                background: #dfdfdf;
+                background: #ebe3ef;
+                border: 1px solid #efefef;
             }
         }
     }

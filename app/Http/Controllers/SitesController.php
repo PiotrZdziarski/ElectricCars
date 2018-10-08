@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Advert;
+
 class SitesController extends Controller
 {
 
@@ -27,8 +29,17 @@ class SitesController extends Controller
         return view('sites.announcements');
     }
 
-    public function advert() {
-        return view('sites.announcement');
+
+    /**
+     * Single advert page
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function advert($id) {
+
+        $advert = Advert::find($id);
+
+        return view('sites.announcement', ['advert' => $advert]);
     }
 
 }
