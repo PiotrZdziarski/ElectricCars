@@ -45,4 +45,21 @@ class AdvertsTest extends TestCase
             ->assertStatus(200)
             ->assertSee(json_encode($this->advertsController->index($request)));
     }
+
+
+    public function testAdvancedSearching()
+    {
+        $data = [
+            'per_page' => 20,
+            'order_by' => 'lowest_price',
+            'looking_for' => 'eA',
+            'min_price' => '50000',
+            'max_price' => '75000',
+            'user_settings' => [array("Any"),array("Any"),array("Any"),array("Any"),array("Any")]
+        ];
+        $request = Request::create('', 'POST', null,null, null, null, csrf_token());
+        $this->json('GET', '/api/advanced_search')
+            ->assertStatus(200)
+            ->assertSee(json_encode($this->advertsController->advanced_search($request)));
+    }
 }
