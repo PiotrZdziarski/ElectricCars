@@ -50932,7 +50932,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #edeff1));\n  background: linear-gradient(to right, white 50%, #edeff1 50%);\n}\n.wrapper .fade-enter-active[data-v-1907b3ce], .wrapper .fade-leave-active[data-v-1907b3ce] {\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n}\n.wrapper .fade-enter[data-v-1907b3ce], .wrapper .fade-leave-to[data-v-1907b3ce] {\n    opacity: 0;\n}\n.wrapper .claim[data-v-1907b3ce] {\n    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(67, 88, 182, 0.5)), to(rgba(89, 124, 152, 0.5))), url(\"/images/advertisementsHome.jpg\");\n    background-image: linear-gradient(rgba(67, 88, 182, 0.5), rgba(89, 124, 152, 0.5)), url(\"/images/advertisementsHome.jpg\");\n    background-attachment: fixed;\n    background-size: cover;\n    background-position: 50%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    height: 45vh;\n    color: white;\n    font-weight: 500;\n    font-family: \"Roboto\", sans-serif;\n    padding-top: 5%;\n    padding-left: 8%;\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      font-size: 64px;\n}\n@media (max-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          padding-top: 20px;\n          font-size: 52px;\n}\n}\n@media (min-width: 768px) {\n.wrapper .claim[data-v-1907b3ce] {\n        height: 35vh;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n}\n.wrapper .announcements[data-v-1907b3ce] {\n    background: #edeff1;\n    padding-top: 50px;\n    position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .announcements[data-v-1907b3ce] {\n        width: 75%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f4f4f4));\n  background: linear-gradient(to right, white 50%, #f4f4f4 50%);\n}\n.wrapper .fade-enter-active[data-v-1907b3ce], .wrapper .fade-leave-active[data-v-1907b3ce] {\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n}\n.wrapper .fade-enter[data-v-1907b3ce], .wrapper .fade-leave-to[data-v-1907b3ce] {\n    opacity: 0;\n}\n.wrapper .claim[data-v-1907b3ce] {\n    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(67, 88, 182, 0.5)), to(rgba(89, 124, 152, 0.5))), url(\"/images/advertisementsHome.jpg\");\n    background-image: linear-gradient(rgba(67, 88, 182, 0.5), rgba(89, 124, 152, 0.5)), url(\"/images/advertisementsHome.jpg\");\n    background-attachment: fixed;\n    background-size: cover;\n    background-position: 50%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    height: 45vh;\n    color: white;\n    font-weight: 500;\n    font-family: \"Roboto\", sans-serif;\n    padding-top: 5%;\n    padding-left: 8%;\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      font-size: 64px;\n}\n@media (max-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          padding-top: 20px;\n          font-size: 52px;\n}\n}\n@media (min-width: 768px) {\n.wrapper .claim[data-v-1907b3ce] {\n        height: 35vh;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n}\n.wrapper .announcements[data-v-1907b3ce] {\n    background: #f4f4f4;\n    padding-top: 50px;\n    position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .announcements[data-v-1907b3ce] {\n        width: 75%;\n}\n}\n", ""]);
 
 // exports
 
@@ -50951,6 +50951,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__announcementsList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__announcementsList_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_progressBar_vue__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_progressBar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__app_progressBar_vue__);
+//
+//
+//
+//
 //
 //
 //
@@ -51010,11 +51014,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             meta: {},
             links: {},
             page: 1,
-            looking_for: ''
+            looking_for: '',
+            progressBarCount: 0
         };
     },
     mounted: function mounted() {
         this.retrieveRecords();
+        this.progressBarCount += 1;
     },
 
     methods: {
@@ -51047,13 +51053,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         //parent method for choosing sorting type and how much adverts display by page
         sorting: function sorting() {
-            this.loading = true;
+            //this.loading = true;
+            this.progressBarCount += 1;
             this.page = 1;
+            this.data_retrieved = false;
             this.retrieveRecords();
         },
         finishedLoading: function finishedLoading() {
             this.data_retrieved = false;
             this.loading = false;
+
+            console.log('xd');
         },
 
 
@@ -51087,13 +51097,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.retrieveRecords();
         },
         advancedSearchBegin: function advancedSearchBegin() {
-            this.loading = true;
+            this.page = 1;
+            this.progressBarCount += 1;
+            this.data_retrieved = false;
         },
         advancedSearching: function advancedSearching(Response) {
             this.records = Response.data.data;
             this.meta = Response.data.meta;
             this.links = Response.data.links;
-            this.page = 1;
             this.data_retrieved = true;
         }
     }
@@ -51185,7 +51196,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n  background: white;\n  border-radius: 5px;\n}\n@media (min-width: 1000px) {\n.sorting[data-v-5e04827a] {\n      margin-left: 15px;\n}\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 2px;\n      color: #666;\n      text-transform: uppercase;\n}\n@media (min-width: 476px) {\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n          margin-left: 5px;\n}\n}\n.sorting .sortBy .perPage[data-v-5e04827a] {\n      margin-left: 10px;\n}\n@media (min-width: 476px) {\n.sorting .sortBy .perPage[data-v-5e04827a] {\n          margin-left: 25px;\n}\n}\n@media (min-width: 476px) and (max-width: 510px) {\n.sorting .sortBy .perPage[data-v-5e04827a] {\n          margin-left: 0;\n}\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n    bottom: 12px;\n}\n@media (max-width: 476px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      border-radius: 5px;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      color: #4e4f51;\n      -webkit-transition: background-color .2s ease-in-out;\n      transition: background-color .2s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n      border: 1px solid #dfdfdf;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      cursor: auto;\n      background: #ebe3ef;\n      -webkit-box-shadow: 0 1px 1px 1px #b9bbbe;\n              box-shadow: 0 1px 1px 1px #b9bbbe;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #ebe3ef;\n      border: 1px solid #efefef;\n}\n.input[data-v-5e04827a] {\n  background: transparent;\n  cursor: pointer;\n  border: 0;\n  border-bottom: 1px solid #b9bbbe;\n  -webkit-transition: .2s box-shadow ease-in-out;\n  transition: .2s box-shadow ease-in-out;\n  padding: 7px;\n}\n@media (min-width: 476px) {\n.input[data-v-5e04827a] {\n      padding: 10px;\n}\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:hover {\n  outline: none;\n  -webkit-box-shadow: 0 8px 16px -8px #999999;\n          box-shadow: 0 8px 16px -8px #999999;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
+exports.push([module.i, "\n.sorting[data-v-5e04827a] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n  padding: 20px;\n  background: white;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 2px 6px #e1e1e1;\n          box-shadow: 0 2px 6px #e1e1e1;\n}\n@media (min-width: 1000px) {\n.sorting[data-v-5e04827a] {\n      margin-left: 15px;\n}\n}\n.sorting .sortBy[data-v-5e04827a] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n      margin-left: 2px;\n      color: #666;\n      text-transform: uppercase;\n}\n@media (min-width: 476px) {\n.sorting .sortBy .sortChild[data-v-5e04827a] {\n          margin-left: 5px;\n}\n}\n.sorting .sortBy .perPage[data-v-5e04827a] {\n      margin-left: 10px;\n}\n@media (min-width: 476px) {\n.sorting .sortBy .perPage[data-v-5e04827a] {\n          margin-left: 25px;\n}\n}\n@media (min-width: 476px) and (max-width: 510px) {\n.sorting .sortBy .perPage[data-v-5e04827a] {\n          margin-left: 0;\n}\n}\n.sorting .lookType[data-v-5e04827a] {\n    width: 120px;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    right: 0;\n    bottom: 12px;\n}\n@media (max-width: 476px) {\n.sorting .lookType[data-v-5e04827a] {\n        display: none;\n}\n}\n.sorting .lookType .chooseView[data-v-5e04827a] {\n      width: 45px;\n      height: 45px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      font-size: 22px;\n      cursor: pointer;\n      border-radius: 5px;\n      margin: 5px;\n      background: white;\n      border: 1px solid #efefef;\n      color: #4e4f51;\n      -webkit-transition: background-color .2s ease-in-out;\n      transition: background-color .2s ease-in-out;\n}\n.sorting .lookType .chooseView[data-v-5e04827a]:hover {\n      background: #efefef;\n      border: 1px solid #dfdfdf;\n}\n.sorting .lookType .activeView[data-v-5e04827a] {\n      cursor: auto;\n      background: #ebe3ef;\n      -webkit-box-shadow: 0 1px 1px 1px #b9bbbe;\n              box-shadow: 0 1px 1px 1px #b9bbbe;\n}\n.sorting .lookType .activeView[data-v-5e04827a]:hover {\n      background: #ebe3ef;\n      border: 1px solid #efefef;\n}\n.input[data-v-5e04827a] {\n  background: transparent;\n  cursor: pointer;\n  border: 0;\n  border-bottom: 1px solid #b9bbbe;\n  -webkit-transition: .2s box-shadow ease-in-out;\n  transition: .2s box-shadow ease-in-out;\n  padding: 7px;\n}\n@media (min-width: 476px) {\n.input[data-v-5e04827a] {\n      padding: 10px;\n}\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:hover {\n  outline: none;\n  -webkit-box-shadow: 0 8px 16px -8px #999999;\n          box-shadow: 0 8px 16px -8px #999999;\n}\n.input[data-v-5e04827a]:focus, .input[data-v-5e04827a]:active {\n  outline: none;\n}\n", ""]);
 
 // exports
 
@@ -52339,7 +52350,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.5% 3.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 2px 6px #e5e8eb;\n            box-shadow: 0 2px 6px #e5e8eb;\n    width: 100%;\n    margin-bottom: 20px;\n    background: white;\n    border-radius: 4px;\n    -webkit-transition: background-color .2s ease-in-out;\n    transition: background-color .2s ease-in-out;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          padding-left: 15px;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 2px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        color: #777;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 15px;\n      word-wrap: break-word;\n      position: relative;\n      font-size: 12px;\n      color: #444;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (min-width: 476px) and (max-width: 759.99px) {\n.listView .announcement .utilities .utility[data-v-c50082e8] {\n          width: 70%;\n          margin-left: auto;\n          margin-right: auto;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.listView .announcement[data-v-c50082e8]:hover {\n    background: #f1f1f1 !important;\n    cursor: pointer;\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1% 1% 1% 2%;\n  margin-bottom: 50px;\n}\n.gridView .announcement[data-v-c50082e8] {\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    margin: 1.5%;\n    border-radius: 4px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px 20px 0 20px;\n      color: #444444;\n}\n@media (min-width: 476px) {\n.gridView .announcement .info[data-v-c50082e8] {\n          padding: 20px;\n}\n}\n.gridView .announcement .info .subtitle[data-v-c50082e8] {\n        color: #777777;\n        text-transform: uppercase;\n        font-size: 12px;\n        padding-right: 5px;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.title[data-v-c50082e8] {\n  color: #737477;\n}\n.title[data-v-c50082e8]:hover {\n  color: #717174;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  font-weight: 700;\n  font-size: 18px;\n  text-align: center;\n  padding: 0 10px 10px 10px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #efefef;\n  color: white;\n  color: #ff667d;\n  border-radius: 4px;\n}\n@media (min-width: 476px) {\n.price[data-v-c50082e8] {\n      padding: 10px;\n}\n}\n.utility[data-v-c50082e8] {\n  background: #728aa0;\n  width: 100%;\n  color: white;\n  padding: 5px;\n  border-radius: 4px;\n  margin-bottom: 10px;\n}\n.utility .icon-phone[data-v-c50082e8] {\n    margin-right: 2px;\n}\n.utility .icon-calendar[data-v-c50082e8] {\n    margin-right: 4px;\n}\n.utility[data-v-c50082e8]:last-child {\n  color: white;\n  background: #4169e5 !important;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.5% 3.5%;\n}\n.listView .announcement[data-v-c50082e8] {\n    -webkit-box-shadow: 0 2px 6px #e1e1e1;\n            box-shadow: 0 2px 6px #e1e1e1;\n    width: 100%;\n    margin-bottom: 20px;\n    background: white;\n    border-radius: 2px;\n    -webkit-transition: background-color .2s ease-in-out;\n    transition: background-color .2s ease-in-out;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      /*background-image: url(\"/images/cars/nissanleaf.jpg\");*/\n      /*background-size: cover;*/\n      /*background-position: 50%;*/\n      /*min-height: 150px;*/\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          padding-left: 15px;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 2px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        color: #777;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 15px;\n      word-wrap: break-word;\n      position: relative;\n      font-size: 12px;\n      color: #444;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (min-width: 476px) and (max-width: 759.99px) {\n.listView .announcement .utilities .utility[data-v-c50082e8] {\n          width: 70%;\n          margin-left: auto;\n          margin-right: auto;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.listView .announcement[data-v-c50082e8]:hover {\n    background: #f1f1f1 !important;\n    cursor: pointer;\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  padding: 1% 1% 1% 2%;\n  margin-bottom: 50px;\n}\n.gridView .announcement[data-v-c50082e8] {\n    background: white;\n    -webkit-box-shadow: 0 1px 2px #dddddd;\n            box-shadow: 0 1px 2px #dddddd;\n    margin: 1.5%;\n    border-radius: 2px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px 20px 0 20px;\n      color: #444444;\n}\n@media (min-width: 476px) {\n.gridView .announcement .info[data-v-c50082e8] {\n          padding: 20px;\n}\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.title[data-v-c50082e8] {\n  color: #737477;\n}\n.title[data-v-c50082e8]:hover {\n  color: #717174;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  font-weight: 500;\n  font-size: 20px;\n  text-align: center;\n  padding: 0 10px 10px 10px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #efefef;\n  color: #3a4e58;\n  border-radius: 4px;\n}\n@media (min-width: 476px) {\n.price[data-v-c50082e8] {\n      padding: 10px;\n}\n}\n.utility[data-v-c50082e8] {\n  border-bottom: 1px solid #f4d6de;\n  width: 100%;\n  color: black;\n  padding: 5px;\n  border-radius: 3px;\n  margin-bottom: 10px;\n}\n.utility .icon-phone[data-v-c50082e8] {\n    margin-right: 2px;\n}\n.utility .icon-calendar[data-v-c50082e8] {\n    margin-right: 4px;\n}\n.utility[data-v-c50082e8]:last-child {\n  margin-top: 15px;\n  border-bottom: 1px solid #c0c6d7;\n}\n.subtitle[data-v-c50082e8] {\n  color: #777777;\n  text-transform: uppercase;\n  font-size: 12px;\n  padding-right: 5px;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -52352,6 +52363,8 @@ exports.push([module.i, "\n.listView[data-v-c50082e8] {\n  padding: 2.5% 2.5% 2.
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pagination_vue__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pagination_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__pagination_vue__);
+//
+//
 //
 //
 //
@@ -52414,6 +52427,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         changePage: function changePage(page) {
             this.$emit('changePage', page);
+        },
+        hrefAdvert: function hrefAdvert(advert_id) {
+            window.location.href = '/advert/' + advert_id;
         }
     }
 });
@@ -52870,73 +52886,87 @@ var render = function() {
             }
           },
           _vm._l(_vm.records, function(record) {
-            return _c("div", { staticClass: "announcement" }, [
-              _c("div", { staticClass: "imageContainer" }, [
-                _c("img", {
-                  staticClass: "image",
-                  attrs: { src: "/images/cars/teslas.jpg" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "info" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "hrefTitle",
-                    attrs: { href: "/advert/" + record.id }
-                  },
-                  [
+            return _c(
+              "div",
+              {
+                staticClass: "announcement",
+                on: {
+                  click: function($event) {
+                    _vm.hrefAdvert(record.id)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "imageContainer" }, [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: { src: "/images/cars/teslas.jpg" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "info" }, [
+                  _c("a", { attrs: { href: "/advert/" + record.id } }, [
                     _c("h5", { staticClass: "title" }, [
                       _vm._v(_vm._s(record.title))
                     ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
-                _vm._v(" " + _vm._s(record.year) + "\n                    "),
-                _c("br"),
-                _c("span", { staticClass: "subtitle" }, [_vm._v("Mileage")]),
-                _vm._v(
-                  " " + _vm._s(record.mileage) + " KM\n                    "
-                ),
-                _c("br"),
-                _c("span", { staticClass: "subtitle" }, [_vm._v("Location")]),
-                _vm._v(" Poland, Los Angeles\n                    "),
-                _c("span", { staticClass: "description" }, [
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "subtitle" }, [_vm._v("Year")]),
+                  _vm._v(" " + _vm._s(record.year) + "\n                    "),
+                  _c("br"),
+                  _c("span", { staticClass: "subtitle" }, [_vm._v("Mileage")]),
                   _vm._v(
-                    _vm._s(record.type_of_drive) +
-                      ", " +
-                      _vm._s(record.engine) +
-                      ", " +
-                      _vm._s(record.torque) +
-                      ", " +
-                      _vm._s(record.body_style) +
-                      ", " +
-                      _vm._s(record.exterior_color)
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "utilities" }, [
-                _c("span", { staticClass: "price" }, [
-                  _vm._v("$" + _vm._s(record.price))
+                    " " + _vm._s(record.mileage) + " KM\n                    "
+                  ),
+                  _c("br"),
+                  _c("span", { staticClass: "subtitle" }, [_vm._v("Location")]),
+                  _vm._v(" Poland, Los Angeles\n                    "),
+                  _c("span", { staticClass: "description" }, [
+                    _vm._v(
+                      _vm._s(record.type_of_drive) +
+                        ", " +
+                        _vm._s(record.engine) +
+                        ", " +
+                        _vm._s(record.torque) +
+                        ", " +
+                        _vm._s(record.body_style) +
+                        ", " +
+                        _vm._s(record.exterior_color)
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "utility" }, [
-                  _c("i", { staticClass: "icon-phone" }),
-                  _vm._v(
-                    _vm._s(record.contact_number) + "1\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "utility" }, [
-                  _c("i", { staticClass: "icon-calendar" }),
-                  _vm._v(
-                    _vm._s(record.date.slice(0, 10)) + "\n                    "
+                _c("div", { staticClass: "utilities" }, [
+                  _c("span", { staticClass: "price" }, [
+                    _vm._v("$" + _vm._s(record.price))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "utility" }, [
+                    _c("span", { staticClass: "subtitle" }, [
+                      _vm._v(
+                        "\n                        Condition:\n                        "
+                      )
+                    ]),
+                    _vm._v("Used\n                    ")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "utility",
+                      attrs: { title: "Date of addition" }
+                    },
+                    [
+                      _c("i", { staticClass: "icon-calendar" }),
+                      _vm._v(
+                        _vm._s(record.date.slice(0, 10)) +
+                          "\n                    "
+                      )
+                    ]
                   )
                 ])
-              ])
-            ])
+              ]
+            )
           })
         )
       ]),
@@ -53072,44 +53102,68 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: {
         data_retrieved: {
             Type: Boolean
+        },
+        progressBarCount: {
+            Type: Number
         }
     },
-    mounted: function mounted() {
-        var _this = this;
+    data: function data() {
+        return {
+            progressBarNumber: 0,
+            progressBarQueue: [],
+            interval: ''
+        };
+    },
 
-        var firstCheckpoint = window.innerWidth * 40 / 100;
-        var secondCheckpoint = window.innerWidth * 60 / 100;
+    watch: {
+        progressBarCount: function progressBarCount(_progressBarCount) {
+            var _this = this;
 
-        //initial incrementing value
-        var initialIncrement = window.innerWidth / 100;
-        //to 60% width incrementing value
-        var secondIncrement = window.innerWidth / 300;
-
-        //faster loading after data retrieved
-        var afterLoadIncrement = window.innerWidth / 10;
-        var progressBar = document.getElementById('progress');
-
-        var progress = setInterval(function () {
-
-            var progressWidth = progressBar.offsetWidth + initialIncrement;
-            var progressSecondWidth = progressBar.offsetWidth + secondIncrement;
-            //initial load
-            if (progressWidth < firstCheckpoint) {
-                progressBar.style.width = progressWidth + 'px';
-            } else if (progressWidth > firstCheckpoint && progressWidth < secondCheckpoint) {
-                progressBar.style.width = progressSecondWidth + 'px';
+            //remove previous progressBar
+            clearInterval(this.interval);
+            var indexOfBefore = this.progressBarQueue.indexOf(_progressBarCount - 1);
+            if (this.progressBarQueue[indexOfBefore] !== void 0) {
+                this.progressBarQueue.splice(indexOfBefore, 1);
             }
-            //after data is retrieved faster loading
-            if (_this.data_retrieved === true) {
-                progressWidth += afterLoadIncrement;
-                progressBar.style.width = progressWidth + 'px';
-            }
-            //stop if finished
-            if (progressWidth >= window.innerWidth) {
-                _this.$emit('finishedLoading');
-                clearInterval(progress);
-            }
-        }, 15);
+
+            this.progressBarNumber = _progressBarCount;
+            this.progressBarQueue.push(_progressBarCount);
+
+            var firstCheckpoint = window.innerWidth * 40 / 100;
+            var secondCheckpoint = window.innerWidth * 60 / 100;
+
+            //initial incrementing value
+            var initialIncrement = window.innerWidth / 100;
+            //to 60% width incrementing value
+            var secondIncrement = window.innerWidth / 300;
+
+            //faster loading after data retrieved
+            var afterLoadIncrement = window.innerWidth / 10;
+
+            this.interval = setInterval(function () {
+                var progressBar = document.getElementById('progress');
+
+                var progressWidth = progressBar.offsetWidth + initialIncrement;
+                var progressSecondWidth = progressBar.offsetWidth + secondIncrement;
+                //initial load
+                if (progressWidth < firstCheckpoint) {
+                    progressBar.style.width = progressWidth + 'px';
+                } else if (progressWidth > firstCheckpoint && progressWidth < secondCheckpoint) {
+                    progressBar.style.width = progressSecondWidth + 'px';
+                }
+                //after data is retrieved faster loading
+                if (_this.data_retrieved === true) {
+                    progressWidth += afterLoadIncrement;
+                    progressBar.style.width = progressWidth + 'px';
+                }
+                //stop if finished
+                if (progressWidth >= window.innerWidth) {
+                    var index = _this.progressBarQueue.indexOf(_progressBarCount);
+                    _this.progressBarQueue.splice(index, 1);
+                    clearInterval(_this.interval);
+                }
+            }, 15);
+        }
     }
 });
 
@@ -53121,18 +53175,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _vm.progressBarQueue.includes(_vm.progressBarNumber)
+    ? _c("div", { staticClass: "progressBar" }, [
+        _c("div", { attrs: { id: "progress" } })
+      ])
+    : _vm._e()
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "progressBar" }, [
-      _c("div", { attrs: { id: "progress" } })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -53158,12 +53207,13 @@ var render = function() {
         "transition",
         { attrs: { name: "fade" } },
         [
-          _vm.loading
-            ? _c("progress-bar", {
-                attrs: { data_retrieved: _vm.data_retrieved },
-                on: { finishedLoading: _vm.finishedLoading }
-              })
-            : _vm._e()
+          _c("progress-bar", {
+            attrs: {
+              progressBarCount: _vm.progressBarCount,
+              data_retrieved: _vm.data_retrieved
+            },
+            on: { finishedLoading: _vm.finishedLoading }
+          })
         ],
         1
       ),

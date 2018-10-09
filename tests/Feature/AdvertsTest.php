@@ -47,6 +47,9 @@ class AdvertsTest extends TestCase
     }
 
 
+    /**
+     * Test advanced searching
+     */
     public function testAdvancedSearching()
     {
         $data = [
@@ -55,10 +58,10 @@ class AdvertsTest extends TestCase
             'looking_for' => 'eA',
             'min_price' => '50000',
             'max_price' => '75000',
-            'user_settings' => [array("Any"),array("Any"),array("Any"),array("Any"),array("Any")]
+            'user_settings' => [["Any", "New"],["Any"],["Any"],["Any"],["Any"]]
         ];
-        $request = Request::create('', 'POST', null,null, null, null, csrf_token());
-        $this->json('GET', '/api/advanced_search')
+        $request = Request::create('', 'POST', $data);
+        $this->json('POST', '/api/advanced_search', $data)
             ->assertStatus(200)
             ->assertSee(json_encode($this->advertsController->advanced_search($request)));
     }

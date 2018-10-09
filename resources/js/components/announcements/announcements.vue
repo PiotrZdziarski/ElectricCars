@@ -1,7 +1,11 @@
 <template>
     <div class="wrapper">
         <transition name="fade">
-            <progress-bar v-if="loading" @finishedLoading="finishedLoading" :data_retrieved="data_retrieved"></progress-bar>
+            <progress-bar
+                    :progressBarCount="progressBarCount"
+                    @finishedLoading="finishedLoading"
+                    :data_retrieved="data_retrieved">
+            </progress-bar>
         </transition>
         <div class="claim">
             <div class="mainTitle">
@@ -58,10 +62,12 @@
                 links: {},
                 page: 1,
                 looking_for: '',
+                progressBarCount: 0
             }
         },
         mounted() {
             this.retrieveRecords();
+            this.progressBarCount += 1;
         },
         methods: {
             //retrieve adverts from db
@@ -90,14 +96,18 @@
 
             //parent method for choosing sorting type and how much adverts display by page
             sorting() {
-                this.loading = true;
+                //this.loading = true;
+                this.progressBarCount += 1;
                 this.page = 1;
+                this.data_retrieved = false;
                 this.retrieveRecords();
             },
 
             finishedLoading() {
                 this.data_retrieved = false;
                 this.loading = false;
+
+                console.log('xd');
             },
 
             //choose view type grid or list
@@ -143,14 +153,15 @@
             },
 
             advancedSearchBegin() {
-                this.loading = true;
+                this.page = 1;
+                this.progressBarCount += 1;
+                this.data_retrieved = false;
             },
 
             advancedSearching(Response) {
                 this.records = Response.data.data;
                 this.meta = Response.data.meta;
                 this.links = Response.data.links;
-                this.page = 1;
                 this.data_retrieved = true;
             }
         }
@@ -159,7 +170,7 @@
 
 <style lang="scss" scoped>
     .wrapper {
-        background: linear-gradient(to right, white 50%, #edeff1 50%);
+        background: linear-gradient(to right, white 50%, #f4f4f4 50%);
 
         .fade-enter-active, .fade-leave-active {
             transition: opacity .2s;
@@ -200,7 +211,7 @@
         }
 
         .announcements {
-            background: #edeff1;;
+            background: #f4f4f4;
             padding-top: 50px;
             @media(min-width: 1000px) {
                 width: 75%;

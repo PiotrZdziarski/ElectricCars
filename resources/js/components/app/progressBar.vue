@@ -1,5 +1,5 @@
 <template>
-    <div class="progressBar">
+    <div v-if="progressBarQueue.includes(progressBarNumber)" class="progressBar">
         <div id="progress"></div>
     </div>
 </template>
@@ -10,43 +10,68 @@
         props: {
             data_retrieved: {
                 Type: Boolean,
+            },
+            progressBarCount: {
+                Type: Number
             }
         },
-        mounted() {
-            let firstCheckpoint = (window.innerWidth * 40) / 100;
-            let secondCheckpoint = (window.innerWidth * 60) / 100;
+        data() {
+            return {
+                progressBarNumber: 0,
+                progressBarQueue: [],
+                interval: ''
+            }
+        },
+        watch: {
+            progressBarCount: function(progressBarCount) {
 
-            //initial incrementing value
-            let initialIncrement = window.innerWidth / 100;
-            //to 60% width incrementing value
-            let secondIncrement = window.innerWidth / 300;
+                //remove previous progressBar
+                clearInterval(this.interval);
+                let indexOfBefore = this.progressBarQueue.indexOf(progressBarCount - 1);
+                if(this.progressBarQueue[indexOfBefore] !== void 0) {
+                    this.progressBarQueue.splice(indexOfBefore, 1);
+                }
 
-            //faster loading after data retrieved
-            let afterLoadIncrement = window.innerWidth / 10;
-            const progressBar = document.getElementById('progress');
+                this.progressBarNumber = progressBarCount;
+                this.progressBarQueue.push(progressBarCount);
 
-            let progress = setInterval(() => {
+                let firstCheckpoint = (window.innerWidth * 40) / 100;
+                let secondCheckpoint = (window.innerWidth * 60) / 100;
 
-                let progressWidth = progressBar.offsetWidth + initialIncrement;
-                let progressSecondWidth = progressBar.offsetWidth + secondIncrement;
-                //initial load
-                if(progressWidth < firstCheckpoint) {
-                    progressBar.style.width = `${progressWidth}px`;
-                }
-                else if(progressWidth > firstCheckpoint && progressWidth < secondCheckpoint) {
-                    progressBar.style.width = `${progressSecondWidth}px`
-                }
-                //after data is retrieved faster loading
-                if(this.data_retrieved === true) {
-                    progressWidth += afterLoadIncrement;
-                    progressBar.style.width = `${progressWidth}px`;
-                }
-                //stop if finished
-                if(progressWidth >= window.innerWidth) {
-                    this.$emit('finishedLoading');
-                    clearInterval(progress);
-                }
-            }, 15);
+                //initial incrementing value
+                let initialIncrement = window.innerWidth / 100;
+                //to 60% width incrementing value
+                let secondIncrement = window.innerWidth / 300;
+
+                //faster loading after data retrieved
+                let afterLoadIncrement = window.innerWidth / 10;
+
+                this.interval = setInterval(() => {
+                    const progressBar = document.getElementById('progress');
+
+                    let progressWidth = progressBar.offsetWidth + initialIncrement;
+                    let progressSecondWidth = progressBar.offsetWidth + secondIncrement;
+                    //initial load
+                    if(progressWidth < firstCheckpoint) {
+                        progressBar.style.width = `${progressWidth}px`;
+                    }
+                    else if(progressWidth > firstCheckpoint && progressWidth < secondCheckpoint) {
+                        progressBar.style.width = `${progressSecondWidth}px`
+                    }
+                    //after data is retrieved faster loading
+                    if(this.data_retrieved === true) {
+                        progressWidth += afterLoadIncrement;
+                        progressBar.style.width = `${progressWidth}px`;
+                    }
+                    //stop if finished
+                    if(progressWidth >= window.innerWidth) {
+                        let index = this.progressBarQueue.indexOf(progressBarCount);
+                        this.progressBarQueue.splice(index, 1);
+                        clearInterval(this.interval);
+                    }
+                }, 15);
+
+            }
         }
     }
 </script>

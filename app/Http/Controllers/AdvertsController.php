@@ -111,10 +111,10 @@ class AdvertsController extends Controller
         $adverts = $this->advert;
 
         if ($min_price != '') {
-            $adverts->where('price', '>', (int)$min_price);
+            $adverts = $adverts->where('price', '>', (int)$min_price);
         }
         if ($max_price != '') {
-            $adverts->where('price', '<', (int)$max_price);
+            $adverts = $adverts->where('price', '<', (int)$max_price);
         }
 
 
