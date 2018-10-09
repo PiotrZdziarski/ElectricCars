@@ -42,8 +42,8 @@
         methods: {
             configurePages() {
 
-                //if no records
-                if(this.meta.from === null) {
+                //if no records or 1 page
+                if(this.meta.from === null || this.meta.last_page === 1) {
                     this.nothingHere = true;
                     this.visible.first = false;
                     this.visible.backwardBy2 = false;

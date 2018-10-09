@@ -1,7 +1,9 @@
 <template>
-    <div v-if="progressBarQueue.includes(progressBarNumber)" class="progressBar">
-        <div id="progress"></div>
-    </div>
+    <transition name="fade">
+        <div v-if="progressBarQueue.includes(progressBarNumber)" class="progressBar">
+            <div id="progress"></div>
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -23,12 +25,12 @@
             }
         },
         watch: {
-            progressBarCount: function(progressBarCount) {
+            progressBarCount: function (progressBarCount) {
 
                 //remove previous progressBar
                 clearInterval(this.interval);
                 let indexOfBefore = this.progressBarQueue.indexOf(progressBarCount - 1);
-                if(this.progressBarQueue[indexOfBefore] !== void 0) {
+                if (this.progressBarQueue[indexOfBefore] !== void 0) {
                     this.progressBarQueue.splice(indexOfBefore, 1);
                 }
 
@@ -51,20 +53,23 @@
 
                     let progressWidth = progressBar.offsetWidth + initialIncrement;
                     let progressSecondWidth = progressBar.offsetWidth + secondIncrement;
+
                     //initial load
-                    if(progressWidth < firstCheckpoint) {
+                    if (progressWidth < firstCheckpoint) {
                         progressBar.style.width = `${progressWidth}px`;
                     }
-                    else if(progressWidth > firstCheckpoint && progressWidth < secondCheckpoint) {
+                    else if (progressWidth > firstCheckpoint && progressWidth < secondCheckpoint) {
                         progressBar.style.width = `${progressSecondWidth}px`
                     }
+
                     //after data is retrieved faster loading
-                    if(this.data_retrieved === true) {
+                    if (this.data_retrieved === true) {
                         progressWidth += afterLoadIncrement;
                         progressBar.style.width = `${progressWidth}px`;
                     }
+
                     //stop if finished
-                    if(progressWidth >= window.innerWidth) {
+                    if (progressWidth >= window.innerWidth) {
                         let index = this.progressBarQueue.indexOf(progressBarCount);
                         this.progressBarQueue.splice(index, 1);
                         clearInterval(this.interval);
@@ -77,13 +82,22 @@
 </script>
 
 <style lang="scss" scoped>
+
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .2s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+    {
+        opacity: 0;
+    }
+
     .progressBar {
         position: fixed;
         width: 100%;
         background: #eeeeee;
         height: 3px;
-        top:0;
-        left:0;
+        top: 0;
+        left: 0;
         z-index: 1002;
 
         #progress {
