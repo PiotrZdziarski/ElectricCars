@@ -1,12 +1,9 @@
 <template>
     <div class="wrapper">
-        <transition name="fade">
-            <progress-bar
-                    :progressBarCount="progressBarCount"
-                    @finishedLoading="finishedLoading"
-                    :data_retrieved="data_retrieved">
-            </progress-bar>
-        </transition>
+        <progress-bar
+                :progressBarCount="progressBarCount"
+                :data_retrieved="data_retrieved">
+        </progress-bar>
         <div class="claim">
             <div class="mainTitle">
                 <h1 class="mainTitle">Electric cars for sale</h1>
@@ -16,16 +13,22 @@
         <section class="main">
             <settings
                     @advancedSearching="advancedSearching($event)"
-                    @advancedSearchBegin="advancedSearchBegin"
-                    :per_page="per_page"
-                    :order_by="sort_by"
-                    :looking_for="looking_for"
                     :searching_settings="searching_settings"
                     @basicSearching="basicSearching($event)">
             </settings>
             <div class="announcements" id="announcements">
-                <sort-by @perPage="perPage($event)" @sortBy="sortBy($event)" @changeView="changeView"></sort-by>
-                <announcements-list @changePage="changePage($event)" :links="links" :meta="meta" :records="records" :view_type="view_type"></announcements-list>
+                <sort-by
+                        @perPage="perPage($event)"
+                        @sortBy="sortBy($event)"
+                        @changeView="changeView">
+                </sort-by>
+                <announcements-list
+                        @changePage="changePage($event)"
+                        :links="links"
+                        :meta="meta"
+                        :records="records"
+                        :view_type="view_type">
+                </announcements-list>
             </div>
         </section>
     </div>
@@ -62,7 +65,10 @@
                 links: {},
                 page: 1,
                 looking_for: '',
-                progressBarCount: 0
+                progressBarCount: 0,
+                user_settings: [],
+                min_price: '',
+                max_price: ''
             }
         },
         mounted() {
@@ -72,12 +78,20 @@
         methods: {
             //retrieve adverts from db
             retrieveRecords(scroll = false) {
-                axios.get(`/api/announcements?per_page=${this.per_page}&order_by=${this.sort_by}&page=${this.page}&looking_for=${this.looking_for}`).then(Response => {
+                axios.post(`/api/announcements`, {
+                    'per_page': this.per_page,
+                    'order_by': this.sort_by,
+                    'page': this.page,
+                    'looking_for': this.looking_for,
+                    'user_settings': this.user_settings,
+                    'min_price': this.min_price,
+                    'max_price': this.max_price
+                }).then(Response => {
                     this.records = Response.data.data;
                     this.meta = Response.data.meta;
                     this.links = Response.data.links;
 
-                    if(scroll === true) {
+                    if (scroll === true) {
                         document.getElementById('announcements').scrollIntoView();
                     }
                     this.data_retrieved = true;
@@ -100,14 +114,8 @@
                 this.progressBarCount += 1;
                 this.page = 1;
                 this.data_retrieved = false;
+
                 this.retrieveRecords();
-            },
-
-            finishedLoading() {
-                this.data_retrieved = false;
-                this.loading = false;
-
-                console.log('xd');
             },
 
             //choose view type grid or list
@@ -118,27 +126,27 @@
             changePage(page) {
                 this.loading = true;
 
-                if(page === 'first'){
+                if (page === 'first') {
                     this.page = 1;
                 }
 
-                else if(page === 'backwardBy2') {
+                else if (page === 'backwardBy2') {
                     this.page -= 2;
                 }
 
-                else if(page === 'backward') {
+                else if (page === 'backward') {
                     this.page -= 1;
                 }
 
-                else if(page === 'forward') {
+                else if (page === 'forward') {
                     this.page += 1;
                 }
 
-                else if(page === 'forwardBy2') {
+                else if (page === 'forwardBy2') {
                     this.page += 2;
                 }
 
-                else if(page === 'last') {
+                else if (page === 'last') {
                     this.page = this.meta.last_page;
                 }
 
@@ -152,17 +160,16 @@
                 this.retrieveRecords();
             },
 
-            advancedSearchBegin() {
-                this.page = 1;
-                this.progressBarCount += 1;
-                this.data_retrieved = false;
-            },
+            advancedSearching(data) {
+                this.user_settings = data.advancedSearch[0].user_settings;
+                this.min_price = data.advancedSearch[0].min_price;
+                this.max_price = data.advancedSearch[0].max_price;
 
-            advancedSearching(Response) {
-                this.records = Response.data.data;
-                this.meta = Response.data.meta;
-                this.links = Response.data.links;
-                this.data_retrieved = true;
+                this.progressBarCount += 1;
+                this.page = 1;
+                this.data_retrieved = false;
+
+                this.retrieveRecords();
             }
         }
     }
@@ -172,12 +179,6 @@
     .wrapper {
         background: linear-gradient(to right, white 50%, #f4f4f4 50%);
 
-        .fade-enter-active, .fade-leave-active {
-            transition: opacity .2s;
-        }
-        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-            opacity: 0;
-        }
 
         .claim {
             background-image: linear-gradient(rgba(67, 88, 182, 0.5), rgba(89, 124, 152, 0.5)), url("/images/advertisementsHome.jpg");
@@ -219,9 +220,5 @@
 
             position: relative;
         }
-    }
-
-    .fade {
-
     }
 </style>

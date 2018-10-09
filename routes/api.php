@@ -18,6 +18,5 @@ use Illuminate\Http\Request;
 //});
 
 //adverts
-Route::get('/announcements', 'AdvertsController@index');
+Route::post('/announcements', 'AdvertsController@index');
 Route::post('/advanced_search', 'AdvertsController@advanced_search');
-Route::get('/', 'AdvertsController@search');

@@ -57,7 +57,7 @@
                 </button>
                 <div class="collapse show" id="maximum_setting">
                     <div class="settingContent">
-                        <input min="0"  max="1000000000" id="max_price" class="textInput priceInput" type="number"
+                        <input min="0" max="1000000000" id="max_price" class="textInput priceInput" type="number"
                                name="maximum_price">
                         <label class="labelPrice" for="max_price">$</label>
                     </div>
@@ -79,15 +79,6 @@
         props: {
             searching_settings: {
                 Type: Object
-            },
-            per_page: {
-                Type: Number
-            },
-            order_by: {
-                Type: String
-            },
-            looking_for: {
-                Type: String
             }
         },
         computed: {
@@ -145,18 +136,17 @@
                     userSettings.push(options);
                 });
 
-                this.$emit('advancedSearchBegin');
+                let data = {
+                    "advancedSearch": [
+                        {
+                            "user_settings": userSettings,
+                            "min_price": document.getElementById('min_price').value,
+                            'max_price': document.getElementById('max_price').value
+                        }
+                    ]
+                };
 
-                axios.post(`/api/advanced_search`, {
-                    'per_page': this.per_page,
-                    'order_by': this.order_by,
-                    'looking_for': this.looking_for,
-                    'user_settings': userSettings,
-                    'min_price': document.getElementById('min_price').value,
-                    'max_price': document.getElementById('max_price').value
-                }).then((Response) => {
-                    this.$emit('advancedSearching', Response);
-                });
+                this.$emit('advancedSearching', data);
             },
 
             showSetting(event) {

@@ -80,6 +80,42 @@ class AdvertsController extends Controller
         return $adverts;
     }
 
+    private function advanced_searchjd($adverts, $user_settings, $min_price, $max_price) {
+
+        if ($min_price != '') {
+            $adverts = $adverts->where('price', '>', (int)$min_price);
+        }
+        if ($max_price != '') {
+            $adverts = $adverts->where('price', '<', (int)$max_price);
+        }
+
+
+        $index = 0;
+        if($user_settings == []) {
+            return $adverts;
+        }
+        //foreach option in advanced searching, frontend is rendered from that const too
+        foreach (SEARCHING_SETTING as $settingName => $setting) {
+
+            //column in database have underscore instead of space
+            $settingName = str_replace(' ', '_', $settingName);
+
+            //values are retrieved from setting.vue - data structure is indexed arrays in outer indexed array
+            $choosenSettingValues = $user_settings[$index];
+
+            //first option in advanced searching is Any - filter results only if Any is not checked and if array isnt empty
+            if($choosenSettingValues != []) {
+                if ($choosenSettingValues[0] !== "Any") {
+                    $adverts = $adverts->whereIn("$settingName", $choosenSettingValues);
+                }
+            }
+
+            $index++;
+        }
+
+        return $adverts;
+    }
+
     /**
      * Adverts retrieve
      * @param Request $request
@@ -90,12 +126,16 @@ class AdvertsController extends Controller
         $per_page = $request->get('per_page');
         $order_by = $request->get('order_by');
         $looking_for = $request->get('looking_for');
-        $adverts = $this->advert;
+        $user_settings = $request->get('user_settings');
+        $min_price = $request->get('min_price');
+        $max_price = $request->get('max_price');
 
+
+        $adverts = $this->advanced_searchjd($this->advert, $user_settings, $min_price, $max_price);
         $adverts = $this->basicSearching($adverts, $looking_for);
         $adverts = $this->sorting($adverts, $per_page, $order_by);
 
-        return AdvertResource::collection($adverts);
+       return AdvertResource::collection($adverts);
     }
 
 

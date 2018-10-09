@@ -50932,7 +50932,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f4f4f4));\n  background: linear-gradient(to right, white 50%, #f4f4f4 50%);\n}\n.wrapper .fade-enter-active[data-v-1907b3ce], .wrapper .fade-leave-active[data-v-1907b3ce] {\n    -webkit-transition: opacity .2s;\n    transition: opacity .2s;\n}\n.wrapper .fade-enter[data-v-1907b3ce], .wrapper .fade-leave-to[data-v-1907b3ce] {\n    opacity: 0;\n}\n.wrapper .claim[data-v-1907b3ce] {\n    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(67, 88, 182, 0.5)), to(rgba(89, 124, 152, 0.5))), url(\"/images/advertisementsHome.jpg\");\n    background-image: linear-gradient(rgba(67, 88, 182, 0.5), rgba(89, 124, 152, 0.5)), url(\"/images/advertisementsHome.jpg\");\n    background-attachment: fixed;\n    background-size: cover;\n    background-position: 50%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    height: 45vh;\n    color: white;\n    font-weight: 500;\n    font-family: \"Roboto\", sans-serif;\n    padding-top: 5%;\n    padding-left: 8%;\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      font-size: 64px;\n}\n@media (max-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          padding-top: 20px;\n          font-size: 52px;\n}\n}\n@media (min-width: 768px) {\n.wrapper .claim[data-v-1907b3ce] {\n        height: 35vh;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n}\n.wrapper .announcements[data-v-1907b3ce] {\n    background: #f4f4f4;\n    padding-top: 50px;\n    position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .announcements[data-v-1907b3ce] {\n        width: 75%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f4f4f4));\n  background: linear-gradient(to right, white 50%, #f4f4f4 50%);\n}\n.wrapper .claim[data-v-1907b3ce] {\n    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(67, 88, 182, 0.5)), to(rgba(89, 124, 152, 0.5))), url(\"/images/advertisementsHome.jpg\");\n    background-image: linear-gradient(rgba(67, 88, 182, 0.5), rgba(89, 124, 152, 0.5)), url(\"/images/advertisementsHome.jpg\");\n    background-attachment: fixed;\n    background-size: cover;\n    background-position: 50%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    height: 45vh;\n    color: white;\n    font-weight: 500;\n    font-family: \"Roboto\", sans-serif;\n    padding-top: 5%;\n    padding-left: 8%;\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      font-size: 64px;\n}\n@media (max-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          padding-top: 20px;\n          font-size: 52px;\n}\n}\n@media (min-width: 768px) {\n.wrapper .claim[data-v-1907b3ce] {\n        height: 35vh;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n}\n.wrapper .announcements[data-v-1907b3ce] {\n    background: #f4f4f4;\n    padding-top: 50px;\n    position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .announcements[data-v-1907b3ce] {\n        width: 75%;\n}\n}\n", ""]);
 
 // exports
 
@@ -50951,6 +50951,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__announcementsList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__announcementsList_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_progressBar_vue__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_progressBar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__app_progressBar_vue__);
+//
+//
+//
 //
 //
 //
@@ -51015,7 +51018,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             links: {},
             page: 1,
             looking_for: '',
-            progressBarCount: 0
+            progressBarCount: 0,
+            user_settings: [],
+            min_price: '',
+            max_price: ''
         };
     },
     mounted: function mounted() {
@@ -51030,7 +51036,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var scroll = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
-            axios.get('/api/announcements?per_page=' + this.per_page + '&order_by=' + this.sort_by + '&page=' + this.page + '&looking_for=' + this.looking_for).then(function (Response) {
+            axios.post('/api/announcements', {
+                'per_page': this.per_page,
+                'order_by': this.sort_by,
+                'page': this.page,
+                'looking_for': this.looking_for,
+                'user_settings': this.user_settings,
+                'min_price': this.min_price,
+                'max_price': this.max_price
+            }).then(function (Response) {
                 _this.records = Response.data.data;
                 _this.meta = Response.data.meta;
                 _this.links = Response.data.links;
@@ -51057,13 +51071,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.progressBarCount += 1;
             this.page = 1;
             this.data_retrieved = false;
-            this.retrieveRecords();
-        },
-        finishedLoading: function finishedLoading() {
-            this.data_retrieved = false;
-            this.loading = false;
 
-            console.log('xd');
+            this.retrieveRecords();
         },
 
 
@@ -51096,16 +51105,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.loading = true;
             this.retrieveRecords();
         },
-        advancedSearchBegin: function advancedSearchBegin() {
-            this.page = 1;
+        advancedSearching: function advancedSearching(data) {
+            this.user_settings = data.advancedSearch[0].user_settings;
+            this.min_price = data.advancedSearch[0].min_price;
+            this.max_price = data.advancedSearch[0].max_price;
+
             this.progressBarCount += 1;
+            this.page = 1;
             this.data_retrieved = false;
-        },
-        advancedSearching: function advancedSearching(Response) {
-            this.records = Response.data.data;
-            this.meta = Response.data.meta;
-            this.links = Response.data.links;
-            this.data_retrieved = true;
+
+            this.retrieveRecords();
         }
     }
 });
@@ -51544,15 +51553,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: {
         searching_settings: {
             Type: Object
-        },
-        per_page: {
-            Type: Number
-        },
-        order_by: {
-            Type: String
-        },
-        looking_for: {
-            Type: String
         }
     },
     computed: {
@@ -51591,8 +51591,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         submitMethod: function submitMethod(event) {
-            var _this = this;
-
             event.preventDefault();
 
             //outer options array will be covered with single option arrays
@@ -51612,18 +51610,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 userSettings.push(options);
             });
 
-            this.$emit('advancedSearchBegin');
+            var data = {
+                "advancedSearch": [{
+                    "user_settings": userSettings,
+                    "min_price": document.getElementById('min_price').value,
+                    'max_price': document.getElementById('max_price').value
+                }]
+            };
 
-            axios.post("/api/advanced_search", {
-                'per_page': this.per_page,
-                'order_by': this.order_by,
-                'looking_for': this.looking_for,
-                'user_settings': userSettings,
-                'min_price': document.getElementById('min_price').value,
-                'max_price': document.getElementById('max_price').value
-            }).then(function (Response) {
-                _this.$emit('advancedSearching', Response);
-            });
+            this.$emit('advancedSearching', data);
         },
         showSetting: function showSetting(event) {
             var innerHTML = event.target.innerHTML;
@@ -52576,8 +52571,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         configurePages: function configurePages() {
 
-            //if no records
-            if (this.meta.from === null) {
+            //if no records or 1 page
+            if (this.meta.from === null || this.meta.last_page === 1) {
                 this.nothingHere = true;
                 this.visible.first = false;
                 this.visible.backwardBy2 = false;
@@ -53079,7 +53074,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.progressBar[data-v-9d666786] {\n  position: fixed;\n  width: 100%;\n  background: #eeeeee;\n  height: 3px;\n  top: 0;\n  left: 0;\n  z-index: 1002;\n}\n.progressBar #progress[data-v-9d666786] {\n    width: 0;\n    background: #ff4853;\n    height: 3px;\n    border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active[data-v-9d666786], .fade-leave-active[data-v-9d666786] {\n  -webkit-transition: opacity .2s;\n  transition: opacity .2s;\n}\n.fade-enter[data-v-9d666786], .fade-leave-to[data-v-9d666786] {\n  opacity: 0;\n}\n.progressBar[data-v-9d666786] {\n  position: fixed;\n  width: 100%;\n  background: #eeeeee;\n  height: 3px;\n  top: 0;\n  left: 0;\n  z-index: 1002;\n}\n.progressBar #progress[data-v-9d666786] {\n    width: 0;\n    background: #ff4853;\n    height: 3px;\n    border-radius: 5px;\n}\n", ""]);
 
 // exports
 
@@ -53090,6 +53085,8 @@ exports.push([module.i, "\n.progressBar[data-v-9d666786] {\n  position: fixed;\n
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -53145,17 +53142,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 var progressWidth = progressBar.offsetWidth + initialIncrement;
                 var progressSecondWidth = progressBar.offsetWidth + secondIncrement;
+
                 //initial load
                 if (progressWidth < firstCheckpoint) {
                     progressBar.style.width = progressWidth + 'px';
                 } else if (progressWidth > firstCheckpoint && progressWidth < secondCheckpoint) {
                     progressBar.style.width = progressSecondWidth + 'px';
                 }
+
                 //after data is retrieved faster loading
                 if (_this.data_retrieved === true) {
                     progressWidth += afterLoadIncrement;
                     progressBar.style.width = progressWidth + 'px';
                 }
+
                 //stop if finished
                 if (progressWidth >= window.innerWidth) {
                     var index = _this.progressBarQueue.indexOf(_progressBarCount);
@@ -53175,11 +53175,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.progressBarQueue.includes(_vm.progressBarNumber)
-    ? _c("div", { staticClass: "progressBar" }, [
-        _c("div", { attrs: { id: "progress" } })
-      ])
-    : _vm._e()
+  return _c("transition", { attrs: { name: "fade" } }, [
+    _vm.progressBarQueue.includes(_vm.progressBarNumber)
+      ? _c("div", { staticClass: "progressBar" }, [
+          _c("div", { attrs: { id: "progress" } })
+        ])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -53203,20 +53205,12 @@ var render = function() {
     "div",
     { staticClass: "wrapper" },
     [
-      _c(
-        "transition",
-        { attrs: { name: "fade" } },
-        [
-          _c("progress-bar", {
-            attrs: {
-              progressBarCount: _vm.progressBarCount,
-              data_retrieved: _vm.data_retrieved
-            },
-            on: { finishedLoading: _vm.finishedLoading }
-          })
-        ],
-        1
-      ),
+      _c("progress-bar", {
+        attrs: {
+          progressBarCount: _vm.progressBarCount,
+          data_retrieved: _vm.data_retrieved
+        }
+      }),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
@@ -53225,17 +53219,11 @@ var render = function() {
         { staticClass: "main" },
         [
           _c("settings", {
-            attrs: {
-              per_page: _vm.per_page,
-              order_by: _vm.sort_by,
-              looking_for: _vm.looking_for,
-              searching_settings: _vm.searching_settings
-            },
+            attrs: { searching_settings: _vm.searching_settings },
             on: {
               advancedSearching: function($event) {
                 _vm.advancedSearching($event)
               },
-              advancedSearchBegin: _vm.advancedSearchBegin,
               basicSearching: function($event) {
                 _vm.basicSearching($event)
               }
