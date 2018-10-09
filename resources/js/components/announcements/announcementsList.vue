@@ -2,14 +2,14 @@
     <section>
         <transition name="fade">
             <div :class="{listView: view_type === 'list', gridView: view_type ==='grid'}">
-                <div class="announcement" v-for="record in records">
+                <div @click="hrefAdvert(record.id)" class="announcement" v-for="record in records">
 
                     <div class="imageContainer">
                         <img class="image" src="/images/cars/teslas.jpg">
                     </div>
 
                     <div class="info">
-                        <a class="hrefTitle" :href="'/advert/' + record.id">
+                        <a :href="'/advert/' + record.id">
                             <h5 class="title">{{ record.title }}</h5>
                         </a>
                         <span class="subtitle">Year</span> {{ record.year }}
@@ -21,9 +21,11 @@
                     <div class="utilities">
                         <span class="price">${{ record.price }}</span>
                         <div class="utility">
-                            <i class="icon-phone"></i>{{ record.contact_number }}1
+                            <span class="subtitle">
+                            Condition:
+                            </span>Used
                         </div>
-                        <div class="utility">
+                        <div class="utility" title="Date of addition">
                             <i class="icon-calendar"></i>{{ record.date.slice(0,10) }}
                         </div>
                     </div>
@@ -60,6 +62,9 @@
         methods: {
             changePage(page) {
                 this.$emit('changePage', page);
+            },
+            hrefAdvert(advert_id){
+                window.location.href= `/advert/${advert_id}`;
             }
         }
     }
@@ -70,11 +75,11 @@
         padding: 2.5% 2.5% 2.5% 3.5%;
 
         .announcement {
-            box-shadow: 0 2px 6px #e5e8eb;
+            box-shadow: 0 2px 6px #e1e1e1;
             width: 100%;
             margin-bottom: 20px;
             background: white;
-            border-radius: 4px;
+            border-radius: 2px;
             transition: background-color .2s ease-in-out;
 
             @media(min-width: 768px) {
@@ -109,13 +114,6 @@
 
                 padding: 20px;
                 color: #444444;
-
-                .subtitle {
-                    color: #777777;
-                    text-transform: uppercase;
-                    font-size: 12px;
-                    padding-right: 5px;
-                }
 
                 .description {
                     display: block;
@@ -180,7 +178,7 @@
             background: white;
             box-shadow: 0 1px 2px #dddddd;
             margin: 1.5%;
-            border-radius: 4px;
+            border-radius: 2px;
 
             .imageContainer {
 
@@ -198,12 +196,6 @@
                     padding: 20px;
                 }
 
-                .subtitle {
-                    color: #777777;
-                    text-transform: uppercase;
-                    font-size: 12px;
-                    padding-right: 5px;
-                }
 
                 .description {
                     display: block;
@@ -231,15 +223,14 @@
 
     .price {
         display: block;
-        font-weight: 700;
-        font-size: 18px;
+        font-weight: 500;
+        font-size: 20px;
         text-align: center;
         padding: 0 10px 10px 10px;
         margin-bottom: 20px;
         // background: #ff667d;
         border-bottom: 1px solid #efefef;
-        color: white;
-        color: #ff667d;
+        color: #3a4e58;
         border-radius: 4px;
 
         @media(min-width: 476px) {
@@ -248,12 +239,14 @@
     }
 
     .utility {
-        background: #728aa0;
+        //background: #d55a71;
+        border-bottom:  1px solid #f4d6de;
         width: 100%;
-        color: white;
+        color: black;
         padding: 5px;
-        border-radius: 4px;
+        border-radius: 3px;
         margin-bottom: 10px;
+
 
         .icon-phone {
             margin-right: 2px;
@@ -265,8 +258,15 @@
     }
 
     .utility:last-child {
-        color: white;
-        background: #4169e5 !important;
+        margin-top: 15px;
+        border-bottom:  1px solid #c0c6d7;
+    }
+
+    .subtitle {
+        color: #777777;
+        text-transform: uppercase;
+        font-size: 12px;
+        padding-right: 5px;
     }
 
     .fade-enter-active {

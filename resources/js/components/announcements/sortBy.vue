@@ -68,7 +68,8 @@
         position: relative;
         padding: 20px;
         background: white;
-        border-radius: 5px;
+        border-radius: 2px;
+        box-shadow: 0 2px 6px #e1e1e1;
 
         @media(min-width: 1000px) {
             margin-left: 15px;
