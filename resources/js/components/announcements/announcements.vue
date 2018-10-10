@@ -59,7 +59,6 @@
                 records: [],
                 per_page: 12,
                 sort_by: 'newest',
-                loading: true,
                 data_retrieved: false,
                 meta: {},
                 links: {},
@@ -68,7 +67,7 @@
                 progressBarCount: 0,
                 user_settings: [],
                 min_price: '',
-                max_price: ''
+                max_price: '',
             }
         },
         mounted() {
@@ -78,6 +77,10 @@
         methods: {
             //retrieve adverts from db
             retrieveRecords(scroll = false) {
+
+                this.data_retrieved = false;
+                this.progressBarCount += 1;
+
                 axios.post(`/api/announcements`, {
                     'per_page': this.per_page,
                     'order_by': this.sort_by,
@@ -111,9 +114,7 @@
             //parent method for choosing sorting type and how much adverts display by page
             sorting() {
                 //this.loading = true;
-                this.progressBarCount += 1;
                 this.page = 1;
-                this.data_retrieved = false;
 
                 this.retrieveRecords();
             },
@@ -156,7 +157,6 @@
             basicSearching(looking_for) {
                 this.looking_for = looking_for;
                 this.page = 1;
-                this.loading = true;
                 this.retrieveRecords();
             },
 
@@ -165,9 +165,7 @@
                 this.min_price = data.advancedSearch[0].min_price;
                 this.max_price = data.advancedSearch[0].max_price;
 
-                this.progressBarCount += 1;
                 this.page = 1;
-                this.data_retrieved = false;
 
                 this.retrieveRecords();
             }

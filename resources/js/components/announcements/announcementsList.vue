@@ -21,9 +21,9 @@
                     <div class="utilities">
                         <span class="price">${{ record.price }}</span>
                         <div class="utility">
-                            <span class="subtitle">
-                            Condition:
-                            </span>Used
+                        <span class="subtitle">
+                        Condition:
+                        </span>Used
                         </div>
                         <div class="utility" title="Date of addition">
                             <i class="icon-calendar"></i>{{ record.date.slice(0,10) }}
@@ -63,21 +63,31 @@
             changePage(page) {
                 this.$emit('changePage', page);
             },
-            hrefAdvert(advert_id){
-                window.location.href= `/advert/${advert_id}`;
+            hrefAdvert(advert_id) {
+                window.location.href = `/advert/${advert_id}`;
             }
         }
     }
 </script>
 
 <style lang="scss" scoped>
+
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .2s;
+    }
+
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+    {
+        opacity: 0;
+    }
+
     .listView {
-        padding: 2.5% 2.5% 2.5% 3.5%;
+        padding: 2% 2.5% 1% 3.5%;
 
         .announcement {
-            box-shadow: 0 2px 6px #e1e1e1;
+            border: 1px solid #ededed;
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             background: white;
             border-radius: 2px;
             transition: background-color .2s ease-in-out;
@@ -133,7 +143,6 @@
                 font-size: 12px;
                 color: #444;
 
-
                 .utility {
                     @media(min-width: 476px) and (max-width: 759.99px) {
                         width: 70%;
@@ -141,7 +150,6 @@
                         margin-right: auto;
                     }
                 }
-
 
                 @media(max-width: 768px) {
                     .icon-mail {
@@ -176,7 +184,7 @@
             }
 
             background: white;
-            box-shadow: 0 1px 2px #dddddd;
+            border: 1px solid #ededed;
             margin: 1.5%;
             border-radius: 2px;
 
@@ -196,7 +204,6 @@
                     padding: 20px;
                 }
 
-
                 .description {
                     display: block;
                     font-size: 12px;
@@ -208,13 +215,15 @@
                 padding: 0 15px 15px 15px;
                 word-wrap: break-word;
 
-
             }
         }
     }
 
     .title {
-        color: #737477;
+        //color: #737477;
+        color: #444345;
+        font-size: 18px;
+        font-family: "Overpass", sans-serif;
     }
 
     .title:hover {
@@ -228,7 +237,6 @@
         text-align: center;
         padding: 0 10px 10px 10px;
         margin-bottom: 20px;
-        // background: #ff667d;
         border-bottom: 1px solid #efefef;
         color: #3a4e58;
         border-radius: 4px;
@@ -240,13 +248,12 @@
 
     .utility {
         //background: #d55a71;
-        border-bottom:  1px solid #f4d6de;
+        border-bottom: 1px solid #f4d6de;
         width: 100%;
         color: black;
         padding: 5px;
         border-radius: 3px;
         margin-bottom: 10px;
-
 
         .icon-phone {
             margin-right: 2px;
@@ -259,7 +266,7 @@
 
     .utility:last-child {
         margin-top: 15px;
-        border-bottom:  1px solid #c0c6d7;
+        border-bottom: 1px solid #c0c6d7;
     }
 
     .subtitle {

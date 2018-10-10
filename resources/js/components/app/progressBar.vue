@@ -1,6 +1,6 @@
 <template>
     <transition name="fade">
-        <div v-if="progressBarQueue.includes(progressBarNumber)" class="progressBar">
+        <div v-if="progressBarQueue.indexOf(progressBarNumber) >= 0" class="progressBar">
             <div id="progress"></div>
         </div>
     </transition>
@@ -34,6 +34,7 @@
                     this.progressBarQueue.splice(indexOfBefore, 1);
                 }
 
+                //add new one
                 this.progressBarNumber = progressBarCount;
                 this.progressBarQueue.push(progressBarCount);
 
