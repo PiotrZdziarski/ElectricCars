@@ -82,7 +82,12 @@
     }
 
     .listView {
-        padding: 2% 2.5% 1% 3.5%;
+
+        padding: 2% 15px 1% 15px;
+        margin-bottom: 30px;
+        @media(min-width: 1000px) {
+            padding: 2% 2.5% 1% 3.5%;
+        }
 
         .announcement {
             border: 1px solid #ededed;
@@ -106,10 +111,6 @@
                 @media(min-width: 768px) {
                     padding-left: 15px;
                 }
-                /*background-image: url("/images/cars/nissanleaf.jpg");*/
-                /*background-size: cover;*/
-                /*background-position: 50%;*/
-                /*min-height: 150px;*/
 
                 .image {
                     width: 100%;
@@ -137,7 +138,12 @@
                 @media(min-width: 768px) {
                     width: 18%;
                 }
-                padding: 15px;
+
+                padding: 0 15px 15px 15px;
+
+                @media(min-width: 476px) {
+                    padding: 15px;
+                }
                 word-wrap: break-word;
                 position: relative;
                 font-size: 12px;
@@ -160,7 +166,8 @@
         }
 
         .announcement:hover {
-            background: #f1f1f1 !important;
+            background: #f1f1f1;
+            border: 1px solid #e1e1e1;
             cursor: pointer;
         }
     }
@@ -170,10 +177,13 @@
         width: 100%;
         flex-wrap: wrap;
         position: relative;
-        padding: 1% 1% 1% 2%;
+        @media(min-width: 1000px) {
+            padding: 1% 15px 1% 15px;
+        }
         margin-bottom: 50px;
 
         .announcement {
+            margin: 2.25%;
 
             @media(min-width: 476px) {
                 width: 45.5%;
@@ -181,11 +191,11 @@
 
             @media(min-width: 768px) {
                 width: 30.33%;
+                margin: 1.5%;
             }
 
             background: white;
             border: 1px solid #ededed;
-            margin: 1.5%;
             border-radius: 2px;
 
             .imageContainer {
@@ -197,12 +207,8 @@
             }
 
             .info {
-                padding: 20px 20px 0 20px;
+                padding: 20px;
                 color: #444444;
-
-                @media(min-width: 476px) {
-                    padding: 20px;
-                }
 
                 .description {
                     display: block;

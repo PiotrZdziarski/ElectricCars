@@ -98,6 +98,10 @@
                         document.getElementById('announcements').scrollIntoView();
                     }
                     this.data_retrieved = true;
+                }).catch(error => {
+                    if(error.response.status === 429) {
+                        alert(error.response.statusText + '. Wait 15 seconds and then try again.');
+                    }
                 });
             },
 
@@ -125,7 +129,6 @@
             },
 
             changePage(page) {
-                this.loading = true;
 
                 if (page === 'first') {
                     this.page = 1;
@@ -191,12 +194,13 @@
             font-family: "Roboto", sans-serif;
             padding-top: 5%;
             padding-left: 8%;
+            padding-right: 8%;
 
             .mainTitle {
-                font-size: 64px;
+                font-size: 50px;
                 @media(max-width: 476px) {
                     padding-top: 20px;
-                    font-size: 52px;
+                    font-size: 42px;
                 }
             }
 

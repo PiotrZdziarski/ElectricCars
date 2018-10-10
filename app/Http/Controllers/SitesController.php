@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Advert;
+use App\Http\Resources\AdvertResource;
 
 class SitesController extends Controller
 {

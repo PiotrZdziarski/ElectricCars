@@ -2,7 +2,7 @@
     <section>
         <div class="claim">
             <div class="mainTitle">
-                <h1 class="mainTitle">Certified 2016 Porsche  eqwij eqiw eoiqwje oiqw jeoiqwj eoiqwj eoqiCayenne 2017 ctz 8g</h1>
+                <h1 class="mainTitle">{{ this.advertJSON.title }}</h1>
                 <h4 class="subTitle">
                     <a class="advertsHref" href="/adverts">
                         <i class="icon-undo"></i>
@@ -154,6 +154,25 @@
         name: "announcement",
         components: {
             carouselAnnouncement: carouselAnnouncement
+        },
+        props: {
+            advert: {
+                Type: Object
+            }
+        },
+        computed: {
+            advert_to_json: function() {
+                return JSON.parse(this.advert);
+            }
+        },
+        data() {
+            return {
+                advertJSON: {}
+            }
+        },
+        mounted() {
+            this.advertJSON = this.advert_to_json;
+            console.log(this.advertJSON);
         }
     }
 </script>
@@ -164,12 +183,12 @@
         background-attachment: fixed;
         background-size: cover;
         background-position: 50%;
-        height: 60vh;
+        min-height: 60vh;
         display: flex;
         align-items: center;
         color: white;
         font-family: "Roboto", sans-serif;
-        padding-top: 5%;
+        padding-top: 10%;
         @media(min-width: 768px) {
             height: 50vh;
             padding-left: 5%;
