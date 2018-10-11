@@ -138,4 +138,18 @@ class AdvertsController extends Controller
        return AdvertResource::collection($adverts);
     }
 
+
+    /**
+     * Single advert page
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function advert($id) {
+
+        $advert = $this->advert->find($id);
+        $features = $advert->features;
+
+        return view('sites.announcement', ['advert' => $advert, 'features' => $features]);
+    }
+
 }

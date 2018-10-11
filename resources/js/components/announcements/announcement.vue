@@ -2,7 +2,7 @@
     <section>
         <div class="claim">
             <div class="mainTitle">
-                <h1 class="mainTitle">{{ this.advertJSON.title }}</h1>
+                <h1 class="mainTitle">{{ advertJSON.title }}</h1>
                 <h4 class="subTitle">
                     <a class="advertsHref" href="/adverts">
                         <i class="icon-undo"></i>
@@ -19,65 +19,139 @@
                     <h2 class="leftTitle">Vehicle details</h2>
 
                     <div class="details">
-                        <div class="detail">
+
+                        <div class="detail" v-if="advertJSON.make !== ''">
+                            <div class="detailTitle">
+                                Make
+                            </div>
+                            <div class="detailValue">
+                                {{ advertJSON.make }}
+                            </div>
+                        </div>
+
+                        <div class="detail" v-if="advertJSON.model !== ''">
+                            <div class="detailTitle">
+                                Model
+                            </div>
+                            <div class="detailValue">
+                                {{ advertJSON.model }}
+                            </div>
+                        </div>
+
+                        <div class="detail" v-if="advertJSON.condition !== ''">
+                            <div class="detailTitle">
+                                Condition
+                            </div>
+                            <div class="detailValue">
+                                {{ advertJSON.condition }}
+                            </div>
+                        </div>
+
+                        <div class="detail" v-if="advertJSON.mileage !== ''">
+                            <div class="detailTitle">
+                                Mileage
+                            </div>
+                            <div class="detailValue">
+                                {{ advertJSON.mileage }}
+                            </div>
+                        </div>
+
+                        <div class="detail" v-if="advertJSON.weight !== ''">
                             <div class="detailTitle">
                                 Weight
                             </div>
                             <div class="detailValue">
-                                1470kg
+                                {{ advertJSON.weight }} KG
                             </div>
                         </div>
 
-                        <div class="detail">
+                        <div class="detail" v-if="advertJSON.country !== ''">
                             <div class="detailTitle">
-                                Weight
+                                Country
                             </div>
                             <div class="detailValue">
-                                1470kg
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <div class="detailTitle">
-                                ENGINE
-                            </div>
-                            <div class="detailValue">
-                                3.6L V6 24V GDI DOHC Twin Turbo
+                                {{ advertJSON.country }}
                             </div>
                         </div>
 
-                        <div class="detail">
+                        <div class="detail" v-if="advertJSON.engine !== ''">
+                            <div class="detailTitle">
+                                Engine
+                            </div>
+                            <div class="detailValue">
+                                {{ advertJSON.engine }}
+                            </div>
+                        </div>
+
+                        <div class="detail" v-if="advertJSON.torque !== ''">
+                            <div class="detailTitle">
+                                Torque
+                            </div>
+                            <div class="detailValue">
+                                {{ advertJSON.torque }}
+                            </div>
+                        </div>
+
+                        <div class="detail" v-if="advertJSON.transmission !== ''">
+                            <div class="detailTitle">
+                                Transmission
+                            </div>
+                            <div class="detailValue">
+                                {{ advertJSON.transmission }}
+                            </div>
+                        </div>
+
+                        <div class="detail" v-if="advertJSON.type_of_drive !== ''">
+                            <div class="detailTitle">
+                                Type of drive
+                            </div>
+                            <div class="detailValue">
+                                {{ advertJSON.type_of_drive }}
+                            </div>
+                        </div>
+
+                        <div class="detail" v-if="advertJSON.year !== ''">
                             <div class="detailTitle">
                                 Year
                             </div>
                             <div class="detailValue">
-                                106
+                                {{ advertJSON.year }}
                             </div>
                         </div>
 
-                        <div class="detail">
+                        <div class="detail" v-if="advertJSON.number_of_seats !== ''">
                             <div class="detailTitle">
-                                Weight
+                                Number of seats
                             </div>
                             <div class="detailValue">
-                                1470kg
+                                {{ advertJSON.number_of_seats }}
                             </div>
                         </div>
 
-                        <div class="detail">
+                        <div class="detail" v-if="advertJSON.body_style !== ''">
                             <div class="detailTitle">
-                                VNS
+                                Body style
                             </div>
                             <div class="detailValue">
-                                12494283 21ob2 12bio
+                                {{ advertJSON.body_style }}
                             </div>
                         </div>
 
-                        <div class="detail">
+                        <div class="detail" v-if="advertJSON.exterior_color !== ''">
                             <div class="detailTitle">
-                                Full name
+                                Exterior Color
                             </div>
                             <div class="detailValue">
-                                23981 829 01380 Nissa Leaft
+                                {{ advertJSON.exterior_color }}
+                            </div>
+                        </div>
+
+                        <div class="detail" v-if="advertJSON.interior_color !== ''">
+                            <div class="detailTitle">
+                                Interior Color
+                            </div>
+                            <div class="detailValue">
+                                {{ advertJSON.interior_color }}
                             </div>
                         </div>
 
@@ -87,39 +161,15 @@
                     <div class="sellerComment">
                         <h2 class="leftTitle">Seller comment</h2>
                         <p>
-                            Nulla venenatis. In pede mi, aliquet sit amet, euismod in,auctor ut, ligula. Aliquam dapibus
-                            tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac,
-                            lorem.
-                            Vestibulum sed ante. Donec sagittis euismod purus. Sed ut perspiciatis unde omnis iste natus
-                            error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-                            ab
-                            illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                            ipsam
-                            voluptatem quia voluptas sit aspernatur.
+                            {{ advertJSON.description }}
                         </p>
                     </div>
 
                     <div class="features">
                         <h2 class="leftTitle">Features</h2>
                         <ul>
-                            <li>
-                                <span>Twoja Stara pijana</span>
-                            </li>
-
-                            <li>
-                                <span>Twoja Stara pijana</span>
-                            </li>
-
-                            <li>
-                                <span>Twoja Stara pijana</span>
-                            </li>
-
-                            <li>
-                                <span>Twoja Stara pijana</span>
-                            </li>
-
-                            <li>
-                                <span>Twoja Stara pijana</span>
+                            <li v-for="feature in featuresJSON">
+                                <span>{{ feature.feature }}</span>
                             </li>
                         </ul>
                     </div>
@@ -158,21 +208,30 @@
         props: {
             advert: {
                 Type: Object
+            },
+            features: {
+                Type: Object
             }
         },
         computed: {
             advert_to_json: function() {
                 return JSON.parse(this.advert);
+            },
+            features_to_json: function () {
+                return JSON.parse(this.features);
             }
         },
         data() {
             return {
-                advertJSON: {}
+                advertJSON: {},
+                featuresJSON: {},
             }
         },
         mounted() {
             this.advertJSON = this.advert_to_json;
-            console.log(this.advertJSON);
+            this.featuresJSON = this.features_to_json;
+
+            console.log(this.featuresJSON);
         }
     }
 </script>
@@ -188,9 +247,9 @@
         align-items: center;
         color: white;
         font-family: "Roboto", sans-serif;
-        padding-top: 10%;
+        padding-top: 5%;
         @media(min-width: 768px) {
-            height: 50vh;
+            min-height: 40vh;
             padding-left: 5%;
         }
 
@@ -218,13 +277,11 @@
     }
 
     .borderLine {
-        margin-top: 10vh;
         width: 100%;
         height: 1px;
         background: #ddd;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 5vh;
+
+        margin: 10vh auto 5vh auto;
 
         @media(min-width: 768px) {
             width: 740px;
@@ -247,19 +304,21 @@
         }
 
         @media(min-width: 1000px) {
-            padding: 5px;
+            width: 100%;
+            padding: 2%;
         }
 
         .mainContent {
-            margin-bottom: 100px;
             width: 100%;
             @media(min-width: 1000px) {
                 display: flex;
             }
 
             .left {
+                padding-bottom: 100px;
                 @media(min-width: 1000px) {
                     width: 70%;
+                    padding: 0 30px 100px 30px;
                 }
 
                 .details {
@@ -308,12 +367,12 @@
 
             .right {
                 background: #f3f3f3;
+                padding: 15px 5px 100px 5px;
+
                 @media(min-width: 1000px) {
                     width: 30%;
+                    padding: 15px 15px 100px 15px;
                 }
-                margin-left: 15px;
-                margin-right: 15px;
-                padding: 15px;
 
                 .price {
                     display: flex;

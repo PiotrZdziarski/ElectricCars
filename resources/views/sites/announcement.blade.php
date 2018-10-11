@@ -6,9 +6,9 @@
 @endsection
 
 @section('specialStyles')
-    <link href="{{asset('css/jquery.fancybox.min.css')}}" defer rel="stylesheet">
+    <link href="{{asset('css/jquery.fancybox.min.css')}}" rel="stylesheet">
 @endsection
 
 @section('content')
-    <announcement advert="{{$advert}}"></announcement>
+    <announcement features="{{$features}}" advert="{{$advert}}"></announcement>
 @endsection

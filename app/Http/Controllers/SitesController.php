@@ -31,16 +31,5 @@ class SitesController extends Controller
     }
 
 
-    /**
-     * Single advert page
-     * @param $id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function advert($id) {
-
-        $advert = Advert::find($id);
-
-        return view('sites.announcement', ['advert' => $advert]);
-    }
 
 }
