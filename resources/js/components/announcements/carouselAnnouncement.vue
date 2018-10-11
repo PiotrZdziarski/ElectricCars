@@ -5,30 +5,30 @@
                 <div  class="carousel-inner imageContainer">
                     <div id="slide1" class="carousel-item active">
                         <div class="carouselItemContainer">
-                            <a data-fancybox="gallery" href="/images/cars/nissanleaf.jpg">
+                            <a class="fancy-box-gallery" data-fancybox="gallery" href="/images/cars/nissanleaf.jpg">
                             <img class="image" src="/images/cars/nissanleaf.jpg">
                             </a>
                         </div>
                     </div>
                     <div id="slide2" class="carousel-item ">
                         <div class="carouselItemContainer">
-                            <a data-fancybox="gallery" href="/images/cars/bmwi3.jpg">
+                            <a class="fancy-box-gallery" data-fancybox="gallery" href="/images/cars/nissanleaf.jpg">
                             <img class="image" src="/images/cars/bmwi3.jpg">
                             </a>
                         </div>
                     </div>
                     <div id="slide3" class="carousel-item  ">
                         <div class="carouselItemContainer">
-                            <div>
+                            <a class="fancy-box-gallery" data-fancybox="gallery" href="/images/cars/nissanleaf.jpg">
                             <img class="image" src="/images/cars/teslas.jpg">
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div id="slide3" class="carousel-item">
                         <div class="carouselItemContainer">
-                            <div>
+                            <a class="fancy-box-gallery" data-fancybox="gallery" href="/images/cars/nissanleaf.jpg">
                             <img class="image" src="/images/cars/carvertical.jpg">
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -78,24 +78,32 @@
 
     .carouselAnnouncement {
         width: 100%;
-        padding: 5px;
+        padding: 0 5px 5px 5px;
 
         .imageContainer {
             background: #f1f1f1;
-            height: 400px;
+            height: 50vh;
             position: relative;
 
             .carouselItemContainer {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 400px;
+                position: relative;
+                height: 50vh;
+            }
+            .fancy-box-gallery {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50vh;
+                .image {
+                    max-height: 100%;
+                    max-width: 100%;
+                }
             }
 
-            .image {
-                max-width: 100%;
-                max-height: 100%;
-            }
         }
 
         .carousel-control-next {

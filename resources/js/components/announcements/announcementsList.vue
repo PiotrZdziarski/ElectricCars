@@ -226,14 +226,9 @@
     }
 
     .title {
-        //color: #737477;
-        color: #444345;
+        color: #3a3e45;
         font-size: 18px;
         font-family: "Overpass", sans-serif;
-    }
-
-    .title:hover {
-        color: #717174;
     }
 
     .price {
@@ -253,7 +248,6 @@
     }
 
     .utility {
-        //background: #d55a71;
         border-bottom: 1px solid #f4d6de;
         width: 100%;
         color: black;

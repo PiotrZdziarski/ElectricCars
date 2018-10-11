@@ -50932,7 +50932,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f4f4f4));\n  background: linear-gradient(to right, white 50%, #f4f4f4 50%);\n}\n.wrapper .claim[data-v-1907b3ce] {\n    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(67, 88, 182, 0.5)), to(rgba(89, 124, 152, 0.5))), url(\"/images/advertisementsHome.jpg\");\n    background-image: linear-gradient(rgba(67, 88, 182, 0.5), rgba(89, 124, 152, 0.5)), url(\"/images/advertisementsHome.jpg\");\n    background-attachment: fixed;\n    background-size: cover;\n    background-position: 50%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    height: 45vh;\n    color: white;\n    font-weight: 500;\n    font-family: \"Roboto\", sans-serif;\n    padding-top: 5%;\n    padding-left: 8%;\n    padding-right: 8%;\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      font-size: 50px;\n}\n@media (max-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          padding-top: 20px;\n          font-size: 42px;\n}\n}\n@media (min-width: 768px) {\n.wrapper .claim[data-v-1907b3ce] {\n        height: 35vh;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n}\n.wrapper .announcements[data-v-1907b3ce] {\n    background: #f4f4f4;\n    padding-top: 50px;\n    position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .announcements[data-v-1907b3ce] {\n        width: 75%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.wrapper[data-v-1907b3ce] {\n  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, #f4f4f4));\n  background: linear-gradient(to right, white 50%, #f4f4f4 50%);\n}\n.wrapper .claim[data-v-1907b3ce] {\n    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(74, 79, 94, 0.5)), to(rgba(68, 84, 97, 0.5))), url(\"/images/advertisementsHome.jpg\");\n    background-image: linear-gradient(rgba(74, 79, 94, 0.5), rgba(68, 84, 97, 0.5)), url(\"/images/advertisementsHome.jpg\");\n    background-attachment: fixed;\n    background-size: cover;\n    background-position: 50%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    height: 45vh;\n    color: white;\n    font-weight: 500;\n    font-family: \"Roboto\", sans-serif;\n    padding-top: 5%;\n    padding-left: 8%;\n    padding-right: 8%;\n}\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n      font-size: 50px;\n}\n@media (max-width: 476px) {\n.wrapper .claim .mainTitle[data-v-1907b3ce] {\n          padding-top: 20px;\n          font-size: 42px;\n}\n}\n@media (min-width: 768px) {\n.wrapper .claim[data-v-1907b3ce] {\n        height: 35vh;\n}\n}\n.wrapper .claim .subTitle[data-v-1907b3ce] {\n      color: #dddddd;\n}\n.wrapper .announcements[data-v-1907b3ce] {\n    background: #f4f4f4;\n    padding-top: 50px;\n    position: relative;\n}\n@media (min-width: 1000px) {\n.wrapper .announcements[data-v-1907b3ce] {\n        width: 75%;\n}\n}\n", ""]);
 
 // exports
 
@@ -52346,7 +52346,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active[data-v-c50082e8], .fade-leave-active[data-v-c50082e8] {\n  -webkit-transition: opacity .2s;\n  transition: opacity .2s;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n.listView[data-v-c50082e8] {\n  padding: 2% 15px 1% 15px;\n  margin-bottom: 30px;\n}\n@media (min-width: 1000px) {\n.listView[data-v-c50082e8] {\n      padding: 2% 2.5% 1% 3.5%;\n}\n}\n.listView .announcement[data-v-c50082e8] {\n    border: 1px solid #ededed;\n    width: 100%;\n    margin-bottom: 15px;\n    background: white;\n    border-radius: 2px;\n    -webkit-transition: background-color .2s ease-in-out;\n    transition: background-color .2s ease-in-out;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          padding-left: 15px;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 2px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        color: #777;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n      position: relative;\n      font-size: 12px;\n      color: #444;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (min-width: 476px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          padding: 15px;\n}\n}\n@media (min-width: 476px) and (max-width: 759.99px) {\n.listView .announcement .utilities .utility[data-v-c50082e8] {\n          width: 70%;\n          margin-left: auto;\n          margin-right: auto;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.listView .announcement[data-v-c50082e8]:hover {\n    background: #f1f1f1;\n    border: 1px solid #e1e1e1;\n    cursor: pointer;\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  margin-bottom: 50px;\n}\n@media (min-width: 1000px) {\n.gridView[data-v-c50082e8] {\n      padding: 1% 15px 1% 15px;\n}\n}\n.gridView .announcement[data-v-c50082e8] {\n    margin: 2.25%;\n    background: white;\n    border: 1px solid #ededed;\n    border-radius: 2px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n        margin: 1.5%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.title[data-v-c50082e8] {\n  color: #444345;\n  font-size: 18px;\n  font-family: \"Overpass\", sans-serif;\n}\n.title[data-v-c50082e8]:hover {\n  color: #717174;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  font-weight: 500;\n  font-size: 20px;\n  text-align: center;\n  padding: 0 10px 10px 10px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #efefef;\n  color: #3a4e58;\n  border-radius: 4px;\n}\n@media (min-width: 476px) {\n.price[data-v-c50082e8] {\n      padding: 10px;\n}\n}\n.utility[data-v-c50082e8] {\n  border-bottom: 1px solid #f4d6de;\n  width: 100%;\n  color: black;\n  padding: 5px;\n  border-radius: 3px;\n  margin-bottom: 10px;\n}\n.utility .icon-phone[data-v-c50082e8] {\n    margin-right: 2px;\n}\n.utility .icon-calendar[data-v-c50082e8] {\n    margin-right: 4px;\n}\n.utility[data-v-c50082e8]:last-child {\n  margin-top: 15px;\n  border-bottom: 1px solid #c0c6d7;\n}\n.subtitle[data-v-c50082e8] {\n  color: #777777;\n  text-transform: uppercase;\n  font-size: 12px;\n  padding-right: 5px;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active[data-v-c50082e8], .fade-leave-active[data-v-c50082e8] {\n  -webkit-transition: opacity .2s;\n  transition: opacity .2s;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n.listView[data-v-c50082e8] {\n  padding: 2% 15px 1% 15px;\n  margin-bottom: 30px;\n}\n@media (min-width: 1000px) {\n.listView[data-v-c50082e8] {\n      padding: 2% 2.5% 1% 3.5%;\n}\n}\n.listView .announcement[data-v-c50082e8] {\n    border: 1px solid #ededed;\n    width: 100%;\n    margin-bottom: 15px;\n    background: white;\n    border-radius: 2px;\n    -webkit-transition: background-color .2s ease-in-out;\n    transition: background-color .2s ease-in-out;\n}\n@media (min-width: 768px) {\n.listView .announcement[data-v-c50082e8] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.listView .announcement .imageContainer[data-v-c50082e8] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          width: 42%;\n}\n}\n@media (min-width: 768px) {\n.listView .announcement .imageContainer[data-v-c50082e8] {\n          padding-left: 15px;\n}\n}\n.listView .announcement .imageContainer .image[data-v-c50082e8] {\n        width: 100%;\n        border-radius: 2px;\n}\n.listView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n@media (min-width: 768px) {\n.listView .announcement .info[data-v-c50082e8] {\n          width: 40%;\n}\n}\n.listView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        color: #777;\n        padding-top: 15px;\n}\n.listView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n      position: relative;\n      font-size: 12px;\n      color: #444;\n}\n@media (min-width: 768px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          width: 18%;\n}\n}\n@media (min-width: 476px) {\n.listView .announcement .utilities[data-v-c50082e8] {\n          padding: 15px;\n}\n}\n@media (min-width: 476px) and (max-width: 759.99px) {\n.listView .announcement .utilities .utility[data-v-c50082e8] {\n          width: 70%;\n          margin-left: auto;\n          margin-right: auto;\n}\n}\n@media (max-width: 768px) {\n.listView .announcement .utilities .icon-mail[data-v-c50082e8] {\n          padding-left: 5px;\n}\n}\n.listView .announcement[data-v-c50082e8]:hover {\n    background: #f1f1f1;\n    border: 1px solid #e1e1e1;\n    cursor: pointer;\n}\n.gridView[data-v-c50082e8] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  position: relative;\n  margin-bottom: 50px;\n}\n@media (min-width: 1000px) {\n.gridView[data-v-c50082e8] {\n      padding: 1% 15px 1% 15px;\n}\n}\n.gridView .announcement[data-v-c50082e8] {\n    margin: 2.25%;\n    background: white;\n    border: 1px solid #ededed;\n    border-radius: 2px;\n}\n@media (min-width: 476px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 45.5%;\n}\n}\n@media (min-width: 768px) {\n.gridView .announcement[data-v-c50082e8] {\n        width: 30.33%;\n        margin: 1.5%;\n}\n}\n.gridView .announcement .imageContainer .image[data-v-c50082e8] {\n      width: 100%;\n      border-radius: 4px;\n}\n.gridView .announcement .info[data-v-c50082e8] {\n      padding: 20px;\n      color: #444444;\n}\n.gridView .announcement .info .description[data-v-c50082e8] {\n        display: block;\n        font-size: 12px;\n        padding-top: 15px;\n}\n.gridView .announcement .utilities[data-v-c50082e8] {\n      padding: 0 15px 15px 15px;\n      word-wrap: break-word;\n}\n.title[data-v-c50082e8] {\n  color: #3a3e45;\n  font-size: 18px;\n  font-family: \"Overpass\", sans-serif;\n}\n.price[data-v-c50082e8] {\n  display: block;\n  font-weight: 500;\n  font-size: 20px;\n  text-align: center;\n  padding: 0 10px 10px 10px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #efefef;\n  color: #3a4e58;\n  border-radius: 4px;\n}\n@media (min-width: 476px) {\n.price[data-v-c50082e8] {\n      padding: 10px;\n}\n}\n.utility[data-v-c50082e8] {\n  border-bottom: 1px solid #f4d6de;\n  width: 100%;\n  color: black;\n  padding: 5px;\n  border-radius: 3px;\n  margin-bottom: 10px;\n}\n.utility .icon-phone[data-v-c50082e8] {\n    margin-right: 2px;\n}\n.utility .icon-calendar[data-v-c50082e8] {\n    margin-right: 4px;\n}\n.utility[data-v-c50082e8]:last-child {\n  margin-top: 15px;\n  border-bottom: 1px solid #c0c6d7;\n}\n.subtitle[data-v-c50082e8] {\n  color: #777777;\n  text-transform: uppercase;\n  font-size: 12px;\n  padding-right: 5px;\n}\n.fade-enter-active[data-v-c50082e8] {\n  -webkit-transition: .5s opacity ease-in-out;\n  transition: .5s opacity ease-in-out;\n}\n.fade-enter[data-v-c50082e8], .fade-leave-to[data-v-c50082e8] {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -53382,7 +53382,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  min-height: 60vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 10%;\n}\n@media (min-width: 768px) {\n.claim[data-v-f65d2816] {\n      height: 50vh;\n      padding-left: 5%;\n}\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n    padding: 15px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    padding-left: 15px;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  margin-top: 10vh;\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: 5vh;\n}\n@media (min-width: 768px) {\n.borderLine[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1150px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px 15px 5px 15px;\n}\n@media (min-width: 768px) and (max-width: 999.99px) {\n.main[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.main[data-v-f65d2816] {\n      padding: 5px;\n}\n}\n.main .mainContent[data-v-f65d2816] {\n    margin-bottom: 100px;\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n        width: 70%;\n}\n}\n.main .mainContent .left .details[data-v-f65d2816] {\n      margin-top: 25px;\n}\n.main .mainContent .left .details .detail[data-v-f65d2816] {\n        border-bottom: 1px solid #dddddd;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        padding: 5px 1px 5px 1px;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n}\n.main .mainContent .left .details .detail .detailTitle[data-v-f65d2816] {\n          width: 30%;\n          text-transform: uppercase;\n          color: #888888;\n}\n.main .mainContent .left .details .detail .detailValue[data-v-f65d2816] {\n          width: 70%;\n          color: #444;\n}\n.main .mainContent .left .sellerComment[data-v-f65d2816] {\n      color: #444;\n}\n.main .mainContent .left .features ul[data-v-f65d2816] {\n      padding-left: 16px;\n      margin-top: 15px;\n}\n.main .mainContent .left .features li[data-v-f65d2816] {\n      color: #ff4d52;\n      font-size: 16px;\n      margin-bottom: 20px;\n}\n.main .mainContent .left .features span[data-v-f65d2816] {\n      color: #444345;\n}\n.main .mainContent .right[data-v-f65d2816] {\n      background: #f3f3f3;\n      margin-left: 15px;\n      margin-right: 15px;\n      padding: 15px;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n}\n}\n.main .mainContent .right .price[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 38px;\n        color: #2c3a4b;\n        font-weight: 700;\n        padding: 30px 0 30px 0;\n        border-bottom: 1px solid #ddd;\n}\n.main .mainContent .right .utility[data-v-f65d2816] {\n        margin-top: 30px;\n        padding: 14px 5px 14px 5px;\n        color: white;\n        border-radius: 4px;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 18px;\n        overflow-x: auto;\n}\n.main .mainContent .right .contactNumber[data-v-f65d2816] {\n        background: #ed1c24;\n}\n.main .mainContent .right .email[data-v-f65d2816] {\n        background: #22292f;\n        font-size: 16px;\n}\n.main .mainContent .right .email .icon-mail[data-v-f65d2816] {\n          padding-right: 5px;\n}\n.main .mainContent .right .compare[data-v-f65d2816] {\n        background: #4159e5;\n        cursor: pointer;\n        -webkit-transition: .2s background-color ease-in-out;\n        transition: .2s background-color ease-in-out;\n}\n.main .mainContent .right .compare .href[data-v-f65d2816] {\n          color: white;\n}\n.main .mainContent .right .compare[data-v-f65d2816]:hover {\n        background: #4a68ff;\n}\n.leftTitle[data-v-f65d2816] {\n  margin-top: 40px;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 500;\n  color: #212c33;\n}\n", ""]);
+exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  min-height: 60vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n}\n@media (min-width: 768px) {\n.claim[data-v-f65d2816] {\n      min-height: 40vh;\n      padding-left: 5%;\n}\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n    padding: 15px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    padding-left: 15px;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin: 10vh auto 5vh auto;\n}\n@media (min-width: 768px) {\n.borderLine[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1150px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px 15px 5px 15px;\n}\n@media (min-width: 768px) and (max-width: 999.99px) {\n.main[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.main[data-v-f65d2816] {\n      width: 100%;\n      padding: 2%;\n}\n}\n.main .mainContent[data-v-f65d2816] {\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.main .mainContent .left[data-v-f65d2816] {\n      padding-bottom: 100px;\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n          width: 70%;\n          padding: 0 30px 100px 30px;\n}\n}\n.main .mainContent .left .details[data-v-f65d2816] {\n        margin-top: 25px;\n}\n.main .mainContent .left .details .detail[data-v-f65d2816] {\n          border-bottom: 1px solid #dddddd;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          padding: 5px 1px 5px 1px;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n}\n.main .mainContent .left .details .detail .detailTitle[data-v-f65d2816] {\n            width: 30%;\n            text-transform: uppercase;\n            color: #888888;\n}\n.main .mainContent .left .details .detail .detailValue[data-v-f65d2816] {\n            width: 70%;\n            color: #444;\n}\n.main .mainContent .left .sellerComment[data-v-f65d2816] {\n        color: #444;\n}\n.main .mainContent .left .features ul[data-v-f65d2816] {\n        padding-left: 16px;\n        margin-top: 15px;\n}\n.main .mainContent .left .features li[data-v-f65d2816] {\n        color: #ff4d52;\n        font-size: 16px;\n        margin-bottom: 20px;\n}\n.main .mainContent .left .features span[data-v-f65d2816] {\n        color: #444345;\n}\n.main .mainContent .right[data-v-f65d2816] {\n      background: #f3f3f3;\n      padding: 15px 5px 100px 5px;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n          padding: 15px 15px 100px 15px;\n}\n}\n.main .mainContent .right .price[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 38px;\n        color: #2c3a4b;\n        font-weight: 700;\n        padding: 30px 0 30px 0;\n        border-bottom: 1px solid #ddd;\n}\n.main .mainContent .right .utility[data-v-f65d2816] {\n        margin-top: 30px;\n        padding: 14px 5px 14px 5px;\n        color: white;\n        border-radius: 4px;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 18px;\n        overflow-x: auto;\n}\n.main .mainContent .right .contactNumber[data-v-f65d2816] {\n        background: #ed1c24;\n}\n.main .mainContent .right .email[data-v-f65d2816] {\n        background: #22292f;\n        font-size: 16px;\n}\n.main .mainContent .right .email .icon-mail[data-v-f65d2816] {\n          padding-right: 5px;\n}\n.main .mainContent .right .compare[data-v-f65d2816] {\n        background: #4159e5;\n        cursor: pointer;\n        -webkit-transition: .2s background-color ease-in-out;\n        transition: .2s background-color ease-in-out;\n}\n.main .mainContent .right .compare .href[data-v-f65d2816] {\n          color: white;\n}\n.main .mainContent .right .compare[data-v-f65d2816]:hover {\n        background: #4a68ff;\n}\n.leftTitle[data-v-f65d2816] {\n  margin-top: 40px;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 500;\n  color: #212c33;\n}\n", ""]);
 
 // exports
 
@@ -53544,6 +53544,56 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -53555,21 +53605,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: {
         advert: {
             Type: Object
+        },
+        features: {
+            Type: Object
         }
     },
     computed: {
         advert_to_json: function advert_to_json() {
             return JSON.parse(this.advert);
+        },
+        features_to_json: function features_to_json() {
+            return JSON.parse(this.features);
         }
     },
     data: function data() {
         return {
-            advertJSON: {}
+            advertJSON: {},
+            featuresJSON: {}
         };
     },
     mounted: function mounted() {
         this.advertJSON = this.advert_to_json;
-        console.log(this.advertJSON);
+        this.featuresJSON = this.features_to_json;
+
+        console.log(this.featuresJSON);
     }
 });
 
@@ -53659,7 +53718,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.carouselAnnouncement[data-v-cf554916] {\n  width: 100%;\n  padding: 5px;\n}\n.carouselAnnouncement .imageContainer[data-v-cf554916] {\n    background: #f1f1f1;\n    height: 400px;\n    position: relative;\n}\n.carouselAnnouncement .imageContainer .carouselItemContainer[data-v-cf554916] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      height: 400px;\n}\n.carouselAnnouncement .imageContainer .image[data-v-cf554916] {\n      max-width: 100%;\n      max-height: 100%;\n}\n.carouselAnnouncement .carousel-control-next[data-v-cf554916] {\n    -webkit-transition: opacity .2s  ease-in-out;\n    transition: opacity .2s  ease-in-out;\n}\n.carouselAnnouncement .angle[data-v-cf554916] {\n    font-size: 24px;\n    font-weight: 500;\n    color: white;\n    background: rgba(100, 100, 100, 0.6);\n    border-radius: 4px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916] {\n    margin-top: 10px;\n    width: 100%;\n    height: 150px;\n    border: 1px solid #f3f3f3;\n    padding: 5px;\n    overflow-x: auto;\n    overflow-y: hidden;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.carouselAnnouncement .carouselPreview .image[data-v-cf554916] {\n      height: 100%;\n      padding: 7px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(187, 187, 187, 0.4);\n    background-color: #efefef;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar {\n    background-color: #F5F5F5;\n    height: 11px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-thumb {\n    background-color: #403b3e;\n    border-radius: 4px;\n}\n", ""]);
+exports.push([module.i, "\n.carouselAnnouncement[data-v-cf554916] {\n  width: 100%;\n  padding: 0 5px 5px 5px;\n}\n.carouselAnnouncement .imageContainer[data-v-cf554916] {\n    background: #f1f1f1;\n    height: 50vh;\n    position: relative;\n}\n.carouselAnnouncement .imageContainer .carouselItemContainer[data-v-cf554916] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      position: relative;\n      height: 50vh;\n}\n.carouselAnnouncement .imageContainer .fancy-box-gallery[data-v-cf554916] {\n      position: relative;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n      height: 50vh;\n}\n.carouselAnnouncement .imageContainer .fancy-box-gallery .image[data-v-cf554916] {\n        max-height: 100%;\n        max-width: 100%;\n}\n.carouselAnnouncement .carousel-control-next[data-v-cf554916] {\n    -webkit-transition: opacity .2s  ease-in-out;\n    transition: opacity .2s  ease-in-out;\n}\n.carouselAnnouncement .angle[data-v-cf554916] {\n    font-size: 24px;\n    font-weight: 500;\n    color: white;\n    background: rgba(100, 100, 100, 0.6);\n    border-radius: 4px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916] {\n    margin-top: 10px;\n    width: 100%;\n    height: 150px;\n    border: 1px solid #f3f3f3;\n    padding: 5px;\n    overflow-x: auto;\n    overflow-y: hidden;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.carouselAnnouncement .carouselPreview .image[data-v-cf554916] {\n      height: 100%;\n      padding: 7px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-track {\n    -webkit-box-shadow: inset 0 0 6px rgba(187, 187, 187, 0.4);\n    background-color: #efefef;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar {\n    background-color: #F5F5F5;\n    height: 11px;\n}\n.carouselAnnouncement .carouselPreview[data-v-cf554916]::-webkit-scrollbar-thumb {\n    background-color: #403b3e;\n    border-radius: 4px;\n}\n", ""]);
 
 // exports
 
@@ -53781,6 +53840,7 @@ var staticRenderFns = [
                     _c(
                       "a",
                       {
+                        staticClass: "fancy-box-gallery",
                         attrs: {
                           "data-fancybox": "gallery",
                           href: "/images/cars/nissanleaf.jpg"
@@ -53805,9 +53865,10 @@ var staticRenderFns = [
                     _c(
                       "a",
                       {
+                        staticClass: "fancy-box-gallery",
                         attrs: {
                           "data-fancybox": "gallery",
-                          href: "/images/cars/bmwi3.jpg"
+                          href: "/images/cars/nissanleaf.jpg"
                         }
                       },
                       [
@@ -53826,12 +53887,22 @@ var staticRenderFns = [
                 { staticClass: "carousel-item  ", attrs: { id: "slide3" } },
                 [
                   _c("div", { staticClass: "carouselItemContainer" }, [
-                    _c("div", [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: { src: "/images/cars/teslas.jpg" }
-                      })
-                    ])
+                    _c(
+                      "a",
+                      {
+                        staticClass: "fancy-box-gallery",
+                        attrs: {
+                          "data-fancybox": "gallery",
+                          href: "/images/cars/nissanleaf.jpg"
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "image",
+                          attrs: { src: "/images/cars/teslas.jpg" }
+                        })
+                      ]
+                    )
                   ])
                 ]
               ),
@@ -53841,12 +53912,22 @@ var staticRenderFns = [
                 { staticClass: "carousel-item", attrs: { id: "slide3" } },
                 [
                   _c("div", { staticClass: "carouselItemContainer" }, [
-                    _c("div", [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: { src: "/images/cars/carvertical.jpg" }
-                      })
-                    ])
+                    _c(
+                      "a",
+                      {
+                        staticClass: "fancy-box-gallery",
+                        attrs: {
+                          "data-fancybox": "gallery",
+                          href: "/images/cars/nissanleaf.jpg"
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "image",
+                          attrs: { src: "/images/cars/carvertical.jpg" }
+                        })
+                      ]
+                    )
                   ])
                 ]
               )
@@ -53959,7 +54040,7 @@ var render = function() {
     _c("div", { staticClass: "claim" }, [
       _c("div", { staticClass: "mainTitle" }, [
         _c("h1", { staticClass: "mainTitle" }, [
-          _vm._v(_vm._s(this.advertJSON.title))
+          _vm._v(_vm._s(_vm.advertJSON.title))
         ]),
         _vm._v(" "),
         _vm._m(0)
@@ -53978,16 +54059,309 @@ var render = function() {
             _vm._v(" "),
             _c("h2", { staticClass: "leftTitle" }, [_vm._v("Vehicle details")]),
             _vm._v(" "),
-            _vm._m(1),
+            _c("div", { staticClass: "details" }, [
+              _vm.advertJSON.make !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Make\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.make) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.model !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Model\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.model) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.condition !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Condition\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.condition) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.mileage !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Mileage\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.mileage) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.weight !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Weight\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.weight) +
+                          " KG\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.country !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Country\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.country) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.engine !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Engine\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.engine) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.torque !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Torque\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.torque) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.transmission !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Transmission\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.transmission) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.type_of_drive !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Type of drive\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.type_of_drive) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.year !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Year\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.year) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.number_of_seats !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Number of seats\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.number_of_seats) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.body_style !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Body style\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.body_style) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.exterior_color !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Exterior Color\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.exterior_color) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.advertJSON.interior_color !== ""
+                ? _c("div", { staticClass: "detail" }, [
+                    _c("div", { staticClass: "detailTitle" }, [
+                      _vm._v(
+                        "\n                            Interior Color\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "detailValue" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.advertJSON.interior_color) +
+                          "\n                        "
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]),
             _vm._v(" "),
-            _vm._m(2),
+            _c("div", { staticClass: "sellerComment" }, [
+              _c("h2", { staticClass: "leftTitle" }, [
+                _vm._v("Seller comment")
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(_vm.advertJSON.description) +
+                    "\n                    "
+                )
+              ])
+            ]),
             _vm._v(" "),
-            _vm._m(3)
+            _c("div", { staticClass: "features" }, [
+              _c("h2", { staticClass: "leftTitle" }, [_vm._v("Features")]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                _vm._l(_vm.featuresJSON, function(feature) {
+                  return _c("li", [
+                    _c("span", [_vm._v(_vm._s(feature.feature))])
+                  ])
+                })
+              )
+            ])
           ],
           1
         ),
         _vm._v(" "),
-        _vm._m(4)
+        _vm._m(1)
       ])
     ])
   ])
@@ -54001,138 +54375,6 @@ var staticRenderFns = [
       _c("a", { staticClass: "advertsHref", attrs: { href: "/adverts" } }, [
         _c("i", { staticClass: "icon-undo" }),
         _vm._v("\n                    Back to adverts\n                ")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "details" }, [
-      _c("div", { staticClass: "detail" }, [
-        _c("div", { staticClass: "detailTitle" }, [
-          _vm._v(
-            "\n                            Weight\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "detailValue" }, [
-          _vm._v(
-            "\n                            1470kg\n                        "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "detail" }, [
-        _c("div", { staticClass: "detailTitle" }, [
-          _vm._v(
-            "\n                            Weight\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "detailValue" }, [
-          _vm._v(
-            "\n                            1470kg\n                        "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "detail" }, [
-        _c("div", { staticClass: "detailTitle" }, [
-          _vm._v(
-            "\n                            ENGINE\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "detailValue" }, [
-          _vm._v(
-            "\n                            3.6L V6 24V GDI DOHC Twin Turbo\n                        "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "detail" }, [
-        _c("div", { staticClass: "detailTitle" }, [
-          _vm._v("\n                            Year\n                        ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "detailValue" }, [
-          _vm._v("\n                            106\n                        ")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "detail" }, [
-        _c("div", { staticClass: "detailTitle" }, [
-          _vm._v(
-            "\n                            Weight\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "detailValue" }, [
-          _vm._v(
-            "\n                            1470kg\n                        "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "detail" }, [
-        _c("div", { staticClass: "detailTitle" }, [
-          _vm._v("\n                            VNS\n                        ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "detailValue" }, [
-          _vm._v(
-            "\n                            12494283 21ob2 12bio\n                        "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "detail" }, [
-        _c("div", { staticClass: "detailTitle" }, [
-          _vm._v(
-            "\n                            Full name\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "detailValue" }, [
-          _vm._v(
-            "\n                            23981 829 01380 Nissa Leaft\n                        "
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sellerComment" }, [
-      _c("h2", { staticClass: "leftTitle" }, [_vm._v("Seller comment")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "\n                        Nulla venenatis. In pede mi, aliquet sit amet, euismod in,auctor ut, ligula. Aliquam dapibus\n                        tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac,\n                        lorem.\n                        Vestibulum sed ante. Donec sagittis euismod purus. Sed ut perspiciatis unde omnis iste natus\n                        error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae\n                        ab\n                        illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim\n                        ipsam\n                        voluptatem quia voluptas sit aspernatur.\n                    "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "features" }, [
-      _c("h2", { staticClass: "leftTitle" }, [_vm._v("Features")]),
-      _vm._v(" "),
-      _c("ul", [
-        _c("li", [_c("span", [_vm._v("Twoja Stara pijana")])]),
-        _vm._v(" "),
-        _c("li", [_c("span", [_vm._v("Twoja Stara pijana")])]),
-        _vm._v(" "),
-        _c("li", [_c("span", [_vm._v("Twoja Stara pijana")])]),
-        _vm._v(" "),
-        _c("li", [_c("span", [_vm._v("Twoja Stara pijana")])]),
-        _vm._v(" "),
-        _c("li", [_c("span", [_vm._v("Twoja Stara pijana")])])
       ])
     ])
   },

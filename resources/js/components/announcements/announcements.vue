@@ -182,7 +182,7 @@
 
 
         .claim {
-            background-image: linear-gradient(rgba(67, 88, 182, 0.5), rgba(89, 124, 152, 0.5)), url("/images/advertisementsHome.jpg");
+            background-image: linear-gradient(rgba(74, 79, 94, 0.5), rgba(68, 84, 97, 0.5)), url("/images/advertisementsHome.jpg");
             background-attachment: fixed;
             background-size: cover;
             background-position: 50%;

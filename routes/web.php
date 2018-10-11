@@ -21,6 +21,6 @@ Route::get('/car/{id}', 'SitesController@car');
 
 //adverts
 Route::get('/adverts', 'SitesController@adverts');
-Route::get('/advert/{id}', 'SitesController@advert');
+Route::get('/advert/{id}', 'AdvertsController@advert');
 
 Route::get('/reclams', 'AdvertsController@reclams');
