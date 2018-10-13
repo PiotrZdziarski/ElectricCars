@@ -11757,7 +11757,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(141);
+module.exports = __webpack_require__(146);
 
 
 /***/ }),
@@ -11802,6 +11802,9 @@ Vue.component('announcement', __webpack_require__(121));
 //Cars
 Vue.component('cars', __webpack_require__(131));
 Vue.component('car', __webpack_require__(136));
+
+//comparision
+Vue.component('comparision', __webpack_require__(141));
 
 var app = new Vue({
   el: '#app'
@@ -53382,7 +53385,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  min-height: 60vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n}\n@media (min-width: 768px) {\n.claim[data-v-f65d2816] {\n      min-height: 40vh;\n      padding-left: 5%;\n}\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n    padding: 15px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    padding-left: 15px;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin: 10vh auto 5vh auto;\n}\n@media (min-width: 768px) {\n.borderLine[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1150px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px 15px 5px 15px;\n}\n@media (min-width: 768px) and (max-width: 999.99px) {\n.main[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.main[data-v-f65d2816] {\n      width: 100%;\n      padding: 2%;\n}\n}\n.main .mainContent[data-v-f65d2816] {\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.main .mainContent .left[data-v-f65d2816] {\n      padding-bottom: 100px;\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n          width: 70%;\n          padding: 0 30px 100px 30px;\n}\n}\n.main .mainContent .left .details[data-v-f65d2816] {\n        margin-top: 25px;\n}\n.main .mainContent .left .details .detail[data-v-f65d2816] {\n          border-bottom: 1px solid #dddddd;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          padding: 5px 1px 5px 1px;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n}\n.main .mainContent .left .details .detail .detailTitle[data-v-f65d2816] {\n            width: 30%;\n            text-transform: uppercase;\n            color: #888888;\n}\n.main .mainContent .left .details .detail .detailValue[data-v-f65d2816] {\n            width: 70%;\n            color: #444;\n}\n.main .mainContent .left .sellerComment[data-v-f65d2816] {\n        color: #444;\n}\n.main .mainContent .left .features ul[data-v-f65d2816] {\n        padding-left: 16px;\n        margin-top: 15px;\n}\n.main .mainContent .left .features li[data-v-f65d2816] {\n        color: #ff4d52;\n        font-size: 16px;\n        margin-bottom: 20px;\n}\n.main .mainContent .left .features span[data-v-f65d2816] {\n        color: #444345;\n}\n.main .mainContent .right[data-v-f65d2816] {\n      background: #f3f3f3;\n      padding: 15px 5px 100px 5px;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n          padding: 15px 15px 100px 15px;\n}\n}\n.main .mainContent .right .price[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 38px;\n        color: #2c3a4b;\n        font-weight: 700;\n        padding: 30px 0 30px 0;\n        border-bottom: 1px solid #ddd;\n}\n.main .mainContent .right .utility[data-v-f65d2816] {\n        margin-top: 30px;\n        padding: 14px 5px 14px 5px;\n        color: white;\n        border-radius: 4px;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 18px;\n        overflow-x: auto;\n}\n.main .mainContent .right .contactNumber[data-v-f65d2816] {\n        background: #ed1c24;\n}\n.main .mainContent .right .email[data-v-f65d2816] {\n        background: #22292f;\n        font-size: 16px;\n}\n.main .mainContent .right .email .icon-mail[data-v-f65d2816] {\n          padding-right: 5px;\n}\n.main .mainContent .right .compare[data-v-f65d2816] {\n        background: #4159e5;\n        cursor: pointer;\n        -webkit-transition: .2s background-color ease-in-out;\n        transition: .2s background-color ease-in-out;\n}\n.main .mainContent .right .compare .href[data-v-f65d2816] {\n          color: white;\n}\n.main .mainContent .right .compare[data-v-f65d2816]:hover {\n        background: #4a68ff;\n}\n.leftTitle[data-v-f65d2816] {\n  margin-top: 40px;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 500;\n  color: #212c33;\n}\n", ""]);
+exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(48, 84, 198, 0.5)), to(rgba(48, 84, 198, 0.5))), url(\"/images/advertisementsHome.jpg\");\n  background-image: linear-gradient(rgba(48, 84, 198, 0.5), rgba(48, 84, 198, 0.5)), url(\"/images/advertisementsHome.jpg\");\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: 50%;\n  min-height: 60vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  font-family: \"Roboto\", sans-serif;\n  padding-top: 5%;\n}\n@media (min-width: 768px) {\n.claim[data-v-f65d2816] {\n      min-height: 40vh;\n      padding-left: 5%;\n}\n}\n.claim .mainTitle[data-v-f65d2816] {\n    font-size: 42px;\n    font-weight: 500;\n    padding: 15px;\n}\n@media (max-width: 476px) {\n.claim .mainTitle[data-v-f65d2816] {\n        padding-top: 20px;\n        font-size: 32px;\n}\n}\n.claim .advertsHref[data-v-f65d2816] {\n    font-weight: 400;\n    padding-left: 15px;\n    color: #e9e9e9;\n    -webkit-transition: .2s color ease-in-out;\n    transition: .2s color ease-in-out;\n}\n.claim .advertsHref[data-v-f65d2816]:hover {\n    color: #297ba7;\n}\n.borderLine[data-v-f65d2816] {\n  width: 100%;\n  height: 1px;\n  background: #ddd;\n  margin: 10vh auto 5vh auto;\n}\n@media (min-width: 768px) {\n.borderLine[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.borderLine[data-v-f65d2816] {\n      width: 970px;\n}\n}\n@media (min-width: 1200px) {\n.borderLine[data-v-f65d2816] {\n      width: 1150px;\n}\n}\n.main[data-v-f65d2816] {\n  padding: 5px 15px 5px 15px;\n}\n@media (min-width: 768px) and (max-width: 999.99px) {\n.main[data-v-f65d2816] {\n      width: 740px;\n}\n}\n@media (min-width: 1000px) {\n.main[data-v-f65d2816] {\n      width: 100%;\n      padding: 2% 2% 0 2%;\n}\n}\n.main .mainContent[data-v-f65d2816] {\n    width: 100%;\n}\n@media (min-width: 1000px) {\n.main .mainContent[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n}\n.main .mainContent .left[data-v-f65d2816] {\n      padding-bottom: 100px;\n      border-radius: 5px;\n}\n@media (min-width: 1000px) {\n.main .mainContent .left[data-v-f65d2816] {\n          width: 70%;\n          padding: 0 30px 100px 30px;\n}\n}\n.main .mainContent .left .details[data-v-f65d2816] {\n        margin-top: 25px;\n}\n.main .mainContent .left .details .detail[data-v-f65d2816] {\n          border-bottom: 1px solid #dddddd;\n          display: -webkit-box;\n          display: -ms-flexbox;\n          display: flex;\n          padding: 5px 1px 5px 1px;\n          -webkit-box-align: center;\n              -ms-flex-align: center;\n                  align-items: center;\n}\n.main .mainContent .left .details .detail .detailTitle[data-v-f65d2816] {\n            width: 30%;\n            text-transform: uppercase;\n            color: #888888;\n}\n.main .mainContent .left .details .detail .detailValue[data-v-f65d2816] {\n            width: 70%;\n            color: #444;\n}\n.main .mainContent .left .sellerComment[data-v-f65d2816] {\n        color: #444;\n}\n.main .mainContent .left .features ul[data-v-f65d2816] {\n        padding-left: 16px;\n        margin-top: 15px;\n}\n.main .mainContent .left .features li[data-v-f65d2816] {\n        color: #ff4d52;\n        font-size: 16px;\n        margin-bottom: 20px;\n}\n.main .mainContent .left .features span[data-v-f65d2816] {\n        color: #444345;\n}\n.main .mainContent .right[data-v-f65d2816] {\n      background: #f3f3f3;\n      border-radius: 5px;\n      padding: 15px 5px 100px 5px;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right[data-v-f65d2816] {\n          width: 30%;\n          padding: 0 30px 100px 30px;\n}\n}\n.main .mainContent .right .price[data-v-f65d2816] {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 38px;\n        color: #2c3a4b;\n        font-weight: 700;\n        padding: 30px 0 30px 0;\n        border-bottom: 1px solid #ddd;\n}\n@media (min-width: 1000px) {\n.main .mainContent .right .price[data-v-f65d2816] {\n            padding-top: 40px;\n}\n}\n.main .mainContent .right .textRight[data-v-f65d2816] {\n        margin-top: 20px;\n        font-size: 16px;\n}\n.main .mainContent .right .textRight .value[data-v-f65d2816] {\n          padding-left: 5px;\n          color: #555;\n}\n.main .mainContent .right .utility[data-v-f65d2816] {\n        margin-top: 30px;\n        padding: 14px 5px 14px 5px;\n        color: white;\n        border-radius: 4px;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n        font-size: 18px;\n        overflow-x: auto;\n}\n.main .mainContent .right .contactNumber[data-v-f65d2816] {\n        background: #ed1c24;\n}\n.main .mainContent .right .email[data-v-f65d2816] {\n        background: #22292f;\n        font-size: 16px;\n}\n.main .mainContent .right .email .icon-mail[data-v-f65d2816] {\n          padding-right: 5px;\n}\n.main .mainContent .right .compare[data-v-f65d2816] {\n        background: #4159e5;\n        cursor: pointer;\n        -webkit-transition: .2s background-color ease-in-out;\n        transition: .2s background-color ease-in-out;\n}\n.main .mainContent .right .compare .href[data-v-f65d2816] {\n          color: white;\n}\n.main .mainContent .right .compare[data-v-f65d2816]:hover {\n        background: #4a68ff;\n}\n.leftTitle[data-v-f65d2816] {\n  margin-top: 40px;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 500;\n  color: #212c33;\n}\n", ""]);
 
 // exports
 
@@ -53395,6 +53398,16 @@ exports.push([module.i, "\n.claim[data-v-f65d2816] {\n  background-image: -webki
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__carouselAnnouncement_vue__ = __webpack_require__(125);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__carouselAnnouncement_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__carouselAnnouncement_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -53627,8 +53640,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         this.advertJSON = this.advert_to_json;
         this.featuresJSON = this.features_to_json;
-
-        console.log(this.featuresJSON);
     }
 });
 
@@ -54361,7 +54372,41 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _vm._m(1)
+        _c("div", { staticClass: "right", attrs: { id: "rightContent" } }, [
+          _c("div", { staticClass: "price" }, [
+            _vm._v("\n                    $76123\n                ")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "textRight" }, [
+            _c("i", { staticClass: "icon-calendar" }),
+            _vm._v(" ADDED:  "),
+            _c("span", { staticClass: "value" }, [
+              _vm._v(_vm._s(_vm.advertJSON.date))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "textRight" }, [
+            _c("i", { staticClass: "icon-location-circled" }),
+            _vm._v(" COUNTRY:  "),
+            _c("span", { staticClass: "value" }, [
+              _vm._v(_vm._s(_vm.advertJSON.country))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "textRight" }, [
+            _c("i", { staticClass: "icon-location" }),
+            _vm._v(" LOCATION:  "),
+            _c("span", { staticClass: "value" }, [
+              _vm._v(_vm._s(_vm.advertJSON.location))
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3)
+        ])
       ])
     ])
   ])
@@ -54382,26 +54427,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "right", attrs: { id: "rightContent" } }, [
-      _c("div", { staticClass: "price" }, [
-        _vm._v("\n                    $76123\n                ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "contactNumber utility" }, [
-        _c("i", { staticClass: "icon-phone" }),
-        _vm._v(" 487 472 123\n                ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "email utility" }, [
-        _c("i", { staticClass: "icon-mail" }),
-        _vm._v(" jan.kowalski1960Stefan@gmail.com\n                ")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "href", attrs: { href: "#" } }, [
-        _c("div", { staticClass: "compare utility" }, [
-          _c("i", { staticClass: "icon-flow-cross" }),
-          _vm._v("Compare\n                    ")
-        ])
+    return _c("div", { staticClass: "contactNumber utility" }, [
+      _c("i", { staticClass: "icon-phone" }),
+      _vm._v(" 487 472 123\n                ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "email utility" }, [
+      _c("i", { staticClass: "icon-mail" }),
+      _vm._v(" jan.kowalski1960Stefan@gmail.com\n                ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "href", attrs: { href: "#" } }, [
+      _c("div", { staticClass: "compare utility" }, [
+        _c("i", { staticClass: "icon-flow-cross" }),
+        _vm._v("Compare\n                    ")
       ])
     ])
   }
@@ -55133,6 +55180,132 @@ if (false) {
 
 /***/ }),
 /* 141 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(142)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(144)
+/* template */
+var __vue_template__ = __webpack_require__(145)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-2ea806b2"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/comparision/comparision.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2ea806b2", Component.options)
+  } else {
+    hotAPI.reload("data-v-2ea806b2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 142 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(143);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("aafec18e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ea806b2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./comparision.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ea806b2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./comparision.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 144 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "comparision"
+});
+
+/***/ }),
+/* 145 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2ea806b2", module.exports)
+  }
+}
+
+/***/ }),
+/* 146 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

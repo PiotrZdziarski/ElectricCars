@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Advert;
-use App\Http\Resources\AdvertResource;
-
 class SitesController extends Controller
 {
 
@@ -24,11 +21,11 @@ class SitesController extends Controller
     }
 
 
-
     //Adverts
     public function adverts(){
         return view('sites.announcements');
     }
+
 
 
 

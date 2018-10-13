@@ -21,6 +21,7 @@ Route::get('/car/{id}', 'SitesController@car');
 
 //adverts
 Route::get('/adverts', 'SitesController@adverts');
+Route::get('/comparision/{first_car_id}/{second_car_id}', 'AdvertsController@comparision');
 Route::get('/advert/{id}', 'AdvertsController@advert');
 
 Route::get('/reclams', 'AdvertsController@reclams');
