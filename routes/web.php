@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +24,8 @@ Route::get('/comparision/{first_car_id}/{second_car_id}', 'AdvertsController@com
 Route::get('/advert/{id}', 'AdvertsController@advert');
 
 Route::get('/reclams', 'AdvertsController@reclams');
+
+
+
+//just for testing
+Route::get('/test', 'ComparisionController@test');

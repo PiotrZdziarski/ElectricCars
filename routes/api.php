@@ -1,7 +1,4 @@
 <?php
-
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +17,8 @@ use Illuminate\Http\Request;
 //adverts
 Route::post('/announcements', 'AdvertsController@index');
 Route::post('/advanced_search', 'AdvertsController@advanced_search');
+
+//comparision
+Route::get('/comparision', 'ComparisionController@index');
+
+Route::post('/testapi', 'ComparisionController@testapi');

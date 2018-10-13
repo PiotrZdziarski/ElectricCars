@@ -90,7 +90,7 @@
 
 <style lang="scss" scoped>
     #mainnav {
-        width: 100%;
+        width: 100vw;
         position: fixed;
         left: 0;
         top: 0;

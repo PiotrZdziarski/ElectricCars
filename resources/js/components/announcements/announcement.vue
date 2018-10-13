@@ -196,7 +196,7 @@
                     <div class="email utility">
                         <i class="icon-mail"></i> jan.kowalski1960Stefan@gmail.com
                     </div>
-                    <a class="href" href="#">
+                    <a class="href" href="#" data-toggle="modal" data-target="#comparision">
                         <div class="compare utility">
                             <i class="icon-flow-cross"></i>Compare
                         </div>
@@ -204,6 +204,8 @@
                 </div>
             </div>
         </div>
+
+        <comparision></comparision>
     </section>
 </template>
 
