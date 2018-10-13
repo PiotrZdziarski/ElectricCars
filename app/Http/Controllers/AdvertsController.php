@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Advert;
 use App\Http\Resources\AdvertResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class AdvertsController extends Controller
 {
@@ -130,6 +131,10 @@ class AdvertsController extends Controller
         $min_price = $request->get('min_price');
         $max_price = $request->get('max_price');
 
+//        Cache::remember('adverts', 15 , function() {
+//            return AdvertResource::collection(Advert::all());
+//        });
+
 
         $adverts = $this->advanced_search($this->advert, $user_settings, $min_price, $max_price);
         $adverts = $this->basicSearching($adverts, $looking_for);
@@ -150,11 +155,4 @@ class AdvertsController extends Controller
 
         return view('sites.announcement', ['advert' => $advert, 'features' => $features]);
     }
-
-
-    public function comparision()
-    {
-
-    }
-
 }

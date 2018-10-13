@@ -48910,7 +48910,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n#mainnav[data-v-5ccadd49] {\n  width: 100%;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  background: transparent;\n  color: white;\n}\n#mainnav .desktopNav[data-v-5ccadd49] {\n    display: none;\n}\n@media (min-width: 1000px) {\n#mainnav .mobileNav[data-v-5ccadd49] {\n      display: none;\n}\n#mainnav .desktopNav[data-v-5ccadd49] {\n      height: 70px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      width: 100%;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n#mainnav .desktopNav .title[data-v-5ccadd49] {\n        text-align: center;\n        width: 30%;\n}\n#mainnav .desktopNav .menu[data-v-5ccadd49] {\n        width: 60%;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        margin-left: 10%;\n}\n#mainnav .desktopNav .menu .menuItem[data-v-5ccadd49] {\n          width: 50%;\n          font-size: 16px;\n          font-family: \"Roboto\", sans-serif;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49] {\n            color: inherit;\n            font-weight: 500;\n            -webkit-transition: color .2s ease-in-out;\n            transition: color .2s ease-in-out;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49]:hover {\n            color: #2684ba;\n}\n}\n.logo[data-v-5ccadd49] {\n  margin-left: 2%;\n  width: 50%;\n}\n.boxShadow[data-v-5ccadd49] {\n  -webkit-box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n          box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n}\n.mobileNav[data-v-5ccadd49] {\n  width: 100%;\n  z-index: 1000;\n  background: white;\n  position: fixed;\n}\n@media (min-width: 1000px) {\n.mobileNav[data-v-5ccadd49] {\n      display: none;\n}\n}\n.mobileNav .initialNav[data-v-5ccadd49] {\n    height: 60px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.mobileNav .collapseItem[data-v-5ccadd49] {\n    width: 100%;\n    height: 40px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    border-bottom: 1px solid #f1f1f1;\n}\n.mobileNav .collapseItem .href[data-v-5ccadd49] {\n      color: #444345;\n      font-size: 18px;\n      -webkit-transition: color .2s ease-in-out;\n      transition: color .2s ease-in-out;\n}\n.mobileNav .collapseItem .href[data-v-5ccadd49]:hover {\n      color: #297ba7;\n}\n.mobileNav .collapseItem[data-v-5ccadd49]:first-child {\n    border-top: 1px solid #f1f1f1;\n}\n.mobileNav .collapseItem[data-v-5ccadd49]:last-child {\n    -webkit-box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n            box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n}\n.burger[data-v-5ccadd49] {\n  display: block;\n  position: absolute;\n  top: 7px;\n  right: 8%;\n  width: 38px;\n  height: 38px;\n  cursor: pointer;\n}\n.burger.open div[data-v-5ccadd49] {\n  background: none;\n  -webkit-box-shadow: none !important;\n          box-shadow: none !important;\n}\n.burger.open div[data-v-5ccadd49]:before, .burger.open div[data-v-5ccadd49]:after {\n  top: 0;\n}\n.burger.open div[data-v-5ccadd49]:before {\n  -webkit-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.burger.open div[data-v-5ccadd49]:after {\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.burger.open:hover div[data-v-5ccadd49]:before {\n  -webkit-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.burger.open:hover div[data-v-5ccadd49]:after {\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.burger:hover:not(.open) div[data-v-5ccadd49]:before {\n  top: -15px;\n}\n.burger:hover:not(.open) div[data-v-5ccadd49]:after {\n  top: 15px;\n}\n.burger div[data-v-5ccadd49],\n.burger div[data-v-5ccadd49]:before,\n.burger div[data-v-5ccadd49]:after {\n  width: 100%;\n  height: 5px;\n  background: #3e474a;\n  border-radius: 2px;\n  -webkit-transition: all 0.4s ease;\n  transition: all 0.4s ease;\n}\n.burger div[data-v-5ccadd49] {\n  position: relative;\n  margin: 20px auto 0;\n}\n.burger div[data-v-5ccadd49]:before, div[data-v-5ccadd49]:after {\n  content: \"\";\n  position: absolute;\n}\n.burger div[data-v-5ccadd49]:before {\n  top: -15px;\n}\n.burger div[data-v-5ccadd49]:after {\n  top: 15px;\n}\n", ""]);
+exports.push([module.i, "\n#mainnav[data-v-5ccadd49] {\n  width: 100vw;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: 1000;\n  background: transparent;\n  color: white;\n}\n#mainnav .desktopNav[data-v-5ccadd49] {\n    display: none;\n}\n@media (min-width: 1000px) {\n#mainnav .mobileNav[data-v-5ccadd49] {\n      display: none;\n}\n#mainnav .desktopNav[data-v-5ccadd49] {\n      height: 70px;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      width: 100%;\n      -webkit-box-pack: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center;\n}\n#mainnav .desktopNav .title[data-v-5ccadd49] {\n        text-align: center;\n        width: 30%;\n}\n#mainnav .desktopNav .menu[data-v-5ccadd49] {\n        width: 60%;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        margin-left: 10%;\n}\n#mainnav .desktopNav .menu .menuItem[data-v-5ccadd49] {\n          width: 50%;\n          font-size: 16px;\n          font-family: \"Roboto\", sans-serif;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49] {\n            color: inherit;\n            font-weight: 500;\n            -webkit-transition: color .2s ease-in-out;\n            transition: color .2s ease-in-out;\n}\n#mainnav .desktopNav .menu .menuItem .hrefNav[data-v-5ccadd49]:hover {\n            color: #2684ba;\n}\n}\n.logo[data-v-5ccadd49] {\n  margin-left: 2%;\n  width: 50%;\n}\n.boxShadow[data-v-5ccadd49] {\n  -webkit-box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n          box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n}\n.mobileNav[data-v-5ccadd49] {\n  width: 100%;\n  z-index: 1000;\n  background: white;\n  position: fixed;\n}\n@media (min-width: 1000px) {\n.mobileNav[data-v-5ccadd49] {\n      display: none;\n}\n}\n.mobileNav .initialNav[data-v-5ccadd49] {\n    height: 60px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n}\n.mobileNav .collapseItem[data-v-5ccadd49] {\n    width: 100%;\n    height: 40px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    border-bottom: 1px solid #f1f1f1;\n}\n.mobileNav .collapseItem .href[data-v-5ccadd49] {\n      color: #444345;\n      font-size: 18px;\n      -webkit-transition: color .2s ease-in-out;\n      transition: color .2s ease-in-out;\n}\n.mobileNav .collapseItem .href[data-v-5ccadd49]:hover {\n      color: #297ba7;\n}\n.mobileNav .collapseItem[data-v-5ccadd49]:first-child {\n    border-top: 1px solid #f1f1f1;\n}\n.mobileNav .collapseItem[data-v-5ccadd49]:last-child {\n    -webkit-box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n            box-shadow: 0 15px 16px -14px rgba(150, 150, 150, 0.2);\n}\n.burger[data-v-5ccadd49] {\n  display: block;\n  position: absolute;\n  top: 7px;\n  right: 8%;\n  width: 38px;\n  height: 38px;\n  cursor: pointer;\n}\n.burger.open div[data-v-5ccadd49] {\n  background: none;\n  -webkit-box-shadow: none !important;\n          box-shadow: none !important;\n}\n.burger.open div[data-v-5ccadd49]:before, .burger.open div[data-v-5ccadd49]:after {\n  top: 0;\n}\n.burger.open div[data-v-5ccadd49]:before {\n  -webkit-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.burger.open div[data-v-5ccadd49]:after {\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.burger.open:hover div[data-v-5ccadd49]:before {\n  -webkit-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n}\n.burger.open:hover div[data-v-5ccadd49]:after {\n  -webkit-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.burger:hover:not(.open) div[data-v-5ccadd49]:before {\n  top: -15px;\n}\n.burger:hover:not(.open) div[data-v-5ccadd49]:after {\n  top: 15px;\n}\n.burger div[data-v-5ccadd49],\n.burger div[data-v-5ccadd49]:before,\n.burger div[data-v-5ccadd49]:after {\n  width: 100%;\n  height: 5px;\n  background: #3e474a;\n  border-radius: 2px;\n  -webkit-transition: all 0.4s ease;\n  transition: all 0.4s ease;\n}\n.burger div[data-v-5ccadd49] {\n  position: relative;\n  margin: 20px auto 0;\n}\n.burger div[data-v-5ccadd49]:before, div[data-v-5ccadd49]:after {\n  content: \"\";\n  position: absolute;\n}\n.burger div[data-v-5ccadd49]:before {\n  top: -15px;\n}\n.burger div[data-v-5ccadd49]:after {\n  top: 15px;\n}\n", ""]);
 
 // exports
 
@@ -53607,6 +53607,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -54047,369 +54049,377 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [
-    _c("div", { staticClass: "claim" }, [
-      _c("div", { staticClass: "mainTitle" }, [
-        _c("h1", { staticClass: "mainTitle" }, [
-          _vm._v(_vm._s(_vm.advertJSON.title))
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "borderLine" }),
-    _vm._v(" "),
-    _c("div", { staticClass: "main" }, [
-      _c("div", { staticClass: "mainContent" }, [
-        _c(
-          "div",
-          { staticClass: "left" },
-          [
-            _c("carousel-announcement"),
-            _vm._v(" "),
-            _c("h2", { staticClass: "leftTitle" }, [_vm._v("Vehicle details")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "details" }, [
-              _vm.advertJSON.make !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Make\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.make) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
+  return _c(
+    "section",
+    [
+      _c("div", { staticClass: "claim" }, [
+        _c("div", { staticClass: "mainTitle" }, [
+          _c("h1", { staticClass: "mainTitle" }, [
+            _vm._v(_vm._s(_vm.advertJSON.title))
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "borderLine" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "main" }, [
+        _c("div", { staticClass: "mainContent" }, [
+          _c(
+            "div",
+            { staticClass: "left" },
+            [
+              _c("carousel-announcement"),
               _vm._v(" "),
-              _vm.advertJSON.model !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Model\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.model) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.condition !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Condition\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.condition) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.mileage !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Mileage\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.mileage) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.weight !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Weight\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.weight) +
-                          " KG\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.country !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Country\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.country) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.engine !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Engine\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.engine) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.torque !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Torque\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.torque) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.transmission !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Transmission\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.transmission) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.type_of_drive !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Type of drive\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.type_of_drive) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.year !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Year\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.year) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.number_of_seats !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Number of seats\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.number_of_seats) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.body_style !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Body style\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.body_style) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.exterior_color !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Exterior Color\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.exterior_color) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.advertJSON.interior_color !== ""
-                ? _c("div", { staticClass: "detail" }, [
-                    _c("div", { staticClass: "detailTitle" }, [
-                      _vm._v(
-                        "\n                            Interior Color\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "detailValue" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(_vm.advertJSON.interior_color) +
-                          "\n                        "
-                      )
-                    ])
-                  ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "sellerComment" }, [
               _c("h2", { staticClass: "leftTitle" }, [
-                _vm._v("Seller comment")
+                _vm._v("Vehicle details")
               ]),
               _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n                        " +
-                    _vm._s(_vm.advertJSON.description) +
-                    "\n                    "
+              _c("div", { staticClass: "details" }, [
+                _vm.advertJSON.make !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Make\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.make) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.model !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Model\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.model) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.condition !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Condition\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.condition) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.mileage !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Mileage\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.mileage) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.weight !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Weight\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.weight) +
+                            " KG\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.country !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Country\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.country) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.engine !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Engine\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.engine) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.torque !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Torque\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.torque) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.transmission !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Transmission\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.transmission) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.type_of_drive !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Type of drive\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.type_of_drive) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.year !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Year\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.year) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.number_of_seats !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Number of seats\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.number_of_seats) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.body_style !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Body style\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.body_style) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.exterior_color !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Exterior Color\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.exterior_color) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.advertJSON.interior_color !== ""
+                  ? _c("div", { staticClass: "detail" }, [
+                      _c("div", { staticClass: "detailTitle" }, [
+                        _vm._v(
+                          "\n                            Interior Color\n                        "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "detailValue" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.advertJSON.interior_color) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "sellerComment" }, [
+                _c("h2", { staticClass: "leftTitle" }, [
+                  _vm._v("Seller comment")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.advertJSON.description) +
+                      "\n                    "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "features" }, [
+                _c("h2", { staticClass: "leftTitle" }, [_vm._v("Features")]),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  _vm._l(_vm.featuresJSON, function(feature) {
+                    return _c("li", [
+                      _c("span", [_vm._v(_vm._s(feature.feature))])
+                    ])
+                  })
                 )
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "right", attrs: { id: "rightContent" } }, [
+            _c("div", { staticClass: "price" }, [
+              _vm._v("\n                    $76123\n                ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "textRight" }, [
+              _c("i", { staticClass: "icon-calendar" }),
+              _vm._v(" ADDED:  "),
+              _c("span", { staticClass: "value" }, [
+                _vm._v(_vm._s(_vm.advertJSON.date))
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "features" }, [
-              _c("h2", { staticClass: "leftTitle" }, [_vm._v("Features")]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                _vm._l(_vm.featuresJSON, function(feature) {
-                  return _c("li", [
-                    _c("span", [_vm._v(_vm._s(feature.feature))])
-                  ])
-                })
-              )
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "right", attrs: { id: "rightContent" } }, [
-          _c("div", { staticClass: "price" }, [
-            _vm._v("\n                    $76123\n                ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "textRight" }, [
-            _c("i", { staticClass: "icon-calendar" }),
-            _vm._v(" ADDED:  "),
-            _c("span", { staticClass: "value" }, [
-              _vm._v(_vm._s(_vm.advertJSON.date))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "textRight" }, [
-            _c("i", { staticClass: "icon-location-circled" }),
-            _vm._v(" COUNTRY:  "),
-            _c("span", { staticClass: "value" }, [
-              _vm._v(_vm._s(_vm.advertJSON.country))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "textRight" }, [
-            _c("i", { staticClass: "icon-location" }),
-            _vm._v(" LOCATION:  "),
-            _c("span", { staticClass: "value" }, [
-              _vm._v(_vm._s(_vm.advertJSON.location))
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3)
+            _c("div", { staticClass: "textRight" }, [
+              _c("i", { staticClass: "icon-location-circled" }),
+              _vm._v(" COUNTRY:  "),
+              _c("span", { staticClass: "value" }, [
+                _vm._v(_vm._s(_vm.advertJSON.country))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "textRight" }, [
+              _c("i", { staticClass: "icon-location" }),
+              _vm._v(" LOCATION:  "),
+              _c("span", { staticClass: "value" }, [
+                _vm._v(_vm._s(_vm.advertJSON.location))
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3)
+          ])
         ])
-      ])
-    ])
-  ])
+      ]),
+      _vm._v(" "),
+      _c("comparision")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -54445,12 +54455,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "href", attrs: { href: "#" } }, [
-      _c("div", { staticClass: "compare utility" }, [
-        _c("i", { staticClass: "icon-flow-cross" }),
-        _vm._v("Compare\n                    ")
-      ])
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "href",
+        attrs: {
+          href: "#",
+          "data-toggle": "modal",
+          "data-target": "#comparision"
+        }
+      },
+      [
+        _c("div", { staticClass: "compare utility" }, [
+          _c("i", { staticClass: "icon-flow-cross" }),
+          _vm._v("Compare\n                    ")
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -55185,7 +55206,7 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(142)
+  __webpack_require__(417)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -55230,51 +55251,31 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 142 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(143);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(1)("aafec18e", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ea806b2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./comparision.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ea806b2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./comparision.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 143 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 142 */,
+/* 143 */,
 /* 144 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -55292,9 +55293,86 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "comparision",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalLabel" }
+                  },
+                  [_vm._v("Modal title")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm._v("\n                ...\n            ")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Save changes")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -55309,6 +55387,316 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */,
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(418);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("2f215804", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ea806b2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./comparision.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ea806b2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./comparision.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 418 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);
