@@ -145,11 +145,16 @@ class AdvertsController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function advert($id) {
-
         $advert = $this->advert->find($id);
         $features = $advert->features;
 
         return view('sites.announcement', ['advert' => $advert, 'features' => $features]);
+    }
+
+
+    public function comparision()
+    {
+
     }
 
 }

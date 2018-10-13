@@ -37,6 +37,9 @@ Vue.component('announcement', require('./components/announcements/announcement.v
 Vue.component('cars', require('./components/cars/cars.vue'));
 Vue.component('car', require('./components/cars/car.vue'));
 
+//comparision
+Vue.component('comparision', require('./components/comparision/comparision.vue'));
+
 
 
 const app = new Vue({

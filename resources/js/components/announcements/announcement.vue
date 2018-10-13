@@ -179,6 +179,16 @@
                         $76123
                     </div>
 
+                    <div class="textRight">
+                        <i class="icon-calendar"></i> ADDED:  <span class="value">{{ advertJSON.date }}</span>
+                    </div>
+                    <div class="textRight">
+                        <i class="icon-location-circled"></i> COUNTRY:  <span class="value">{{ advertJSON.country }}</span>
+                    </div>
+                    <div class="textRight">
+                        <i class="icon-location"></i> LOCATION:  <span class="value">{{ advertJSON.location }}</span>
+                    </div>
+
                     <div class="contactNumber utility">
                         <i class="icon-phone"></i> 487 472 123
                     </div>
@@ -230,8 +240,6 @@
         mounted() {
             this.advertJSON = this.advert_to_json;
             this.featuresJSON = this.features_to_json;
-
-            console.log(this.featuresJSON);
         }
     }
 </script>
@@ -305,7 +313,7 @@
 
         @media(min-width: 1000px) {
             width: 100%;
-            padding: 2%;
+            padding: 2% 2% 0 2%;
         }
 
         .mainContent {
@@ -316,6 +324,7 @@
 
             .left {
                 padding-bottom: 100px;
+                border-radius: 5px;
                 @media(min-width: 1000px) {
                     width: 70%;
                     padding: 0 30px 100px 30px;
@@ -367,11 +376,12 @@
 
             .right {
                 background: #f3f3f3;
+                border-radius: 5px;
                 padding: 15px 5px 100px 5px;
 
                 @media(min-width: 1000px) {
                     width: 30%;
-                    padding: 15px 15px 100px 15px;
+                    padding: 0 30px 100px 30px;
                 }
 
                 .price {
@@ -383,6 +393,20 @@
                     font-weight: 700;
                     padding: 30px 0 30px 0;
                     border-bottom: 1px solid #ddd;
+
+                    @media(min-width: 1000px) {
+                        padding-top: 40px;
+                    }
+                }
+
+                .textRight {
+                    margin-top: 20px;
+                    font-size: 16px;
+
+                    .value {
+                        padding-left: 5px;
+                        color: #555;
+                    }
                 }
 
                 .utility {
