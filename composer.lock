@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1b65d7fb9896a15b559f8f60c47ac76",
+    "content-hash": "5754454a17dc067cc0254beac6eae8f9",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -3618,16 +3618,16 @@
         },
         {
             "name": "laravel/homestead",
-            "version": "v7.17.0",
+            "version": "v7.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "0a29bebaf0c5dae1502c5169dc5ec02ee7847736"
+                "reference": "48fb3dc4f60a2a06ec7e149a22464ae484a81156"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/0a29bebaf0c5dae1502c5169dc5ec02ee7847736",
-                "reference": "0a29bebaf0c5dae1502c5169dc5ec02ee7847736",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/48fb3dc4f60a2a06ec7e149a22464ae484a81156",
+                "reference": "48fb3dc4f60a2a06ec7e149a22464ae484a81156",
                 "shasum": ""
             },
             "require": {
@@ -3665,7 +3665,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2018-09-09T15:17:06+00:00"
+            "time": "2018-09-29T20:46:31+00:00"
         },
         {
             "name": "mockery/mockery",

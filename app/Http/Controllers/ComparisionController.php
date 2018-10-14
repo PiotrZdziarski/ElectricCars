@@ -25,4 +25,8 @@ class ComparisionController extends Controller
     public function index() {
         return  'xd';
     }
+
+    public function testkruwa(){
+        return 'xd';
+    }
 }

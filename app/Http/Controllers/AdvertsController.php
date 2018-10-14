@@ -135,7 +135,6 @@ class AdvertsController extends Controller
 //            return AdvertResource::collection(Advert::all());
 //        });
 
-
         $adverts = $this->advanced_search($this->advert, $user_settings, $min_price, $max_price);
         $adverts = $this->basicSearching($adverts, $looking_for);
         $adverts = $this->sorting($adverts, $per_page, $order_by);

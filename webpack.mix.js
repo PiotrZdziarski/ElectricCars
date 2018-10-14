@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const WebpackSftpUpload = require('webpack-ftp-upload-plugin');
 
 /*
  |--------------------------------------------------------------------------

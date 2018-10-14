@@ -99,6 +99,9 @@
                     }
                     this.data_retrieved = true;
                 }).catch(error => {
+                    if(error.response.status === 500) {
+                        alert('There was a problem with connecting to our servers! Try again later!');
+                    }
                     if(error.response.status === 429) {
                         alert(error.response.statusText + '. Wait 15 seconds and then try again.');
                     }

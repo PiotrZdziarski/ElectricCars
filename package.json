@@ -20,7 +20,8 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
-        "vue": "^2.5.7"
+        "vue": "^2.5.7",
+        "webpack-ftp-upload-plugin": "^1.0.3"
     },
     "dependencies": {
         "es6-promise": "^4.2.5"

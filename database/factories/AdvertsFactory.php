@@ -11,7 +11,7 @@ $factory->define(\App\Advert::class, function (Faker $faker) {
         'model' => $faker->text(20),
         'exterior_color' => $faker->text(20),
         'interior_color' => $faker->text(20),
-        'transmission' => $faker->text(20),
+        'gearbox' => $faker->text(20),
         'type_of_drive' => $faker->text(20),
         'condition' => $faker->text(20),
         'body_style' => $faker->text(20),
