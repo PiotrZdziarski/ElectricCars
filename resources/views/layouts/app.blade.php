@@ -22,7 +22,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fontello4.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fontello3.css') }}" rel="stylesheet">
     @yield('specialStyles')
 </head>
 <body>

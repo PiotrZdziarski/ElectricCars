@@ -165,7 +165,7 @@
                         </p>
                     </div>
 
-                    <div class="features">
+                    <div class="features" v-if="typeof featuresJSON !== 'undefined'">
                         <h2 class="leftTitle">Features</h2>
                         <ul>
                             <li v-for="feature in featuresJSON">
@@ -242,6 +242,7 @@
         mounted() {
             this.advertJSON = this.advert_to_json;
             this.featuresJSON = this.features_to_json;
+
         }
     }
 </script>
