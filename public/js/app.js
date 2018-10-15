@@ -55288,7 +55288,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "\n.modal-content[data-v-2ea806b2] {\n  border-radius: 1px;\n  font-family: \"Roboto\", sans-serif;\n}\n.modal-content .text-header[data-v-2ea806b2] {\n    font-size: 26px;\n    font-weight: 700;\n}\n.modal-content .icon-flow-cross[data-v-2ea806b2] {\n    font-size: 24px;\n    padding-right: 5px;\n}\n.modal-content .close[data-v-2ea806b2] {\n    opacity: 0.90;\n    padding: .9rem 22px .9rem .9rem;\n}\n.modal-content .close .close-sign[data-v-2ea806b2] {\n      height: 100%;\n      display: block;\n      color: black;\n      font-size: 42px;\n      font-weight: 700;\n}\n.modal-content .close[data-v-2ea806b2]:active, .modal-content .close[data-v-2ea806b2]:focus {\n    outline: none;\n}\n", ""]);
 
 // exports
 
@@ -55321,9 +55321,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "comparision"
+    name: "comparision",
+    mounted: function mounted() {
+        $(document).ready(function () {
+            $('#comparision').modal('show');
+        });
+    }
 });
 
 /***/ }),
@@ -55356,7 +55365,10 @@ var staticRenderFns = [
       [
         _c(
           "div",
-          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
           [
             _c("div", { staticClass: "modal-content" }, [
               _c("div", { staticClass: "modal-header" }, [
@@ -55366,7 +55378,13 @@ var staticRenderFns = [
                     staticClass: "modal-title",
                     attrs: { id: "exampleModalLabel" }
                   },
-                  [_vm._v("Modal title")]
+                  [
+                    _c("i", { staticClass: "icon-flow-cross" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "text-header" }, [
+                      _vm._v("Adverts Compare List")
+                    ])
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -55380,9 +55398,14 @@ var staticRenderFns = [
                     }
                   },
                   [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×")
-                    ])
+                    _c(
+                      "span",
+                      {
+                        staticClass: "close-sign",
+                        attrs: { "aria-hidden": "true" }
+                      },
+                      [_vm._v("×")]
+                    )
                   ]
                 )
               ]),
