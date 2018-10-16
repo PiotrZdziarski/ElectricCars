@@ -135,8 +135,11 @@ class AdvertsController extends Controller
         $user_settings = $request->get('user_settings');
         $min_price = $request->get('min_price');
         $max_price = $request->get('max_price');
+        $adverts = $this->advert;
 
-        $adverts = $this->advanced_search($this->advert, $user_settings, $min_price, $max_price);
+        if($user_settings != []) {
+            $adverts = $this->advanced_search($adverts, $user_settings, $min_price, $max_price);
+        }
         if($looking_for != '') {
             $adverts = $this->basicSearching($adverts, $looking_for);
         }
@@ -153,14 +156,8 @@ class AdvertsController extends Controller
      */
     public function advert($id)
     {
-        $advert = Cache::rememberForever('advert', function() use ($id) {
-            return $this->advert->find($id);
-        });
-
-        $features = Cache::rememberForever('features', function() use ($advert) {
-            return $advert->features;
-        });
-
-        return view('sites.announcement', ['advert' => $advert, 'features' => $features]);
+        $advert = $this->advert->find($id);
+        $features = $advert->features;
+        return view('sites.announcement', ['advert' => $advert, 'features' => $features, 'id' => $id]);
     }
 }

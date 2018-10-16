@@ -54365,7 +54365,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              typeof _vm.featuresJSON !== "undefined"
+              typeof _vm.featuresJSON === "undefined"
                 ? _c("div", { staticClass: "features" }, [
                     _c("h2", { staticClass: "leftTitle" }, [
                       _vm._v("Features")
@@ -55292,7 +55292,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.modal[data-v-2ea806b2] {\n  padding-right: 0;\n}\n.modal-content[data-v-2ea806b2] {\n  padding: 8px;\n  border-radius: 5px;\n  font-family: \"Roboto\", sans-serif;\n}\n.modal-content .text-header[data-v-2ea806b2] {\n    font-size: 26px;\n    font-weight: 700;\n}\n.modal-content .icon-flow-cross[data-v-2ea806b2] {\n    font-size: 24px;\n    padding-right: 5px;\n}\n.modal-content .modal-header[data-v-2ea806b2] {\n    border-bottom: 0;\n}\n.modal-content .modal-header .close[data-v-2ea806b2] {\n      opacity: 0.90;\n      padding: .9rem 22px .9rem .9rem;\n}\n.modal-content .modal-header .close .close-sign[data-v-2ea806b2] {\n        text-align: right;\n        display: block;\n        color: black;\n        font-size: 42px;\n        font-weight: 700;\n}\n.modal-content .modal-header .close[data-v-2ea806b2]:hover {\n      opacity: 0.8;\n}\n.modal-content .modal-header .close[data-v-2ea806b2]:active, .modal-content .modal-header .close[data-v-2ea806b2]:focus {\n      outline: none;\n}\n.modal-content .error-div[data-v-2ea806b2] {\n    background: #f8e7e7;\n    margin: 5px;\n    padding: 15px 10px 14px;\n    border-radius: 2px;\n    color: #d50000;\n    display: table;\n    position: relative;\n}\n.modal-content .error-div .error-info[data-v-2ea806b2] {\n      display: table-cell;\n      vertical-align: middle;\n      font-size: 16px;\n      font-weight: 500;\n}\n.modal-content .error-div .error-info .icon-exclamation[data-v-2ea806b2] {\n        font-size: 20px;\n        padding-right: 5px;\n}\n.modal-content .error-div .close[data-v-2ea806b2] {\n      opacity: 0.60;\n      padding-right: 5px;\n      padding-left: 5px;\n}\n.modal-content .error-div .close .close-sign[data-v-2ea806b2] {\n        height: 100%;\n        display: block;\n        color: black;\n        font-size: 28px;\n        font-weight: 700;\n}\n.modal-content .error-div .close[data-v-2ea806b2]:hover {\n      opacity: 0.5;\n}\n.modal-content .error-div .close[data-v-2ea806b2]:active, .modal-content .error-div .close[data-v-2ea806b2]:focus {\n      outline: none;\n}\n.modal-content .modal-body[data-v-2ea806b2] {\n    padding: 15px 10px 10px 10px;\n}\n.modal-content .modal-body .list-title[data-v-2ea806b2] {\n      font-size: 18px;\n      font-weight: 500;\n      color: #333;\n}\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      padding: 10px 5px 10px 5px;\n      position: relative;\n      border-bottom: 1px solid #eaeaea;\n}\n@media (min-width: 476px) {\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2] {\n          padding: 10px;\n}\n}\n.modal-content .modal-body .comparision-list .list-item .item-image[data-v-2ea806b2] {\n        width: 25%;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n}\n.modal-content .modal-body .comparision-list .list-item .item-image .image[data-v-2ea806b2] {\n          max-width: 100%;\n          max-height: 100%;\n}\n.modal-content .modal-body .comparision-list .list-item .item-title[data-v-2ea806b2] {\n        color: #444;\n        width: 60%;\n        padding: 10px;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete[data-v-2ea806b2] {\n        cursor: pointer;\n        position: absolute;\n        bottom: 0;\n        right: 5px;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete .icon-minus-circled[data-v-2ea806b2] {\n          color: dodgerblue;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete[data-v-2ea806b2]:hover {\n        opacity: 0.9;\n}\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2]:last-child {\n      border: 0;\n}\n.modal-content .modal-footer[data-v-2ea806b2] {\n    border-top: 0;\n}\n", ""]);
+exports.push([module.i, "\n.modal[data-v-2ea806b2] {\n  padding-right: 0;\n}\n.modal-content[data-v-2ea806b2] {\n  padding: 8px;\n  border-radius: 5px;\n  font-family: \"Roboto\", sans-serif;\n}\n.modal-content .text-header[data-v-2ea806b2] {\n    font-size: 26px;\n    font-weight: 700;\n}\n.modal-content .icon-flow-cross[data-v-2ea806b2] {\n    font-size: 24px;\n    padding-right: 5px;\n}\n.modal-content .modal-header[data-v-2ea806b2] {\n    border-bottom: 0;\n}\n.modal-content .modal-header .close[data-v-2ea806b2] {\n      opacity: 0.90;\n      padding: .9rem 22px .9rem .9rem;\n}\n.modal-content .modal-header .close .close-sign[data-v-2ea806b2] {\n        text-align: right;\n        display: block;\n        color: black;\n        font-size: 42px;\n        font-weight: 700;\n}\n.modal-content .modal-header .close[data-v-2ea806b2]:hover {\n      opacity: 0.8;\n}\n.modal-content .modal-header .close[data-v-2ea806b2]:active, .modal-content .modal-header .close[data-v-2ea806b2]:focus {\n      outline: none;\n}\n.modal-content .error-div[data-v-2ea806b2] {\n    background: #f8e7e7;\n    margin: 5px;\n    padding: 15px 10px 14px;\n    border-radius: 2px;\n    color: #d50000;\n    display: table;\n    position: relative;\n}\n.modal-content .error-div .error-info[data-v-2ea806b2] {\n      display: table-cell;\n      vertical-align: middle;\n      font-size: 16px;\n      font-weight: 500;\n}\n.modal-content .error-div .error-info .icon-exclamation[data-v-2ea806b2] {\n        font-size: 20px;\n        padding-right: 5px;\n}\n.modal-content .error-div .close[data-v-2ea806b2] {\n      opacity: 0.60;\n      padding-right: 5px;\n      padding-left: 5px;\n}\n.modal-content .error-div .close .close-sign[data-v-2ea806b2] {\n        height: 100%;\n        display: block;\n        color: black;\n        font-size: 28px;\n        font-weight: 700;\n}\n.modal-content .error-div .close[data-v-2ea806b2]:hover {\n      opacity: 0.5;\n}\n.modal-content .error-div .close[data-v-2ea806b2]:active, .modal-content .error-div .close[data-v-2ea806b2]:focus {\n      outline: none;\n}\n.modal-content .modal-body[data-v-2ea806b2] {\n    padding: 10px 10px 10px 10px;\n}\n.modal-content .modal-body .list-title[data-v-2ea806b2] {\n      font-size: 18px;\n      font-weight: 500;\n      padding-bottom: 5px;\n      color: #333;\n}\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      padding: 0 5px 10px 5px;\n      position: relative;\n      border-bottom: 1px solid #eaeaea;\n}\n@media (min-width: 476px) {\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2] {\n          padding: 10px;\n}\n}\n.modal-content .modal-body .comparision-list .list-item .item-image[data-v-2ea806b2] {\n        width: 25%;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n}\n.modal-content .modal-body .comparision-list .list-item .item-image .image[data-v-2ea806b2] {\n          max-width: 100%;\n          max-height: 100%;\n}\n.modal-content .modal-body .comparision-list .list-item .item-title[data-v-2ea806b2] {\n        color: #555;\n        width: 60%;\n        padding: 0 10px 10px 10px;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete[data-v-2ea806b2] {\n        cursor: pointer;\n        position: absolute;\n        color: #444;\n        bottom: 5px;\n        right: 5px;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete .icon-minus-circled[data-v-2ea806b2] {\n          color: dodgerblue;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete[data-v-2ea806b2]:hover {\n        opacity: 0.9;\n}\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2]:last-child {\n      border: 0;\n}\n.modal-content .modal-footer[data-v-2ea806b2] {\n    border-top: 0;\n}\n.modal-content .modal-footer .close-modal-btn[data-v-2ea806b2] {\n      background: transparent;\n      color: #444;\n}\n.modal-content .modal-footer .close-modal-btn[data-v-2ea806b2]:focus, .modal-content .modal-footer .close-modal-btn[data-v-2ea806b2]:active {\n      -webkit-box-shadow: none;\n              box-shadow: none;\n}\n.modal-content .modal-footer .close-modal-btn[data-v-2ea806b2]:hover {\n      color: #222;\n      -webkit-box-shadow: 0 2px 4px #ddd;\n              box-shadow: 0 2px 4px #ddd;\n}\n.modal-content .modal-footer .btn-primary[data-v-2ea806b2] {\n      -webkit-box-shadow: none;\n              box-shadow: none;\n}\n", ""]);
 
 // exports
 
@@ -55366,9 +55366,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "comparision",
+    data: function data() {
+        return {
+            error: false
+        };
+    },
     mounted: function mounted() {
         $(document).ready(function () {
             $('#comparision').modal('show');
@@ -55384,175 +55416,234 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass: "modal fade",
+      attrs: {
+        id: "comparision",
+        tabindex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "modal-dialog modal-dialog-centered",
+          attrs: { role: "document" }
+        },
+        [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm.error
+              ? _c("div", { staticClass: "error-div" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _vm._m(2)
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _vm._m(4)
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [
+          _c("i", { staticClass: "icon-flow-cross" }),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-header" }, [
+            _vm._v("Classifieds compare list")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [
+          _c(
+            "span",
+            { staticClass: "close-sign", attrs: { "aria-hidden": "true" } },
+            [_vm._v("×")]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "error-info" }, [
+      _c("i", { staticClass: "icon-exclamation" }),
+      _vm._v("You can maximally add only 3 products\n                ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
-      "div",
+      "button",
       {
-        staticClass: "modal fade",
-        attrs: {
-          id: "comparision",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "exampleModalLabel",
-          "aria-hidden": "true"
-        }
+        staticClass: "close",
+        attrs: { type: "button", "aria-label": "Close" }
       },
       [
         _c(
-          "div",
-          {
-            staticClass: "modal-dialog modal-dialog-centered",
-            attrs: { role: "document" }
-          },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title",
-                    attrs: { id: "exampleModalLabel" }
-                  },
-                  [
-                    _c("i", { staticClass: "icon-flow-cross" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "text-header" }, [
-                      _vm._v("Classifieds compare list")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: {
-                      type: "button",
-                      "data-dismiss": "modal",
-                      "aria-label": "Close"
-                    }
-                  },
-                  [
-                    _c(
-                      "span",
-                      {
-                        staticClass: "close-sign",
-                        attrs: { "aria-hidden": "true" }
-                      },
-                      [_vm._v("×")]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "error-div" }, [
-                _c("span", { staticClass: "error-info" }, [
-                  _c("i", { staticClass: "icon-exclamation" }),
-                  _vm._v(
-                    "You can maximally add only 3 products\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: { type: "button", "aria-label": "Close" }
-                  },
-                  [
-                    _c(
-                      "span",
-                      {
-                        staticClass: "close-sign",
-                        attrs: { "aria-hidden": "true" }
-                      },
-                      [_vm._v("×")]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c("div", { staticClass: "list-title" }, [
-                  _vm._v(
-                    "\n                    You have the following classifieds for comparison:\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "comparision-list" }, [
-                  _c("div", { staticClass: "list-item" }, [
-                    _c("div", { staticClass: "item-image" }, [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: { src: "/images/cars/carvertical.jpg" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "item-title" }, [
-                      _vm._v(
-                        "\n                            New Brand Nissan Leaft Poggers 30 2 4 p5 hstr wfvuw\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "item-delete" }, [
-                      _vm._v(
-                        "\n                            Delete\n                            "
-                      ),
-                      _c("i", { staticClass: "icon-minus-circled" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "list-item" }, [
-                    _c("div", { staticClass: "item-image" }, [
-                      _c("img", {
-                        staticClass: "image",
-                        attrs: { src: "/images/cars/nissanleaf.jpg" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "item-title" }, [
-                      _vm._v(
-                        "\n                            s 30 2 4 p5 hstr wfvuw\n                        "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "item-delete" }, [
-                      _vm._v(
-                        "\n                            Delete\n                            "
-                      ),
-                      _c("i", { staticClass: "icon-minus-circled" })
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary",
-                    attrs: { type: "button", "data-dismiss": "modal" }
-                  },
-                  [_vm._v("Close")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                  [_vm._v("Save changes")]
-                )
-              ])
-            ])
-          ]
+          "span",
+          { staticClass: "close-sign", attrs: { "aria-hidden": "true" } },
+          [_vm._v("×")]
         )
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("div", { staticClass: "list-title" }, [
+        _vm._v(
+          "\n                    You have the following classifieds for comparison:\n                "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "comparision-list" }, [
+        _c("div", { staticClass: "list-item" }, [
+          _c("div", { staticClass: "item-image" }, [
+            _c("img", {
+              staticClass: "image",
+              attrs: { src: "/images/cars/carvertical.jpg" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-title" }, [
+            _vm._v(
+              "\n                            New Brand Nissan Leaft Poggers 30 2 4 p5 hstr wfvuw\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-delete" }, [
+            _vm._v(
+              "\n                            Delete\n                            "
+            ),
+            _c("i", { staticClass: "icon-minus-circled" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "list-item" }, [
+          _c("div", { staticClass: "item-image" }, [
+            _c("img", {
+              staticClass: "image",
+              attrs: { src: "/images/cars/nissanleaf.jpg" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-title" }, [
+            _vm._v(
+              "\n                            s 30 2 4 p5 hstr wfvuw\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-delete" }, [
+            _vm._v(
+              "\n                            Delete\n                            "
+            ),
+            _c("i", { staticClass: "icon-minus-circled" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "list-item" }, [
+          _c("div", { staticClass: "item-image" }, [
+            _c("img", {
+              staticClass: "image",
+              attrs: { src: "/images/cars/nissanleaf.jpg" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-title" }, [
+            _vm._v(
+              "\n                            s 30 2 4 p5 hstr wfvuw\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-delete" }, [
+            _vm._v(
+              "\n                            Delete\n                            "
+            ),
+            _c("i", { staticClass: "icon-minus-circled" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "list-item" }, [
+          _c("div", { staticClass: "item-image" }, [
+            _c("img", {
+              staticClass: "image",
+              attrs: { src: "/images/cars/nissanleaf.jpg" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-title" }, [
+            _vm._v(
+              "\n                            s 30 2 4 p5 hstr wfvuw\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "item-delete" }, [
+            _vm._v(
+              "\n                            Delete\n                            "
+            ),
+            _c("i", { staticClass: "icon-minus-circled" })
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary close-modal-btn",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("Save changes")]
+      )
+    ])
   }
 ]
 render._withStripped = true

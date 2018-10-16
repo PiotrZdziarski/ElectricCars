@@ -165,7 +165,7 @@
                         </p>
                     </div>
 
-                    <div class="features" v-if="typeof featuresJSON !== 'undefined'">
+                    <div class="features" v-if="typeof featuresJSON === 'undefined'">
                         <h2 class="leftTitle">Features</h2>
                         <ul>
                             <li v-for="feature in featuresJSON">
