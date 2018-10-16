@@ -12,7 +12,7 @@
                         <span class="close-sign" aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="error-div">
+                <div class="error-div" v-if="error">
                     <span class="error-info">
                         <i class="icon-exclamation"></i>You can maximally add only 3 products
                     </span>
@@ -50,10 +50,37 @@
                                 <i class="icon-minus-circled"></i>
                             </div>
                         </div>
+
+                        <div class="list-item">
+                            <div class="item-image">
+                                <img class="image" src="/images/cars/nissanleaf.jpg">
+                            </div>
+                            <div class="item-title">
+                                s 30 2 4 p5 hstr wfvuw
+                            </div>
+                            <div class="item-delete">
+                                Delete
+                                <i class="icon-minus-circled"></i>
+                            </div>
+                        </div>
+
+                        <div class="list-item">
+                            <div class="item-image">
+                                <img class="image" src="/images/cars/nissanleaf.jpg">
+                            </div>
+                            <div class="item-title">
+                                s 30 2 4 p5 hstr wfvuw
+                            </div>
+                            <div class="item-delete">
+                                Delete
+                                <i class="icon-minus-circled"></i>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary close-modal-btn" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
@@ -64,6 +91,11 @@
 <script>
     export default {
         name: "comparision",
+        data() {
+            return {
+                error: false
+            }
+        },
         mounted() {
             $(document).ready(function () {
                 $('#comparision').modal('show');
@@ -163,11 +195,12 @@
         }
 
         .modal-body {
-            padding: 15px 10px 10px 10px;
+            padding: 10px 10px 10px 10px;
 
             .list-title {
                 font-size: 18px;
                 font-weight: 500;
+                padding-bottom: 5px;
                 color: #333;
             }
 
@@ -175,7 +208,7 @@
 
                 .list-item {
                     display: flex;
-                    padding: 10px 5px 10px 5px;
+                    padding: 0 5px 10px 5px;
                     position: relative;
                     border-bottom: 1px solid #eaeaea;
 
@@ -196,15 +229,16 @@
                     }
 
                     .item-title {
-                        color: #444;
+                        color: #555;
                         width: 60%;
-                        padding: 10px;
+                        padding: 0 10px 10px 10px;
                     }
 
                     .item-delete {
                         cursor: pointer;
                         position: absolute;
-                        bottom: 0;
+                        color: #444;
+                        bottom: 5px;
                         right: 5px;
 
                         .icon-minus-circled {
@@ -226,6 +260,24 @@
 
         .modal-footer {
             border-top: 0;
+
+            .close-modal-btn {
+                background: transparent;
+                color: #444;
+            }
+
+            .close-modal-btn:focus, .close-modal-btn:active {
+                box-shadow: none;
+            }
+
+            .close-modal-btn:hover {
+                color: #222;
+                box-shadow: 0 2px 4px #ddd;
+            }
+
+            .btn-primary {
+                box-shadow: none;
+            }
         }
 
     }
