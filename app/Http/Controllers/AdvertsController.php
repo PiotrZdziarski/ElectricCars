@@ -6,6 +6,7 @@ use App\Advert;
 use App\Http\Resources\AdvertResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class AdvertsController extends Controller
 {
@@ -36,25 +37,27 @@ class AdvertsController extends Controller
 
         switch ($order_by) {
             case 'newest':
-                $adverts = $adverts->orderBy('id', 'desc')->paginate($per_page);
+                $adverts = $adverts->orderBy('id', 'desc');
                 break;
             case 'oldest':
-                $adverts = $adverts->orderBy('id', 'asc')->paginate($per_page);
+                $adverts = $adverts->orderBy('id', 'asc');
                 break;
             case 'name':
-                $adverts = $adverts->orderBy('title', 'asc')->paginate($per_page);
+                $adverts = $adverts->orderBy('title', 'asc');
                 break;
             case 'lowest_price':
-                $adverts = $adverts->orderBy('price', 'asc')->paginate($per_page);
+                $adverts = $adverts->orderBy('price', 'asc');
                 break;
             case 'highest_price':
-                $adverts = $adverts->orderBy('price', 'desc')->paginate($per_page);
+                $adverts = $adverts->orderBy('price', 'desc');
                 break;
 
             default:
-                $adverts = $adverts->orderBy('id', 'desc')->paginate($per_page);
+                $adverts = $adverts->orderBy('id', 'desc');
                 break;
         }
+
+        $adverts = $adverts->select('id','title', 'year', 'mileage', 'country', 'location',  'type_of_drive',  'engine',  'torque',  'body_style',  'exterior_color', 'price', 'date')->paginate($per_page);
 
         return $adverts;
     }
@@ -63,6 +66,7 @@ class AdvertsController extends Controller
     {
 
         $this->looking_for = $looking_for;
+        $this->advert = $adverts;
 
         /* need to use query for basic searching, because if user would use advanced searching
         where clauses would be like where(//)->orWhere(//)->where(//) -
@@ -81,7 +85,8 @@ class AdvertsController extends Controller
         return $adverts;
     }
 
-    private function advanced_search($adverts, $user_settings, $min_price, $max_price) {
+    private function advanced_search($adverts, $user_settings, $min_price, $max_price)
+    {
 
         if ($min_price != '') {
             $adverts = $adverts->where('price', '>', (int)$min_price);
@@ -92,7 +97,7 @@ class AdvertsController extends Controller
 
 
         $index = 0;
-        if($user_settings == []) {
+        if ($user_settings == []) {
             return $adverts;
         }
         //foreach option in advanced searching, frontend is rendered from that const too
@@ -105,7 +110,7 @@ class AdvertsController extends Controller
             $choosenSettingValues = $user_settings[$index];
 
             //first option in advanced searching is Any - filter results only if Any is not checked and if array isnt empty
-            if($choosenSettingValues != []) {
+            if ($choosenSettingValues != []) {
                 if ($choosenSettingValues[0] !== "Any") {
                     $adverts = $adverts->whereIn("$settingName", $choosenSettingValues);
                 }
@@ -131,15 +136,13 @@ class AdvertsController extends Controller
         $min_price = $request->get('min_price');
         $max_price = $request->get('max_price');
 
-//        Cache::remember('adverts', 15 , function() {
-//            return AdvertResource::collection(Advert::all());
-//        });
-
         $adverts = $this->advanced_search($this->advert, $user_settings, $min_price, $max_price);
-        $adverts = $this->basicSearching($adverts, $looking_for);
-        $adverts = $this->sorting($adverts, $per_page, $order_by);
+        if($looking_for != '') {
+            $adverts = $this->basicSearching($adverts, $looking_for);
+        }
+        $adverts = $this->sorting($adverts,$per_page, $order_by);
 
-       return AdvertResource::collection($adverts);
+        return AdvertResource::collection($adverts);
     }
 
 
@@ -148,9 +151,15 @@ class AdvertsController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function advert($id) {
-        $advert = $this->advert->find($id);
-        $features = $advert->features;
+    public function advert($id)
+    {
+        $advert = Cache::rememberForever('advert', function() use ($id) {
+            return $this->advert->find($id);
+        });
+
+        $features = Cache::rememberForever('features', function() use ($advert) {
+            return $advert->features;
+        });
 
         return view('sites.announcement', ['advert' => $advert, 'features' => $features]);
     }
