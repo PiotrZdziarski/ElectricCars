@@ -4,6 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Advert::class, function (Faker $faker) {
     return [
+        'id' => 1,
         'title' => $faker->text(40),
         'engine' => $faker->text(10),
         'torque' => $faker->text(15),

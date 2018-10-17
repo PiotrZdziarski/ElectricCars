@@ -6,5 +6,5 @@
 @endsection
 
 @section('content')
-    <announcements searching_settings='{{json_encode(SEARCHING_SETTING)}}'></announcements>
+    <announcements searching_settings='{{json_encode(Config::get('constants.SEARCHING_SETTING'))}}'></announcements>
 @endsection

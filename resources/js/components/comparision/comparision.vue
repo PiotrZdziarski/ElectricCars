@@ -91,15 +91,33 @@
 <script>
     export default {
         name: "comparision",
+        props: {
+            comparision_products: {
+                Type: Object
+            }
+        },
         data() {
             return {
-                error: false
+                error: false,
+                comparision_products_json: {}
+            }
+        },
+        computed: {
+            comparision_products_to_json: function () {
+                return JSON.parse(this.comparision_products);
             }
         },
         mounted() {
+            this.comparision_products_json = this.comparision_products_to_json;
+            console.log(this.comparision_products_json);
             $(document).ready(function () {
                 $('#comparision').modal('show');
             });
+        },
+        methods: {
+            compare(id) {
+                console.log(id);
+            }
         }
     }
 </script>
@@ -262,6 +280,9 @@
             border-top: 0;
 
             .close-modal-btn {
+                margin-right: 0;
+                left: 25px;
+                position: absolute;
                 background: transparent;
                 color: #444;
             }

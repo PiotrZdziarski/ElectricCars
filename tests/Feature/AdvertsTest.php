@@ -3,12 +3,19 @@
 namespace Tests\Feature;
 
 use App\Advert;
+use App\ComparisionProduct;
+use App\Feature;
 use App\Http\Controllers\AdvertsController;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Session;
 use Tests\TestCase;
 
 class AdvertsTest extends TestCase
 {
+    use DatabaseTransactions;
+
     /**
      * @var AdvertsController
      */
@@ -39,7 +46,7 @@ class AdvertsTest extends TestCase
         //generate user settings
         $user_settings_array = [];
         $i = 0;
-        while($i < count(SEARCHING_SETTING)) {
+        while ($i < count(Config::get('constants.SEARCHING_SETTING'))) {
             array_push($user_settings_array, ["Any"]);
             $i++;
         }
@@ -57,6 +64,27 @@ class AdvertsTest extends TestCase
         $this->json('POST', '/api/announcements', $data)
             ->assertStatus(200)
             ->assertSee(json_encode($this->advertsController->index($request)));
+    }
+
+
+    /**
+     * Test advert method from AdvertsController
+     */
+    public function testSingleAdvertSubpage()
+    {
+        //generete components
+        $advert = factory(Advert::class)->create();
+        factory(Feature::class, 5)->create();
+        factory(ComparisionProduct::class)->create();
+
+        //test with comparision session
+        Session::put('comparision_product_id', 1);
+        $subpage = $this->advertsController->advert($advert->id);
+        Session::forget('comparision_product_id');
+
+        $this->get("/advert/$advert->id")
+            ->assertStatus(200)
+            ->assertSee($subpage);
     }
 
 }
