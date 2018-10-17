@@ -10,5 +10,9 @@
 @endsection
 
 @section('content')
-    <announcement features="{{$features}}" advert="{{$advert}}"></announcement>
+    <announcement
+            features="{{ $features }}"
+            advert="{{ $advert }}"
+            comparision_products="{{ $comparision_products }}">
+    </announcement>
 @endsection

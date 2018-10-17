@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Advert;
+use App\ComparisionList;
+use App\ComparisionProduct;
 use App\Http\Resources\AdvertResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class AdvertsController extends Controller
 {
@@ -57,7 +61,21 @@ class AdvertsController extends Controller
                 break;
         }
 
-        $adverts = $adverts->select('id','title', 'year', 'mileage', 'country', 'location',  'type_of_drive',  'engine',  'torque',  'body_style',  'exterior_color', 'price', 'date')->paginate($per_page);
+        $adverts = $adverts->select(
+            'id',
+            'title',
+            'year',
+            'mileage',
+            'country',
+            'location',
+            'type_of_drive',
+            'engine',
+            'torque',
+            'body_style',
+            'exterior_color',
+            'price',
+            'date'
+        )->paginate($per_page);
 
         return $adverts;
     }
@@ -101,7 +119,7 @@ class AdvertsController extends Controller
             return $adverts;
         }
         //foreach option in advanced searching, frontend is rendered from that const too
-        foreach (SEARCHING_SETTING as $settingName => $setting) {
+        foreach (Config::get('constants.SEARCHING_SETTING') as $settingName => $setting) {
 
             //column in database have underscore instead of space
             $settingName = str_replace(' ', '_', $settingName);
@@ -156,8 +174,21 @@ class AdvertsController extends Controller
      */
     public function advert($id)
     {
+
         $advert = $this->advert->find($id);
         $features = $advert->features;
-        return view('sites.announcement', ['advert' => $advert, 'features' => $features, 'id' => $id]);
+
+        $comparision_products = null;
+
+        if(Session::has('comparision_list_id')) {
+            $comparision_list_id = Session::get('comparision_list_id');
+            $comparision_products = ComparisionProduct::where('comparision_list_id', $comparision_list_id)->get();
+        }
+
+        return view('sites.announcement', [
+            'advert' => $advert,
+            'features' => $features,
+            'comparision_products' => $comparision_products
+        ]);
     }
 }

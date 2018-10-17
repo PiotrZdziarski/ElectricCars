@@ -196,16 +196,14 @@
                     <div class="email utility">
                         <i class="icon-mail"></i> jan.kowalski1960Stefan@gmail.com
                     </div>
-                    <a class="href" href="#" data-toggle="modal" data-target="#comparision">
-                        <div class="compare utility">
-                            <i class="icon-flow-cross"></i>Compare
-                        </div>
-                    </a>
+                    <div class="compare utility" @click="compare" data-toggle="modal" data-target="#comparision">
+                        <i class="icon-flow-cross"></i>Compare
+                    </div>
                 </div>
             </div>
         </div>
 
-        <comparision></comparision>
+        <comparision ref="comparision"  :comparision_products="comparision_products"></comparision>
     </section>
 </template>
 
@@ -222,6 +220,9 @@
                 Type: Object
             },
             features: {
+                Type: Object
+            },
+            comparision_products: {
                 Type: Object
             }
         },
@@ -242,7 +243,11 @@
         mounted() {
             this.advertJSON = this.advert_to_json;
             this.featuresJSON = this.features_to_json;
-
+        },
+        methods: {
+            compare() {
+                this.$refs.comparision.compare(this.advertJSON.id);
+            }
         }
     }
 </script>
