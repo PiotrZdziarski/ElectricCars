@@ -203,7 +203,7 @@
             </div>
         </div>
 
-        <comparision ref="comparision"  :comparision_products="comparision_products"></comparision>
+        <comparision ref="comparision"  :products="products"></comparision>
     </section>
 </template>
 
@@ -222,7 +222,7 @@
             features: {
                 Type: Object
             },
-            comparision_products: {
+            products: {
                 Type: Object
             }
         },

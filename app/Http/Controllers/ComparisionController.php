@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Advert;
+use App\ComparisionList;
+use App\ComparisionProduct;
 use App\Http\Resources\AdvertResource;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class ComparisionController extends Controller
@@ -14,19 +15,26 @@ class ComparisionController extends Controller
         phpinfo();
     }
 
-    public function testapi() {
-        $value = Cache::remember('users', 10, function () {
-            DB::table('features')->get();
-        });
+    /**
+     * Storing comparision product to list
+     * @param Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function store(Request $request) {
+        $id = intval($request->get('id'));
 
-        return $value;
-    }
+        if(!Session::has('comparision_list_id')) {
+            ComparisionList::increment('id');
+            Session::put('comparision_list_id', ComparisionList::first()->id);
+        }
 
-    public function index() {
-        return  'xd';
-    }
+        ComparisionProduct::insert([
+            'comparision_list_id' => Session::get('comparision_list_id'),
+            'product_id' => $id
+        ]);
 
-    public function testkruwa(){
-        return 'xd';
+        return AdvertResource::collection(
+            Advert::where('id', $id)->select('id', 'main_image', 'title')->get()
+        );
     }
 }

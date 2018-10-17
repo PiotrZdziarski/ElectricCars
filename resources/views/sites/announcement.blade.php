@@ -13,6 +13,6 @@
     <announcement
             features="{{ $features }}"
             advert="{{ $advert }}"
-            comparision_products="{{ $comparision_products }}">
+            products="{{ $products }}">
     </announcement>
 @endsection
