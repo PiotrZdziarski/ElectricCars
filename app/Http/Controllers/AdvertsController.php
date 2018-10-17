@@ -174,21 +174,26 @@ class AdvertsController extends Controller
      */
     public function advert($id)
     {
-
         $advert = $this->advert->find($id);
         $features = $advert->features;
-
-        $comparision_products = null;
+        //for not throwing htmlspecialchars error
+        $products = null;
 
         if(Session::has('comparision_list_id')) {
             $comparision_list_id = Session::get('comparision_list_id');
-            $comparision_products = ComparisionProduct::where('comparision_list_id', $comparision_list_id)->get();
+            $comparision_products = ComparisionProduct::where('comparision_list_id', $comparision_list_id)->select('id', 'product_id')->get();
+            $products = array();
+
+            foreach ($comparision_products as $comparision_product) {
+                array_push($products, ComparisionProduct::find($comparision_product->id)->advert);
+            }
+            $products = json_encode($products);
         }
 
         return view('sites.announcement', [
             'advert' => $advert,
             'features' => $features,
-            'comparision_products' => $comparision_products
+            'products' => $products,
         ]);
     }
 }

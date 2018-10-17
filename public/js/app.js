@@ -53625,7 +53625,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         features: {
             Type: Object
         },
-        comparision_products: {
+        products: {
             Type: Object
         }
     },
@@ -54446,7 +54446,7 @@ var render = function() {
       _vm._v(" "),
       _c("comparision", {
         ref: "comparision",
-        attrs: { comparision_products: _vm.comparision_products }
+        attrs: { products: _vm.products }
       })
     ],
     1
@@ -55294,7 +55294,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.modal[data-v-2ea806b2] {\n  padding-right: 0;\n}\n.modal-content[data-v-2ea806b2] {\n  padding: 8px;\n  border-radius: 5px;\n  font-family: \"Roboto\", sans-serif;\n}\n.modal-content .text-header[data-v-2ea806b2] {\n    font-size: 26px;\n    font-weight: 700;\n}\n.modal-content .icon-flow-cross[data-v-2ea806b2] {\n    font-size: 24px;\n    padding-right: 5px;\n}\n.modal-content .modal-header[data-v-2ea806b2] {\n    border-bottom: 0;\n}\n.modal-content .modal-header .close[data-v-2ea806b2] {\n      opacity: 0.90;\n      padding: .9rem 22px .9rem .9rem;\n}\n.modal-content .modal-header .close .close-sign[data-v-2ea806b2] {\n        text-align: right;\n        display: block;\n        color: black;\n        font-size: 42px;\n        font-weight: 700;\n}\n.modal-content .modal-header .close[data-v-2ea806b2]:hover {\n      opacity: 0.8;\n}\n.modal-content .modal-header .close[data-v-2ea806b2]:active, .modal-content .modal-header .close[data-v-2ea806b2]:focus {\n      outline: none;\n}\n.modal-content .error-div[data-v-2ea806b2] {\n    background: #f8e7e7;\n    margin: 5px;\n    padding: 15px 10px 14px;\n    border-radius: 2px;\n    color: #d50000;\n    display: table;\n    position: relative;\n}\n.modal-content .error-div .error-info[data-v-2ea806b2] {\n      display: table-cell;\n      vertical-align: middle;\n      font-size: 16px;\n      font-weight: 500;\n}\n.modal-content .error-div .error-info .icon-exclamation[data-v-2ea806b2] {\n        font-size: 20px;\n        padding-right: 5px;\n}\n.modal-content .error-div .close[data-v-2ea806b2] {\n      opacity: 0.60;\n      padding-right: 5px;\n      padding-left: 5px;\n}\n.modal-content .error-div .close .close-sign[data-v-2ea806b2] {\n        height: 100%;\n        display: block;\n        color: black;\n        font-size: 28px;\n        font-weight: 700;\n}\n.modal-content .error-div .close[data-v-2ea806b2]:hover {\n      opacity: 0.5;\n}\n.modal-content .error-div .close[data-v-2ea806b2]:active, .modal-content .error-div .close[data-v-2ea806b2]:focus {\n      outline: none;\n}\n.modal-content .modal-body[data-v-2ea806b2] {\n    padding: 10px 10px 10px 10px;\n}\n.modal-content .modal-body .list-title[data-v-2ea806b2] {\n      font-size: 18px;\n      font-weight: 500;\n      padding-bottom: 5px;\n      color: #333;\n}\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      padding: 0 5px 10px 5px;\n      position: relative;\n      border-bottom: 1px solid #eaeaea;\n}\n@media (min-width: 476px) {\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2] {\n          padding: 10px;\n}\n}\n.modal-content .modal-body .comparision-list .list-item .item-image[data-v-2ea806b2] {\n        width: 25%;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-pack: center;\n            -ms-flex-pack: center;\n                justify-content: center;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center;\n}\n.modal-content .modal-body .comparision-list .list-item .item-image .image[data-v-2ea806b2] {\n          max-width: 100%;\n          max-height: 100%;\n}\n.modal-content .modal-body .comparision-list .list-item .item-title[data-v-2ea806b2] {\n        color: #555;\n        width: 60%;\n        padding: 0 10px 10px 10px;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete[data-v-2ea806b2] {\n        cursor: pointer;\n        position: absolute;\n        color: #444;\n        bottom: 5px;\n        right: 5px;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete .icon-minus-circled[data-v-2ea806b2] {\n          color: dodgerblue;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete[data-v-2ea806b2]:hover {\n        opacity: 0.9;\n}\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2]:last-child {\n      border: 0;\n}\n.modal-content .modal-footer[data-v-2ea806b2] {\n    border-top: 0;\n}\n.modal-content .modal-footer .close-modal-btn[data-v-2ea806b2] {\n      margin-right: 0;\n      left: 25px;\n      position: absolute;\n      background: transparent;\n      color: #444;\n}\n.modal-content .modal-footer .close-modal-btn[data-v-2ea806b2]:focus, .modal-content .modal-footer .close-modal-btn[data-v-2ea806b2]:active {\n      -webkit-box-shadow: none;\n              box-shadow: none;\n}\n.modal-content .modal-footer .close-modal-btn[data-v-2ea806b2]:hover {\n      color: #222;\n      -webkit-box-shadow: 0 2px 4px #ddd;\n              box-shadow: 0 2px 4px #ddd;\n}\n.modal-content .modal-footer .btn-primary[data-v-2ea806b2] {\n      -webkit-box-shadow: none;\n              box-shadow: none;\n}\n", ""]);
+exports.push([module.i, "\n.modal[data-v-2ea806b2] {\n  padding-right: 0;\n}\n.modal-content[data-v-2ea806b2] {\n  padding: 8px;\n  border-radius: 5px;\n  font-family: \"Roboto\", sans-serif;\n}\n.modal-content .text-header[data-v-2ea806b2] {\n    font-size: 26px;\n    font-weight: 700;\n}\n.modal-content .icon-flow-cross[data-v-2ea806b2] {\n    font-size: 24px;\n    padding-right: 5px;\n}\n.modal-content .modal-header[data-v-2ea806b2] {\n    border-bottom: 0;\n}\n.modal-content .modal-header .close[data-v-2ea806b2] {\n      opacity: 0.90;\n      padding: .9rem 22px .9rem .9rem;\n}\n.modal-content .modal-header .close .close-sign[data-v-2ea806b2] {\n        text-align: right;\n        display: block;\n        color: black;\n        font-size: 42px;\n        font-weight: 700;\n}\n.modal-content .modal-header .close[data-v-2ea806b2]:hover {\n      opacity: 0.8;\n}\n.modal-content .modal-header .close[data-v-2ea806b2]:active, .modal-content .modal-header .close[data-v-2ea806b2]:focus {\n      outline: none;\n}\n.modal-content .error-div[data-v-2ea806b2] {\n    background: #f8e7e7;\n    margin: 5px;\n    padding: 15px 10px 14px;\n    border-radius: 2px;\n    color: #d50000;\n    display: table;\n    position: relative;\n}\n.modal-content .error-div .error-info[data-v-2ea806b2] {\n      display: table-cell;\n      vertical-align: middle;\n      font-size: 16px;\n      font-weight: 500;\n}\n.modal-content .error-div .error-info .icon-exclamation[data-v-2ea806b2] {\n        font-size: 20px;\n        padding-right: 5px;\n}\n.modal-content .error-div .close[data-v-2ea806b2] {\n      opacity: 0.60;\n      padding-right: 5px;\n      padding-left: 5px;\n}\n.modal-content .error-div .close .close-sign[data-v-2ea806b2] {\n        height: 100%;\n        display: block;\n        color: black;\n        font-size: 28px;\n        font-weight: 700;\n}\n.modal-content .error-div .close[data-v-2ea806b2]:hover {\n      opacity: 0.5;\n}\n.modal-content .error-div .close[data-v-2ea806b2]:active, .modal-content .error-div .close[data-v-2ea806b2]:focus {\n      outline: none;\n}\n.modal-content .modal-body[data-v-2ea806b2] {\n    min-height: 1px;\n    max-height: 100%;\n    padding: 10px 10px 10px 10px;\n}\n.modal-content .modal-body .list-title[data-v-2ea806b2] {\n      font-size: 18px;\n      font-weight: 500;\n      padding-bottom: 5px;\n      color: #333;\n}\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2] {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      padding: 0 5px 10px 5px;\n      position: relative;\n      border-bottom: 1px solid #eaeaea;\n}\n@media (min-width: 476px) {\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2] {\n          padding: 10px;\n}\n}\n.modal-content .modal-body .comparision-list .list-item .item-image[data-v-2ea806b2] {\n        width: 25%;\n}\n.modal-content .modal-body .comparision-list .list-item .item-image .image[data-v-2ea806b2] {\n          height: 100%;\n          width: 100%;\n}\n.modal-content .modal-body .comparision-list .list-item .item-title[data-v-2ea806b2] {\n        color: #555;\n        width: 60%;\n        padding: 0 10px 10px 10px;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete[data-v-2ea806b2] {\n        cursor: pointer;\n        position: absolute;\n        color: #444;\n        bottom: 5px;\n        right: 5px;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete .icon-minus-circled[data-v-2ea806b2] {\n          color: dodgerblue;\n}\n.modal-content .modal-body .comparision-list .list-item .item-delete[data-v-2ea806b2]:hover {\n        opacity: 0.9;\n}\n.modal-content .modal-body .comparision-list .list-item[data-v-2ea806b2]:last-child {\n      border: 0;\n}\n.modal-content .modal-footer[data-v-2ea806b2] {\n    position: relative;\n    border-top: 0;\n}\n.modal-content .modal-footer .close-modal-btn[data-v-2ea806b2] {\n      margin-right: 0;\n      bottom: 18px;\n      left: 25px;\n      position: absolute;\n      background: transparent;\n      color: #444;\n}\n.modal-content .modal-footer .close-modal-btn[data-v-2ea806b2]:focus, .modal-content .modal-footer .close-modal-btn[data-v-2ea806b2]:active {\n      -webkit-box-shadow: none;\n              box-shadow: none;\n}\n.modal-content .modal-footer .close-modal-btn[data-v-2ea806b2]:hover {\n      color: #222;\n      -webkit-box-shadow: 0 2px 4px #ddd;\n              box-shadow: 0 2px 4px #ddd;\n}\n.modal-content .modal-footer .btn-primary[data-v-2ea806b2] {\n      -webkit-box-shadow: none;\n              box-shadow: none;\n}\n", ""]);
 
 // exports
 
@@ -55359,65 +55359,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "comparision",
     props: {
-        comparision_products: {
+        products: {
             Type: Object
         }
     },
     data: function data() {
         return {
             error: false,
-            comparision_products_json: {}
+            products_json: {}
         };
     },
 
     computed: {
-        comparision_products_to_json: function comparision_products_to_json() {
-            return JSON.parse(this.comparision_products);
+        products_to_json: function products_to_json() {
+            return JSON.parse(this.products);
         }
     },
     mounted: function mounted() {
-        this.comparision_products_json = this.comparision_products_to_json;
-        console.log(this.comparision_products_json);
+        this.products_json = this.products_to_json;
+        console.log(this.products_json);
         $(document).ready(function () {
             $('#comparision').modal('show');
         });
@@ -55425,7 +55389,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         compare: function compare(id) {
-            console.log(id);
+            axios.post('/api/comparision_add', {
+                'id': id
+            }).then(function (Response) {
+                console.log(Response.data);
+            }).catch(function (error) {
+                if (error.response.status === 500) {
+                    alert('There was a problem with connecting to our servers! Try again later!');
+                }
+                if (error.response.status === 429) {
+                    alert(error.response.statusText + '. Wait 15 seconds and then try again.');
+                }
+            });
         }
     }
 });
@@ -55469,9 +55444,35 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _vm._m(3),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "list-title" }, [
+                _vm._v(
+                  "\n                    You have the following classifieds for comparison:\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "comparision-list" },
+                _vm._l(_vm.products_json, function(product) {
+                  return _c("div", { staticClass: "list-item" }, [
+                    _vm._m(3, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "item-title" }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(product.title) +
+                          "\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(4, true)
+                  ])
+                })
+              )
+            ]),
             _vm._v(" "),
-            _vm._m(4)
+            _vm._m(5)
           ])
         ]
       )
@@ -55548,102 +55549,24 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-body" }, [
-      _c("div", { staticClass: "list-title" }, [
-        _vm._v(
-          "\n                    You have the following classifieds for comparison:\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "comparision-list" }, [
-        _c("div", { staticClass: "list-item" }, [
-          _c("div", { staticClass: "item-image" }, [
-            _c("img", {
-              staticClass: "image",
-              attrs: { src: "/images/cars/carvertical.jpg" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-title" }, [
-            _vm._v(
-              "\n                            New Brand Nissan Leaft Poggers 30 2 4 p5 hstr wfvuw\n                        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-delete" }, [
-            _vm._v(
-              "\n                            Delete\n                            "
-            ),
-            _c("i", { staticClass: "icon-minus-circled" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "list-item" }, [
-          _c("div", { staticClass: "item-image" }, [
-            _c("img", {
-              staticClass: "image",
-              attrs: { src: "/images/cars/nissanleaf.jpg" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-title" }, [
-            _vm._v(
-              "\n                            s 30 2 4 p5 hstr wfvuw\n                        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-delete" }, [
-            _vm._v(
-              "\n                            Delete\n                            "
-            ),
-            _c("i", { staticClass: "icon-minus-circled" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "list-item" }, [
-          _c("div", { staticClass: "item-image" }, [
-            _c("img", {
-              staticClass: "image",
-              attrs: { src: "/images/cars/nissanleaf.jpg" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-title" }, [
-            _vm._v(
-              "\n                            s 30 2 4 p5 hstr wfvuw\n                        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-delete" }, [
-            _vm._v(
-              "\n                            Delete\n                            "
-            ),
-            _c("i", { staticClass: "icon-minus-circled" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "list-item" }, [
-          _c("div", { staticClass: "item-image" }, [
-            _c("img", {
-              staticClass: "image",
-              attrs: { src: "/images/cars/nissanleaf.jpg" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-title" }, [
-            _vm._v(
-              "\n                            s 30 2 4 p5 hstr wfvuw\n                        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-delete" }, [
-            _vm._v(
-              "\n                            Delete\n                            "
-            ),
-            _c("i", { staticClass: "icon-minus-circled" })
-          ])
-        ])
+    return _c("div", { staticClass: "item-image" }, [
+      _c("div", { staticClass: "inner" }, [
+        _c("img", {
+          staticClass: "image",
+          attrs: { src: "/images/cars/carvertical.jpg" }
+        })
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "item-delete" }, [
+      _vm._v(
+        "\n                            Delete\n                            "
+      ),
+      _c("i", { staticClass: "icon-minus-circled" })
     ])
   },
   function() {
@@ -55663,7 +55586,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("Save changes")]
+        [_vm._v("Compare")]
       )
     ])
   }

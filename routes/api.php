@@ -20,6 +20,7 @@ Route::post('/advanced_search', 'AdvertsController@advanced_search');
 
 //comparision
 Route::get('/comparision', 'ComparisionController@index');
+Route::post('/comparision_add', 'ComparisionController@store');
 
 Route::get('/testkurwa', 'ComparisionController@testkruwa');
 

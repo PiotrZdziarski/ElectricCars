@@ -25,51 +25,15 @@
                         You have the following classifieds for comparison:
                     </div>
                     <div class="comparision-list">
-                        <div class="list-item">
-                            <div class="item-image">
-                                <img class="image" src="/images/cars/carvertical.jpg">
-                            </div>
-                            <div class="item-title">
-                                New Brand Nissan Leaft Poggers 30 2 4 p5 hstr wfvuw
-                            </div>
-                            <div class="item-delete">
-                                Delete
-                                <i class="icon-minus-circled"></i>
-                            </div>
-                        </div>
 
-                        <div class="list-item">
+                        <div class="list-item" v-for="product in products_json">
                             <div class="item-image">
-                                <img class="image" src="/images/cars/nissanleaf.jpg">
+                                <div class="inner">
+                                    <img class="image" src="/images/cars/carvertical.jpg">
+                                </div>
                             </div>
                             <div class="item-title">
-                                s 30 2 4 p5 hstr wfvuw
-                            </div>
-                            <div class="item-delete">
-                                Delete
-                                <i class="icon-minus-circled"></i>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-image">
-                                <img class="image" src="/images/cars/nissanleaf.jpg">
-                            </div>
-                            <div class="item-title">
-                                s 30 2 4 p5 hstr wfvuw
-                            </div>
-                            <div class="item-delete">
-                                Delete
-                                <i class="icon-minus-circled"></i>
-                            </div>
-                        </div>
-
-                        <div class="list-item">
-                            <div class="item-image">
-                                <img class="image" src="/images/cars/nissanleaf.jpg">
-                            </div>
-                            <div class="item-title">
-                                s 30 2 4 p5 hstr wfvuw
+                                {{ product.title }}
                             </div>
                             <div class="item-delete">
                                 Delete
@@ -81,7 +45,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary close-modal-btn" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary">Compare</button>
                 </div>
             </div>
         </div>
@@ -92,31 +56,42 @@
     export default {
         name: "comparision",
         props: {
-            comparision_products: {
+            products: {
                 Type: Object
             }
         },
         data() {
             return {
                 error: false,
-                comparision_products_json: {}
+                products_json: {}
             }
         },
         computed: {
-            comparision_products_to_json: function () {
-                return JSON.parse(this.comparision_products);
+            products_to_json: function () {
+                return JSON.parse(this.products);
             }
         },
         mounted() {
-            this.comparision_products_json = this.comparision_products_to_json;
-            console.log(this.comparision_products_json);
+            this.products_json = this.products_to_json;
+            console.log(this.products_json);
             $(document).ready(function () {
                 $('#comparision').modal('show');
             });
         },
         methods: {
             compare(id) {
-                console.log(id);
+                axios.post('/api/comparision_add', {
+                    'id': id
+                }).then((Response) => {
+                    console.log(Response.data);
+                }).catch(error => {
+                    if (error.response.status === 500) {
+                        alert('There was a problem with connecting to our servers! Try again later!');
+                    }
+                    if (error.response.status === 429) {
+                        alert(error.response.statusText + '. Wait 15 seconds and then try again.');
+                    }
+                });
             }
         }
     }
@@ -191,7 +166,7 @@
             .close {
                 opacity: 0.60;
                 padding-right: 5px;
-                padding-left:5px;
+                padding-left: 5px;
 
                 .close-sign {
                     height: 100%;
@@ -213,6 +188,8 @@
         }
 
         .modal-body {
+            min-height: 1px;
+            max-height: 100%;
             padding: 10px 10px 10px 10px;
 
             .list-title {
@@ -236,14 +213,11 @@
 
                     .item-image {
                         width: 25%;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
 
-                        .image {
-                            max-width: 100%;
-                            max-height: 100%;
-                        }
+                            .image {
+                                height: 100%;
+                                width: 100%;
+                            }
                     }
 
                     .item-title {
@@ -277,10 +251,12 @@
         }
 
         .modal-footer {
+            position: relative;
             border-top: 0;
 
             .close-modal-btn {
                 margin-right: 0;
+                bottom: 18px;
                 left: 25px;
                 position: absolute;
                 background: transparent;
