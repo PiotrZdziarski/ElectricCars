@@ -181,7 +181,9 @@ class AdvertsController extends Controller
 
         if(Session::has('comparision_list_id')) {
             $comparision_list_id = Session::get('comparision_list_id');
-            $comparision_products = ComparisionProduct::where('comparision_list_id', $comparision_list_id)->select('id', 'product_id')->get();
+            $comparision_products = ComparisionProduct::where('comparision_list_id', $comparision_list_id)
+                ->select('id', 'product_id')
+                ->get();
             $products = array();
 
             foreach ($comparision_products as $comparision_product) {

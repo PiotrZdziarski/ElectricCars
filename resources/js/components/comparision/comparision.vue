@@ -1,6 +1,12 @@
 <template>
     <div class="modal fade" id="comparision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
+
+        <progress-bar
+                :progressBarCount="progressBarCount"
+                :data_retrieved="data_retrieved">
+        </progress-bar>
+
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -35,7 +41,7 @@
                             <div class="item-title">
                                 {{ product.title }}
                             </div>
-                            <div class="item-delete">
+                            <div class="item-delete" @click="delete_product(product.id)">
                                 Delete
                                 <i class="icon-minus-circled"></i>
                             </div>
@@ -63,7 +69,9 @@
         data() {
             return {
                 error: false,
-                products_json: []
+                products_json: [],
+                data_retrieved: false,
+                progressBarCount: 0,
             }
         },
         computed: {
@@ -82,10 +90,32 @@
         },
         methods: {
             compare(id) {
+                this.progressBarCount += 1;
                 axios.post('/api/comparision_add', {
                     'id': id
                 }).then((Response) => {
-                    console.log(Response.data);
+                    this.data_retrieved = true;
+                    if(Response.data !== '') {
+                        this.products_json.push(Response.data);
+                    }
+                }).catch(error => {
+                    if (error.response.status === 500) {
+                        alert('There was a problem with connecting to our servers! Try again later!');
+                    }
+                    if (error.response.status === 429) {
+                        alert(error.response.statusText + '. Wait 15 seconds and then try again.');
+                    }
+                });
+            },
+
+            delete_product(id) {
+                this.progressBarCount += 1;
+                console.log(id);
+                axios.delete('/api/comparision_delete', {
+                    data: {'id': id }
+                }).then(() => {
+                    this.data_retrieved = true;
+                    this.products_json.splice(-1,1);
                 }).catch(error => {
                     if (error.response.status === 500) {
                         alert('There was a problem with connecting to our servers! Try again later!');
@@ -100,11 +130,9 @@
 </script>
 
 <style lang="scss" scoped>
-    .modal {
-        padding-right: 0;
-    }
 
     .modal-content {
+        box-shadow: 0 4px 8px #666;
         padding: 8px;
         border-radius: 5px;
         font-family: "Roboto", sans-serif;

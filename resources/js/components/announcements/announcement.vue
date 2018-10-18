@@ -194,7 +194,8 @@
                     </div>
 
                     <div class="email utility">
-                        <i class="icon-mail"></i> jan.kowalski1960Stefan@gmail.com
+                        <i class="icon-mail"></i>
+                        <div class="emailText">jan.kowalskqwerwerwrwerwerwerwerweri196qweqweqweqweqwex</div>
                     </div>
                     <div class="compare utility" @click="compare" data-toggle="modal" data-target="#comparision">
                         <i class="icon-flow-cross"></i>Compare
@@ -419,13 +420,14 @@
 
                 .utility {
                     margin-top: 30px;
-                    padding: 14px 5px 14px 5px;
+                    padding: 14px 15px 14px 15px;
                     color: white;
                     border-radius: 4px;
                     justify-content: center;
                     display: flex;
                     align-items: center;
                     font-size: 18px;
+                    width: 100%;
                     overflow-x: auto;
                 }
 
@@ -436,8 +438,14 @@
                 .email {
                     background: #22292f;
                     font-size: 16px;
+                    display: flex;
+
                     .icon-mail {
                         padding-right: 5px;
+                    }
+
+                    .emailText {
+                        width:100%;
                     }
                 }
 

@@ -21,6 +21,7 @@ window.Vue = require('vue');
 Vue.component('navbar', require('./components/app/navbar.vue'));
 Vue.component('footerMain', require('./components/app/footerMain.vue'));
 Vue.component('scrollEventListener', require('./components/app/scrollEventListener.vue'));
+Vue.component('progress-bar', require('./components/app/progressBar.vue'));
 
 //Home
 Vue.component('carousel', require('./components/home/carousel.vue'));

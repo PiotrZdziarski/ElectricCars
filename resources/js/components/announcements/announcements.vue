@@ -38,7 +38,6 @@
     import sortBy from './sortBy.vue';
     import settings from './settings.vue';
     import announcementsList from './announcementsList.vue';
-    import progressBar from '../app/progressBar.vue';
 
     export default {
         name: "announcements",
@@ -46,7 +45,6 @@
             sortBy: sortBy,
             settings: settings,
             announcementsList: announcementsList,
-            progressBar: progressBar
         },
         props: {
             searching_settings: {
@@ -97,6 +95,7 @@
                     if (scroll === true) {
                         document.getElementById('announcements').scrollIntoView();
                     }
+
                     this.data_retrieved = true;
                 }).catch(error => {
                     if(error.response.status === 500) {
