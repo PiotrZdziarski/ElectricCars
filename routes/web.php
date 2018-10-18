@@ -26,6 +26,8 @@ Route::get('/advert/{id}', 'AdvertsController@advert');
 Route::get('/reclams', 'AdvertsController@reclams');
 
 
+//api - uses Session
+Route::post('/api/comparision_add', 'ComparisionController@store');
 
 //just for testing
 Route::get('/test', 'ComparisionController@test');

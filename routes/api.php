@@ -20,7 +20,7 @@ Route::post('/advanced_search', 'AdvertsController@advanced_search');
 
 //comparision
 Route::get('/comparision', 'ComparisionController@index');
-Route::post('/comparision_add', 'ComparisionController@store');
+/* Comparision store in web.php because it uses Session */
 
 Route::get('/testkurwa', 'ComparisionController@testkruwa');
 
