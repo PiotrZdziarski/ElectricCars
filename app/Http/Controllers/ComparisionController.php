@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Advert;
 use App\ComparisionList;
 use App\ComparisionProduct;
-use App\Http\Resources\AdvertResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -28,7 +26,6 @@ class ComparisionController extends Controller
             ComparisionList::increment('id');
             Session::put('comparision_list_id', ComparisionList::first()->id);
         }
-
         $comparision_list_id = Session::get('comparision_list_id');
 
         if(ComparisionProduct::where('product_id', $id)->doesntExist()) {
@@ -43,5 +40,21 @@ class ComparisionController extends Controller
         }
 
         return $comparision_product->advert;
+    }
+
+
+    /**
+     * Delete comparision product from list
+     * @param Request $request
+     */
+    public function delete(Request $request)
+    {
+        $id = $request->get('id');
+
+        if (Session::has('comparision_list_id')) {
+            ComparisionProduct::where('product_id', $id)
+                ->where('comparision_list_id', Session::get('comparision_list_id'))
+                ->delete();
+        }
     }
 }

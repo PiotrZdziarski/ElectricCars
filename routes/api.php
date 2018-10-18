@@ -21,6 +21,7 @@ Route::post('/advanced_search', 'AdvertsController@advanced_search');
 //comparision
 Route::get('/comparision', 'ComparisionController@index');
 /* Comparision store in web.php because it uses Session */
+/* Comparision delete in web.php because it uses Session */
 
 Route::get('/testkurwa', 'ComparisionController@testkruwa');
 

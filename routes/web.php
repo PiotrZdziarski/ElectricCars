@@ -28,6 +28,7 @@ Route::get('/reclams', 'AdvertsController@reclams');
 
 //api - uses Session
 Route::post('/api/comparision_add', 'ComparisionController@store');
+Route::delete('/api/comparision_delete', 'ComparisionController@delete');
 
 //just for testing
 Route::get('/test', 'ComparisionController@test');
