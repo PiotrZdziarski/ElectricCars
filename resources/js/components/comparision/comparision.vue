@@ -57,13 +57,13 @@
         name: "comparision",
         props: {
             products: {
-                Type: Object
+                Type: Object,
             }
         },
         data() {
             return {
                 error: false,
-                products_json: {}
+                products_json: []
             }
         },
         computed: {
@@ -72,8 +72,10 @@
             }
         },
         mounted() {
-            this.products_json = this.products_to_json;
-            console.log(this.products_json);
+            if(this.products !== '') {
+                this.products_json = this.products_to_json;
+            }
+            console.log(this.products);
             $(document).ready(function () {
                 $('#comparision').modal('show');
             });

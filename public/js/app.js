@@ -55370,7 +55370,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             error: false,
-            products_json: {}
+            products_json: []
         };
     },
 
@@ -55380,8 +55380,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     mounted: function mounted() {
-        this.products_json = this.products_to_json;
-        console.log(this.products_json);
+        if (this.products !== '') {
+            this.products_json = this.products_to_json;
+        }
+        console.log(this.products);
         $(document).ready(function () {
             $('#comparision').modal('show');
         });
