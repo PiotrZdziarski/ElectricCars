@@ -95,7 +95,7 @@
     .progressBar {
         position: fixed;
         width: 100%;
-        height: 3px;
+        height: 2px;
         top: 0;
         left: 0;
         z-index: 1002;
@@ -103,9 +103,9 @@
 
         #progress {
             width: 0;
-            background: #ff536a;
+            background: #ff688d;
             //box-shadow: 0 0 20px rgba(255, 59, 97, 1);
-            height: 4px;
+            height: 3px;
             border-radius: 5px;
 
         }

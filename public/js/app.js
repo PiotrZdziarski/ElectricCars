@@ -49838,7 +49838,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active[data-v-9d666786], .fade-leave-active[data-v-9d666786] {\n  -webkit-transition: opacity 0.4s;\n  transition: opacity 0.4s;\n}\n.fade-enter[data-v-9d666786], .fade-leave-to[data-v-9d666786] {\n  opacity: 0;\n}\n.progressBar[data-v-9d666786] {\n  position: fixed;\n  width: 100%;\n  height: 3px;\n  top: 0;\n  left: 0;\n  z-index: 1002;\n  background: #ccc;\n}\n.progressBar #progress[data-v-9d666786] {\n    width: 0;\n    background: #ff536a;\n    height: 4px;\n    border-radius: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active[data-v-9d666786], .fade-leave-active[data-v-9d666786] {\n  -webkit-transition: opacity 0.4s;\n  transition: opacity 0.4s;\n}\n.fade-enter[data-v-9d666786], .fade-leave-to[data-v-9d666786] {\n  opacity: 0;\n}\n.progressBar[data-v-9d666786] {\n  position: fixed;\n  width: 100%;\n  height: 2px;\n  top: 0;\n  left: 0;\n  z-index: 1002;\n  background: #ccc;\n}\n.progressBar #progress[data-v-9d666786] {\n    width: 0;\n    background: #ff688d;\n    height: 3px;\n    border-radius: 5px;\n}\n", ""]);
 
 // exports
 
@@ -55385,6 +55385,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 'id': id
             }).then(function (Response) {
                 _this.data_retrieved = true;
+                console.log(Response.data);
+
+                if (Response.data.length > 3) {
+                    //remove last item cause it is info
+                    Response.data.splice(-1, 1);
+                    _this.error = true;
+                    _this.products_json = Response.data;
+                }
 
                 if (Response.data !== "not_set") {
                     _this.products_json = Response.data;
@@ -55421,6 +55429,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     alert(error.response.statusText + '. Wait 15 seconds and then try again.');
                 }
             });
+        },
+        close_error: function close_error() {
+            this.error = false;
         }
     }
 });
@@ -55467,7 +55478,24 @@ var render = function() {
               ? _c("div", { staticClass: "error-div" }, [
                   _vm._m(1),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _c(
+                    "button",
+                    {
+                      staticClass: "close",
+                      attrs: { type: "button", "aria-label": "Close" },
+                      on: { click: _vm.close_error }
+                    },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "close-sign",
+                          attrs: { "aria-hidden": "true" }
+                        },
+                        [_vm._v("×")]
+                      )
+                    ]
+                  )
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -55533,7 +55561,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(3)
+            _vm._m(2)
           ])
         ]
       )
@@ -55585,27 +55613,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "error-info" }, [
       _c("i", { staticClass: "icon-exclamation" }),
-      _vm._v("You can maximally add only 3 products\n                ")
+      _vm._v("You can maximally add only 3 classifieds\n                ")
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "close",
-        attrs: { type: "button", "aria-label": "Close" }
-      },
-      [
-        _c(
-          "span",
-          { staticClass: "close-sign", attrs: { "aria-hidden": "true" } },
-          [_vm._v("×")]
-        )
-      ]
-    )
   },
   function() {
     var _vm = this

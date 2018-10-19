@@ -37,6 +37,16 @@ class ComparisionController extends Controller
             array_push($products, ComparisionProduct::find($comparision_product->id)->advert);
         }
 
+
+        //user can compare maximally 3 products
+        if(count($products) >= 3) {
+            //sending info that it is too much
+            array_push($products, true);
+            $products = json_encode($products);
+            return $products;
+        }
+
+
         if(ComparisionProduct::where('product_id', $id)
             ->where('comparision_list_id', $comparision_list_id)
             ->doesntExist()) {
