@@ -8,8 +8,10 @@ use App\Feature;
 use App\Http\Controllers\AdvertsController;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 use Tests\TestCase;
 
 class AdvertsTest extends TestCase
@@ -77,14 +79,10 @@ class AdvertsTest extends TestCase
         factory(Feature::class, 5)->create();
         factory(ComparisionProduct::class)->create();
 
-        //test with comparision session
-        Session::put('comparision_product_id', 1);
-        $subpage = $this->advertsController->advert($advert->id);
-        Session::forget('comparision_product_id');
-
-        $this->get("/advert/$advert->id")
+        //test caching
+        $this->get(URL::current()."/advert/$advert->id")
             ->assertStatus(200)
-            ->assertSee($subpage);
+            ->assertSee(Cache::get(URL::current()."/advert/$advert->id"));
     }
 
 }

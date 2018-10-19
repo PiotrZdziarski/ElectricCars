@@ -20,9 +20,9 @@
                 </div>
                 <div class="error-div" v-if="error">
                     <span class="error-info">
-                        <i class="icon-exclamation"></i>You can maximally add only 3 products
+                        <i class="icon-exclamation"></i>You can maximally add only 3 classifieds
                     </span>
-                    <button type="button" class="close" aria-label="Close">
+                    <button type="button" class="close" aria-label="Close" @click="close_error">
                         <span class="close-sign" aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -79,6 +79,14 @@
                     'id': id
                 }).then((Response) => {
                     this.data_retrieved = true;
+                    console.log(Response.data);
+
+                    if(Response.data.length > 3) {
+                        //remove last item cause it is info
+                        Response.data.splice(-1,1);
+                        this.error = true;
+                        this.products_json = Response.data;
+                    }
 
                     if (Response.data !== "not_set") {
                         this.products_json = Response.data;
@@ -114,6 +122,10 @@
                         alert(error.response.statusText + '. Wait 15 seconds and then try again.');
                     }
                 });
+            },
+
+            close_error() {
+                this.error = false;
             }
         }
     }
