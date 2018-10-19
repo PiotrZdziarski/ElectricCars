@@ -16,7 +16,7 @@ class ComparisionController extends Controller
     /**
      * Storing comparision product to list
      * @param Request $request
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return \App\Advert|bool|mixed
      */
     public function store(Request $request) {
         $id = intval($request->get('id'));
@@ -28,18 +28,33 @@ class ComparisionController extends Controller
         }
         $comparision_list_id = Session::get('comparision_list_id');
 
-        if(ComparisionProduct::where('product_id', $id)->doesntExist()) {
-            $comparision_product = new ComparisionProduct();
-            $comparision_product->comparision_list_id =  $comparision_list_id;
-            $comparision_product->product_id = $id;
-            $comparision_product->save();
+        $comparision_products = ComparisionProduct::where('comparision_list_id', $comparision_list_id)
+            ->select('id', 'product_id')
+            ->get();
+        $products = array();
+
+        foreach ($comparision_products as $comparision_product) {
+            array_push($products, ComparisionProduct::find($comparision_product->id)->advert);
         }
 
-        if(!isset($comparision_product)) {
-            return null;
+        if(ComparisionProduct::where('product_id', $id)
+            ->where('comparision_list_id', $comparision_list_id)
+            ->doesntExist()) {
+            $new_comparision_product = new ComparisionProduct();
+            $new_comparision_product->comparision_list_id =  $comparision_list_id;
+            $new_comparision_product->product_id = $id;
+            $new_comparision_product->save();
+
+            array_push($products, $new_comparision_product->advert);
         }
 
-        return $comparision_product->advert;
+        $products = json_encode($products);
+
+        if(!isset($products)) {
+            return "not_set";
+        }
+
+        return $products;
     }
 
 

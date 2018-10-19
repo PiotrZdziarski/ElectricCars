@@ -32,20 +32,22 @@
                     </div>
                     <div class="comparision-list">
 
-                        <div class="list-item" v-for="product in products_json">
-                            <div class="item-image">
-                                <div class="inner">
-                                    <img class="image" src="/images/cars/carvertical.jpg">
+                        <transition-group name="slide-fade">
+                            <div class="list-item" :key="product.id" v-for="product in products_json">
+                                <div class="item-image">
+                                    <div class="inner">
+                                        <img class="image" src="/images/cars/carvertical.jpg">
+                                    </div>
+                                </div>
+                                <div class="item-title">
+                                    {{ product.title }}
+                                </div>
+                                <div class="item-delete" @click="delete_product(product.id)">
+                                    Delete
+                                    <i class="icon-minus-circled"></i>
                                 </div>
                             </div>
-                            <div class="item-title">
-                                {{ product.title }}
-                            </div>
-                            <div class="item-delete" @click="delete_product(product.id)">
-                                Delete
-                                <i class="icon-minus-circled"></i>
-                            </div>
-                        </div>
+                        </transition-group>
 
                     </div>
                 </div>
@@ -61,11 +63,6 @@
 <script>
     export default {
         name: "comparision",
-        props: {
-            products: {
-                Type: Object,
-            }
-        },
         data() {
             return {
                 error: false,
@@ -74,29 +71,17 @@
                 progressBarCount: 0,
             }
         },
-        computed: {
-            products_to_json: function () {
-                return JSON.parse(this.products);
-            }
-        },
-        mounted() {
-            if(this.products !== '') {
-                this.products_json = this.products_to_json;
-            }
-            console.log(this.products);
-            $(document).ready(function () {
-                $('#comparision').modal('show');
-            });
-        },
         methods: {
             compare(id) {
                 this.progressBarCount += 1;
+                this.data_retrieved = false;
                 axios.post('/api/comparision_add', {
                     'id': id
                 }).then((Response) => {
                     this.data_retrieved = true;
-                    if(Response.data !== '') {
-                        this.products_json.push(Response.data);
+
+                    if (Response.data !== "not_set") {
+                        this.products_json = Response.data;
                     }
                 }).catch(error => {
                     if (error.response.status === 500) {
@@ -110,12 +95,17 @@
 
             delete_product(id) {
                 this.progressBarCount += 1;
-                console.log(id);
+                this.data_retrieved = false;
+
                 axios.delete('/api/comparision_delete', {
-                    data: {'id': id }
+                    data: {'id': id}
                 }).then(() => {
                     this.data_retrieved = true;
-                    this.products_json.splice(-1,1);
+                    for (let i = 0; i < this.products_json.length; i++) {
+                        if (this.products_json[i].id === id) {
+                            this.products_json.splice(i, 1);
+                        }
+                    }
                 }).catch(error => {
                     if (error.response.status === 500) {
                         alert('There was a problem with connecting to our servers! Try again later!');
@@ -130,6 +120,19 @@
 </script>
 
 <style lang="scss" scoped>
+
+    .slide-fade-enter-active {
+        transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+
+    .slide-fade-leave-active {
+        transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+
+    .slide-fade-enter, .slide-fade-leave-to {
+        transform: translateX(10px);
+        opacity: 0;
+    }
 
     .modal-content {
         box-shadow: 0 4px 8px #666;
@@ -244,10 +247,10 @@
                     .item-image {
                         width: 25%;
 
-                            .image {
-                                height: 100%;
-                                width: 100%;
-                            }
+                        .image {
+                            height: 100%;
+                            width: 100%;
+                        }
                     }
 
                     .item-title {

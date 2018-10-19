@@ -19,6 +19,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        '/api/comparision_add',
+        '/api/comparision_delete'
     ];
 }
