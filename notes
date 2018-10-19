@@ -1,0 +1,5 @@
+Cache::rememberForever('views.your.view.name', function() {
+    return View::make('your.view.name')
+        ->with('foo', $foo)
+        ->render();
+});
