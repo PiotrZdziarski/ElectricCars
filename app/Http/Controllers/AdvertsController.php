@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
 
 class AdvertsController extends Controller
 {
@@ -174,28 +176,19 @@ class AdvertsController extends Controller
      */
     public function advert($id)
     {
-        $advert = $this->advert->find($id);
-        $features = $advert->features;
-        //for not throwing htmlspecialchars error
-        $products = null;
-
-        if(Session::has('comparision_list_id')) {
-            $comparision_list_id = Session::get('comparision_list_id');
-            $comparision_products = ComparisionProduct::where('comparision_list_id', $comparision_list_id)
-                ->select('id', 'product_id')
-                ->get();
-            $products = array();
-
-            foreach ($comparision_products as $comparision_product) {
-                array_push($products, ComparisionProduct::find($comparision_product->id)->advert);
-            }
-            $products = json_encode($products);
+        //if previously cached retrieve
+        if(Cache::has(URL::current())) {
+            return Cache::get(URL::current());
         }
 
-        return view('sites.announcement', [
-            'advert' => $advert,
-            'features' => $features,
-            'products' => $products,
-        ]);
+        $advert = $this->advert->find($id);
+        $features = $advert->features;
+
+        return Cache::rememberForever(URL::current(), function() use($advert, $features) {
+            return View::make('sites.announcement')->with([
+                'advert' => $advert,
+                'features' => $features,
+            ])->render();
+        });
     }
 }

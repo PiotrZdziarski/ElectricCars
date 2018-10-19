@@ -165,11 +165,6 @@
             }
         }
 
-        .announcement:hover {
-            background: #f1f1f1;
-            border: 1px solid #e1e1e1;
-            cursor: pointer;
-        }
     }
 
     .gridView {
@@ -274,6 +269,12 @@
         text-transform: uppercase;
         font-size: 12px;
         padding-right: 5px;
+    }
+
+    .announcement:hover {
+        background: #fafafa;
+        border: 1px solid #e5e5e5;
+        cursor: pointer;
     }
 
     .fade-enter-active {

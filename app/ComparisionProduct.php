@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class ComparisionProduct
+ */
 class ComparisionProduct extends Model
 {
     public $timestamps = false;

@@ -85,7 +85,7 @@
 <style lang="scss" scoped>
 
     .fade-enter-active, .fade-leave-active {
-        transition: opacity .2s;
+        transition: opacity 0.4s;
     }
     .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
     {
@@ -95,16 +95,17 @@
     .progressBar {
         position: fixed;
         width: 100%;
-        background: #eeeeee;
         height: 3px;
         top: 0;
         left: 0;
         z-index: 1002;
+        background: #ccc;
 
         #progress {
             width: 0;
-            background: #ff4853;
-            height: 3px;
+            background: #ff536a;
+            //box-shadow: 0 0 20px rgba(255, 59, 97, 1);
+            height: 4px;
             border-radius: 5px;
 
         }

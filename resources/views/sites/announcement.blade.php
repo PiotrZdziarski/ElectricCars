@@ -12,7 +12,6 @@
 @section('content')
     <announcement
             features="{{ $features }}"
-            advert="{{ $advert }}"
-            products="{{ $products }}">
+            advert="{{ $advert }}">
     </announcement>
 @endsection
