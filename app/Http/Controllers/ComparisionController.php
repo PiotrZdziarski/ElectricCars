@@ -19,6 +19,7 @@ class ComparisionController extends Controller
      * @return \App\Advert|bool|mixed
      */
     public function store(Request $request) {
+
         $id = intval($request->get('id'));
 
         //set comparision list if not previously set
@@ -28,20 +29,23 @@ class ComparisionController extends Controller
         }
         $comparision_list_id = Session::get('comparision_list_id');
 
-        $comparision_products = ComparisionProduct::where('comparision_list_id', $comparision_list_id)
-            ->select('id', 'product_id')
-            ->get();
+        $comparision_products = ComparisionList::find($comparision_list_id)->comparision_products;
         $products = array();
 
         foreach ($comparision_products as $comparision_product) {
             array_push($products, ComparisionProduct::find($comparision_product->id)->advert);
         }
 
-
         //user can compare maximally 3 products
         if(count($products) >= 3) {
             //sending info that it is too much
-            array_push($products, true);
+            //but only when adding another product not the same two times for eg
+            if(ComparisionProduct::where('product_id', $id)
+                ->where('comparision_list_id', $comparision_list_id)
+                ->doesntExist()) {
+                array_push($products, true);
+            }
+
             $products = json_encode($products);
             return $products;
         }

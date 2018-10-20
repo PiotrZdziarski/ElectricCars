@@ -55363,6 +55363,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "comparision",
@@ -55371,7 +55408,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             error: false,
             products_json: [],
             data_retrieved: false,
-            progressBarCount: 0
+            progressBarCount: 0,
+            comparing: false
         };
     },
 
@@ -55388,10 +55426,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(Response.data);
 
                 if (Response.data.length > 3) {
-                    //remove last item cause it is info
+                    //remove last item cause it is only info
                     Response.data.splice(-1, 1);
                     _this.error = true;
                     _this.products_json = Response.data;
+                } else {
+                    _this.error = false;
                 }
 
                 if (Response.data !== "not_set") {
@@ -55430,6 +55470,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             });
         },
+        comparing_method: function comparing_method() {
+            this.comparing = true;
+        },
         close_error: function close_error() {
             this.error = false;
         }
@@ -55464,107 +55507,174 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal-dialog modal-dialog-centered",
-          attrs: { role: "document" }
-        },
-        [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _vm.error
-              ? _c("div", { staticClass: "error-div" }, [
-                  _vm._m(1),
+      !_vm.comparing
+        ? _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-dialog-centered",
+              attrs: { role: "document" }
+            },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _vm.error
+                  ? _c("div", { staticClass: "error-div" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "close",
+                          attrs: { type: "button", "aria-label": "Close" },
+                          on: { click: _vm.close_error }
+                        },
+                        [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "close-sign",
+                              attrs: { "aria-hidden": "true" }
+                            },
+                            [_vm._v("×")]
+                          )
+                        ]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "list-title" }, [
+                    _vm._v(
+                      "\n                    You have the following classifieds for comparison:\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "comparision-list" },
+                    [
+                      _c(
+                        "transition-group",
+                        { attrs: { name: "slide-fade" } },
+                        _vm._l(_vm.products_json, function(product) {
+                          return _c(
+                            "div",
+                            { key: product.id, staticClass: "list-item" },
+                            [
+                              _c("div", { staticClass: "item-image" }, [
+                                _c("div", { staticClass: "inner" }, [
+                                  _c("img", {
+                                    staticClass: "image",
+                                    attrs: {
+                                      src: "/images/cars/carvertical.jpg"
+                                    }
+                                  })
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "item-title" }, [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(product.title) +
+                                    "\n                            "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass: "item-delete",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.delete_product(product.id)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                Delete\n                                "
+                                  ),
+                                  _c("i", { staticClass: "icon-minus-circled" })
+                                ]
+                              )
+                            ]
+                          )
+                        })
+                      )
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary close-modal-btn",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Close")]
+                  ),
                   _vm._v(" "),
                   _c(
                     "button",
                     {
-                      staticClass: "close",
-                      attrs: { type: "button", "aria-label": "Close" },
-                      on: { click: _vm.close_error }
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "button" },
+                      on: { click: _vm.comparing_method }
                     },
-                    [
-                      _c(
-                        "span",
-                        {
-                          staticClass: "close-sign",
-                          attrs: { "aria-hidden": "true" }
-                        },
-                        [_vm._v("×")]
-                      )
-                    ]
+                    [_vm._v("Compare")]
                   )
                 ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _c("div", { staticClass: "list-title" }, [
-                _vm._v(
-                  "\n                    You have the following classifieds for comparison:\n                "
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "comparision-list" },
-                [
-                  _c(
-                    "transition-group",
-                    { attrs: { name: "slide-fade" } },
-                    _vm._l(_vm.products_json, function(product) {
-                      return _c(
-                        "div",
-                        { key: product.id, staticClass: "list-item" },
+              ])
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.comparing
+        ? _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-dialog-centered",
+              attrs: { role: "document" }
+            },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _vm.error
+                  ? _c("div", { staticClass: "error-div" }, [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "close",
+                          attrs: { type: "button", "aria-label": "Close" },
+                          on: { click: _vm.close_error }
+                        },
                         [
-                          _c("div", { staticClass: "item-image" }, [
-                            _c("div", { staticClass: "inner" }, [
-                              _c("img", {
-                                staticClass: "image",
-                                attrs: { src: "/images/cars/carvertical.jpg" }
-                              })
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "item-title" }, [
-                            _vm._v(
-                              "\n                                " +
-                                _vm._s(product.title) +
-                                "\n                            "
-                            )
-                          ]),
-                          _vm._v(" "),
                           _c(
-                            "div",
+                            "span",
                             {
-                              staticClass: "item-delete",
-                              on: {
-                                click: function($event) {
-                                  _vm.delete_product(product.id)
-                                }
-                              }
+                              staticClass: "close-sign",
+                              attrs: { "aria-hidden": "true" }
                             },
-                            [
-                              _vm._v(
-                                "\n                                Delete\n                                "
-                              ),
-                              _c("i", { staticClass: "icon-minus-circled" })
-                            ]
+                            [_vm._v("×")]
                           )
                         ]
                       )
-                    })
-                  )
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(2)
-          ])
-        ]
-      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._m(4),
+                _vm._v(" "),
+                _vm._m(5)
+              ])
+            ]
+          )
+        : _vm._e()
     ],
     1
   )
@@ -55614,6 +55724,66 @@ var staticRenderFns = [
     return _c("span", { staticClass: "error-info" }, [
       _c("i", { staticClass: "icon-exclamation" }),
       _vm._v("You can maximally add only 3 classifieds\n                ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [
+          _c("i", { staticClass: "icon-flow-cross" }),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-header" }, [
+            _vm._v("Classifieds compare")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [
+          _c(
+            "span",
+            { staticClass: "close-sign", attrs: { "aria-hidden": "true" } },
+            [_vm._v("×")]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "error-info" }, [
+      _c("i", { staticClass: "icon-exclamation" }),
+      _vm._v("You can maximally add only 3 classifieds\n                ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("div", { staticClass: "list-title" }, [
+        _vm._v(
+          "\n                    You have the following classifieds for comparison:\n                "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "comparision-list" })
     ])
   },
   function() {

@@ -74,7 +74,6 @@ namespace App{
  * App\ComparisionList
  *
  * @property int $id
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\ComparisionProduct[] $products
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ComparisionList whereId($value)
  */
 	class ComparisionList extends \Eloquent {}
@@ -82,7 +81,7 @@ namespace App{
 
 namespace App{
 /**
- * Class ComparisionProduct
+ * App\ComparisionProduct
  *
  * @property int $id
  * @property int $comparision_list_id
@@ -105,7 +104,6 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Feature whereAdvertId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Feature whereFeature($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Feature whereId($value)
- * @mixin \Eloquent
  */
 	class Feature extends \Eloquent {}
 }
@@ -120,7 +118,6 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereAdvertId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Image whereImage($value)
- * @mixin \Eloquent
  */
 	class Image extends \Eloquent {}
 }
@@ -146,7 +143,6 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
- * @mixin \Eloquent
  */
 	class User extends \Eloquent {}
 }
