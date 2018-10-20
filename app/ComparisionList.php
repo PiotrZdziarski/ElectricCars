@@ -10,11 +10,12 @@ class ComparisionList extends Model
     public $timestamps = false;
 
     /**
-     * Two products to one list
+     * Multiple products to one list
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function products() {
-
-        return $this->hasMany('App\ComparisionProduct');
+    public function comparision_products()
+    {
+        return $this->hasMany('App\ComparisionProduct')
+            ->select('id', 'product_id');
     }
 }

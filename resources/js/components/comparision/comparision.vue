@@ -7,7 +7,7 @@
                 :data_retrieved="data_retrieved">
         </progress-bar>
 
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document" v-if="!comparing">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
@@ -53,10 +53,47 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary close-modal-btn" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" @click="comparing_method">Compare</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal-dialog modal-dialog-centered" role="document" v-if="comparing">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        <i class="icon-flow-cross"></i>
+                        <span class="text-header">Classifieds compare</span>
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="close-sign" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="error-div" v-if="error">
+                    <span class="error-info">
+                        <i class="icon-exclamation"></i>You can maximally add only 3 classifieds
+                    </span>
+                    <button type="button" class="close" aria-label="Close" @click="close_error">
+                        <span class="close-sign" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="list-title">
+                        You have the following classifieds for comparison:
+                    </div>
+                    <div class="comparision-list">
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-modal-btn" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Compare</button>
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -69,6 +106,7 @@
                 products_json: [],
                 data_retrieved: false,
                 progressBarCount: 0,
+                comparing: false
             }
         },
         methods: {
@@ -82,10 +120,12 @@
                     console.log(Response.data);
 
                     if(Response.data.length > 3) {
-                        //remove last item cause it is info
+                        //remove last item cause it is only info
                         Response.data.splice(-1,1);
                         this.error = true;
                         this.products_json = Response.data;
+                    } else {
+                        this.error = false;
                     }
 
                     if (Response.data !== "not_set") {
@@ -122,6 +162,10 @@
                         alert(error.response.statusText + '. Wait 15 seconds and then try again.');
                     }
                 });
+            },
+
+            comparing_method() {
+                this.comparing = true;
             },
 
             close_error() {
