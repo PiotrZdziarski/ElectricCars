@@ -1,6 +1,9 @@
 # Electric Cars
 
+## Project was moved into Bitbucket private repo.
+
 Developing website with announcements about electric cars.
+
 
 Technologies:
 - Vue.js 
