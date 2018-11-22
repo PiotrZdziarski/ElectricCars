@@ -10,6 +10,6 @@ Technologies:
 - Bootstrap 4
 - jQuery
 - Axios
-- Fancybox
 - Laravel 5.7
 - Laravel Homestead
+- PHPUnit
